@@ -1,7 +1,5 @@
-import { AxiosInstance } from 'axios';
 import { IFWRule, IFWGroup } from '../interfaces';
 import _ObjectSubSite from '../commons/_ObjectSubSite';
-import { GroupPlugin } from 'typedoc/dist/lib/converter/plugins';
 import FWGroup from './FWGroup';
 
 export default class Firewall extends _ObjectSubSite {

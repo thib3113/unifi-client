@@ -2,6 +2,8 @@ import { getLoggedSite, getLoggedControllerWithoutSite, getAuthentication, setUp
 import nock from 'nock';
 import semver from 'semver';
 import Controller from '../../src';
+import jwt from 'jsonwebtoken';
+import { v4 as uuidv4 } from 'uuid';
 
 describe('start controller - UnifiOs', () => {
     it('should login to controller', async () => {
@@ -38,8 +40,8 @@ describe('start controller - UnifiOs', () => {
     });
 
     it('should select site', async () => {
-        const controller = await getLoggedSite(nock);
-        expect(controller).toBeDefined();
+        const site = await getLoggedSite(nock);
+        expect(site).toBeDefined();
     });
 
     it('shoud fail to login with incorrect password', async () => {
@@ -62,6 +64,29 @@ describe('start controller - UnifiOs', () => {
 
             nockDone();
         });
+    });
+
+    it('should autorenew token', async () => {
+        const controller = await getLoggedControllerWithoutSite(nock);
+        // @ts-ignore
+        let globToken = controller.auth.token;
+
+        const decodedToken = jwt.decode(globToken);
+        // set expired token
+        decodedToken.exp = 1117584000;
+
+        const expiredToken = jwt.sign(decodedToken, uuidv4());
+        // @ts-ignore
+        controller.auth.token = expiredToken;
+
+        await nock.back('renew-login.json').then(async ({ nockDone }) => {
+            await controller.getSites();
+            nockDone();
+        });
+        // @ts-ignore
+        let newToken = controller.auth.token;
+
+        expect(newToken).not.toBe(expiredToken);
     });
 });
 
@@ -90,7 +115,27 @@ describe('start controller - non UnifiOs', () => {
     });
 
     it('should select site', async () => {
-        const controller = await getLoggedSite(nock, false);
-        expect(controller).toBeDefined();
+        const site = await getLoggedSite(nock, false);
+        expect(site).toBeDefined();
+    });
+
+    it('should autorenew token', async () => {
+        const controller = await getLoggedControllerWithoutSite(nock, false);
+        // @ts-ignore
+        let globToken = controller.auth.token;
+
+        //on unifi controller, token seems to be a random string
+        // const token = jwt.sign(decodedToken, uuidv4());
+        const expiredToken = 'H1UkvPRF1sZPWvtvibeH8uHTaiZiqOh0';
+        expect(expiredToken).not.toBe(globToken);
+        // @ts-ignore
+        controller.auth.token = expiredToken;
+
+        await controller.getSites();
+
+        // @ts-ignore
+        let newToken = controller.auth.token;
+
+        expect(newToken).not.toBe(expiredToken);
     });
 });

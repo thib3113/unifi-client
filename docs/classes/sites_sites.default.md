@@ -32,7 +32,7 @@ Name | Type |
 
 **Returns:** [*default*](sites_sites.default.md)
 
-Defined in: [Sites/Sites.ts:5](https://github.com/thib3113/unifi-client/blob/6f710a8/src/Sites/Sites.ts#L5)
+Defined in: [Sites/Sites.ts:4](https://github.com/thib3113/unifi-client/blob/90eb43b/src/Sites/Sites.ts#L4)
 
 ## Properties
 
@@ -48,4 +48,4 @@ Defined in: [Sites/Sites.ts:5](https://github.com/thib3113/unifi-client/blob/6f7
 
 **Returns:** *Promise*<[*default*](sites_site.default.md)[]\>
 
-Defined in: [Sites/Sites.ts:8](https://github.com/thib3113/unifi-client/blob/6f710a8/src/Sites/Sites.ts#L8)
+Defined in: [Sites/Sites.ts:7](https://github.com/thib3113/unifi-client/blob/90eb43b/src/Sites/Sites.ts#L7)

@@ -53,7 +53,12 @@ export default class _ObjectSubSite extends _ObjectSubController {
     //
     //     return obj;
     // }
-
+    //
+    /**
+     * @param constructor - the construtor to map the object
+     * @param object - the properties passed to the constructor if defined
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
     protected mapObject<U extends _ObjectSubSite>(constructor: new (config: IObjectSubSiteConfig, props: any) => U, object: any): U {
         return !object ? object : new constructor(this.config, object);
     }

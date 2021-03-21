@@ -36,4 +36,4 @@ Renames and exports: [default](../classes/hotspot_hotspots.default.md)
 
 Ƭ **AuthorizedBy**: *api* \| *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/6f710a8/src/Hotspot/IGuestAuthorization.ts#L3)
+Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/90eb43b/src/Hotspot/IGuestAuthorization.ts#L3)
