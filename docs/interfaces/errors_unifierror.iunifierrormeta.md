@@ -1,4 +1,4 @@
-[unifi-client - v0.0.21](../README.md) / [Exports](../modules.md) / [Errors/UnifiError](../modules/errors_unifierror.md) / IUnifiErrorMeta
+[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / [Errors/UnifiError](../modules/errors_unifierror.md) / IUnifiErrorMeta
 
 # Interface: IUnifiErrorMeta
 
@@ -23,4 +23,4 @@ Name | Type |
 `field` | *string* |
 `pattern` | *string* |
 
-Defined in: [Errors/UnifiError.ts:4](https://github.com/thib3113/unifi-client/blob/master/src/Errors/UnifiError.ts#L4)
+Defined in: [Errors/UnifiError.ts:4](https://github.com/thib3113/unifi-client/blob/6f710a8/src/Errors/UnifiError.ts#L4)

@@ -1,4 +1,4 @@
-[unifi-client - v0.0.21](../README.md) / [Exports](../modules.md) / [commons/_ObjectSubController](../modules/commons__objectsubcontroller.md) / default
+[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / [commons/_ObjectSubController](../modules/commons__objectsubcontroller.md) / default
 
 # Class: default
 
@@ -51,7 +51,7 @@ Name | Type |
 
 Overrides: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:43](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L43)
+Defined in: [commons/_ObjectSubController.ts:43](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L43)
 
 ## Accessors
 
@@ -61,7 +61,7 @@ Defined in: [commons/_ObjectSubController.ts:43](https://github.com/thib3113/uni
 
 **Returns:** [*IObjectSubController*](../interfaces/commons__objectsubcontroller.iobjectsubcontroller.md)
 
-Defined in: [commons/_ObjectSubController.ts:16](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L16)
+Defined in: [commons/_ObjectSubController.ts:16](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L16)
 
 • `Protected`set **config**(`value`: [*IObjectSubController*](../interfaces/commons__objectsubcontroller.iobjectsubcontroller.md)): *void*
 
@@ -73,7 +73,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:20](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L20)
+Defined in: [commons/_ObjectSubController.ts:20](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L20)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 **Returns:** [*IController*](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L30)
+Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L30)
 
 • `Protected`set **controller**(`value`: [*IController*](../interfaces/icontroller.icontroller-1.md)): *void*
 
@@ -95,7 +95,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L34)
+Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L34)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 **Returns:** AxiosInstance
 
-Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L23)
+Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L23)
 
 • `Protected`set **instance**(`value`: AxiosInstance): *void*
 
@@ -117,7 +117,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L27)
+Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L27)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/master/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 **Returns:** [*ISite*](../interfaces/sites_isite.isite.md)
 
-Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L37)
+Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L37)
 
 • `Protected`set **site**(`value`: [*ISite*](../interfaces/sites_isite.isite.md)): *void*
 
@@ -149,7 +149,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L41)
+Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L41)
 
 ## Methods
 
@@ -166,7 +166,7 @@ Name | Type |
 
 **Returns:** *boolean*
 
-Defined in: [commons/_ObjectSubController.ts:63](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L63)
+Defined in: [commons/_ObjectSubController.ts:63](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L63)
 
 ___
 
@@ -190,7 +190,7 @@ Name | Type |
 
 Inherited from: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/master/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/ObjectWithPrivateValues.ts#L6)
 
 ___
 
@@ -216,7 +216,7 @@ Name | Type | Default value | Description |
 
 **Returns:** *boolean*
 
-Defined in: [commons/_ObjectSubController.ts:79](https://github.com/thib3113/unifi-client/blob/master/src/commons/_ObjectSubController.ts#L79)
+Defined in: [commons/_ObjectSubController.ts:79](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/_ObjectSubController.ts#L79)
 
 ___
 
@@ -241,4 +241,4 @@ Name | Type |
 
 Inherited from: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/master/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/6f710a8/src/commons/ObjectWithPrivateValues.ts#L11)

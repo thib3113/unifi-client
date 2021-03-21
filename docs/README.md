@@ -1,4 +1,4 @@
-unifi-client - v0.0.21 / [Exports](modules.md)
+unifi-client - v0.0.22 / [Exports](modules.md)
 
 # unifi-client
 [![NPM version](http://img.shields.io/npm/v/unifi-client.svg)](https://www.npmjs.com/package/unifi-client)
