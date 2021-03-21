@@ -1,0 +1,92 @@
+[
+    {
+        "scope": "https://unifi:443",
+        "method": "GET",
+        "path": "/",
+        "body": "",
+        "status": 200,
+        "response": "\n<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/vendor.b287c793.chunk.css\" rel=\"stylesheet\"></head>\n<body>\n<div id=\"root\"></div>\n<script type=\"text/javascript\" src=\"/vendor.243bf401.chunk.js\"></script><script type=\"text/javascript\" src=\"/main.99c83936.js\"></script></body>\n</html>\n",
+        "rawHeaders": [
+            "Vary",
+            "Origin",
+            "X-DNS-Prefetch-Control",
+            "off",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "Strict-Transport-Security",
+            "max-age=15552000; includeSubDomains",
+            "X-Download-Options",
+            "noopen",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "Accept-Ranges",
+            "bytes",
+            "X-CSRF-Token",
+            "f15843c5-1fcb-4c8b-b56b-80534a175c86",
+            "Content-Type",
+            "text/html; charset=utf-8",
+            "Content-Length",
+            "377",
+            "X-Response-Time",
+            "2ms",
+            "Set-Cookie",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzODczYzllZi1hN2M4LTRiYWQtOTMzNC1mNjdlNDAxMTE1ZmEiLCJpYXQiOjE2MTYzNDQwNjAsImV4cCI6NDc3MjEwNDA2MH0.cZ-inIorh9NIit-HnDsCgLsaRKyuEgFQYnZRMXSWKIc; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "Date",
+            "Sat, 20 Mar 2021 23:46:43 GMT",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    },
+    {
+        "scope": "https://unifi:443",
+        "method": "POST",
+        "path": "/api/auth/login",
+        "body": {
+            "username": "ubnt",
+            "password": "aaaaaa",
+            "rememberMe": true
+        },
+        "status": 401,
+        "response": {
+            "errors": [
+                "Invalid username or password"
+            ]
+        },
+        "rawHeaders": [
+            "Vary",
+            "Origin",
+            "X-DNS-Prefetch-Control",
+            "off",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "Strict-Transport-Security",
+            "max-age=15552000; includeSubDomains",
+            "X-Download-Options",
+            "noopen",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "Accept-Ranges",
+            "bytes",
+            "X-CSRF-Token",
+            "8d794f8f-c5f8-4398-b50a-5832e289b21e",
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Content-Length",
+            "56",
+            "X-Response-Time",
+            "350ms",
+            "Set-Cookie",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzODczYzllZi1hN2M4LTRiYWQtOTMzNC1mNjdlNDAxMTE1ZmEiLCJpYXQiOjE2MTYzNDQwNjAsImV4cCI6NDc3MjEwNDA2MH0.cZ-inIorh9NIit-HnDsCgLsaRKyuEgFQYnZRMXSWKIc; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "Date",
+            "Sat, 20 Mar 2021 23:46:43 GMT",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]

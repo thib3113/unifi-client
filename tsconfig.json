@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["es2015"],
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "outDir": "build"
+  },
+  "exclude": [
+    "node_modules",
+    "tests"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "files": [
+    "./src/custom.d.ts"
+  ]
+}

@@ -1,0 +1,86 @@
+[
+    {
+        "scope": "https://unifi:443",
+        "method": "DELETE",
+        "path": "/proxy/network/api/s/default/rest/firewallgroup/60569d22c3d8180463a4cc77",
+        "body": "",
+        "status": 200,
+        "response": {
+            "meta": {
+                "rc": "ok"
+            },
+            "data": []
+        },
+        "rawHeaders": [
+            "Vary",
+            "Origin",
+            "X-DNS-Prefetch-Control",
+            "off",
+            "x-frame-options",
+            "DENY",
+            "Strict-Transport-Security",
+            "max-age=15552000; includeSubDomains",
+            "X-Download-Options",
+            "noopen",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "Accept-Ranges",
+            "bytes",
+            "content-type",
+            "application/json;charset=UTF-8",
+            "content-length",
+            "30",
+            "date",
+            "Sun, 21 Mar 2021 01:10:58 GMT",
+            "connection",
+            "close",
+            "Set-Cookie",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzODczYzllZi1hN2M4LTRiYWQtOTMzNC1mNjdlNDAxMTE1ZmEiLCJpYXQiOjE2MTYzNDQwNjAsImV4cCI6NDc3MjEwNDA2MH0.cZ-inIorh9NIit-HnDsCgLsaRKyuEgFQYnZRMXSWKIc; Path=/; HttpOnly; Secure; SameSite=Strict"
+        ],
+        "responseIsBinary": false
+    },
+    {
+        "scope": "https://unifi:443",
+        "method": "GET",
+        "path": "/proxy/network/api/s/default/rest/firewallgroup/60569d22c3d8180463a4cc77",
+        "body": "",
+        "status": 200,
+        "response": {
+            "meta": {
+                "rc": "ok"
+            },
+            "data": []
+        },
+        "rawHeaders": [
+            "Vary",
+            "Origin",
+            "X-DNS-Prefetch-Control",
+            "off",
+            "x-frame-options",
+            "DENY",
+            "Strict-Transport-Security",
+            "max-age=15552000; includeSubDomains",
+            "X-Download-Options",
+            "noopen",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "Accept-Ranges",
+            "bytes",
+            "content-type",
+            "application/json;charset=UTF-8",
+            "content-length",
+            "30",
+            "date",
+            "Sun, 21 Mar 2021 01:10:58 GMT",
+            "connection",
+            "close",
+            "Set-Cookie",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzODczYzllZi1hN2M4LTRiYWQtOTMzNC1mNjdlNDAxMTE1ZmEiLCJpYXQiOjE2MTYzNDQwNjAsImV4cCI6NDc3MjEwNDA2MH0.cZ-inIorh9NIit-HnDsCgLsaRKyuEgFQYnZRMXSWKIc; Path=/; HttpOnly; Secure; SameSite=Strict"
+        ],
+        "responseIsBinary": false
+    }
+]

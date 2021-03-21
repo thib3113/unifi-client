@@ -1,0 +1,180 @@
+[
+    {
+        "scope": "https://unifi:443",
+        "method": "GET",
+        "path": "/proxy/network/api/s/default/rest/firewallgroup/60569d22c3d8180463a4cc77",
+        "body": "",
+        "status": 200,
+        "response": {
+            "meta": {
+                "rc": "ok"
+            },
+            "data": [
+                {
+                    "_id": "60569d22c3d8180463a4cc77",
+                    "name": "testGroup",
+                    "group_members": [
+                        "2001:41d0:302:2100::9ee"
+                    ],
+                    "group_type": "ipv6-address-group",
+                    "site_id": "6001f8a73fd98c05e9465f91"
+                }
+            ]
+        },
+        "rawHeaders": [
+            "Vary",
+            "Origin",
+            "X-DNS-Prefetch-Control",
+            "off",
+            "x-frame-options",
+            "DENY",
+            "Strict-Transport-Security",
+            "max-age=15552000; includeSubDomains",
+            "X-Download-Options",
+            "noopen",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "Accept-Ranges",
+            "bytes",
+            "content-type",
+            "application/json;charset=UTF-8",
+            "content-length",
+            "198",
+            "date",
+            "Sun, 21 Mar 2021 01:10:58 GMT",
+            "connection",
+            "close",
+            "Set-Cookie",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzODczYzllZi1hN2M4LTRiYWQtOTMzNC1mNjdlNDAxMTE1ZmEiLCJpYXQiOjE2MTYzNDQwNjAsImV4cCI6NDc3MjEwNDA2MH0.cZ-inIorh9NIit-HnDsCgLsaRKyuEgFQYnZRMXSWKIc; Path=/; HttpOnly; Secure; SameSite=Strict"
+        ],
+        "responseIsBinary": false
+    },
+    {
+        "scope": "https://unifi:443",
+        "method": "GET",
+        "path": "/proxy/network/api/s/default/rest/firewallgroup/",
+        "body": "",
+        "status": 200,
+        "response": {
+            "meta": {
+                "rc": "ok"
+            },
+            "data": [
+                {
+                    "_id": "604bcb9ec3d81805b5f30d82",
+                    "name": "Block_Group",
+                    "group_type": "address-group",
+                    "group_members": [
+                        "122.228.138.165",
+                        "91.237.109.156",
+                        "104.131.56.173",
+                        "64.44.51.138",
+                        "149.202.78.80",
+                        "89.248.173.138",
+                        "45.145.66.200",
+                        "102.130.125.31",
+                        "193.169.254.62",
+                        "91.241.227.252",
+                        "185.153.196.226",
+                        "193.32.164.27",
+                        "5.62.63.82",
+                        "185.153.198.173",
+                        "20.39.52.184",
+                        "62.171.146.92",
+                        "52.255.151.46",
+                        "20.43.10.201",
+                        "176.218.42.235",
+                        "62.85.37.244",
+                        "40.84.157.160",
+                        "54.78.26.52",
+                        "129.56.68.227",
+                        "77.83.187.247",
+                        "82.83.144.224",
+                        "84.174.163.184",
+                        "3.214.184.223",
+                        "54.75.98.68",
+                        "54.78.244.102",
+                        "191.97.78.248",
+                        "59.9.203.33",
+                        "3.236.112.98",
+                        "3.235.62.151",
+                        "34.239.149.34",
+                        "83.48.74.61",
+                        "178.63.8.148",
+                        "95.91.82.81",
+                        "207.241.225.149",
+                        "34.204.198.244",
+                        "35.223.63.221",
+                        "18.205.109.152",
+                        "183.179.227.130",
+                        "31.60.32.158",
+                        "45.227.253.107",
+                        "180.253.162.196",
+                        "84.17.52.130",
+                        "13.66.209.11",
+                        "194.99.105.76",
+                        "194.61.24.94",
+                        "187.189.158.66",
+                        "180.253.166.178",
+                        "52.184.35.59",
+                        "23.101.133.123",
+                        "185.250.148.107",
+                        "49.88.112.75",
+                        "222.186.30.112",
+                        "222.186.175.23",
+                        "222.186.42.7",
+                        "222.186.180.142",
+                        "222.186.190.14",
+                        "222.186.30.76",
+                        "222.186.180.130",
+                        "222.186.42.137",
+                        "222.186.42.155",
+                        "222.186.31.83",
+                        "222.186.15.62"
+                    ],
+                    "site_id": "6001f8a73fd98c05e9465f91"
+                },
+                {
+                    "_id": "60569d22c3d8180463a4cc77",
+                    "name": "testGroup",
+                    "group_members": [
+                        "2001:41d0:302:2100::9ee"
+                    ],
+                    "group_type": "ipv6-address-group",
+                    "site_id": "6001f8a73fd98c05e9465f91"
+                }
+            ]
+        },
+        "rawHeaders": [
+            "vary",
+            "accept-encoding",
+            "X-DNS-Prefetch-Control",
+            "off",
+            "x-frame-options",
+            "DENY",
+            "Strict-Transport-Security",
+            "max-age=15552000; includeSubDomains",
+            "X-Download-Options",
+            "noopen",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "Accept-Ranges",
+            "bytes",
+            "content-type",
+            "application/json;charset=UTF-8",
+            "content-length",
+            "1405",
+            "date",
+            "Sun, 21 Mar 2021 01:10:58 GMT",
+            "connection",
+            "close",
+            "Set-Cookie",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzODczYzllZi1hN2M4LTRiYWQtOTMzNC1mNjdlNDAxMTE1ZmEiLCJpYXQiOjE2MTYzNDQwNjAsImV4cCI6NDc3MjEwNDA2MH0.cZ-inIorh9NIit-HnDsCgLsaRKyuEgFQYnZRMXSWKIc; Path=/; HttpOnly; Secure; SameSite=Strict"
+        ],
+        "responseIsBinary": false
+    }
+]
