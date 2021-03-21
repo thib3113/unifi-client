@@ -1,5 +1,4 @@
 import Site from './Site';
-import { AxiosInstance } from 'axios';
 import { IController } from '../IController';
 
 export default class Sites {

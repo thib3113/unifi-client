@@ -74,9 +74,8 @@ export default class _ObjectSubController extends ObjectWithPrivateValues {
      * @param minVersion - the minimal semver version for this object
      * @param unifiOs - need to be unifiOs ? or Unifi Controller ? if no one, pass undefined
      * @param allowUndefined - to undefined check ?
-     * @protected
      */
-    protected needVersion<T>(key: keyof this, value: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false) {
+    protected needVersion<T>(key: keyof this, value: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false): boolean {
         if (this.checkNeeds(minVersion, unifiOs)) {
             if (Validate.isUndefined(value)) {
                 if (allowUndefined) {
@@ -86,7 +85,7 @@ export default class _ObjectSubController extends ObjectWithPrivateValues {
                 // @ts-ignore
                 this[key] = value;
             }
-            return;
+            return true;
         }
 
         let str: string;

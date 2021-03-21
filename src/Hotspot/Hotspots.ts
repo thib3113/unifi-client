@@ -53,7 +53,7 @@ export default class Hotspots extends _ObjectSubSite {
     }
 
     public async unAuthorizeGuest(mac: string): Promise<void> {
-        const res = await this.instance.post(
+        await this.instance.post(
             '/api/s/:site/cmd/stamgr',
             { cmd: 'unauthorize-guest', mac: mac.toLowerCase() },
             { urlParams: { site: this.site.name } }

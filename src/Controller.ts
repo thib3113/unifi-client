@@ -31,7 +31,6 @@ export default class Controller implements IController {
     public auth: UnifiAuth;
     private readonly _sites: Sites;
     public unifiOs: boolean;
-    // TODO placeholder version
     public version: string = '7.0.0';
     private logged: boolean;
 
@@ -106,7 +105,7 @@ export default class Controller implements IController {
                         response.statusText
                     }${durationStr}`
                 );
-                axiosDebugVerbose(`headers : ${JSON.stringify(response.headers)}`);
+                axiosDebugVerbose('headers : %O', response.headers);
                 axiosDebugVerbose(`headers sent : %O`, response.request._header);
                 axiosDebugVerbose(`payload : %O `, response.data);
                 return response;
@@ -145,6 +144,9 @@ export default class Controller implements IController {
         this.controllerInstance.interceptors.response.use(
             (response) => response,
             (error) => {
+                if (error?.response?.config.isRetry) {
+                    return Promise.resolve();
+                }
                 if (error.response) {
                     const meta = error.response.data?.meta;
                     error = new UnifiError(
@@ -160,7 +162,7 @@ export default class Controller implements IController {
         );
     }
 
-    addAxiosProxyInterceptors() {
+    addAxiosProxyInterceptors(): void {
         this.controllerInstance.interceptors.request.use((config) => {
             if (this.unifiOs && !config.url.includes('login') && !config.url.includes('logout')) {
                 config.baseURL += '/proxy/network';
@@ -169,7 +171,7 @@ export default class Controller implements IController {
         });
     }
 
-    addAxiosPlugins() {
+    addAxiosPlugins(): void {
         // manage urlParams
         this.controllerInstance.interceptors.request.use((config) => {
             if (!config.url) {

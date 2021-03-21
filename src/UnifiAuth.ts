@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { AxiosInstance, AxiosResponse } from 'axios';
 import ObjectWithPrivateValues from './commons/ObjectWithPrivateValues';
 import { createDebugger } from './util';
 import { IUser } from './User/IUser';
@@ -9,7 +9,6 @@ import jwt from 'jsonwebtoken';
 import Validate from './commons/Validate';
 import ClientError from './Errors/ClientError';
 import { EErrorsCodes } from './Errors';
-import { config } from 'dotenv';
 
 export interface IUnifiAuthProps {
     rememberMe?: boolean;
@@ -82,7 +81,6 @@ export default class UnifiAuth extends ObjectWithPrivateValues {
                 config.headers['X-CSRF-Token'] = this.csrfToken;
             } else if (this.csrfToken) {
                 //non unifiOs
-                config.headers.Cookie = `${config.headers.Cookie}`;
                 cookies.push({ name: 'csrf_token', value: this.csrfToken });
             }
 
@@ -117,7 +115,7 @@ export default class UnifiAuth extends ObjectWithPrivateValues {
 
                     if (!this.unifiOs && response.config && response.status === 401 && !response.config?.retryAuth) {
                         await this.login();
-                        return axios.request({ ...config, retryAuth: true });
+                        return await this.instance.request({ ...response.config, retryAuth: true });
                     }
                 }
 
@@ -134,6 +132,9 @@ export default class UnifiAuth extends ObjectWithPrivateValues {
     }
 
     public async login(): Promise<IUser> {
+        //reset tokens
+        this.token = null;
+        this.csrfToken = null;
         if (Validate.isUndefined(this.unifiOs)) {
             const resCheck = await this.instance.get('/', {
                 validateStatus: () => true,
@@ -185,7 +186,7 @@ export default class UnifiAuth extends ObjectWithPrivateValues {
         return Promise.resolve(undefined);
     }
 
-    public async getVersion() {
+    public async getVersion(): Promise<string> {
         //load version
         try {
             const version = ((await this.instance.get('/api/s/:site/stat/sysinfo', { urlParams: { site: 'default' } })).data?.data.pop())
