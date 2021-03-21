@@ -1,0 +1,42 @@
+[unifi-client - v0.0.21](README.md) / Exports
+
+# unifi-client - v0.0.21
+
+## Table of contents
+
+### Modules
+
+- [Clients](modules/clients.md)
+- [Clients/Clients](modules/clients_clients.md)
+- [Controller](modules/controller.md)
+- [Errors](modules/errors.md)
+- [Errors/ClientError](modules/errors_clienterror.md)
+- [Errors/EErrorsCodes](modules/errors_eerrorscodes.md)
+- [Errors/UnifiError](modules/errors_unifierror.md)
+- [Errors/\_\_Error](modules/errors___error.md)
+- [Firewall](modules/firewall.md)
+- [Firewall/FWGroup](modules/firewall_fwgroup.md)
+- [Firewall/Firewall](modules/firewall_firewall.md)
+- [Hotspot](modules/hotspot.md)
+- [Hotspot/GuestAuthorization](modules/hotspot_guestauthorization.md)
+- [Hotspot/Hotspots](modules/hotspot_hotspots.md)
+- [Hotspot/IAuthorizeGuest](modules/hotspot_iauthorizeguest.md)
+- [Hotspot/IGuestAuthorization](modules/hotspot_iguestauthorization.md)
+- [IController](modules/icontroller.md)
+- [Sites/ISite](modules/sites_isite.md)
+- [Sites/Site](modules/sites_site.md)
+- [Sites/Sites](modules/sites_sites.md)
+- [UnifiAuth](modules/unifiauth.md)
+- [User/IUser](modules/user_iuser.md)
+- [User/IUserGroup](modules/user_iusergroup.md)
+- [User/IUserRole](modules/user_iuserrole.md)
+- [commons/ObjectWithPrivateValues](modules/commons_objectwithprivatevalues.md)
+- [commons/Validate](modules/commons_validate.md)
+- [commons/\_ObjectSubController](modules/commons__objectsubcontroller.md)
+- [commons/\_ObjectSubSite](modules/commons__objectsubsite.md)
+- [commons/types](modules/commons_types.md)
+- [custom](modules/custom.md)
+- [index](modules/index.md)
+- [interfaces](modules/interfaces.md)
+- [test](modules/test.md)
+- [util](modules/util.md)

@@ -1,0 +1,47 @@
+[
+    {
+        "scope": "https://unifi:443",
+        "method": "POST",
+        "path": "/proxy/network/api/s/default/cmd/stamgr",
+        "body": {
+            "cmd": "unauthorize-guest",
+            "mac": "00:1b:44:11:3a:b7"
+        },
+        "status": 200,
+        "response": {
+            "meta": {
+                "rc": "ok"
+            },
+            "data": []
+        },
+        "rawHeaders": [
+            "Vary",
+            "Origin",
+            "X-DNS-Prefetch-Control",
+            "off",
+            "x-frame-options",
+            "DENY",
+            "Strict-Transport-Security",
+            "max-age=15552000; includeSubDomains",
+            "X-Download-Options",
+            "noopen",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "Accept-Ranges",
+            "bytes",
+            "content-type",
+            "application/json;charset=UTF-8",
+            "content-length",
+            "30",
+            "date",
+            "Sun, 21 Mar 2021 16:27:42 GMT",
+            "connection",
+            "close",
+            "Set-Cookie",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzODczYzllZi1hN2M4LTRiYWQtOTMzNC1mNjdlNDAxMTE1ZmEiLCJpYXQiOjE2MTYzNDQwNjAsImV4cCI6NDc3MjEwNDA2MH0.cZ-inIorh9NIit-HnDsCgLsaRKyuEgFQYnZRMXSWKIc; Path=/; HttpOnly; Secure; SameSite=Strict"
+        ],
+        "responseIsBinary": false
+    }
+]

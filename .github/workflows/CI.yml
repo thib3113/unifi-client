@@ -1,0 +1,92 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # do a matrix test with different node versions
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [14.x]
+        #can't test on 5.6.42 because database is too up to date ( 5.12.72 )
+        unifi-version: [ latest, version-6.0.23, version-6.0.28, version-6.0.36, version-6.0.41, version-6.0.43, version-6.0.45 ]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # try to perform a nodejs setup
+    - uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    # docker test
+    - name: install+run docker-unifi-controller
+      run: |
+        # install our own demo database
+        mkdir unifi-storage
+        sudo tar -C unifi-storage -xf $GITHUB_WORKSPACE/.github/workflows/db-demo-dump.tar.bz2
+        # create docker-unifi-controller
+        docker create --name=unifi-controller -e PUID=1001 -e PGID=116 -e MEM_LIMIT=1024M -p 8443:8443 -v $GITHUB_WORKSPACE/unifi-storage:/config linuxserver/unifi-controller:${{ matrix.unifi-version }}
+        docker start unifi-controller
+        # wait for unifi-controller to be ready
+        while ! curl -ks https://127.0.0.1:8443; do echo waiting for unifi-controller; sleep 2; done
+        echo unifi-controller answer
+
+    # run npm tests
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm run build --if-present
+        echo start tests
+        npm run test:CI:coverage
+      env:
+        CI: true
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: coverage
+        path: ./coverage/clover.xml
+
+#    - uses: codecov/codecov-action@v1
+#      with:
+#        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+#        files: ./coverage/clover.xml # optional
+#        flags: unittests # optional
+#        name: codecov-umbrella # optional
+#        fail_ci_if_error: false # optional (default = false)
+#        verbose: false # optional (default = false)
+
+  send-coverage:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: coverage
+          path: ./coverage/
+      - uses: codecov/codecov-action@v1
+        with:
+          #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+#          files: ./coverage/clover.xml # optional
+          fail_ci_if_error: false # optional (default = false)
+          verbose: true # optional (default = false)
+
+

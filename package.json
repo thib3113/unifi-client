@@ -1,0 +1,78 @@
+{
+  "name": "unifi-client",
+  "version": "0.0.21",
+  "main": "build/index.js",
+  "description": "NodeJs client for Unifi products (https://www.ui.com/)",
+  "scripts": {
+    "debug": "tsc && node -r source-map-support/register build/test.js",
+    "start": "node -r source-map-support/register /build/index.js",
+    "build": "tsc",
+    "test": "jest",
+    "test:CI": "jest --ci",
+    "test:CI:coverage": "jest --ci --coverage",
+    "generate:nockFixtures": "cross-env JEST_RECORD=true NOCK_OFF=true npm run test && git add tests",
+    "watch": "jest --env=jsdom --watch",
+    "prepare": "husky install",
+    "lint": "eslint -f unix \"src/**/*.{ts,tsx}\"",
+    "generate:documentation": "typedoc --plugin typedoc-plugin-markdown --includeVersion --out docs ./src && git add docs",
+    "prepublishOnly": "npm run build",
+    "scan_baddwords": "ts-node .github/scripts/scanForBadWords.ts ./tests/nockFixtures/**/*"
+  },
+  "bugs": {
+    "url": "https://github.com/thib3113/unifi-client/issues"
+  },
+  "keywords": [
+    "unifi",
+    "ubiquiti",
+    "unifi-controller",
+    "cloud-key",
+    "network",
+    "UDM"
+  ],
+  "author": {
+    "email": "thib3113@gmail.com",
+    "name": "Thibaut severac"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thib3113/unifi-client.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.21.1",
+    "axios-curlirize": "1.3.7",
+    "cookie": "0.4.1",
+    "debug": "4.3.1",
+    "jsonwebtoken": "8.5.1",
+    "semver": "^7.3.4",
+    "set-cookie-parser": "2.4.8",
+    "source-map-support": "0.5.19",
+    "typescript": "4.2.3"
+  },
+  "devDependencies": {
+    "@types/cookie": "0.4.0",
+    "@types/debug": "4.1.5",
+    "@types/jest": "26.0.21",
+    "@types/node": "14.14.35",
+    "@types/set-cookie-parser": "2.4.0",
+    "@typescript-eslint/eslint-plugin": "4.18.0",
+    "@typescript-eslint/parser": "4.18.0",
+    "cross-env": "7.0.3",
+    "dotenv": "8.2.0",
+    "eslint": "7.22.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-prettier": "3.3.1",
+    "eslint-plugin-tsdoc": "0.2.11",
+    "glob": "^7.1.6",
+    "husky": "5.1.3",
+    "jest": "26.6.3",
+    "jest-environment-node": "26.6.2",
+    "nock": "13.0.11",
+    "prettier": "2.2.1",
+    "ts-jest": "26.5.4",
+    "ts-node": "^9.1.1",
+    "typedoc": "0.20.32",
+    "typedoc-plugin-markdown": "3.6.0",
+    "uuid": "8.3.2"
+  }
+}

@@ -1,0 +1,42 @@
+import { timestampDate } from '../commons/types';
+import { IUserRole } from './IUserRole';
+import { IUserGroup } from './IUserGroup';
+
+export interface IUser {
+    unique_id: string;
+    first_name: string;
+    last_name: string;
+    full_name: string;
+    email: string;
+    email_status: string;
+    phone: string;
+    avatar_relative_path: string;
+    avatar_rpath2: string;
+    status: string;
+    employee_number: string;
+    create_time: timestampDate;
+    extras: Record<string, unknown>;
+    username: string;
+    local_account_exist: boolean;
+    password_revision: timestampDate;
+    sso_account: string;
+    sso_uuid: string;
+    sso_username: string;
+    sso_picture: string;
+    uid_sso_id: string;
+    uid_sso_account: string;
+    groups: Array<IUserGroup>;
+    roles: Array<IUserRole>;
+    permissions: Record<string, Array<string>>;
+    scopes: Array<string>;
+    cloud_access_granted: boolean;
+    update_time: timestampDate;
+    avatar: string;
+    nfc_token: string;
+    nfc_display_id: string;
+    nfc_card_type: string;
+    nfc_card_status: string;
+    id: string;
+    isOwner: boolean;
+    isSuperAdmin: boolean;
+}
