@@ -1,4 +1,4 @@
-[unifi-client - v0.0.21](../README.md) / [Exports](../modules.md) / commons/Validate
+[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / commons/Validate
 
 # Module: commons/Validate
 

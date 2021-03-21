@@ -1,4 +1,4 @@
-[unifi-client - v0.0.21](../README.md) / [Exports](../modules.md) / Errors/EErrorsCodes
+[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / Errors/EErrorsCodes
 
 # Module: Errors/EErrorsCodes
 

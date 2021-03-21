@@ -1,4 +1,4 @@
-[unifi-client - v0.0.21](../README.md) / [Exports](../modules.md) / [UnifiAuth](../modules/unifiauth.md) / IUnifiAuthProps
+[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / [UnifiAuth](../modules/unifiauth.md) / IUnifiAuthProps
 
 # Interface: IUnifiAuthProps
 
@@ -24,7 +24,7 @@
 
 • **password**: *string*
 
-Defined in: [UnifiAuth.ts:17](https://github.com/thib3113/unifi-client/blob/master/src/UnifiAuth.ts#L17)
+Defined in: [UnifiAuth.ts:17](https://github.com/thib3113/unifi-client/blob/6f710a8/src/UnifiAuth.ts#L17)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 • `Optional` **rememberMe**: *boolean*
 
-Defined in: [UnifiAuth.ts:15](https://github.com/thib3113/unifi-client/blob/master/src/UnifiAuth.ts#L15)
+Defined in: [UnifiAuth.ts:15](https://github.com/thib3113/unifi-client/blob/6f710a8/src/UnifiAuth.ts#L15)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 • **username**: *string*
 
-Defined in: [UnifiAuth.ts:16](https://github.com/thib3113/unifi-client/blob/master/src/UnifiAuth.ts#L16)
+Defined in: [UnifiAuth.ts:16](https://github.com/thib3113/unifi-client/blob/6f710a8/src/UnifiAuth.ts#L16)

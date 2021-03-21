@@ -1,4 +1,4 @@
-[unifi-client - v0.0.21](../README.md) / [Exports](../modules.md) / commons/_ObjectSubController
+[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / commons/_ObjectSubController
 
 # Module: commons/\_ObjectSubController
 

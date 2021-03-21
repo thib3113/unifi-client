@@ -1,4 +1,4 @@
-[unifi-client - v0.0.21](../README.md) / [Exports](../modules.md) / User/IUserRole
+[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / User/IUserRole
 
 # Module: User/IUserRole
 
