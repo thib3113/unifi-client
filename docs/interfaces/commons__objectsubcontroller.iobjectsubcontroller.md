@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / [commons/_ObjectSubController](../modules/commons__objectsubcontroller.md) / IObjectSubController
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [commons/_ObjectSubController](../modules/commons__objectsubcontroller.md) / IObjectSubController
 
 # Interface: IObjectSubController
 
@@ -23,7 +23,7 @@
 
 • **controller**: [*IController*](icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubController.ts:11](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/_ObjectSubController.ts#L11)
+Defined in: [commons/_ObjectSubController.ts:11](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubController.ts#L11)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 • **instance**: AxiosInstance
 
-Defined in: [commons/_ObjectSubController.ts:10](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/_ObjectSubController.ts#L10)
+Defined in: [commons/_ObjectSubController.ts:10](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubController.ts#L10)

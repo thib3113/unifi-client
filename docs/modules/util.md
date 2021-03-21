@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / util
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / util
 
 # Module: util
 
@@ -25,7 +25,7 @@ Name | Type | Description |
 
 **Returns:** Debugger
 
-Defined in: [util.ts:10](https://github.com/thib3113/unifi-client/blob/92261be/src/util.ts#L10)
+Defined in: [util.ts:10](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/util.ts#L10)
 
 ___
 
@@ -44,4 +44,4 @@ Name | Type | Default value | Description |
 
 **Returns:** *string*
 
-Defined in: [util.ts:22](https://github.com/thib3113/unifi-client/blob/92261be/src/util.ts#L22)
+Defined in: [util.ts:22](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/util.ts#L22)

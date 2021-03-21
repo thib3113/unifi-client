@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / index
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / index
 
 # Module: index
 
@@ -98,4 +98,4 @@ Re-exports: [default](../classes/controller.default.md)
 
 Ƭ **AuthorizedBy**: *api* \| *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L3)
+Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L3)

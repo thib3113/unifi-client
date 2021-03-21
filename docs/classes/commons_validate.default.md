@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / [commons/Validate](../modules/commons_validate.md) / default
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [commons/Validate](../modules/commons_validate.md) / default
 
 # Class: default
 
@@ -58,7 +58,7 @@ Name | Type |
 
 **Returns:** obj is T
 
-Defined in: [commons/Validate.ts:82](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L82)
+Defined in: [commons/Validate.ts:82](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L82)
 
 ___
 
@@ -74,7 +74,7 @@ Name | Type |
 
 **Returns:** value is boolean
 
-Defined in: [commons/Validate.ts:54](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L54)
+Defined in: [commons/Validate.ts:54](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L54)
 
 ___
 
@@ -90,7 +90,7 @@ Name | Type |
 
 **Returns:** value is Buffer
 
-Defined in: [commons/Validate.ts:74](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L74)
+Defined in: [commons/Validate.ts:74](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L74)
 
 ___
 
@@ -107,7 +107,7 @@ Name | Type | Default value |
 
 **Returns:** value is Date
 
-Defined in: [commons/Validate.ts:66](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L66)
+Defined in: [commons/Validate.ts:66](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L66)
 
 ___
 
@@ -123,7 +123,7 @@ Name | Type |
 
 **Returns:** value is Error
 
-Defined in: [commons/Validate.ts:62](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L62)
+Defined in: [commons/Validate.ts:62](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L62)
 
 ___
 
@@ -139,7 +139,7 @@ Name | Type |
 
 **Returns:** value is Function
 
-Defined in: [commons/Validate.ts:35](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L35)
+Defined in: [commons/Validate.ts:35](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L35)
 
 ___
 
@@ -155,7 +155,7 @@ Name | Type |
 
 **Returns:** value is null
 
-Defined in: [commons/Validate.ts:44](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L44)
+Defined in: [commons/Validate.ts:44](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L44)
 
 ___
 
@@ -171,7 +171,7 @@ Name | Type |
 
 **Returns:** value is number
 
-Defined in: [commons/Validate.ts:29](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L29)
+Defined in: [commons/Validate.ts:29](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L29)
 
 ___
 
@@ -187,7 +187,7 @@ Name | Type |
 
 **Returns:** value is object
 
-Defined in: [commons/Validate.ts:40](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L40)
+Defined in: [commons/Validate.ts:40](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L40)
 
 ___
 
@@ -203,7 +203,7 @@ Name | Type |
 
 **Returns:** value is RegExp
 
-Defined in: [commons/Validate.ts:58](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L58)
+Defined in: [commons/Validate.ts:58](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L58)
 
 ___
 
@@ -219,7 +219,7 @@ Name | Type |
 
 **Returns:** value is string
 
-Defined in: [commons/Validate.ts:25](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L25)
+Defined in: [commons/Validate.ts:25](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L25)
 
 ___
 
@@ -235,7 +235,7 @@ Name | Type |
 
 **Returns:** value is symbol
 
-Defined in: [commons/Validate.ts:78](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L78)
+Defined in: [commons/Validate.ts:78](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L78)
 
 ___
 
@@ -251,7 +251,7 @@ Name | Type |
 
 **Returns:** value is undefined
 
-Defined in: [commons/Validate.ts:49](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L49)
+Defined in: [commons/Validate.ts:49](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L49)
 
 ___
 
@@ -267,7 +267,7 @@ Name | Type |
 
 **Returns:** *boolean*
 
-Defined in: [commons/Validate.ts:16](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L16)
+Defined in: [commons/Validate.ts:16](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L16)
 
 ___
 
@@ -286,7 +286,7 @@ Name | Type | Default value | Description |
 
 **Returns:** *boolean*
 
-Defined in: [commons/Validate.ts:96](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L96)
+Defined in: [commons/Validate.ts:96](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L96)
 
 ___
 
@@ -302,4 +302,4 @@ Name | Type |
 
 **Returns:** *boolean*
 
-Defined in: [commons/Validate.ts:20](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/Validate.ts#L20)
+Defined in: [commons/Validate.ts:20](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/Validate.ts#L20)

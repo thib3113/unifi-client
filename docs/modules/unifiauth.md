@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / UnifiAuth
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / UnifiAuth
 
 # Module: UnifiAuth
 

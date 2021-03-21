@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / [Hotspot/IGuestAuthorization](../modules/hotspot_iguestauthorization.md) / IGuestAuthorization
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [Hotspot/IGuestAuthorization](../modules/hotspot_iguestauthorization.md) / IGuestAuthorization
 
 # Interface: IGuestAuthorization
 
@@ -26,7 +26,7 @@
 
 • **\_id**: *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:6](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L6)
+Defined in: [Hotspot/IGuestAuthorization.ts:6](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L6)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **authorized\_by**: *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:10](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L10)
+Defined in: [Hotspot/IGuestAuthorization.ts:10](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L10)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **end**: *number*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:11](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L11)
+Defined in: [Hotspot/IGuestAuthorization.ts:11](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L11)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 • **mac**: *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:7](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L7)
+Defined in: [Hotspot/IGuestAuthorization.ts:7](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L7)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **qos\_usage\_quota**: *number*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:12](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L12)
+Defined in: [Hotspot/IGuestAuthorization.ts:12](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L12)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 • **site\_id**: *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:9](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L9)
+Defined in: [Hotspot/IGuestAuthorization.ts:9](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L9)
 
 ___
 
@@ -74,4 +74,4 @@ ___
 
 • **start**: *number*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:8](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L8)
+Defined in: [Hotspot/IGuestAuthorization.ts:8](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L8)
