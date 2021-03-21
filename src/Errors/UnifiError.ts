@@ -26,13 +26,5 @@ export default class UnifiError extends __Error {
         // Object.setPrototypeOf(this, Error.prototype);
     }
 
-    protected _toStringParts(): Array<string> {
-        const strComponents = [];
-        if (this.meta) {
-            strComponents.push(`metas : ${JSON.stringify(this.meta)} \n`);
-        }
-        return strComponents;
-    }
-
     name: string = 'UnifiError';
 }
