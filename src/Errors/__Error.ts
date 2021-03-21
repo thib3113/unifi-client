@@ -68,15 +68,11 @@ export default class __Error implements Error {
 
         const message = String(this._message) || '';
 
-        let strComponents = [];
+        const strComponents = [];
 
         const errorCodeStr = this.errorCode ? ` (${this.errorCode})` : '';
 
         strComponents.push(`${name}${errorCodeStr} : ${message} \n`);
-
-        if (this._toStringParts) {
-            strComponents = strComponents.concat(this._toStringParts());
-        }
 
         strComponents.push(this.stack);
 
