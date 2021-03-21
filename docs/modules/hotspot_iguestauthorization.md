@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / Hotspot/IGuestAuthorization
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / Hotspot/IGuestAuthorization
 
 # Module: Hotspot/IGuestAuthorization
 
@@ -18,4 +18,4 @@
 
 Ƭ **AuthorizedBy**: *api* \| *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/92261be/src/Hotspot/IGuestAuthorization.ts#L3)
+Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Hotspot/IGuestAuthorization.ts#L3)

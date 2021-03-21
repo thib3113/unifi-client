@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / Hotspot/IAuthorizeGuest
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / Hotspot/IAuthorizeGuest
 
 # Module: Hotspot/IAuthorizeGuest
 

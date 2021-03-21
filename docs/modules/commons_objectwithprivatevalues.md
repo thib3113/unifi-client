@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / commons/ObjectWithPrivateValues
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / commons/ObjectWithPrivateValues
 
 # Module: commons/ObjectWithPrivateValues
 

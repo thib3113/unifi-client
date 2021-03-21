@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / [Errors/__Error](../modules/errors___error.md) / default
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [Errors/__Error](../modules/errors___error.md) / default
 
 # Class: default
 
@@ -53,7 +53,7 @@ Name | Type | Default value |
 
 **Returns:** [*default*](errors___error.default.md)
 
-Defined in: [Errors/__Error.ts:16](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L16)
+Defined in: [Errors/__Error.ts:16](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L16)
 
 ## Properties
 
@@ -61,7 +61,7 @@ Defined in: [Errors/__Error.ts:16](https://github.com/thib3113/unifi-client/blob
 
 • `Protected` **\_message**: *string*
 
-Defined in: [Errors/__Error.ts:6](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L6)
+Defined in: [Errors/__Error.ts:6](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L6)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 can also contains error like certificates error (https://nodejs.org/api/tls.html#tls_x509_certificate_error_codes) or other errors . Can be a string, or a number
 
-Defined in: [Errors/__Error.ts:14](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L14)
+Defined in: [Errors/__Error.ts:14](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L14)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 can also contains error like certificates error (https://nodejs.org/api/tls.html#tls_x509_certificate_error_codes) or other errors . Can be a string, or a number
 
-Defined in: [Errors/__Error.ts:10](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L10)
+Defined in: [Errors/__Error.ts:10](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L10)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 • **exception**: Error
 
-Defined in: [Errors/__Error.ts:15](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L15)
+Defined in: [Errors/__Error.ts:15](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L15)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 Implementation of: void
 
-Defined in: [Errors/__Error.ts:16](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L16)
+Defined in: [Errors/__Error.ts:16](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L16)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 Implementation of: void
 
-Defined in: [Errors/__Error.ts:82](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L82)
+Defined in: [Errors/__Error.ts:82](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L82)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 Implementation of: void
 
-Defined in: [Errors/__Error.ts:5](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L5)
+Defined in: [Errors/__Error.ts:5](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L5)
 
 ## Methods
 
@@ -129,7 +129,7 @@ Defined in: [Errors/__Error.ts:5](https://github.com/thib3113/unifi-client/blob/
 
 **Returns:** *string*[]
 
-Defined in: [Errors/__Error.ts:57](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L57)
+Defined in: [Errors/__Error.ts:57](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L57)
 
 ___
 
@@ -139,4 +139,4 @@ ___
 
 **Returns:** *string*
 
-Defined in: [Errors/__Error.ts:61](https://github.com/thib3113/unifi-client/blob/92261be/src/Errors/__Error.ts#L61)
+Defined in: [Errors/__Error.ts:61](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L61)

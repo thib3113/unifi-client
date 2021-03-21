@@ -1,4 +1,4 @@
-[unifi-client - v0.0.22](../README.md) / [Exports](../modules.md) / [commons/ObjectWithPrivateValues](../modules/commons_objectwithprivatevalues.md) / default
+[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [commons/ObjectWithPrivateValues](../modules/commons_objectwithprivatevalues.md) / default
 
 # Class: default
 
@@ -35,7 +35,7 @@
 
 **Returns:** [*default*](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:2](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/ObjectWithPrivateValues.ts#L2)
+Defined in: [commons/ObjectWithPrivateValues.ts:2](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/ObjectWithPrivateValues.ts#L2)
 
 ## Accessors
 
@@ -45,7 +45,7 @@ Defined in: [commons/ObjectWithPrivateValues.ts:2](https://github.com/thib3113/u
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ## Methods
 
@@ -67,7 +67,7 @@ Name | Type |
 
 **Returns:** T
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/ObjectWithPrivateValues.ts#L6)
 
 ___
 
@@ -90,4 +90,4 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/92261be/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/ObjectWithPrivateValues.ts#L11)
