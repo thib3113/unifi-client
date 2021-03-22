@@ -24,7 +24,7 @@
 
 • **password**: *string*
 
-Defined in: [UnifiAuth.ts:16](https://github.com/thib3113/unifi-client/blob/3b1db86/src/UnifiAuth.ts#L16)
+Defined in: [UnifiAuth.ts:16](https://github.com/thib3113/unifi-client/blob/6f21a04/src/UnifiAuth.ts#L16)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 • `Optional` **rememberMe**: *boolean*
 
-Defined in: [UnifiAuth.ts:14](https://github.com/thib3113/unifi-client/blob/3b1db86/src/UnifiAuth.ts#L14)
+Defined in: [UnifiAuth.ts:14](https://github.com/thib3113/unifi-client/blob/6f21a04/src/UnifiAuth.ts#L14)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 • **username**: *string*
 
-Defined in: [UnifiAuth.ts:15](https://github.com/thib3113/unifi-client/blob/3b1db86/src/UnifiAuth.ts#L15)
+Defined in: [UnifiAuth.ts:15](https://github.com/thib3113/unifi-client/blob/6f21a04/src/UnifiAuth.ts#L15)
