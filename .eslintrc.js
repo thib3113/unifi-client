@@ -5,9 +5,7 @@ module.exports = {
         'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
         'prettier'
     ],
-    plugins: [
-        'eslint-plugin-tsdoc'
-    ],
+    plugins: ['eslint-plugin-tsdoc'],
     parserOptions: {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname,
@@ -24,6 +22,7 @@ module.exports = {
         '@typescript-eslint/no-object-literal-type-assertion': 'off',
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/ban-ts-ignore': 'off',
-        'tsdoc/syntax': 'warn'
+        'tsdoc/syntax': 'warn',
+        '@typescript-eslint/no-empty-function': 'off'
     }
 };
