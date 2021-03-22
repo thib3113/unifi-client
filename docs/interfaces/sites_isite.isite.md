@@ -1,4 +1,4 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [Sites/ISite](../modules/sites_isite.md) / ISite
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / [Sites/ISite](../modules/sites_isite.md) / ISite
 
 # Interface: ISite
 
@@ -27,7 +27,7 @@
 
 • **\_id**: *string*
 
-Defined in: [Sites/ISite.ts:2](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/ISite.ts#L2)
+Defined in: [Sites/ISite.ts:2](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/ISite.ts#L2)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 • **anonymous\_id**: *string*
 
-Defined in: [Sites/ISite.ts:3](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/ISite.ts#L3)
+Defined in: [Sites/ISite.ts:3](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/ISite.ts#L3)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 • **attr\_hidden\_id**: *string*
 
-Defined in: [Sites/ISite.ts:6](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/ISite.ts#L6)
+Defined in: [Sites/ISite.ts:6](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/ISite.ts#L6)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 • **attr\_no\_delete**: *boolean*
 
-Defined in: [Sites/ISite.ts:7](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/ISite.ts#L7)
+Defined in: [Sites/ISite.ts:7](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/ISite.ts#L7)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 • **desc**: *string*
 
-Defined in: [Sites/ISite.ts:5](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/ISite.ts#L5)
+Defined in: [Sites/ISite.ts:5](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/ISite.ts#L5)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • **name**: *string*
 
-Defined in: [Sites/ISite.ts:4](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/ISite.ts#L4)
+Defined in: [Sites/ISite.ts:4](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/ISite.ts#L4)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 • **role**: *string*
 
-Defined in: [Sites/ISite.ts:8](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/ISite.ts#L8)
+Defined in: [Sites/ISite.ts:8](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/ISite.ts#L8)
 
 ___
 
@@ -85,4 +85,4 @@ ___
 
 UNIFIOS only
 
-Defined in: [Sites/ISite.ts:12](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/ISite.ts#L12)
+Defined in: [Sites/ISite.ts:12](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/ISite.ts#L12)
