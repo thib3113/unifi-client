@@ -1,4 +1,4 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / Hotspot
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / Hotspot
 
 # Module: Hotspot
 
@@ -36,4 +36,4 @@ Renames and exports: [default](../classes/hotspot_hotspots.default.md)
 
 Ƭ **AuthorizedBy**: *api* \| *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Hotspot/IGuestAuthorization.ts#L3)
+Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Hotspot/IGuestAuthorization.ts#L3)

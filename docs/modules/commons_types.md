@@ -1,4 +1,4 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / commons/types
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / commons/types
 
 # Module: commons/types
 
@@ -14,4 +14,4 @@
 
 Ƭ **timestampDate**: *number*
 
-Defined in: [commons/types.ts:1](https://github.com/thib3113/unifi-client/blob/6f21a04/src/commons/types.ts#L1)
+Defined in: [commons/types.ts:1](https://github.com/thib3113/unifi-client/blob/78d04fb/src/commons/types.ts#L1)

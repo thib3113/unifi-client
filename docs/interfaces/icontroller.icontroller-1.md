@@ -1,4 +1,4 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [IController](../modules/icontroller.md) / IController
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / [IController](../modules/icontroller.md) / IController
 
 # Interface: IController
 
@@ -30,7 +30,7 @@
 
 • **auth**: [*default*](../classes/unifiauth.default.md)
 
-Defined in: [IController.ts:9](https://github.com/thib3113/unifi-client/blob/6f21a04/src/IController.ts#L9)
+Defined in: [IController.ts:9](https://github.com/thib3113/unifi-client/blob/78d04fb/src/IController.ts#L9)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **controllerInstance**: AxiosInstance
 
-Defined in: [IController.ts:10](https://github.com/thib3113/unifi-client/blob/6f21a04/src/IController.ts#L10)
+Defined in: [IController.ts:10](https://github.com/thib3113/unifi-client/blob/78d04fb/src/IController.ts#L10)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **sites**: [*default*](../classes/sites_sites.default.md)
 
-Defined in: [IController.ts:11](https://github.com/thib3113/unifi-client/blob/6f21a04/src/IController.ts#L11)
+Defined in: [IController.ts:11](https://github.com/thib3113/unifi-client/blob/78d04fb/src/IController.ts#L11)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 • **unifiOs**: *boolean*
 
-Defined in: [IController.ts:12](https://github.com/thib3113/unifi-client/blob/6f21a04/src/IController.ts#L12)
+Defined in: [IController.ts:12](https://github.com/thib3113/unifi-client/blob/78d04fb/src/IController.ts#L12)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 • **version**: *string*
 
-Defined in: [IController.ts:8](https://github.com/thib3113/unifi-client/blob/6f21a04/src/IController.ts#L8)
+Defined in: [IController.ts:8](https://github.com/thib3113/unifi-client/blob/78d04fb/src/IController.ts#L8)
 
 ## Methods
 
@@ -72,7 +72,7 @@ Defined in: [IController.ts:8](https://github.com/thib3113/unifi-client/blob/6f2
 
 **Returns:** *Promise*<[*default*](../classes/sites_site.default.md)[]\>
 
-Defined in: [IController.ts:14](https://github.com/thib3113/unifi-client/blob/6f21a04/src/IController.ts#L14)
+Defined in: [IController.ts:14](https://github.com/thib3113/unifi-client/blob/78d04fb/src/IController.ts#L14)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 **Returns:** *Promise*<[*IUser*](user_iuser.iuser.md)\>
 
-Defined in: [IController.ts:16](https://github.com/thib3113/unifi-client/blob/6f21a04/src/IController.ts#L16)
+Defined in: [IController.ts:16](https://github.com/thib3113/unifi-client/blob/78d04fb/src/IController.ts#L16)
 
 ___
 
@@ -92,4 +92,4 @@ ___
 
 **Returns:** *Promise*<void\>
 
-Defined in: [IController.ts:18](https://github.com/thib3113/unifi-client/blob/6f21a04/src/IController.ts#L18)
+Defined in: [IController.ts:18](https://github.com/thib3113/unifi-client/blob/78d04fb/src/IController.ts#L18)

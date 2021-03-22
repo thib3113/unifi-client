@@ -1,4 +1,4 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [index](../modules/index.md) / IFWGroup
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / [index](../modules/index.md) / IFWGroup
 
 # Interface: IFWGroup
 
@@ -20,7 +20,7 @@
 
 • **\_id**: *string*
 
-Defined in: [interfaces.ts:105](https://github.com/thib3113/unifi-client/blob/6f21a04/src/interfaces.ts#L105)
+Defined in: [interfaces.ts:105](https://github.com/thib3113/unifi-client/blob/78d04fb/src/interfaces.ts#L105)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **group\_members**: *string*[]
 
-Defined in: [interfaces.ts:108](https://github.com/thib3113/unifi-client/blob/6f21a04/src/interfaces.ts#L108)
+Defined in: [interfaces.ts:108](https://github.com/thib3113/unifi-client/blob/78d04fb/src/interfaces.ts#L108)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **group\_type**: *address-group* \| *port-group* \| *ipv6-address-group*
 
-Defined in: [interfaces.ts:107](https://github.com/thib3113/unifi-client/blob/6f21a04/src/interfaces.ts#L107)
+Defined in: [interfaces.ts:107](https://github.com/thib3113/unifi-client/blob/78d04fb/src/interfaces.ts#L107)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **name**: *string*
 
-Defined in: [interfaces.ts:106](https://github.com/thib3113/unifi-client/blob/6f21a04/src/interfaces.ts#L106)
+Defined in: [interfaces.ts:106](https://github.com/thib3113/unifi-client/blob/78d04fb/src/interfaces.ts#L106)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 • **site\_id**: *string*
 
-Defined in: [interfaces.ts:109](https://github.com/thib3113/unifi-client/blob/6f21a04/src/interfaces.ts#L109)
+Defined in: [interfaces.ts:109](https://github.com/thib3113/unifi-client/blob/78d04fb/src/interfaces.ts#L109)
