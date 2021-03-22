@@ -29,7 +29,6 @@
 
 ### Methods
 
-- [\_toStringParts](errors_unifierror.default.md#_tostringparts)
 - [toString](errors_unifierror.default.md#tostring)
 
 ## Constructors
@@ -51,7 +50,7 @@ Name | Type | Default value |
 
 Overrides: [default](errors___error.default.md)
 
-Defined in: [Errors/UnifiError.ts:11](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/UnifiError.ts#L11)
+Defined in: [Errors/UnifiError.ts:11](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/UnifiError.ts#L11)
 
 ## Properties
 
@@ -61,7 +60,7 @@ Defined in: [Errors/UnifiError.ts:11](https://github.com/thib3113/unifi-client/b
 
 Inherited from: [default](errors___error.default.md).[_message](errors___error.default.md#_message)
 
-Defined in: [Errors/__Error.ts:6](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L6)
+Defined in: [Errors/__Error.ts:6](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/__Error.ts#L6)
 
 ___
 
@@ -73,7 +72,7 @@ can also contains error like certificates error (https://nodejs.org/api/tls.html
 
 Inherited from: [default](errors___error.default.md).[code](errors___error.default.md#code)
 
-Defined in: [Errors/__Error.ts:14](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L14)
+Defined in: [Errors/__Error.ts:14](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/__Error.ts#L14)
 
 ___
 
@@ -85,7 +84,7 @@ can also contains error like certificates error (https://nodejs.org/api/tls.html
 
 Inherited from: [default](errors___error.default.md).[errorCode](errors___error.default.md#errorcode)
 
-Defined in: [Errors/__Error.ts:10](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L10)
+Defined in: [Errors/__Error.ts:10](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/__Error.ts#L10)
 
 ___
 
@@ -95,7 +94,7 @@ ___
 
 Inherited from: [default](errors___error.default.md).[exception](errors___error.default.md#exception)
 
-Defined in: [Errors/__Error.ts:15](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L15)
+Defined in: [Errors/__Error.ts:15](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/__Error.ts#L15)
 
 ___
 
@@ -105,7 +104,7 @@ ___
 
 Inherited from: [default](errors___error.default.md).[message](errors___error.default.md#message)
 
-Defined in: [Errors/__Error.ts:16](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L16)
+Defined in: [Errors/__Error.ts:16](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/__Error.ts#L16)
 
 ___
 
@@ -113,7 +112,7 @@ ___
 
 • **meta**: [*IUnifiErrorMeta*](../interfaces/errors_unifierror.iunifierrormeta.md)
 
-Defined in: [Errors/UnifiError.ts:11](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/UnifiError.ts#L11)
+Defined in: [Errors/UnifiError.ts:11](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/UnifiError.ts#L11)
 
 ___
 
@@ -123,7 +122,7 @@ ___
 
 Overrides: [default](errors___error.default.md).[name](errors___error.default.md#name)
 
-Defined in: [Errors/UnifiError.ts:29](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/UnifiError.ts#L29)
+Defined in: [Errors/UnifiError.ts:29](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/UnifiError.ts#L29)
 
 ___
 
@@ -133,21 +132,9 @@ ___
 
 Inherited from: [default](errors___error.default.md).[stack](errors___error.default.md#stack)
 
-Defined in: [Errors/__Error.ts:5](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L5)
+Defined in: [Errors/__Error.ts:5](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/__Error.ts#L5)
 
 ## Methods
-
-### \_toStringParts
-
-▸ `Protected`**_toStringParts**(): *string*[]
-
-**Returns:** *string*[]
-
-Inherited from: [default](errors___error.default.md)
-
-Defined in: [Errors/__Error.ts:57](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L57)
-
-___
 
 ### toString
 
@@ -157,4 +144,4 @@ ___
 
 Inherited from: [default](errors___error.default.md)
 
-Defined in: [Errors/__Error.ts:61](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/__Error.ts#L61)
+Defined in: [Errors/__Error.ts:57](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/__Error.ts#L57)

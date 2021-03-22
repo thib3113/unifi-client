@@ -16,6 +16,7 @@
 - [Errors/\_\_Error](modules/errors___error.md)
 - [Firewall](modules/firewall.md)
 - [Firewall/FWGroup](modules/firewall_fwgroup.md)
+- [Firewall/FWRule](modules/firewall_fwrule.md)
 - [Firewall/Firewall](modules/firewall_firewall.md)
 - [Hotspot](modules/hotspot.md)
 - [Hotspot/GuestAuthorization](modules/hotspot_guestauthorization.md)

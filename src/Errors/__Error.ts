@@ -54,10 +54,6 @@ export default class __Error implements Error {
         Object.setPrototypeOf(this, Error.prototype);
     }
 
-    protected _toStringParts(): Array<string> {
-        return [];
-    }
-
     public toString = (): string => {
         const obj = Object(this);
         if (obj !== this) {
