@@ -1,7 +1,11 @@
-import { IFWGroup, IFWRule } from '../../src';
-import { deleteFixtures, getLoggedSite, isRecordMode } from '../common';
+import Controller, { IFWRule } from '../../src';
+import { getLoggedSite } from '../common';
 import nock from 'nock';
 import Site from '../../src/Sites/Site';
+import FWGroup from '../../src/Firewall/FWGroup';
+import FWRule from '../../src/Firewall/FWRule';
+import { IObjectSubSiteConfig } from '../../src/commons/_ObjectSubSite';
+import axios from 'axios';
 
 const PREFIX = 'firewall-';
 // beforeAll(() => {
@@ -51,8 +55,8 @@ describe('Firewall - UnifiOs', () => {
         });
 
         it('should crud firewall rule', async () => {
-            let rule: IFWRule;
-            let rule2: IFWRule;
+            let rule: FWRule;
+            let rule2: FWRule;
             const ruleParams: Omit<IFWRule, '_id' | 'site_id'> & Partial<{ _id: string; site_id: string }> = {
                 action: 'accept',
                 enabled: true,
@@ -96,10 +100,8 @@ describe('Firewall - UnifiOs', () => {
             });
 
             await nock.back(`${PREFIX}rule-edit.json`).then(async ({ nockDone }) => {
-                await site.firewall.editRule({
-                    ...rule,
-                    name: 'testRule2'
-                });
+                rule.name = 'testRule2';
+                await rule.save();
 
                 rule2 = await site.firewall.getRule(rule._id);
 
@@ -110,7 +112,7 @@ describe('Firewall - UnifiOs', () => {
             });
 
             await nock.back(`${PREFIX}rule-delete.json`).then(async ({ nockDone }) => {
-                await site.firewall.deleteFirewallRule(rule._id);
+                await rule.delete();
 
                 const getGroup = await site.firewall.getGroup(rule._id);
                 expect(getGroup).not.toBeDefined();
@@ -120,8 +122,8 @@ describe('Firewall - UnifiOs', () => {
     });
     describe('Groups', () => {
         it('should crud the group', async () => {
-            let group: IFWGroup;
-            let group2: IFWGroup;
+            let group: FWGroup;
+            let group2: FWGroup;
             await nock.back(`${PREFIX}groups-create-ipv6.json`).then(async ({ nockDone }) => {
                 group = await site.firewall.createGroup({
                     name: 'testGroup',
@@ -158,10 +160,12 @@ describe('Firewall - UnifiOs', () => {
             });
 
             await nock.back(`${PREFIX}groups-edit-ipv6.json`).then(async ({ nockDone }) => {
-                await site.firewall.editGroup({
-                    ...group,
-                    name: 'testGroup2'
-                });
+                group.name = 'testGroup2';
+                await group.save();
+                // await site.firewall.editGroup({
+                //     ...group,
+                //     name: 'testGroup2'
+                // });
 
                 group2 = await site.firewall.getGroup(group._id);
 
@@ -174,7 +178,7 @@ describe('Firewall - UnifiOs', () => {
             });
 
             await nock.back(`${PREFIX}groups-delete-ipv6.json`).then(async ({ nockDone }) => {
-                await site.firewall.deleteFirewallGroup(group._id);
+                await group.delete();
 
                 const getGroup = await site.firewall.getGroup(group._id);
                 expect(getGroup).not.toBeDefined();
@@ -190,8 +194,8 @@ describe('Firewall - non UnifiOs', () => {
     });
     describe('Rules', () => {
         it('should crud firewall rule', async () => {
-            let rule: IFWRule;
-            let rule2: IFWRule;
+            let rule: FWRule;
+            let rule2: FWRule;
             const ruleParams: Omit<IFWRule, '_id' | 'site_id'> & Partial<{ _id: string; site_id: string }> = {
                 action: 'accept',
                 enabled: true,
@@ -229,10 +233,8 @@ describe('Firewall - non UnifiOs', () => {
             expect(getRule._id).toBe(rule._id);
 
             //edit rule
-            await site.firewall.editRule({
-                ...rule,
-                name: 'testRule2'
-            });
+            rule.name = 'testRule2';
+            await rule.save();
 
             rule2 = await site.firewall.getRule(rule._id);
 
@@ -241,7 +243,8 @@ describe('Firewall - non UnifiOs', () => {
             expect(rule2._id).toBe(rule._id);
 
             //delete the rule
-            await site.firewall.deleteFirewallRule(rule._id);
+            await rule.delete();
+            // await site.firewall.deleteFirewallRule(rule._id);
 
             const getGroup = await site.firewall.getGroup(rule._id);
             expect(getGroup).not.toBeDefined();
@@ -249,8 +252,8 @@ describe('Firewall - non UnifiOs', () => {
     });
     describe('Groups', () => {
         it('should crud the group', async () => {
-            let group: IFWGroup;
-            let group2: IFWGroup;
+            let group: FWGroup;
+            let group2: FWGroup;
             group = await site.firewall.createGroup({
                 name: 'testGroup',
                 group_members: ['2001:41d0:302:2100::9ee'], // wikipedia ipv6
@@ -279,10 +282,8 @@ describe('Firewall - non UnifiOs', () => {
             expect(groupFiltered.site_id).toBe(group.site_id);
             expect(groupFiltered._id).toBe(group._id);
 
-            await site.firewall.editGroup({
-                ...group,
-                name: 'testGroup2'
-            });
+            group.name = 'testGroup2';
+            await group.save();
 
             group2 = await site.firewall.getGroup(group._id);
 
@@ -292,12 +293,41 @@ describe('Firewall - non UnifiOs', () => {
             expect(group2.site_id).toBe(group.site_id);
             expect(group2._id).toBe(group._id);
 
-            await site.firewall.deleteFirewallGroup(group._id);
+            await group.delete();
 
             const getDeletedGroup = await site.firewall.getGroup(group._id);
             expect(getDeletedGroup).not.toBeDefined();
         });
 
         it('should get groups', () => {});
+    });
+});
+describe('Common tests', () => {
+    const controller: Controller = new Controller({
+        strictSSL: false,
+        username: '',
+        password: '',
+        url: ''
+    });
+    let config: IObjectSubSiteConfig;
+    beforeEach(async () => {
+        // controller = await getLoggedControllerWithoutSite(nock);
+        // const [site] = await controller.getSites();
+        config = {
+            instance: axios.create(),
+            // @ts-ignore
+            controller,
+            // @ts-ignore
+            site: new Site(controller, {})
+        };
+    });
+
+    it('should refuse Rule without _id', () => {
+        // @ts-ignore
+        expect(() => new FWRule(config, {})).toThrowError();
+    });
+    it('should refuse Group without _id', () => {
+        // @ts-ignore
+        expect(() => new FWGroup(config, {})).toThrowError();
     });
 });

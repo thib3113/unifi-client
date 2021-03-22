@@ -39,9 +39,12 @@
 ### Methods
 
 - [checkNeeds](firewall_fwgroup.default.md#checkneeds)
+- [delete](firewall_fwgroup.default.md#delete)
 - [getPrivate](firewall_fwgroup.default.md#getprivate)
+- [import](firewall_fwgroup.default.md#import)
 - [mapObject](firewall_fwgroup.default.md#mapobject)
 - [needVersion](firewall_fwgroup.default.md#needversion)
+- [save](firewall_fwgroup.default.md#save)
 - [setPrivate](firewall_fwgroup.default.md#setprivate)
 
 ## Constructors
@@ -61,7 +64,7 @@ Name | Type |
 
 Overrides: [default](commons__objectsubsite.default.md)
 
-Defined in: [Firewall/FWGroup.ts:9](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Firewall/FWGroup.ts#L9)
+Defined in: [Firewall/FWGroup.ts:11](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L11)
 
 ## Properties
 
@@ -71,7 +74,7 @@ Defined in: [Firewall/FWGroup.ts:9](https://github.com/thib3113/unifi-client/blo
 
 Implementation of: [IFWGroup](../interfaces/interfaces.ifwgroup.md).[_id](../interfaces/interfaces.ifwgroup.md#_id)
 
-Defined in: [Firewall/FWGroup.ts:5](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Firewall/FWGroup.ts#L5)
+Defined in: [Firewall/FWGroup.ts:7](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L7)
 
 ___
 
@@ -81,7 +84,7 @@ ___
 
 Implementation of: [IFWGroup](../interfaces/interfaces.ifwgroup.md).[group_members](../interfaces/interfaces.ifwgroup.md#group_members)
 
-Defined in: [Firewall/FWGroup.ts:6](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Firewall/FWGroup.ts#L6)
+Defined in: [Firewall/FWGroup.ts:8](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L8)
 
 ___
 
@@ -91,7 +94,7 @@ ___
 
 Implementation of: [IFWGroup](../interfaces/interfaces.ifwgroup.md).[group_type](../interfaces/interfaces.ifwgroup.md#group_type)
 
-Defined in: [Firewall/FWGroup.ts:7](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Firewall/FWGroup.ts#L7)
+Defined in: [Firewall/FWGroup.ts:9](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L9)
 
 ___
 
@@ -101,7 +104,7 @@ ___
 
 Implementation of: [IFWGroup](../interfaces/interfaces.ifwgroup.md).[name](../interfaces/interfaces.ifwgroup.md#name)
 
-Defined in: [Firewall/FWGroup.ts:8](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Firewall/FWGroup.ts#L8)
+Defined in: [Firewall/FWGroup.ts:10](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L10)
 
 ___
 
@@ -111,7 +114,7 @@ ___
 
 Implementation of: [IFWGroup](../interfaces/interfaces.ifwgroup.md).[site_id](../interfaces/interfaces.ifwgroup.md#site_id)
 
-Defined in: [Firewall/FWGroup.ts:9](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Firewall/FWGroup.ts#L9)
+Defined in: [Firewall/FWGroup.ts:11](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L11)
 
 ## Accessors
 
@@ -121,7 +124,7 @@ Defined in: [Firewall/FWGroup.ts:9](https://github.com/thib3113/unifi-client/blo
 
 **Returns:** [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)
 
-Defined in: [commons/_ObjectSubSite.ts:17](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L17)
+Defined in: [commons/_ObjectSubSite.ts:17](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L17)
 
 • `Protected`set **config**(`value`: [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)): *void*
 
@@ -133,7 +136,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:21](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L21)
+Defined in: [commons/_ObjectSubSite.ts:21](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L21)
 
 ___
 
@@ -143,7 +146,7 @@ ___
 
 **Returns:** [*IController*](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubSite.ts:31](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L31)
+Defined in: [commons/_ObjectSubSite.ts:31](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L31)
 
 • `Protected`set **controller**(`value`: [*IController*](../interfaces/icontroller.icontroller-1.md)): *void*
 
@@ -155,7 +158,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:35](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L35)
+Defined in: [commons/_ObjectSubSite.ts:35](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L35)
 
 ___
 
@@ -165,7 +168,7 @@ ___
 
 **Returns:** AxiosInstance
 
-Defined in: [commons/_ObjectSubSite.ts:24](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L24)
+Defined in: [commons/_ObjectSubSite.ts:24](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L24)
 
 • `Protected`set **instance**(`value`: AxiosInstance): *void*
 
@@ -177,7 +180,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:28](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L28)
+Defined in: [commons/_ObjectSubSite.ts:28](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L28)
 
 ___
 
@@ -187,7 +190,7 @@ ___
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ___
 
@@ -197,7 +200,7 @@ ___
 
 **Returns:** [*ISite*](../interfaces/sites_isite.isite.md)
 
-Defined in: [commons/_ObjectSubSite.ts:38](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L38)
+Defined in: [commons/_ObjectSubSite.ts:38](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L38)
 
 • `Protected`set **site**(`value`: [*ISite*](../interfaces/sites_isite.isite.md)): *void*
 
@@ -209,7 +212,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:42](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L42)
+Defined in: [commons/_ObjectSubSite.ts:42](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L42)
 
 ## Methods
 
@@ -228,7 +231,17 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:63](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubController.ts#L63)
+Defined in: [commons/_ObjectSubController.ts:63](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubController.ts#L63)
+
+___
+
+### delete
+
+▸ **delete**(): *Promise*<void\>
+
+**Returns:** *Promise*<void\>
+
+Defined in: [Firewall/FWGroup.ts:47](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L47)
 
 ___
 
@@ -252,7 +265,25 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/ObjectWithPrivateValues.ts#L6)
+
+___
+
+### import
+
+▸ `Protected`**import**(`props`: [*IFWGroup*](../interfaces/interfaces.ifwgroup.md)): *void*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`props` | [*IFWGroup*](../interfaces/interfaces.ifwgroup.md) |
+
+**Returns:** *void*
+
+Overrides: [default](commons__objectsubsite.default.md)
+
+Defined in: [Firewall/FWGroup.ts:23](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L23)
 
 ___
 
@@ -277,7 +308,7 @@ Name | Type | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubSite.ts:62](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubSite.ts#L62)
+Defined in: [commons/_ObjectSubSite.ts:65](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubSite.ts#L65)
 
 ___
 
@@ -305,7 +336,17 @@ Name | Type | Default value | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:78](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/_ObjectSubController.ts#L78)
+Defined in: [commons/_ObjectSubController.ts:78](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/_ObjectSubController.ts#L78)
+
+___
+
+### save
+
+▸ **save**(): *Promise*<void\>
+
+**Returns:** *Promise*<void\>
+
+Defined in: [Firewall/FWGroup.ts:38](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Firewall/FWGroup.ts#L38)
 
 ___
 
@@ -330,4 +371,4 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/3b1db86/src/commons/ObjectWithPrivateValues.ts#L11)

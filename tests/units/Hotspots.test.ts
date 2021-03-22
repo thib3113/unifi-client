@@ -21,7 +21,12 @@ describe('HotSpots - UnifiOs', () => {
             //test without force parameter
             try {
                 await site.hotspots.authorizeGuest({
-                    mac: '00:1B:44:11:3A:B7'
+                    mac: '00:1B:44:11:3A:B7',
+                    bytes: 200,
+                    minutes: 20,
+                    up: 21,
+                    down: 22,
+                    ap_mac: '00:1B:44:11:3A:B8'
                 });
                 expect(false).toBeTruthy();
             } catch (e) {
@@ -32,7 +37,12 @@ describe('HotSpots - UnifiOs', () => {
                 try {
                     await site.hotspots.authorizeGuest(
                         {
-                            mac: '00:1B:44:11:3A:B7'
+                            mac: '00:1B:44:11:3A:B7',
+                            bytes: 200,
+                            minutes: 20,
+                            up: 21,
+                            down: 22,
+                            ap_mac: '00:1B:44:11:3A:B8'
                         },
                         true
                     );
@@ -62,7 +72,12 @@ describe('Firewall - non UnifiOs', () => {
     describe('Guest', () => {
         it('should authorize guest', async () => {
             const authorization = await site.hotspots.authorizeGuest({
-                mac: '00:1B:44:11:3A:B7'
+                mac: '00:1B:44:11:3A:B7',
+                bytes: 200,
+                minutes: 20,
+                up: 21,
+                down: 22,
+                ap_mac: '00:1B:44:11:3A:B8'
             });
 
             expect(authorization._id).toBeDefined();

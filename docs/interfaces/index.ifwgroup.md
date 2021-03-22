@@ -20,7 +20,7 @@
 
 • **\_id**: *string*
 
-Defined in: [interfaces.ts:102](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/interfaces.ts#L102)
+Defined in: [interfaces.ts:105](https://github.com/thib3113/unifi-client/blob/3b1db86/src/interfaces.ts#L105)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **group\_members**: *string*[]
 
-Defined in: [interfaces.ts:105](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/interfaces.ts#L105)
+Defined in: [interfaces.ts:108](https://github.com/thib3113/unifi-client/blob/3b1db86/src/interfaces.ts#L108)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **group\_type**: *address-group* \| *port-group* \| *ipv6-address-group*
 
-Defined in: [interfaces.ts:104](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/interfaces.ts#L104)
+Defined in: [interfaces.ts:107](https://github.com/thib3113/unifi-client/blob/3b1db86/src/interfaces.ts#L107)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **name**: *string*
 
-Defined in: [interfaces.ts:103](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/interfaces.ts#L103)
+Defined in: [interfaces.ts:106](https://github.com/thib3113/unifi-client/blob/3b1db86/src/interfaces.ts#L106)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 • **site\_id**: *string*
 
-Defined in: [interfaces.ts:106](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/interfaces.ts#L106)
+Defined in: [interfaces.ts:109](https://github.com/thib3113/unifi-client/blob/3b1db86/src/interfaces.ts#L109)

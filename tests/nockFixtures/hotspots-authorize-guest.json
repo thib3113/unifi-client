@@ -5,7 +5,12 @@
         "path": "/proxy/network/api/s/default/cmd/stamgr",
         "body": {
             "cmd": "authorize-guest",
-            "mac": "00:1b:44:11:3a:b7"
+            "mac": "00:1b:44:11:3a:b7",
+            "minutes": 20,
+            "up": 21,
+            "down": 22,
+            "bytes": 200,
+            "ap_mac": "00:1b:44:11:3a:b8"
         },
         "status": 500,
         "response": "<!doctype html><html lang=\"en\"><head><title>HTTP Status 500 – Internal Server Error</title><style type=\"text/css\">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 500 – Internal Server Error</h1></body></html>",
@@ -33,11 +38,11 @@
             "content-length",
             "455",
             "date",
-            "Sun, 21 Mar 2021 21:33:12 GMT",
+            "Sun, 21 Mar 2021 23:55:07 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYjUzM2Q1NS02YjVlLTQxNTYtODA1Yi1jNzBiMDk4MTY2ODIiLCJpYXQiOjE2MTYzNjIzOTEsImV4cCI6NDc3MjEyMjM5MX0.0DAjMr-vl9eDJoDPoL0iJKckaM99GnHLZCUFGTJ_7-A; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI1YmNiMDk5Mi01YjMyLTQ5OWYtYjRhOC0zYjdkZGVkZmVmOWUiLCJpYXQiOjE2MTYzNzA4ODgsImV4cCI6NDc3MjEzMDg4OH0.DdI2Z90dMC0rbJvTkiZFKlwpSSEur2LVypPOapyvzNo; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }
