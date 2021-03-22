@@ -1,4 +1,4 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / [Sites/Sites](../modules/sites_sites.md) / default
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / [Sites/Sites](../modules/sites_sites.md) / default
 
 # Class: default
 
@@ -32,7 +32,7 @@ Name | Type |
 
 **Returns:** [*default*](sites_sites.default.md)
 
-Defined in: [Sites/Sites.ts:4](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/Sites.ts#L4)
+Defined in: [Sites/Sites.ts:4](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/Sites.ts#L4)
 
 ## Properties
 
@@ -48,4 +48,4 @@ Defined in: [Sites/Sites.ts:4](https://github.com/thib3113/unifi-client/blob/6f2
 
 **Returns:** *Promise*<[*default*](sites_site.default.md)[]\>
 
-Defined in: [Sites/Sites.ts:7](https://github.com/thib3113/unifi-client/blob/6f21a04/src/Sites/Sites.ts#L7)
+Defined in: [Sites/Sites.ts:7](https://github.com/thib3113/unifi-client/blob/78d04fb/src/Sites/Sites.ts#L7)

@@ -1,4 +1,4 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / commons/_ObjectSubSite
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / commons/_ObjectSubSite
 
 # Module: commons/\_ObjectSubSite
 
