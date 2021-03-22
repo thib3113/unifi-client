@@ -1,8 +1,6 @@
 import { createDebugger, getUrlRepresentation } from '../../src/util';
 import { Debugger } from 'debug';
-import { getLoggedSite, setUp } from '../common';
-import nock = require('nock');
-import Controller, { ClientError, UnifiError } from '../../src';
+import Controller, { __Error, UnifiError } from '../../src';
 import Validate from '../../src/commons/Validate';
 
 describe('test commons utilities', () => {
@@ -27,8 +25,7 @@ describe('test commons utilities', () => {
         });
 
         it('should return correct url with auth', () => {
-            let res = '';
-            res = getUrlRepresentation(
+            let res = getUrlRepresentation(
                 {
                     baseURL: 'https://localhost:8080',
                     url: '/url',
@@ -108,6 +105,11 @@ describe('test commons utilities', () => {
                 { validationError: { field: 'bar', pattern: '' } },
                 new Error('caused by me')
             ).toString();
+            expect(Validate.isString(error_str)).toBeTruthy();
+        });
+
+        it('should accept another error', () => {
+            const error_str = new __Error(new Error('caused by me')).toString();
             expect(Validate.isString(error_str)).toBeTruthy();
         });
     });

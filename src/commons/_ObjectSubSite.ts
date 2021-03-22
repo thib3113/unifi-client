@@ -43,6 +43,9 @@ export default class _ObjectSubSite extends _ObjectSubController {
         this.setPrivate<ISite>('site', value);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-unused-vars
+    protected import(props: any): void {}
+
     // toJSON(): Record<string, any> {
     //     const obj = { ...this };
     //     //remove circular known parts

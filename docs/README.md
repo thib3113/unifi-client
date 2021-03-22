@@ -76,7 +76,7 @@ This nodejs package/class uses functionality/Know-How gathered from different th
 * replace deprecated HTTP library [request](https://www.npmjs.com/package/request) by [axios](https://www.npmjs.com/package/axios)
 * replace callback functions by functions returning promises
 * use typescript ( + export typings )
-* auto renew controller authentication ( it's not a problem for a PHP application, but can be for a long living node js app )
+* auto-renew controller authentication ( it's not a problem for a PHP application, but can be for a long living node js app )
 * more granular files ( not all functions in one file )
 * doesn't need to pass site on each requests
 * add more functions
@@ -85,7 +85,7 @@ This nodejs package/class uses functionality/Know-How gathered from different th
 ## Debug
 To debug, you can use the [debug](https://www.npmjs.com/package/debug) library, just set the `DEBUG` environnement variable ([check this](https://github.com/visionmedia/debug#cmd)) .
 
-* `unifi-client` : base debug namespeace
+* `unifi-client` : base debug namespace
 * `unifi-client:<className>` : will show debug for this class (eg : unifi-client:Controller will log controller logs )
 * `unifi-client:axios` : will logs axios request (can contain secrets informations)
 * `unifi-client:axios:verbose` : will logs more things on axios, like send and receive payload (can contain secrets informations)

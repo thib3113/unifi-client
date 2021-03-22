@@ -23,4 +23,4 @@ Name | Type |
 `field` | *string* |
 `pattern` | *string* |
 
-Defined in: [Errors/UnifiError.ts:4](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/Errors/UnifiError.ts#L4)
+Defined in: [Errors/UnifiError.ts:4](https://github.com/thib3113/unifi-client/blob/3b1db86/src/Errors/UnifiError.ts#L4)

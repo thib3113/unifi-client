@@ -1,31 +1,34 @@
 export * from './Firewall';
-type networkConfType = 'NETv4' | 'ADDRv4' | string;
+export type networkConfType = 'NETv4' | 'ADDRv4' | string;
+export type ruleSet =
+    | 'WAN_IN'
+    | 'WAN_OUT'
+    | 'WAN_LOCAL'
+    | 'LAN_IN'
+    | 'LAN_OUT'
+    | 'LAN_LOCAL'
+    | 'GUEST_IN'
+    | 'GUEST_OUT'
+    | 'GUEST_LOCAL'
+    | 'WANv6_IN'
+    | 'WANv6_OUT'
+    | 'WANv6_LOCAL'
+    | 'LANv6_IN'
+    | 'LANv6_OUT'
+    | 'LANv6_LOCAL'
+    | 'GUESTv6_IN'
+    | 'GUESTv6_OUT'
+    | 'GUESTv6_LOCAL';
+
+export type FWRuleActions = 'drop' | 'accept' | 'reject';
 
 export interface IFWRule {
     _id: string;
-    ruleset:
-        | 'WAN_IN'
-        | 'WAN_OUT'
-        | 'WAN_LOCAL'
-        | 'LAN_IN'
-        | 'LAN_OUT'
-        | 'LAN_LOCAL'
-        | 'GUEST_IN'
-        | 'GUEST_OUT'
-        | 'GUEST_LOCAL'
-        | 'WANv6_IN'
-        | 'WANv6_OUT'
-        | 'WANv6_LOCAL'
-        | 'LANv6_IN'
-        | 'LANv6_OUT'
-        | 'LANv6_LOCAL'
-        | 'GUESTv6_IN'
-        | 'GUESTv6_OUT'
-        | 'GUESTv6_LOCAL';
+    ruleset: ruleSet;
     rule_index: string;
     name: string;
     enabled: boolean;
-    action: 'drop' | 'accept' | 'reject';
+    action: FWRuleActions;
     protocol_match_excepted: boolean;
     logging: boolean;
     state_new: boolean;

@@ -25,7 +25,7 @@ Name | Type | Description |
 
 **Returns:** Debugger
 
-Defined in: [util.ts:10](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/util.ts#L10)
+Defined in: [util.ts:10](https://github.com/thib3113/unifi-client/blob/3b1db86/src/util.ts#L10)
 
 ___
 
@@ -44,4 +44,4 @@ Name | Type | Default value | Description |
 
 **Returns:** *string*
 
-Defined in: [util.ts:22](https://github.com/thib3113/unifi-client/blob/a22dcb2/src/util.ts#L22)
+Defined in: [util.ts:22](https://github.com/thib3113/unifi-client/blob/3b1db86/src/util.ts#L22)

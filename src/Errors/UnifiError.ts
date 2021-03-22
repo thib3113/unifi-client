@@ -21,7 +21,7 @@ export default class UnifiError extends __Error {
         this.meta = meta;
         //just in case framework try to read message directly
         this._message = `${this._message} ${Object.values(this.meta).length > 0 ? JSON.stringify(this.meta) : ''}`;
-
+        this.message = this._message;
         // Set the prototype explicitly.
         // Object.setPrototypeOf(this, Error.prototype);
     }
