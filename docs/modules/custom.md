@@ -1,3 +1,3 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / custom
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / custom
 
 # Module: custom

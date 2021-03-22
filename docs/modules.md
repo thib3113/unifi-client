@@ -1,6 +1,6 @@
-[unifi-client - v0.0.23](README.md) / Exports
+[unifi-client - v0.1.0](README.md) / Exports
 
-# unifi-client - v0.0.23
+# unifi-client - v0.1.0
 
 ## Table of contents
 

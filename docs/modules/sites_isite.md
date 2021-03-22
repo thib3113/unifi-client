@@ -1,4 +1,4 @@
-[unifi-client - v0.0.23](../README.md) / [Exports](../modules.md) / Sites/ISite
+[unifi-client - v0.1.0](../README.md) / [Exports](../modules.md) / Sites/ISite
 
 # Module: Sites/ISite
 
