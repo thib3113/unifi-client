@@ -14,4 +14,4 @@
 
 Ƭ **timestampDate**: *number*
 
-Defined in: [commons/types.ts:1](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/types.ts#L1)
+Defined in: [commons/types.ts:1](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/types.ts#L1)
