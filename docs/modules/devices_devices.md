@@ -18,4 +18,4 @@
 
 Ƭ **partialDevice**: *Partial*<[*IUnknownDevice*](../interfaces/devices_iunknowndevice.iunknowndevice.md)\> & { `mac`: *string*  }
 
-Defined in: [Devices/Devices.ts:7](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Devices.ts#L7)
+Defined in: [Devices/Devices.ts:7](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Devices.ts#L7)

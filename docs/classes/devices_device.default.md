@@ -88,7 +88,7 @@ Name | Type |
 
 Overrides: [default](commons__objectsubsite.default.md)
 
-Defined in: [Devices/Device.ts:6](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L6)
+Defined in: [Devices/Device.ts:6](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L6)
 
 ## Properties
 
@@ -98,7 +98,7 @@ Defined in: [Devices/Device.ts:6](https://github.com/thib3113/unifi-client/blob/
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[_id](../interfaces/devices_idevice.idevice.md#_id)
 
-Defined in: [Devices/Device.ts:135](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L135)
+Defined in: [Devices/Device.ts:136](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L136)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[confidence](../interfaces/devices_idevice.idevice.md#confidence)
 
-Defined in: [Devices/Device.ts:136](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L136)
+Defined in: [Devices/Device.ts:137](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L137)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[dev_cat](../interfaces/devices_idevice.idevice.md#dev_cat)
 
-Defined in: [Devices/Device.ts:137](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L137)
+Defined in: [Devices/Device.ts:138](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L138)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[dev_family](../interfaces/devices_idevice.idevice.md#dev_family)
 
-Defined in: [Devices/Device.ts:138](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L138)
+Defined in: [Devices/Device.ts:139](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L139)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[dev_id](../interfaces/devices_idevice.idevice.md#dev_id)
 
-Defined in: [Devices/Device.ts:139](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L139)
+Defined in: [Devices/Device.ts:140](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L140)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[dev_id_override](../interfaces/devices_idevice.idevice.md#dev_id_override)
 
-Defined in: [Devices/Device.ts:140](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L140)
+Defined in: [Devices/Device.ts:141](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L141)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[dev_vendor](../interfaces/devices_idevice.idevice.md#dev_vendor)
 
-Defined in: [Devices/Device.ts:141](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L141)
+Defined in: [Devices/Device.ts:142](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L142)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[fingerprint_engine_version](../interfaces/devices_idevice.idevice.md#fingerprint_engine_version)
 
-Defined in: [Devices/Device.ts:160](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L160)
+Defined in: [Devices/Device.ts:161](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L161)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[fingerprint_override](../interfaces/devices_idevice.idevice.md#fingerprint_override)
 
-Defined in: [Devices/Device.ts:142](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L142)
+Defined in: [Devices/Device.ts:143](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L143)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[fingerprint_source](../interfaces/devices_idevice.idevice.md#fingerprint_source)
 
-Defined in: [Devices/Device.ts:143](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L143)
+Defined in: [Devices/Device.ts:144](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L144)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[first_seen](../interfaces/devices_idevice.idevice.md#first_seen)
 
-Defined in: [Devices/Device.ts:144](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L144)
+Defined in: [Devices/Device.ts:145](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L145)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[fixed_ip](../interfaces/devices_idevice.idevice.md#fixed_ip)
 
-Defined in: [Devices/Device.ts:159](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L159)
+Defined in: [Devices/Device.ts:160](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L160)
 
 ___
 
@@ -231,9 +231,9 @@ slow (up to 5 minutes) on larger controllers
 
 **Returns:** *Promise*<[*default*](devices_device.default.md)\>
 
-Defined in: [Devices/Device.ts:108](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L108)
+Defined in: [Devices/Device.ts:109](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L109)
 
-Defined in: [Devices/Device.ts:108](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L108)
+Defined in: [Devices/Device.ts:109](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L109)
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[hostname](../interfaces/devices_idevice.idevice.md#hostname)
 
-Defined in: [Devices/Device.ts:145](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L145)
+Defined in: [Devices/Device.ts:146](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L146)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[is_guest](../interfaces/devices_idevice.idevice.md#is_guest)
 
-Defined in: [Devices/Device.ts:146](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L146)
+Defined in: [Devices/Device.ts:147](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L147)
 
 ___
 
@@ -263,7 +263,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[is_wired](../interfaces/devices_idevice.idevice.md#is_wired)
 
-Defined in: [Devices/Device.ts:147](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L147)
+Defined in: [Devices/Device.ts:148](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L148)
 
 ___
 
@@ -273,7 +273,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[last_seen](../interfaces/devices_idevice.idevice.md#last_seen)
 
-Defined in: [Devices/Device.ts:148](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L148)
+Defined in: [Devices/Device.ts:149](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L149)
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[mac](../interfaces/devices_idevice.idevice.md#mac)
 
-Defined in: [Devices/Device.ts:149](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L149)
+Defined in: [Devices/Device.ts:150](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L150)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[name](../interfaces/devices_idevice.idevice.md#name)
 
-Defined in: [Devices/Device.ts:150](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L150)
+Defined in: [Devices/Device.ts:151](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L151)
 
 ___
 
@@ -303,7 +303,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[network_id](../interfaces/devices_idevice.idevice.md#network_id)
 
-Defined in: [Devices/Device.ts:158](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L158)
+Defined in: [Devices/Device.ts:159](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L159)
 
 ___
 
@@ -313,7 +313,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[note](../interfaces/devices_idevice.idevice.md#note)
 
-Defined in: [Devices/Device.ts:151](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L151)
+Defined in: [Devices/Device.ts:152](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L152)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[noted](../interfaces/devices_idevice.idevice.md#noted)
 
-Defined in: [Devices/Device.ts:152](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L152)
+Defined in: [Devices/Device.ts:153](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L153)
 
 ___
 
@@ -333,7 +333,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[os_name](../interfaces/devices_idevice.idevice.md#os_name)
 
-Defined in: [Devices/Device.ts:153](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L153)
+Defined in: [Devices/Device.ts:154](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L154)
 
 ___
 
@@ -343,7 +343,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[oui](../interfaces/devices_idevice.idevice.md#oui)
 
-Defined in: [Devices/Device.ts:154](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L154)
+Defined in: [Devices/Device.ts:155](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L155)
 
 ___
 
@@ -353,7 +353,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[site_id](../interfaces/devices_idevice.idevice.md#site_id)
 
-Defined in: [Devices/Device.ts:155](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L155)
+Defined in: [Devices/Device.ts:156](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L156)
 
 ___
 
@@ -363,7 +363,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[use_fixedip](../interfaces/devices_idevice.idevice.md#use_fixedip)
 
-Defined in: [Devices/Device.ts:157](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L157)
+Defined in: [Devices/Device.ts:158](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L158)
 
 ___
 
@@ -373,7 +373,7 @@ ___
 
 Implementation of: [IDevice](../interfaces/devices_idevice.idevice.md).[user_group_id](../interfaces/devices_idevice.idevice.md#user_group_id)
 
-Defined in: [Devices/Device.ts:156](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L156)
+Defined in: [Devices/Device.ts:157](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L157)
 
 ## Accessors
 
@@ -383,7 +383,7 @@ Defined in: [Devices/Device.ts:156](https://github.com/thib3113/unifi-client/blo
 
 **Returns:** [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)
 
-Defined in: [commons/_ObjectSubSite.ts:17](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L17)
+Defined in: [commons/_ObjectSubSite.ts:17](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L17)
 
 • `Protected`set **config**(`value`: [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)): *void*
 
@@ -395,7 +395,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:21](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L21)
+Defined in: [commons/_ObjectSubSite.ts:21](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L21)
 
 ___
 
@@ -405,7 +405,7 @@ ___
 
 **Returns:** [*IController*](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubSite.ts:31](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L31)
+Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L30)
 
 • `Protected`set **controller**(`value`: [*IController*](../interfaces/icontroller.icontroller-1.md)): *void*
 
@@ -417,7 +417,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:35](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L35)
+Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L34)
 
 ___
 
@@ -427,7 +427,7 @@ ___
 
 **Returns:** AxiosInstance
 
-Defined in: [commons/_ObjectSubSite.ts:24](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L24)
+Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L23)
 
 • `Protected`set **instance**(`value`: AxiosInstance): *void*
 
@@ -439,7 +439,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:28](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L28)
+Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L27)
 
 ___
 
@@ -449,7 +449,7 @@ ___
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ___
 
@@ -459,7 +459,7 @@ ___
 
 **Returns:** [*ISite*](../interfaces/sites_isite.isite.md)
 
-Defined in: [commons/_ObjectSubSite.ts:38](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L38)
+Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L37)
 
 • `Protected`set **site**(`value`: [*ISite*](../interfaces/sites_isite.isite.md)): *void*
 
@@ -471,7 +471,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:42](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L42)
+Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L41)
 
 ## Methods
 
@@ -481,7 +481,7 @@ Defined in: [commons/_ObjectSubSite.ts:42](https://github.com/thib3113/unifi-cli
 
 **Returns:** *Promise*<[*default*](devices_device.default.md)\>
 
-Defined in: [Devices/Device.ts:109](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L109)
+Defined in: [Devices/Device.ts:110](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L110)
 
 ___
 
@@ -500,7 +500,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:71](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L71)
+Defined in: [commons/_ObjectSubController.ts:70](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L70)
 
 ___
 
@@ -510,7 +510,7 @@ ___
 
 **Returns:** *Promise*<void\>
 
-Defined in: [Devices/Device.ts:126](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L126)
+Defined in: [Devices/Device.ts:127](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L127)
 
 ___
 
@@ -522,7 +522,7 @@ ___
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:56](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L56)
+Defined in: [commons/_ObjectSubController.ts:55](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L55)
 
 ___
 
@@ -546,7 +546,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/ObjectWithPrivateValues.ts#L6)
 
 ___
 
@@ -558,13 +558,13 @@ ___
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:53](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L53)
+Defined in: [commons/_ObjectSubController.ts:52](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L52)
 
 ___
 
 ### import
 
-▸ `Protected`**import**(`props`: [*IDevice*](../interfaces/devices_idevice.idevice.md)): *void*
+▸ `Protected`**import**(`props`: [*IDevice*](../interfaces/devices_idevice.idevice.md)): [*default*](devices_device.default.md)
 
 #### Parameters:
 
@@ -572,11 +572,11 @@ Name | Type |
 :------ | :------ |
 `props` | [*IDevice*](../interfaces/devices_idevice.idevice.md) |
 
-**Returns:** *void*
+**Returns:** [*default*](devices_device.default.md)
 
 Overrides: [default](commons__objectsubsite.default.md)
 
-Defined in: [Devices/Device.ts:19](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/Device.ts#L19)
+Defined in: [Devices/Device.ts:19](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/Device.ts#L19)
 
 ___
 
@@ -601,7 +601,7 @@ Name | Type | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubSite.ts:65](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L65)
+Defined in: [commons/_ObjectSubSite.ts:45](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L45)
 
 ___
 
@@ -629,7 +629,7 @@ Name | Type | Default value | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:86](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L86)
+Defined in: [commons/_ObjectSubController.ts:85](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L85)
 
 ___
 
@@ -654,4 +654,4 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/ObjectWithPrivateValues.ts#L11)

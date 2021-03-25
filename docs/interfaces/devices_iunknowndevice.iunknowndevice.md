@@ -31,7 +31,7 @@
 
 • `Optional` **fixed\_ip**: *string*
 
-Defined in: [Devices/IUnknownDevice.ts:12](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L12)
+Defined in: [Devices/IUnknownDevice.ts:12](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L12)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **is\_guest**: *boolean*
 
-Defined in: [Devices/IUnknownDevice.ts:9](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L9)
+Defined in: [Devices/IUnknownDevice.ts:9](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L9)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **is\_wired**: *boolean*
 
-Defined in: [Devices/IUnknownDevice.ts:10](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L10)
+Defined in: [Devices/IUnknownDevice.ts:10](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L10)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **mac**: *string*
 
-Defined in: [Devices/IUnknownDevice.ts:4](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L4)
+Defined in: [Devices/IUnknownDevice.ts:4](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L4)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **name**: *string*
 
-Defined in: [Devices/IUnknownDevice.ts:6](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L6)
+Defined in: [Devices/IUnknownDevice.ts:6](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L6)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 • `Optional` **network\_id**: *string*
 
-Defined in: [Devices/IUnknownDevice.ts:13](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L13)
+Defined in: [Devices/IUnknownDevice.ts:13](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L13)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 • **note**: *string*
 
-Defined in: [Devices/IUnknownDevice.ts:7](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L7)
+Defined in: [Devices/IUnknownDevice.ts:7](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L7)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 • **noted**: *boolean*
 
-Defined in: [Devices/IUnknownDevice.ts:8](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L8)
+Defined in: [Devices/IUnknownDevice.ts:8](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L8)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 • `Optional` **use\_fixedip**: *boolean*
 
-Defined in: [Devices/IUnknownDevice.ts:14](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L14)
+Defined in: [Devices/IUnknownDevice.ts:14](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L14)
 
 ___
 
@@ -103,4 +103,4 @@ ___
 
 • `Optional` **user\_group\_id**: *string*
 
-Defined in: [Devices/IUnknownDevice.ts:5](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Devices/IUnknownDevice.ts#L5)
+Defined in: [Devices/IUnknownDevice.ts:5](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Devices/IUnknownDevice.ts#L5)
