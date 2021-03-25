@@ -51,7 +51,7 @@ Name | Type |
 
 **Returns:** [*default*](controller.default.md)
 
-Defined in: [Controller.ts:35](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L35)
+Defined in: [Controller.ts:35](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L35)
 
 ## Properties
 
@@ -59,7 +59,7 @@ Defined in: [Controller.ts:35](https://github.com/thib3113/unifi-client/blob/a5b
 
 • `Private` `Readonly` **\_sites**: [*default*](sites_sites.default.md)
 
-Defined in: [Controller.ts:32](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L32)
+Defined in: [Controller.ts:32](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L32)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 Implementation of: [IController](../interfaces/icontroller.icontroller-1.md).[auth](../interfaces/icontroller.icontroller-1.md#auth)
 
-Defined in: [Controller.ts:31](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L31)
+Defined in: [Controller.ts:31](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L31)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 Implementation of: [IController](../interfaces/icontroller.icontroller-1.md).[controllerInstance](../interfaces/icontroller.icontroller-1.md#controllerinstance)
 
-Defined in: [Controller.ts:29](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L29)
+Defined in: [Controller.ts:29](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L29)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 • `Private` **logged**: *boolean*
 
-Defined in: [Controller.ts:35](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L35)
+Defined in: [Controller.ts:35](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L35)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 Implementation of: [IController](../interfaces/icontroller.icontroller-1.md).[unifiOs](../interfaces/icontroller.icontroller-1.md#unifios)
 
-Defined in: [Controller.ts:33](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L33)
+Defined in: [Controller.ts:33](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L33)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 Implementation of: [IController](../interfaces/icontroller.icontroller-1.md).[version](../interfaces/icontroller.icontroller-1.md#version)
 
-Defined in: [Controller.ts:34](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L34)
+Defined in: [Controller.ts:34](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L34)
 
 ## Accessors
 
@@ -119,7 +119,7 @@ Defined in: [Controller.ts:34](https://github.com/thib3113/unifi-client/blob/a5b
 
 Implementation of: [IController](../interfaces/icontroller.icontroller-1.md).[sites](../interfaces/icontroller.icontroller-1.md#sites)
 
-Defined in: [Controller.ts:25](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L25)
+Defined in: [Controller.ts:25](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L25)
 
 ## Methods
 
@@ -129,7 +129,7 @@ Defined in: [Controller.ts:25](https://github.com/thib3113/unifi-client/blob/a5b
 
 **Returns:** *void*
 
-Defined in: [Controller.ts:87](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L87)
+Defined in: [Controller.ts:87](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L87)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [Controller.ts:181](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L181)
+Defined in: [Controller.ts:181](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L181)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [Controller.ts:172](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L172)
+Defined in: [Controller.ts:172](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L172)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 Implementation of: [IController](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [Controller.ts:69](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L69)
+Defined in: [Controller.ts:69](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L69)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 Implementation of: [IController](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [Controller.ts:74](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L74)
+Defined in: [Controller.ts:74](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L74)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 Implementation of: [IController](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [Controller.ts:82](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L82)
+Defined in: [Controller.ts:82](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L82)
 
 ___
 
@@ -195,4 +195,4 @@ ___
 
 **Returns:** *void*
 
-Defined in: [Controller.ts:63](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L63)
+Defined in: [Controller.ts:63](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L63)
