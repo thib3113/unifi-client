@@ -2,33 +2,33 @@
     {
         "scope": "https://unifi:443",
         "method": "PUT",
-        "path": "/proxy/network/api/s/default/rest/firewallrule/60569d21c3d8180463a4cc76",
+        "path": "/proxy/network/api/s/default/rest/firewallrule/605942cdc3d8180463a5794c",
         "body": {
+            "_id": "605942cdc3d8180463a5794c",
             "action": "accept",
-            "enabled": true,
             "dst_address": "",
             "dst_firewallgroup_ids": [],
+            "dst_networkconf_id": "",
             "dst_networkconf_type": "NETv4",
+            "enabled": true,
             "icmp_typename": "",
             "ipsec": "",
             "logging": false,
             "name": "testRule2",
             "protocol": "all",
             "protocol_match_excepted": false,
+            "rule_index": "4090",
             "ruleset": "WAN_IN",
-            "src_firewallgroup_ids": [],
+            "site_id": "6001f8a73fd98c05e9465f91",
             "src_address": "51.254.200.228",
+            "src_firewallgroup_ids": [],
             "src_mac_address": "",
+            "src_networkconf_id": "",
             "src_networkconf_type": "NETv4",
             "state_established": false,
             "state_invalid": false,
             "state_new": false,
-            "state_related": false,
-            "dst_networkconf_id": "",
-            "src_networkconf_id": "",
-            "rule_index": "4090",
-            "site_id": "6001f8a73fd98c05e9465f91",
-            "_id": "60569d21c3d8180463a4cc76"
+            "state_related": false
         },
         "status": 200,
         "response": {
@@ -37,7 +37,7 @@
             },
             "data": [
                 {
-                    "_id": "60569d21c3d8180463a4cc76",
+                    "_id": "605942cdc3d8180463a5794c",
                     "action": "accept",
                     "enabled": true,
                     "dst_address": "",
@@ -87,18 +87,18 @@
             "content-length",
             "608",
             "date",
-            "Sun, 21 Mar 2021 01:10:56 GMT",
+            "Tue, 23 Mar 2021 01:22:20 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI1YmNiMDk5Mi01YjMyLTQ5OWYtYjRhOC0zYjdkZGVkZmVmOWUiLCJpYXQiOjE2MTYzNzA4ODgsImV4cCI6NDc3MjEzMDg4OH0.DdI2Z90dMC0rbJvTkiZFKlwpSSEur2LVypPOapyvzNo; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.liTYw7h9CgTNdKaaIu6GUgP2-lKwka2zz5Qfe_q_khg; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     },
     {
         "scope": "https://unifi:443",
         "method": "GET",
-        "path": "/proxy/network/api/s/default/rest/firewallrule/60569d21c3d8180463a4cc76",
+        "path": "/proxy/network/api/s/default/rest/firewallrule/605942cdc3d8180463a5794c",
         "body": "",
         "status": 200,
         "response": {
@@ -107,7 +107,7 @@
             },
             "data": [
                 {
-                    "_id": "60569d21c3d8180463a4cc76",
+                    "_id": "605942cdc3d8180463a5794c",
                     "action": "accept",
                     "enabled": true,
                     "dst_address": "",
@@ -157,11 +157,11 @@
             "content-length",
             "608",
             "date",
-            "Sun, 21 Mar 2021 01:10:56 GMT",
+            "Tue, 23 Mar 2021 01:22:20 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI1YmNiMDk5Mi01YjMyLTQ5OWYtYjRhOC0zYjdkZGVkZmVmOWUiLCJpYXQiOjE2MTYzNzA4ODgsImV4cCI6NDc3MjEzMDg4OH0.DdI2Z90dMC0rbJvTkiZFKlwpSSEur2LVypPOapyvzNo; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.liTYw7h9CgTNdKaaIu6GUgP2-lKwka2zz5Qfe_q_khg; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }

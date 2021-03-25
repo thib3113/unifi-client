@@ -26,7 +26,7 @@
 
 Inherited from: [IObjectSubController](commons__objectsubcontroller.iobjectsubcontroller.md).[controller](commons__objectsubcontroller.iobjectsubcontroller.md#controller)
 
-Defined in: [commons/_ObjectSubController.ts:12](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L12)
+Defined in: [commons/_ObjectSubController.ts:11](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L11)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 Inherited from: [IObjectSubController](commons__objectsubcontroller.iobjectsubcontroller.md).[instance](commons__objectsubcontroller.iobjectsubcontroller.md#instance)
 
-Defined in: [commons/_ObjectSubController.ts:11](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L11)
+Defined in: [commons/_ObjectSubController.ts:10](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L10)
 
 ___
 
@@ -44,4 +44,4 @@ ___
 
 • **site**: [*ISite*](sites_isite.isite.md)
 
-Defined in: [commons/_ObjectSubSite.ts:7](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L7)
+Defined in: [commons/_ObjectSubSite.ts:7](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L7)

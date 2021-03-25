@@ -30,7 +30,7 @@ export default class FWRule extends _ObjectSubSite implements IFWRule {
     state_new: boolean;
     state_related: boolean;
 
-    protected import(props: IFWRule): void {
+    protected import(props: IFWRule): this {
         if (!Validate.isUndefined(props._id)) {
             this._id = props._id;
         }
@@ -106,6 +106,8 @@ export default class FWRule extends _ObjectSubSite implements IFWRule {
         if (!Validate.isUndefined(props.state_related)) {
             this.state_related = props.state_related;
         }
+
+        return this;
     }
 
     constructor(config: IObjectSubSiteConfig, props: IFWRule) {

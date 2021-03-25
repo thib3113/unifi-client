@@ -148,6 +148,13 @@ export default class Controller implements IController {
                     return Promise.resolve();
                 }
                 if (error.response) {
+                    if (error.config?.clearCurl) {
+                        error.config.clearCurl();
+                    } else if (error.config) {
+                        delete error.config.curlObject;
+                        delete error.config.curlCommand;
+                        delete error.config.clearCurl;
+                    }
                     const meta = error.response.data?.meta;
                     error = new UnifiError(
                         meta?.msg || error.response.statusText || 'Unknown HTTP Error',

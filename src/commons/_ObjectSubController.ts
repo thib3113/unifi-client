@@ -49,6 +49,13 @@ export default class _ObjectSubController extends ObjectWithPrivateValues {
         this.config = config;
     }
 
+    public getinstance(): AxiosInstance {
+        return this.instance;
+    }
+    public getController(): IController {
+        return this.controller;
+    }
+
     // toJSON(): Record<string, any> {
     //     const obj = { ...this };
     //     //remove circular known parts

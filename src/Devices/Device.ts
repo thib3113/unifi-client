@@ -16,7 +16,7 @@ export default class Device extends _ObjectSubSite implements IDevice {
         this.needVersion('forget', this._forget, '5.9.0');
     }
 
-    protected import(props: IDevice): void {
+    protected import(props: IDevice): this {
         if (!Validate.isUndefined(props.confidence)) {
             this.confidence = props.confidence;
         }
@@ -93,6 +93,7 @@ export default class Device extends _ObjectSubSite implements IDevice {
         if (!Validate.isUndefined(props.fingerprint_engine_version)) {
             this.fingerprint_engine_version = props.fingerprint_engine_version;
         }
+        return this;
     }
 
     /**
