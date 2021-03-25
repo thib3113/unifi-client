@@ -2,7 +2,7 @@
     {
         "scope": "https://unifi:443",
         "method": "DELETE",
-        "path": "/proxy/network/api/s/default/rest/firewallrule/60569d21c3d8180463a4cc76",
+        "path": "/proxy/network/api/s/default/rest/firewallrule/605942cdc3d8180463a5794c",
         "body": "",
         "status": 200,
         "response": {
@@ -33,18 +33,18 @@
             "content-length",
             "30",
             "date",
-            "Sun, 21 Mar 2021 01:10:56 GMT",
+            "Tue, 23 Mar 2021 01:22:20 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI1YmNiMDk5Mi01YjMyLTQ5OWYtYjRhOC0zYjdkZGVkZmVmOWUiLCJpYXQiOjE2MTYzNzA4ODgsImV4cCI6NDc3MjEzMDg4OH0.DdI2Z90dMC0rbJvTkiZFKlwpSSEur2LVypPOapyvzNo; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.liTYw7h9CgTNdKaaIu6GUgP2-lKwka2zz5Qfe_q_khg; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     },
     {
         "scope": "https://unifi:443",
         "method": "GET",
-        "path": "/proxy/network/api/s/default/rest/firewallgroup/60569d21c3d8180463a4cc76",
+        "path": "/proxy/network/api/s/default/rest/firewallgroup/605942cdc3d8180463a5794c",
         "body": "",
         "status": 200,
         "response": {
@@ -75,11 +75,11 @@
             "content-length",
             "30",
             "date",
-            "Sun, 21 Mar 2021 01:10:56 GMT",
+            "Tue, 23 Mar 2021 01:22:20 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI1YmNiMDk5Mi01YjMyLTQ5OWYtYjRhOC0zYjdkZGVkZmVmOWUiLCJpYXQiOjE2MTYzNzA4ODgsImV4cCI6NDc3MjEzMDg4OH0.DdI2Z90dMC0rbJvTkiZFKlwpSSEur2LVypPOapyvzNo; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.liTYw7h9CgTNdKaaIu6GUgP2-lKwka2zz5Qfe_q_khg; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }

@@ -10,4 +10,8 @@ export interface IGuestAuthorization {
     authorized_by: AuthorizedBy;
     end: timestampDate;
     qos_usage_quota: number;
+
+    qos_rate_max_up: number;
+    qos_rate_max_down: number;
+    qos_overwrite: boolean;
 }

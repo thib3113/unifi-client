@@ -53,7 +53,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubSite.ts:10](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L10)
+Defined in: [commons/_ObjectSubSite.ts:10](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L10)
 
 ## Accessors
 
@@ -63,7 +63,7 @@ Defined in: [commons/_ObjectSubSite.ts:10](https://github.com/thib3113/unifi-cli
 
 **Returns:** [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)
 
-Defined in: [commons/_ObjectSubSite.ts:17](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L17)
+Defined in: [commons/_ObjectSubSite.ts:17](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L17)
 
 • `Protected`set **config**(`value`: [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)): *void*
 
@@ -75,7 +75,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:21](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L21)
+Defined in: [commons/_ObjectSubSite.ts:21](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L21)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 **Returns:** [*IController*](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubSite.ts:31](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L31)
+Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L30)
 
 • `Protected`set **controller**(`value`: [*IController*](../interfaces/icontroller.icontroller-1.md)): *void*
 
@@ -97,7 +97,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:35](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L35)
+Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L34)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 **Returns:** AxiosInstance
 
-Defined in: [commons/_ObjectSubSite.ts:24](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L24)
+Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L23)
 
 • `Protected`set **instance**(`value`: AxiosInstance): *void*
 
@@ -119,7 +119,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:28](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L28)
+Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L27)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 **Returns:** [*ISite*](../interfaces/sites_isite.isite.md)
 
-Defined in: [commons/_ObjectSubSite.ts:38](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L38)
+Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L37)
 
 • `Protected`set **site**(`value`: [*ISite*](../interfaces/sites_isite.isite.md)): *void*
 
@@ -151,7 +151,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:42](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L42)
+Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L41)
 
 ## Methods
 
@@ -168,7 +168,7 @@ Name | Type | Default value |
 
 **Returns:** *Promise*<[*IGuestAuthorization*](../interfaces/hotspot_iguestauthorization.iguestauthorization.md)\>
 
-Defined in: [Hotspot/Hotspots.ts:16](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Hotspot/Hotspots.ts#L16)
+Defined in: [Hotspot/Hotspots.ts:16](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Hotspot/Hotspots.ts#L16)
 
 ___
 
@@ -187,7 +187,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:71](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L71)
+Defined in: [commons/_ObjectSubController.ts:70](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L70)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:56](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L56)
+Defined in: [commons/_ObjectSubController.ts:55](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L55)
 
 ___
 
@@ -223,7 +223,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/ObjectWithPrivateValues.ts#L6)
 
 ___
 
@@ -235,13 +235,13 @@ ___
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:53](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L53)
+Defined in: [commons/_ObjectSubController.ts:52](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L52)
 
 ___
 
 ### import
 
-▸ `Protected`**import**(`props`: *any*): *void*
+▸ `Protected`**import**(`props`: *any*): [*default*](hotspot_hotspots.default.md)
 
 #### Parameters:
 
@@ -249,11 +249,11 @@ Name | Type |
 :------ | :------ |
 `props` | *any* |
 
-**Returns:** *void*
+**Returns:** [*default*](hotspot_hotspots.default.md)
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubSite.ts:47](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L47)
+Defined in: [commons/_ObjectSubSite.ts:25](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L25)
 
 ___
 
@@ -278,7 +278,7 @@ Name | Type | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubSite.ts:65](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubSite.ts#L65)
+Defined in: [commons/_ObjectSubSite.ts:45](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubSite.ts#L45)
 
 ___
 
@@ -306,7 +306,7 @@ Name | Type | Default value | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:86](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L86)
+Defined in: [commons/_ObjectSubController.ts:85](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/_ObjectSubController.ts#L85)
 
 ___
 
@@ -331,7 +331,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/commons/ObjectWithPrivateValues.ts#L11)
 
 ___
 
@@ -347,4 +347,4 @@ Name | Type |
 
 **Returns:** *Promise*<void\>
 
-Defined in: [Hotspot/Hotspots.ts:55](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Hotspot/Hotspots.ts#L55)
+Defined in: [Hotspot/Hotspots.ts:55](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Hotspot/Hotspots.ts#L55)
