@@ -28,7 +28,7 @@
 
 Inherited from: [IUnifiAuthProps](unifiauth.iunifiauthprops.md).[password](unifiauth.iunifiauthprops.md#password)
 
-Defined in: [UnifiAuth.ts:16](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/UnifiAuth.ts#L16)
+Defined in: [UnifiAuth.ts:16](https://github.com/thib3113/unifi-client/blob/54bf19f/src/UnifiAuth.ts#L16)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 Inherited from: [IUnifiAuthProps](unifiauth.iunifiauthprops.md).[rememberMe](unifiauth.iunifiauthprops.md#rememberme)
 
-Defined in: [UnifiAuth.ts:14](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/UnifiAuth.ts#L14)
+Defined in: [UnifiAuth.ts:14](https://github.com/thib3113/unifi-client/blob/54bf19f/src/UnifiAuth.ts#L14)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • `Optional` **strictSSL**: *boolean*
 
-Defined in: [Controller.ts:16](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L16)
+Defined in: [Controller.ts:16](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L16)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 • **url**: *string*
 
-Defined in: [Controller.ts:15](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/Controller.ts#L15)
+Defined in: [Controller.ts:15](https://github.com/thib3113/unifi-client/blob/54bf19f/src/Controller.ts#L15)
 
 ___
 
@@ -64,4 +64,4 @@ ___
 
 Inherited from: [IUnifiAuthProps](unifiauth.iunifiauthprops.md).[username](unifiauth.iunifiauthprops.md#username)
 
-Defined in: [UnifiAuth.ts:15](https://github.com/thib3113/unifi-client/blob/a5b15ed/src/UnifiAuth.ts#L15)
+Defined in: [UnifiAuth.ts:15](https://github.com/thib3113/unifi-client/blob/54bf19f/src/UnifiAuth.ts#L15)
