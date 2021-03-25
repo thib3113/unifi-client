@@ -22,6 +22,8 @@ export type ruleSet =
 
 export type FWRuleActions = 'drop' | 'accept' | 'reject';
 
+export type ipString = string;
+
 export interface IFWRule {
     _id: string;
     ruleset: ruleSet;

@@ -68,7 +68,7 @@ export default class Controller implements IController {
 
     async getSites(): Promise<Array<Site>> {
         this.needLoggedIn();
-        return this._sites.getSites();
+        return this._sites.list();
     }
 
     async login(): Promise<IUser> {

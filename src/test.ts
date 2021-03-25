@@ -12,7 +12,7 @@ const startDate = new Date();
 const check = async () => {
     console.log(startDate, new Date());
     try {
-        const res = await c.sites.getSites();
+        const res = await c.sites.list();
         const a = res;
         console.log('getSites');
     } catch (e) {
@@ -34,7 +34,7 @@ const main = async () => {
 
         await c.login();
 
-        const res = await c.sites.getSites();
+        const res = await c.sites.list();
         console.log(res);
         check();
     } catch (e) {

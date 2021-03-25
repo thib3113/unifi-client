@@ -10,6 +10,7 @@
 
 - [ACCEPTED](errors_eerrorscodes.eerrorscodes.md#accepted)
 - [BAD\_GATEWAY](errors_eerrorscodes.eerrorscodes.md#bad_gateway)
+- [BAD\_PARAMETERS](errors_eerrorscodes.eerrorscodes.md#bad_parameters)
 - [BAD\_REQUEST](errors_eerrorscodes.eerrorscodes.md#bad_request)
 - [CONFLICT](errors_eerrorscodes.eerrorscodes.md#conflict)
 - [CONTINUE](errors_eerrorscodes.eerrorscodes.md#continue)
@@ -64,7 +65,7 @@
 
 • **ACCEPTED**: = 202
 
-Defined in: [Errors/EErrorsCodes.ts:34](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L34)
+Defined in: [Errors/EErrorsCodes.ts:38](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L38)
 
 ___
 
@@ -72,7 +73,17 @@ ___
 
 • **BAD\_GATEWAY**: = 502
 
-Defined in: [Errors/EErrorsCodes.ts:68](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L68)
+Defined in: [Errors/EErrorsCodes.ts:72](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L72)
+
+___
+
+### BAD\_PARAMETERS
+
+• **BAD\_PARAMETERS**: = 7
+
+you pass an incorrect parameter
+
+Defined in: [Errors/EErrorsCodes.ts:32](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L32)
 
 ___
 
@@ -80,7 +91,7 @@ ___
 
 • **BAD\_REQUEST**: = 400
 
-Defined in: [Errors/EErrorsCodes.ts:46](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L46)
+Defined in: [Errors/EErrorsCodes.ts:50](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L50)
 
 ___
 
@@ -88,7 +99,7 @@ ___
 
 • **CONFLICT**: = 409
 
-Defined in: [Errors/EErrorsCodes.ts:55](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L55)
+Defined in: [Errors/EErrorsCodes.ts:59](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L59)
 
 ___
 
@@ -96,7 +107,7 @@ ___
 
 • **CONTINUE**: = 100
 
-Defined in: [Errors/EErrorsCodes.ts:30](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L30)
+Defined in: [Errors/EErrorsCodes.ts:34](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L34)
 
 ___
 
@@ -104,7 +115,7 @@ ___
 
 • **CREATED**: = 201
 
-Defined in: [Errors/EErrorsCodes.ts:33](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L33)
+Defined in: [Errors/EErrorsCodes.ts:37](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L37)
 
 ___
 
@@ -112,7 +123,7 @@ ___
 
 • **EXPECTATION\_FAILED**: = 417
 
-Defined in: [Errors/EErrorsCodes.ts:63](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L63)
+Defined in: [Errors/EErrorsCodes.ts:67](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L67)
 
 ___
 
@@ -122,7 +133,7 @@ ___
 
 Fail to read CSRF token from cookie in unifi answer
 
-Defined in: [Errors/EErrorsCodes.ts:10](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L10)
+Defined in: [Errors/EErrorsCodes.ts:10](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L10)
 
 ___
 
@@ -132,7 +143,7 @@ ___
 
 fail to detect if it's UnifiOs or not
 
-Defined in: [Errors/EErrorsCodes.ts:6](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L6)
+Defined in: [Errors/EErrorsCodes.ts:6](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L6)
 
 ___
 
@@ -140,7 +151,7 @@ ___
 
 • **FORBIDDEN**: = 403
 
-Defined in: [Errors/EErrorsCodes.ts:49](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L49)
+Defined in: [Errors/EErrorsCodes.ts:53](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L53)
 
 ___
 
@@ -148,7 +159,7 @@ ___
 
 • **FOUND**: = 302
 
-Defined in: [Errors/EErrorsCodes.ts:41](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L41)
+Defined in: [Errors/EErrorsCodes.ts:45](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L45)
 
 ___
 
@@ -156,7 +167,7 @@ ___
 
 • **GATEWAY\_TIMEOUT**: = 504
 
-Defined in: [Errors/EErrorsCodes.ts:70](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L70)
+Defined in: [Errors/EErrorsCodes.ts:74](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L74)
 
 ___
 
@@ -164,7 +175,7 @@ ___
 
 • **GONE**: = 410
 
-Defined in: [Errors/EErrorsCodes.ts:56](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L56)
+Defined in: [Errors/EErrorsCodes.ts:60](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L60)
 
 ___
 
@@ -172,7 +183,7 @@ ___
 
 • **HTTP\_VERSION\_NOT\_SUPPORTED**: = 505
 
-Defined in: [Errors/EErrorsCodes.ts:71](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L71)
+Defined in: [Errors/EErrorsCodes.ts:75](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L75)
 
 ___
 
@@ -180,7 +191,7 @@ ___
 
 • **INTERNAL\_SERVER\_ERROR**: = 500
 
-Defined in: [Errors/EErrorsCodes.ts:66](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L66)
+Defined in: [Errors/EErrorsCodes.ts:70](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L70)
 
 ___
 
@@ -188,7 +199,7 @@ ___
 
 • **LENGTH\_REQUIRED**: = 411
 
-Defined in: [Errors/EErrorsCodes.ts:57](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L57)
+Defined in: [Errors/EErrorsCodes.ts:61](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L61)
 
 ___
 
@@ -196,7 +207,7 @@ ___
 
 • **METHOD\_NOT\_ALLOWED**: = 405
 
-Defined in: [Errors/EErrorsCodes.ts:51](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L51)
+Defined in: [Errors/EErrorsCodes.ts:55](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L55)
 
 ___
 
@@ -204,7 +215,7 @@ ___
 
 • **MOVED\_PERMANENTLY**: = 301
 
-Defined in: [Errors/EErrorsCodes.ts:40](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L40)
+Defined in: [Errors/EErrorsCodes.ts:44](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L44)
 
 ___
 
@@ -212,7 +223,7 @@ ___
 
 • **MULTIPLE\_CHOICES**: = 300
 
-Defined in: [Errors/EErrorsCodes.ts:39](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L39)
+Defined in: [Errors/EErrorsCodes.ts:43](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L43)
 
 ___
 
@@ -222,7 +233,7 @@ ___
 
 you need to login before using this function
 
-Defined in: [Errors/EErrorsCodes.ts:24](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L24)
+Defined in: [Errors/EErrorsCodes.ts:24](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L24)
 
 ___
 
@@ -232,7 +243,7 @@ ___
 
 the version of your controller is too old to access this property
 
-Defined in: [Errors/EErrorsCodes.ts:15](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L15)
+Defined in: [Errors/EErrorsCodes.ts:15](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L15)
 
 ___
 
@@ -242,7 +253,7 @@ ___
 
 some functions will show a message, and you can force to use it
 
-Defined in: [Errors/EErrorsCodes.ts:28](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L28)
+Defined in: [Errors/EErrorsCodes.ts:28](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L28)
 
 ___
 
@@ -250,7 +261,7 @@ ___
 
 • **NON\_AUTHORITATIVE\_INFORMATION**: = 203
 
-Defined in: [Errors/EErrorsCodes.ts:35](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L35)
+Defined in: [Errors/EErrorsCodes.ts:39](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L39)
 
 ___
 
@@ -258,7 +269,7 @@ ___
 
 • **NOT\_ACCEPTABLE**: = 406
 
-Defined in: [Errors/EErrorsCodes.ts:52](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L52)
+Defined in: [Errors/EErrorsCodes.ts:56](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L56)
 
 ___
 
@@ -266,7 +277,7 @@ ___
 
 • **NOT\_FOUND**: = 404
 
-Defined in: [Errors/EErrorsCodes.ts:50](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L50)
+Defined in: [Errors/EErrorsCodes.ts:54](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L54)
 
 ___
 
@@ -274,7 +285,7 @@ ___
 
 • **NOT\_IMPLEMENTED**: = 501
 
-Defined in: [Errors/EErrorsCodes.ts:67](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L67)
+Defined in: [Errors/EErrorsCodes.ts:71](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L71)
 
 ___
 
@@ -282,7 +293,7 @@ ___
 
 • **NOT\_MODIFIED**: = 304
 
-Defined in: [Errors/EErrorsCodes.ts:43](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L43)
+Defined in: [Errors/EErrorsCodes.ts:47](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L47)
 
 ___
 
@@ -290,7 +301,7 @@ ___
 
 • **NO\_CONTENT**: = 204
 
-Defined in: [Errors/EErrorsCodes.ts:36](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L36)
+Defined in: [Errors/EErrorsCodes.ts:40](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L40)
 
 ___
 
@@ -298,7 +309,7 @@ ___
 
 • **OK**: = 200
 
-Defined in: [Errors/EErrorsCodes.ts:32](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L32)
+Defined in: [Errors/EErrorsCodes.ts:36](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L36)
 
 ___
 
@@ -306,7 +317,7 @@ ___
 
 • **PARTIAL\_CONTENT**: = 206
 
-Defined in: [Errors/EErrorsCodes.ts:38](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L38)
+Defined in: [Errors/EErrorsCodes.ts:42](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L42)
 
 ___
 
@@ -314,7 +325,7 @@ ___
 
 • **PAYMENT\_REQUIRED**: = 402
 
-Defined in: [Errors/EErrorsCodes.ts:48](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L48)
+Defined in: [Errors/EErrorsCodes.ts:52](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L52)
 
 ___
 
@@ -322,7 +333,7 @@ ___
 
 • **PRECONDITION\_FAILED**: = 412
 
-Defined in: [Errors/EErrorsCodes.ts:58](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L58)
+Defined in: [Errors/EErrorsCodes.ts:62](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L62)
 
 ___
 
@@ -330,7 +341,7 @@ ___
 
 • **PROXY\_AUTHENTICATION\_REQUIRED**: = 407
 
-Defined in: [Errors/EErrorsCodes.ts:53](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L53)
+Defined in: [Errors/EErrorsCodes.ts:57](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L57)
 
 ___
 
@@ -338,7 +349,7 @@ ___
 
 • **REQUESTED\_RANGE\_NOT\_SATISFIABLE**: = 416
 
-Defined in: [Errors/EErrorsCodes.ts:62](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L62)
+Defined in: [Errors/EErrorsCodes.ts:66](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L66)
 
 ___
 
@@ -346,7 +357,7 @@ ___
 
 • **REQUEST\_ENTITY\_TOO\_LARGE**: = 413
 
-Defined in: [Errors/EErrorsCodes.ts:59](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L59)
+Defined in: [Errors/EErrorsCodes.ts:63](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L63)
 
 ___
 
@@ -354,7 +365,7 @@ ___
 
 • **REQUEST\_TIMEOUT**: = 408
 
-Defined in: [Errors/EErrorsCodes.ts:54](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L54)
+Defined in: [Errors/EErrorsCodes.ts:58](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L58)
 
 ___
 
@@ -362,7 +373,7 @@ ___
 
 • **REQUEST\_URI\_TOO\_LONG**: = 414
 
-Defined in: [Errors/EErrorsCodes.ts:60](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L60)
+Defined in: [Errors/EErrorsCodes.ts:64](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L64)
 
 ___
 
@@ -370,7 +381,7 @@ ___
 
 • **RESET\_CONTENT**: = 205
 
-Defined in: [Errors/EErrorsCodes.ts:37](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L37)
+Defined in: [Errors/EErrorsCodes.ts:41](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L41)
 
 ___
 
@@ -378,7 +389,7 @@ ___
 
 • **SEE\_OTHER**: = 303
 
-Defined in: [Errors/EErrorsCodes.ts:42](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L42)
+Defined in: [Errors/EErrorsCodes.ts:46](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L46)
 
 ___
 
@@ -386,7 +397,7 @@ ___
 
 • **SERVICE\_UNAVAILABLE**: = 503
 
-Defined in: [Errors/EErrorsCodes.ts:69](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L69)
+Defined in: [Errors/EErrorsCodes.ts:73](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L73)
 
 ___
 
@@ -394,7 +405,7 @@ ___
 
 • **SWITCHING\_PROTOCOLS**: = 101
 
-Defined in: [Errors/EErrorsCodes.ts:31](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L31)
+Defined in: [Errors/EErrorsCodes.ts:35](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L35)
 
 ___
 
@@ -402,7 +413,7 @@ ___
 
 • **TEMPORARY\_REDIRECT**: = 307
 
-Defined in: [Errors/EErrorsCodes.ts:45](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L45)
+Defined in: [Errors/EErrorsCodes.ts:49](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L49)
 
 ___
 
@@ -410,7 +421,7 @@ ___
 
 • **TOO\_MANY\_REQUESTS**: = 429
 
-Defined in: [Errors/EErrorsCodes.ts:65](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L65)
+Defined in: [Errors/EErrorsCodes.ts:69](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L69)
 
 ___
 
@@ -418,7 +429,7 @@ ___
 
 • **UNAUTHORIZED**: = 401
 
-Defined in: [Errors/EErrorsCodes.ts:47](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L47)
+Defined in: [Errors/EErrorsCodes.ts:51](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L51)
 
 ___
 
@@ -428,7 +439,7 @@ ___
 
 the type of controller (unifiOs / non unifiOs) doesn't allow this property
 
-Defined in: [Errors/EErrorsCodes.ts:20](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L20)
+Defined in: [Errors/EErrorsCodes.ts:20](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L20)
 
 ___
 
@@ -436,7 +447,7 @@ ___
 
 • **UNKNOWN\_ERROR**: = 0
 
-Defined in: [Errors/EErrorsCodes.ts:2](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L2)
+Defined in: [Errors/EErrorsCodes.ts:2](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L2)
 
 ___
 
@@ -444,7 +455,7 @@ ___
 
 • **UNPROCESSABLE\_ENTITY**: = 422
 
-Defined in: [Errors/EErrorsCodes.ts:64](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L64)
+Defined in: [Errors/EErrorsCodes.ts:68](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L68)
 
 ___
 
@@ -452,7 +463,7 @@ ___
 
 • **UNSUPPORTED\_MEDIA\_TYPE**: = 415
 
-Defined in: [Errors/EErrorsCodes.ts:61](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L61)
+Defined in: [Errors/EErrorsCodes.ts:65](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L65)
 
 ___
 
@@ -460,4 +471,4 @@ ___
 
 • **USE\_PROXY**: = 305
 
-Defined in: [Errors/EErrorsCodes.ts:44](https://github.com/thib3113/unifi-client/blob/7789674/src/Errors/EErrorsCodes.ts#L44)
+Defined in: [Errors/EErrorsCodes.ts:48](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Errors/EErrorsCodes.ts#L48)

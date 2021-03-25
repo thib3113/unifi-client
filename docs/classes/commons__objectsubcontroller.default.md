@@ -31,7 +31,9 @@
 ### Methods
 
 - [checkNeeds](commons__objectsubcontroller.default.md#checkneeds)
+- [getController](commons__objectsubcontroller.default.md#getcontroller)
 - [getPrivate](commons__objectsubcontroller.default.md#getprivate)
+- [getinstance](commons__objectsubcontroller.default.md#getinstance)
 - [needVersion](commons__objectsubcontroller.default.md#needversion)
 - [setPrivate](commons__objectsubcontroller.default.md#setprivate)
 
@@ -51,7 +53,7 @@ Name | Type |
 
 Overrides: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:43](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L43)
+Defined in: [commons/_ObjectSubController.ts:44](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L44)
 
 ## Accessors
 
@@ -61,7 +63,7 @@ Defined in: [commons/_ObjectSubController.ts:43](https://github.com/thib3113/uni
 
 **Returns:** [*IObjectSubController*](../interfaces/commons__objectsubcontroller.iobjectsubcontroller.md)
 
-Defined in: [commons/_ObjectSubController.ts:16](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L16)
+Defined in: [commons/_ObjectSubController.ts:17](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L17)
 
 • `Protected`set **config**(`value`: [*IObjectSubController*](../interfaces/commons__objectsubcontroller.iobjectsubcontroller.md)): *void*
 
@@ -73,7 +75,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:20](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L20)
+Defined in: [commons/_ObjectSubController.ts:21](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L21)
 
 ___
 
@@ -83,7 +85,7 @@ ___
 
 **Returns:** [*IController*](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L30)
+Defined in: [commons/_ObjectSubController.ts:31](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L31)
 
 • `Protected`set **controller**(`value`: [*IController*](../interfaces/icontroller.icontroller-1.md)): *void*
 
@@ -95,7 +97,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L34)
+Defined in: [commons/_ObjectSubController.ts:35](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L35)
 
 ___
 
@@ -105,7 +107,7 @@ ___
 
 **Returns:** AxiosInstance
 
-Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L23)
+Defined in: [commons/_ObjectSubController.ts:24](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L24)
 
 • `Protected`set **instance**(`value`: AxiosInstance): *void*
 
@@ -117,7 +119,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L27)
+Defined in: [commons/_ObjectSubController.ts:28](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L28)
 
 ___
 
@@ -127,7 +129,7 @@ ___
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ___
 
@@ -137,7 +139,7 @@ ___
 
 **Returns:** [*ISite*](../interfaces/sites_isite.isite.md)
 
-Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L37)
+Defined in: [commons/_ObjectSubController.ts:38](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L38)
 
 • `Protected`set **site**(`value`: [*ISite*](../interfaces/sites_isite.isite.md)): *void*
 
@@ -149,7 +151,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L41)
+Defined in: [commons/_ObjectSubController.ts:42](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L42)
 
 ## Methods
 
@@ -166,7 +168,17 @@ Name | Type |
 
 **Returns:** *boolean*
 
-Defined in: [commons/_ObjectSubController.ts:63](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L63)
+Defined in: [commons/_ObjectSubController.ts:71](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L71)
+
+___
+
+### getController
+
+▸ **getController**(): [*IController*](../interfaces/icontroller.icontroller-1.md)
+
+**Returns:** [*IController*](../interfaces/icontroller.icontroller-1.md)
+
+Defined in: [commons/_ObjectSubController.ts:56](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L56)
 
 ___
 
@@ -190,13 +202,23 @@ Name | Type |
 
 Inherited from: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L6)
+
+___
+
+### getinstance
+
+▸ **getinstance**(): AxiosInstance
+
+**Returns:** AxiosInstance
+
+Defined in: [commons/_ObjectSubController.ts:53](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L53)
 
 ___
 
 ### needVersion
 
-▸ `Protected`**needVersion**<T\>(`key`: *never*, `value`: T, `minVersion?`: *string*, `unifiOs?`: *boolean*, `allowUndefined?`: *boolean*): *boolean*
+▸ `Protected`**needVersion**<T\>(`key`: keyof [*default*](commons__objectsubcontroller.default.md), `value`: T, `minVersion?`: *string*, `unifiOs?`: *boolean*, `allowUndefined?`: *boolean*): *boolean*
 
 #### Type parameters:
 
@@ -208,7 +230,7 @@ Name |
 
 Name | Type | Default value | Description |
 :------ | :------ | :------ | :------ |
-`key` | *never* | - | the key object that need to be only supported on some versions   |
+`key` | keyof [*default*](commons__objectsubcontroller.default.md) | - | the key object that need to be only supported on some versions   |
 `value` | T | - | the value store in this object   |
 `minVersion?` | *string* | - | the minimal semver version for this object   |
 `unifiOs?` | *boolean* | - | need to be unifiOs ? or Unifi Controller ? if no one, pass undefined   |
@@ -216,7 +238,7 @@ Name | Type | Default value | Description |
 
 **Returns:** *boolean*
 
-Defined in: [commons/_ObjectSubController.ts:78](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L78)
+Defined in: [commons/_ObjectSubController.ts:86](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L86)
 
 ___
 
@@ -241,4 +263,4 @@ Name | Type |
 
 Inherited from: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/ObjectWithPrivateValues.ts#L11)

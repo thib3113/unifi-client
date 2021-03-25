@@ -21,7 +21,7 @@
 
 • `Optional` **ap\_mac**: *string*
 
-Defined in: [Hotspot/IAuthorizeGuest.ts:7](https://github.com/thib3113/unifi-client/blob/7789674/src/Hotspot/IAuthorizeGuest.ts#L7)
+Defined in: [Hotspot/IAuthorizeGuest.ts:7](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Hotspot/IAuthorizeGuest.ts#L7)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • `Optional` **bytes**: *number*
 
-Defined in: [Hotspot/IAuthorizeGuest.ts:6](https://github.com/thib3113/unifi-client/blob/7789674/src/Hotspot/IAuthorizeGuest.ts#L6)
+Defined in: [Hotspot/IAuthorizeGuest.ts:6](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Hotspot/IAuthorizeGuest.ts#L6)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • `Optional` **down**: *number*
 
-Defined in: [Hotspot/IAuthorizeGuest.ts:5](https://github.com/thib3113/unifi-client/blob/7789674/src/Hotspot/IAuthorizeGuest.ts#L5)
+Defined in: [Hotspot/IAuthorizeGuest.ts:5](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Hotspot/IAuthorizeGuest.ts#L5)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **mac**: *string*
 
-Defined in: [Hotspot/IAuthorizeGuest.ts:2](https://github.com/thib3113/unifi-client/blob/7789674/src/Hotspot/IAuthorizeGuest.ts#L2)
+Defined in: [Hotspot/IAuthorizeGuest.ts:2](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Hotspot/IAuthorizeGuest.ts#L2)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • `Optional` **minutes**: *number*
 
-Defined in: [Hotspot/IAuthorizeGuest.ts:3](https://github.com/thib3113/unifi-client/blob/7789674/src/Hotspot/IAuthorizeGuest.ts#L3)
+Defined in: [Hotspot/IAuthorizeGuest.ts:3](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Hotspot/IAuthorizeGuest.ts#L3)
 
 ___
 
@@ -61,4 +61,4 @@ ___
 
 • `Optional` **up**: *number*
 
-Defined in: [Hotspot/IAuthorizeGuest.ts:4](https://github.com/thib3113/unifi-client/blob/7789674/src/Hotspot/IAuthorizeGuest.ts#L4)
+Defined in: [Hotspot/IAuthorizeGuest.ts:4](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Hotspot/IAuthorizeGuest.ts#L4)

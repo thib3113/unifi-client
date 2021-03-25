@@ -26,6 +26,10 @@ export enum EErrorsCodes {
      * some functions will show a message, and you can force to use it
      */
     NEED_TO_FORCE,
+    /**
+     * you pass an incorrect parameter
+     */
+    BAD_PARAMETERS,
     // CODE THAT CAN COME FROM UNIFI ( 100 to 600 )
     CONTINUE = 100,
     SWITCHING_PROTOCOLS = 101,

@@ -2,7 +2,7 @@ import Controller from './Controller';
 
 export * from './interfaces';
 export * from './Errors';
-export * from './Clients';
+export * from './Devices';
 export * from './Hotspot';
 export * from './Firewall';
 
