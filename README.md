@@ -89,3 +89,6 @@ To debug, you can use the [debug](https://www.npmjs.com/package/debug) library, 
 * `unifi-client:axios` : will logs axios request (can contain secrets informations)
 * `unifi-client:axios:verbose` : will logs more things on axios, like send and receive payload (can contain secrets informations)
 * `unifi-client:axios:curl` : will log curl cmd corresponding to the axios request (can contain secrets informations)
+
+## Useful links
+ubntwiki : https://ubntwiki.com/products/software/unifi-controller/api

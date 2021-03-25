@@ -5,6 +5,7 @@ import { IController } from '../IController';
 import { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import _ObjectSubController from '../commons/_ObjectSubController';
 import Hotspots from '../Hotspot/Hotspots';
+import { Devices } from '../Devices';
 
 export default class Site extends _ObjectSubController implements ISite {
     public _id: string;
@@ -18,6 +19,7 @@ export default class Site extends _ObjectSubController implements ISite {
 
     public firewall: Firewall;
     public hotspots: Hotspots;
+    public devices: Devices;
 
     constructor(controller: IController, props: ISite) {
         super({
@@ -55,5 +57,6 @@ export default class Site extends _ObjectSubController implements ISite {
         };
         this.firewall = new Firewall(config);
         this.hotspots = new Hotspots(config);
+        this.devices = new Devices(config);
     }
 }
