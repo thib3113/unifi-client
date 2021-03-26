@@ -74,7 +74,7 @@ check [technical documentation](https://thib3113.github.io/unifi-client/modules)
 ## Tests
 This library is auto-tested on :
  - UDM-pro : `latest`
- - Unifi controller : `latest`, `6.0.23`, `6.0.28`, `6.0.36`, `6.0.41`, `6.0.43`, `6.0.45`
+ - Unifi controller : `latest`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23` 
 
 ## References
 This nodejs package/class uses functionality/Know-How gathered from different third-party projects:
