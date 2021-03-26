@@ -51,7 +51,7 @@
 
 • **avatar**: *string*
 
-Defined in: [User/IUser.ts:34](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L34)
+Defined in: [User/IUser.ts:34](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L34)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 • **avatar\_relative\_path**: *string*
 
-Defined in: [User/IUser.ts:13](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L13)
+Defined in: [User/IUser.ts:13](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L13)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • **avatar\_rpath2**: *string*
 
-Defined in: [User/IUser.ts:14](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L14)
+Defined in: [User/IUser.ts:14](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L14)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 • **cloud\_access\_granted**: *boolean*
 
-Defined in: [User/IUser.ts:32](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L32)
+Defined in: [User/IUser.ts:32](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L32)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 • **create\_time**: *number*
 
-Defined in: [User/IUser.ts:17](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L17)
+Defined in: [User/IUser.ts:17](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L17)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 • **email**: *string*
 
-Defined in: [User/IUser.ts:10](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L10)
+Defined in: [User/IUser.ts:10](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L10)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 • **email\_status**: *string*
 
-Defined in: [User/IUser.ts:11](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L11)
+Defined in: [User/IUser.ts:11](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L11)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 • **employee\_number**: *string*
 
-Defined in: [User/IUser.ts:16](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L16)
+Defined in: [User/IUser.ts:16](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L16)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 • **extras**: *Record*<string, unknown\>
 
-Defined in: [User/IUser.ts:18](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L18)
+Defined in: [User/IUser.ts:18](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L18)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 • **first\_name**: *string*
 
-Defined in: [User/IUser.ts:7](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L7)
+Defined in: [User/IUser.ts:7](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L7)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 • **full\_name**: *string*
 
-Defined in: [User/IUser.ts:9](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L9)
+Defined in: [User/IUser.ts:9](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L9)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 • **groups**: [*IUserGroup*](user_iusergroup.iusergroup.md)[]
 
-Defined in: [User/IUser.ts:28](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L28)
+Defined in: [User/IUser.ts:28](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L28)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 • **id**: *string*
 
-Defined in: [User/IUser.ts:39](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L39)
+Defined in: [User/IUser.ts:39](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L39)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 • **isOwner**: *boolean*
 
-Defined in: [User/IUser.ts:40](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L40)
+Defined in: [User/IUser.ts:40](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L40)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 • **isSuperAdmin**: *boolean*
 
-Defined in: [User/IUser.ts:41](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L41)
+Defined in: [User/IUser.ts:41](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L41)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 • **last\_name**: *string*
 
-Defined in: [User/IUser.ts:8](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L8)
+Defined in: [User/IUser.ts:8](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L8)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 • **local\_account\_exist**: *boolean*
 
-Defined in: [User/IUser.ts:20](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L20)
+Defined in: [User/IUser.ts:20](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L20)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 • **nfc\_card\_status**: *string*
 
-Defined in: [User/IUser.ts:38](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L38)
+Defined in: [User/IUser.ts:38](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L38)
 
 ___
 
@@ -195,7 +195,7 @@ ___
 
 • **nfc\_card\_type**: *string*
 
-Defined in: [User/IUser.ts:37](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L37)
+Defined in: [User/IUser.ts:37](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L37)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 • **nfc\_display\_id**: *string*
 
-Defined in: [User/IUser.ts:36](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L36)
+Defined in: [User/IUser.ts:36](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L36)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 • **nfc\_token**: *string*
 
-Defined in: [User/IUser.ts:35](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L35)
+Defined in: [User/IUser.ts:35](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L35)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 • **password\_revision**: *number*
 
-Defined in: [User/IUser.ts:21](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L21)
+Defined in: [User/IUser.ts:21](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L21)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 • **permissions**: *Record*<string, string[]\>
 
-Defined in: [User/IUser.ts:30](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L30)
+Defined in: [User/IUser.ts:30](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L30)
 
 ___
 
@@ -235,7 +235,7 @@ ___
 
 • **phone**: *string*
 
-Defined in: [User/IUser.ts:12](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L12)
+Defined in: [User/IUser.ts:12](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L12)
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 • **roles**: [*IUserRole*](user_iuserrole.iuserrole.md)[]
 
-Defined in: [User/IUser.ts:29](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L29)
+Defined in: [User/IUser.ts:29](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L29)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 • **scopes**: *string*[]
 
-Defined in: [User/IUser.ts:31](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L31)
+Defined in: [User/IUser.ts:31](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L31)
 
 ___
 
@@ -259,7 +259,7 @@ ___
 
 • **sso\_account**: *string*
 
-Defined in: [User/IUser.ts:22](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L22)
+Defined in: [User/IUser.ts:22](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L22)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 • **sso\_picture**: *string*
 
-Defined in: [User/IUser.ts:25](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L25)
+Defined in: [User/IUser.ts:25](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L25)
 
 ___
 
@@ -275,7 +275,7 @@ ___
 
 • **sso\_username**: *string*
 
-Defined in: [User/IUser.ts:24](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L24)
+Defined in: [User/IUser.ts:24](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L24)
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 • **sso\_uuid**: *string*
 
-Defined in: [User/IUser.ts:23](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L23)
+Defined in: [User/IUser.ts:23](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L23)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 • **status**: *string*
 
-Defined in: [User/IUser.ts:15](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L15)
+Defined in: [User/IUser.ts:15](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L15)
 
 ___
 
@@ -299,7 +299,7 @@ ___
 
 • **uid\_sso\_account**: *string*
 
-Defined in: [User/IUser.ts:27](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L27)
+Defined in: [User/IUser.ts:27](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L27)
 
 ___
 
@@ -307,7 +307,7 @@ ___
 
 • **uid\_sso\_id**: *string*
 
-Defined in: [User/IUser.ts:26](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L26)
+Defined in: [User/IUser.ts:26](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L26)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 • **unique\_id**: *string*
 
-Defined in: [User/IUser.ts:6](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L6)
+Defined in: [User/IUser.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L6)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 • **update\_time**: *number*
 
-Defined in: [User/IUser.ts:33](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L33)
+Defined in: [User/IUser.ts:33](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L33)
 
 ___
 
@@ -331,4 +331,4 @@ ___
 
 • **username**: *string*
 
-Defined in: [User/IUser.ts:19](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUser.ts#L19)
+Defined in: [User/IUser.ts:19](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUser.ts#L19)
