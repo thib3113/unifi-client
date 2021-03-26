@@ -69,7 +69,7 @@ Name | Type |
 
 Overrides: [default](commons__objectsubsite.default.md)
 
-Defined in: [Hotspot/GuestAuthorization.ts:15](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L15)
+Defined in: [Hotspot/GuestAuthorization.ts:15](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L15)
 
 ## Properties
 
@@ -79,7 +79,7 @@ Defined in: [Hotspot/GuestAuthorization.ts:15](https://github.com/thib3113/unifi
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[_id](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#_id)
 
-Defined in: [Hotspot/GuestAuthorization.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L6)
+Defined in: [Hotspot/GuestAuthorization.ts:6](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L6)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[authorized_by](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#authorized_by)
 
-Defined in: [Hotspot/GuestAuthorization.ts:7](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L7)
+Defined in: [Hotspot/GuestAuthorization.ts:7](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L7)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[end](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#end)
 
-Defined in: [Hotspot/GuestAuthorization.ts:8](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L8)
+Defined in: [Hotspot/GuestAuthorization.ts:8](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L8)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[mac](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#mac)
 
-Defined in: [Hotspot/GuestAuthorization.ts:9](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L9)
+Defined in: [Hotspot/GuestAuthorization.ts:9](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L9)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[qos_overwrite](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#qos_overwrite)
 
-Defined in: [Hotspot/GuestAuthorization.ts:13](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L13)
+Defined in: [Hotspot/GuestAuthorization.ts:13](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L13)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[qos_rate_max_down](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#qos_rate_max_down)
 
-Defined in: [Hotspot/GuestAuthorization.ts:14](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L14)
+Defined in: [Hotspot/GuestAuthorization.ts:14](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L14)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[qos_rate_max_up](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#qos_rate_max_up)
 
-Defined in: [Hotspot/GuestAuthorization.ts:15](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L15)
+Defined in: [Hotspot/GuestAuthorization.ts:15](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L15)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[qos_usage_quota](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#qos_usage_quota)
 
-Defined in: [Hotspot/GuestAuthorization.ts:10](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L10)
+Defined in: [Hotspot/GuestAuthorization.ts:10](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L10)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[site_id](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#site_id)
 
-Defined in: [Hotspot/GuestAuthorization.ts:11](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L11)
+Defined in: [Hotspot/GuestAuthorization.ts:11](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L11)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 Implementation of: [IGuestAuthorization](../interfaces/hotspot_iguestauthorization.iguestauthorization.md).[start](../interfaces/hotspot_iguestauthorization.iguestauthorization.md#start)
 
-Defined in: [Hotspot/GuestAuthorization.ts:12](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/GuestAuthorization.ts#L12)
+Defined in: [Hotspot/GuestAuthorization.ts:12](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Hotspot/GuestAuthorization.ts#L12)
 
 ## Accessors
 
@@ -179,7 +179,7 @@ Defined in: [Hotspot/GuestAuthorization.ts:12](https://github.com/thib3113/unifi
 
 **Returns:** [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)
 
-Defined in: [commons/_ObjectSubSite.ts:15](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubSite.ts#L15)
+Defined in: [commons/_ObjectSubSite.ts:15](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubSite.ts#L15)
 
 • `Protected`set **config**(`value`: [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)): *void*
 
@@ -191,7 +191,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:19](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubSite.ts#L19)
+Defined in: [commons/_ObjectSubSite.ts:19](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubSite.ts#L19)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 **Returns:** [*IController*](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L30)
+Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L30)
 
 • `Protected`set **controller**(`value`: [*IController*](../interfaces/icontroller.icontroller-1.md)): *void*
 
@@ -213,7 +213,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L34)
+Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L34)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 **Returns:** AxiosInstance
 
-Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L23)
+Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L23)
 
 • `Protected`set **instance**(`value`: AxiosInstance): *void*
 
@@ -235,7 +235,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L27)
+Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L27)
 
 ___
 
@@ -245,7 +245,7 @@ ___
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 **Returns:** [*ISite*](../interfaces/sites_isite.isite.md)
 
-Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L37)
+Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L37)
 
 • `Protected`set **site**(`value`: [*ISite*](../interfaces/sites_isite.isite.md)): *void*
 
@@ -267,7 +267,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L41)
+Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L41)
 
 ## Methods
 
@@ -286,7 +286,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:70](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L70)
+Defined in: [commons/_ObjectSubController.ts:70](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L70)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:55](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L55)
+Defined in: [commons/_ObjectSubController.ts:55](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L55)
 
 ___
 
@@ -322,7 +322,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/ObjectWithPrivateValues.ts#L6)
 
 ___
 
@@ -334,7 +334,7 @@ ___
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:52](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L52)
+Defined in: [commons/_ObjectSubController.ts:52](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L52)
 
 ___
 
@@ -352,7 +352,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubSite.ts:23](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubSite.ts#L23)
+Defined in: [commons/_ObjectSubSite.ts:23](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubSite.ts#L23)
 
 ___
 
@@ -377,7 +377,7 @@ Name | Type | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubSite.ts:43](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubSite.ts#L43)
+Defined in: [commons/_ObjectSubSite.ts:43](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubSite.ts#L43)
 
 ___
 
@@ -405,7 +405,7 @@ Name | Type | Default value | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:85](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L85)
+Defined in: [commons/_ObjectSubController.ts:85](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L85)
 
 ___
 
@@ -430,4 +430,4 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/ObjectWithPrivateValues.ts#L11)
