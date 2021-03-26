@@ -51,7 +51,7 @@
 
 • **\_id**: *string*
 
-Defined in: [Devices/IDevice.ts:4](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L4)
+Defined in: [Devices/IDevice.ts:4](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L4)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 • **confidence**: *number*
 
-Defined in: [Devices/IDevice.ts:18](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L18)
+Defined in: [Devices/IDevice.ts:18](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L18)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • **dev\_cat**: *number*
 
-Defined in: [Devices/IDevice.ts:13](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L13)
+Defined in: [Devices/IDevice.ts:13](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L13)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 • **dev\_family**: *number*
 
-Defined in: [Devices/IDevice.ts:14](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L14)
+Defined in: [Devices/IDevice.ts:14](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L14)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 • **dev\_id**: *number*
 
-Defined in: [Devices/IDevice.ts:17](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L17)
+Defined in: [Devices/IDevice.ts:17](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L17)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 • **dev\_id\_override**: *number*
 
-Defined in: [Devices/IDevice.ts:11](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L11)
+Defined in: [Devices/IDevice.ts:11](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L11)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 • **dev\_vendor**: *number*
 
-Defined in: [Devices/IDevice.ts:16](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L16)
+Defined in: [Devices/IDevice.ts:16](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L16)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 • `Optional` **fingerprint\_engine\_version**: *string*
 
-Defined in: [Devices/IDevice.ts:20](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L20)
+Defined in: [Devices/IDevice.ts:20](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L20)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 • **fingerprint\_override**: *boolean*
 
-Defined in: [Devices/IDevice.ts:10](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L10)
+Defined in: [Devices/IDevice.ts:10](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L10)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 • **fingerprint\_source**: *number*
 
-Defined in: [Devices/IDevice.ts:12](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L12)
+Defined in: [Devices/IDevice.ts:12](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L12)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 • **first\_seen**: *number*
 
-Defined in: [Devices/IDevice.ts:7](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L7)
+Defined in: [Devices/IDevice.ts:7](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L7)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[fixed_ip](devices_iunknowndevice.iunknowndevice.md#fixed_ip)
 
-Defined in: [Devices/IUnknownDevice.ts:12](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L12)
+Defined in: [Devices/IUnknownDevice.ts:12](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L12)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 • **hostname**: *string*
 
-Defined in: [Devices/IDevice.ts:9](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L9)
+Defined in: [Devices/IDevice.ts:9](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L9)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[is_guest](devices_iunknowndevice.iunknowndevice.md#is_guest)
 
-Defined in: [Devices/IUnknownDevice.ts:9](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L9)
+Defined in: [Devices/IUnknownDevice.ts:9](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L9)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[is_wired](devices_iunknowndevice.iunknowndevice.md#is_wired)
 
-Defined in: [Devices/IUnknownDevice.ts:10](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L10)
+Defined in: [Devices/IUnknownDevice.ts:10](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L10)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 • **last\_seen**: *number*
 
-Defined in: [Devices/IDevice.ts:8](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L8)
+Defined in: [Devices/IDevice.ts:8](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L8)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[mac](devices_iunknowndevice.iunknowndevice.md#mac)
 
-Defined in: [Devices/IUnknownDevice.ts:4](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L4)
+Defined in: [Devices/IUnknownDevice.ts:4](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L4)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[name](devices_iunknowndevice.iunknowndevice.md#name)
 
-Defined in: [Devices/IUnknownDevice.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L6)
+Defined in: [Devices/IUnknownDevice.ts:6](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L6)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[network_id](devices_iunknowndevice.iunknowndevice.md#network_id)
 
-Defined in: [Devices/IUnknownDevice.ts:13](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L13)
+Defined in: [Devices/IUnknownDevice.ts:13](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L13)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[note](devices_iunknowndevice.iunknowndevice.md#note)
 
-Defined in: [Devices/IUnknownDevice.ts:7](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L7)
+Defined in: [Devices/IUnknownDevice.ts:7](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L7)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[noted](devices_iunknowndevice.iunknowndevice.md#noted)
 
-Defined in: [Devices/IUnknownDevice.ts:8](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L8)
+Defined in: [Devices/IUnknownDevice.ts:8](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L8)
 
 ___
 
@@ -235,7 +235,7 @@ ___
 
 • **os\_name**: *number*
 
-Defined in: [Devices/IDevice.ts:15](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L15)
+Defined in: [Devices/IDevice.ts:15](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L15)
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 • **oui**: *string*
 
-Defined in: [Devices/IDevice.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L6)
+Defined in: [Devices/IDevice.ts:6](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L6)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 • **site\_id**: *string*
 
-Defined in: [Devices/IDevice.ts:5](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IDevice.ts#L5)
+Defined in: [Devices/IDevice.ts:5](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IDevice.ts#L5)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[use_fixedip](devices_iunknowndevice.iunknowndevice.md#use_fixedip)
 
-Defined in: [Devices/IUnknownDevice.ts:14](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L14)
+Defined in: [Devices/IUnknownDevice.ts:14](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L14)
 
 ___
 
@@ -271,4 +271,4 @@ ___
 
 Inherited from: [IUnknownDevice](devices_iunknowndevice.iunknowndevice.md).[user_group_id](devices_iunknowndevice.iunknowndevice.md#user_group_id)
 
-Defined in: [Devices/IUnknownDevice.ts:5](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Devices/IUnknownDevice.ts#L5)
+Defined in: [Devices/IUnknownDevice.ts:5](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Devices/IUnknownDevice.ts#L5)
