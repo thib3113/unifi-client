@@ -20,7 +20,7 @@
 
 • **level**: *number*
 
-Defined in: [User/IUserRole.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUserRole.ts#L6)
+Defined in: [User/IUserRole.ts:6](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/User/IUserRole.ts#L6)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **name**: *string*
 
-Defined in: [User/IUserRole.ts:3](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUserRole.ts#L3)
+Defined in: [User/IUserRole.ts:3](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/User/IUserRole.ts#L3)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **system\_key**: *string*
 
-Defined in: [User/IUserRole.ts:5](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUserRole.ts#L5)
+Defined in: [User/IUserRole.ts:5](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/User/IUserRole.ts#L5)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **system\_role**: *boolean*
 
-Defined in: [User/IUserRole.ts:4](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUserRole.ts#L4)
+Defined in: [User/IUserRole.ts:4](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/User/IUserRole.ts#L4)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 • **unique\_id**: *string*
 
-Defined in: [User/IUserRole.ts:2](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/User/IUserRole.ts#L2)
+Defined in: [User/IUserRole.ts:2](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/User/IUserRole.ts#L2)
