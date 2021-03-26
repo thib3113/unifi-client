@@ -1,0 +1,2 @@
+#project will be run on a linux container, prefer linux line ending
+* text=auto eol=lf

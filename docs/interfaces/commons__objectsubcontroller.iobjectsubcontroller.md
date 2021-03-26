@@ -23,7 +23,7 @@
 
 • **controller**: [*IController*](icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubController.ts:11](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L11)
+Defined in: [commons/_ObjectSubController.ts:11](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L11)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 • **instance**: AxiosInstance
 
-Defined in: [commons/_ObjectSubController.ts:10](https://github.com/thib3113/unifi-client/blob/7789674/src/commons/_ObjectSubController.ts#L10)
+Defined in: [commons/_ObjectSubController.ts:10](https://github.com/thib3113/unifi-client/blob/963dbf0/src/commons/_ObjectSubController.ts#L10)
