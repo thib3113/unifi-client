@@ -59,7 +59,7 @@ Name | Type |
 
 Overrides: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [UnifiAuth.ts:45](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L45)
+Defined in: [UnifiAuth.ts:45](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L45)
 
 ## Properties
 
@@ -67,7 +67,7 @@ Defined in: [UnifiAuth.ts:45](https://github.com/thib3113/unifi-client/blob/d186
 
 • `Private` **csrfToken**: *string*
 
-Defined in: [UnifiAuth.ts:45](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L45)
+Defined in: [UnifiAuth.ts:45](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L45)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 • `Private` **instance**: AxiosInstance
 
-Defined in: [UnifiAuth.ts:21](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L21)
+Defined in: [UnifiAuth.ts:21](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L21)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 • `Private` `Readonly` **rememberMe**: *boolean*
 
-Defined in: [UnifiAuth.ts:22](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L22)
+Defined in: [UnifiAuth.ts:22](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L22)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 • `Private` **token**: *string*
 
-Defined in: [UnifiAuth.ts:44](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L44)
+Defined in: [UnifiAuth.ts:44](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L44)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 • **unifiOs**: *boolean*
 
-Defined in: [UnifiAuth.ts:23](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L23)
+Defined in: [UnifiAuth.ts:23](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L23)
 
 ## Accessors
 
@@ -109,7 +109,7 @@ Defined in: [UnifiAuth.ts:23](https://github.com/thib3113/unifi-client/blob/d186
 
 **Returns:** *string*
 
-Defined in: [UnifiAuth.ts:32](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L32)
+Defined in: [UnifiAuth.ts:32](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L32)
 
 • `Private`set **password**(`data`: *string*): *void*
 
@@ -121,7 +121,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [UnifiAuth.ts:36](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L36)
+Defined in: [UnifiAuth.ts:36](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L36)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/d186312/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [UnifiAuth.ts:24](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L24)
+Defined in: [UnifiAuth.ts:24](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L24)
 
 • `Private`set **username**(`data`: *string*): *void*
 
@@ -153,7 +153,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [UnifiAuth.ts:28](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L28)
+Defined in: [UnifiAuth.ts:28](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L28)
 
 ## Methods
 
@@ -163,7 +163,7 @@ Defined in: [UnifiAuth.ts:28](https://github.com/thib3113/unifi-client/blob/d186
 
 **Returns:** *void*
 
-Defined in: [UnifiAuth.ts:70](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L70)
+Defined in: [UnifiAuth.ts:70](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L70)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [UnifiAuth.ts:40](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L40)
+Defined in: [UnifiAuth.ts:40](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L40)
 
 ___
 
@@ -189,7 +189,7 @@ Name | Type |
 
 **Returns:** CookieMap
 
-Defined in: [UnifiAuth.ts:127](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L127)
+Defined in: [UnifiAuth.ts:127](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L127)
 
 ___
 
@@ -213,7 +213,7 @@ Name | Type |
 
 Inherited from: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/d186312/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L6)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 **Returns:** *Promise*<string\>
 
-Defined in: [UnifiAuth.ts:201](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L201)
+Defined in: [UnifiAuth.ts:201](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L201)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 **Returns:** *Promise*<string\>
 
-Defined in: [UnifiAuth.ts:189](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L189)
+Defined in: [UnifiAuth.ts:189](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L189)
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 **Returns:** *Promise*<[*IUser*](../interfaces/user_iuser.iuser.md)\>
 
-Defined in: [UnifiAuth.ts:134](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L134)
+Defined in: [UnifiAuth.ts:134](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L134)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 **Returns:** *Promise*<void\>
 
-Defined in: [UnifiAuth.ts:185](https://github.com/thib3113/unifi-client/blob/d186312/src/UnifiAuth.ts#L185)
+Defined in: [UnifiAuth.ts:185](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/UnifiAuth.ts#L185)
 
 ___
 
@@ -278,4 +278,4 @@ Name | Type |
 
 Inherited from: [default](commons_objectwithprivatevalues.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/d186312/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L11)
