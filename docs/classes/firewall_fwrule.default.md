@@ -86,7 +86,7 @@ Name | Type |
 
 Overrides: [default](commons__objectsubsite.default.md)
 
-Defined in: [Firewall/FWRule.ts:111](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L111)
+Defined in: [Firewall/FWRule.ts:111](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L111)
 
 ## Properties
 
@@ -96,7 +96,7 @@ Defined in: [Firewall/FWRule.ts:111](https://github.com/thib3113/unifi-client/bl
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[_id](../interfaces/interfaces.ifwrule.md#_id)
 
-Defined in: [Firewall/FWRule.ts:7](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L7)
+Defined in: [Firewall/FWRule.ts:7](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L7)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[action](../interfaces/interfaces.ifwrule.md#action)
 
-Defined in: [Firewall/FWRule.ts:8](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L8)
+Defined in: [Firewall/FWRule.ts:8](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L8)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[dst_address](../interfaces/interfaces.ifwrule.md#dst_address)
 
-Defined in: [Firewall/FWRule.ts:9](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L9)
+Defined in: [Firewall/FWRule.ts:9](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L9)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[dst_firewallgroup_ids](../interfaces/interfaces.ifwrule.md#dst_firewallgroup_ids)
 
-Defined in: [Firewall/FWRule.ts:10](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L10)
+Defined in: [Firewall/FWRule.ts:10](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L10)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[dst_networkconf_id](../interfaces/interfaces.ifwrule.md#dst_networkconf_id)
 
-Defined in: [Firewall/FWRule.ts:11](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L11)
+Defined in: [Firewall/FWRule.ts:11](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L11)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[dst_networkconf_type](../interfaces/interfaces.ifwrule.md#dst_networkconf_type)
 
-Defined in: [Firewall/FWRule.ts:12](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L12)
+Defined in: [Firewall/FWRule.ts:12](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L12)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[enabled](../interfaces/interfaces.ifwrule.md#enabled)
 
-Defined in: [Firewall/FWRule.ts:13](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L13)
+Defined in: [Firewall/FWRule.ts:13](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L13)
 
 ___
 
@@ -166,7 +166,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[icmp_typename](../interfaces/interfaces.ifwrule.md#icmp_typename)
 
-Defined in: [Firewall/FWRule.ts:14](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L14)
+Defined in: [Firewall/FWRule.ts:14](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L14)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[ipsec](../interfaces/interfaces.ifwrule.md#ipsec)
 
-Defined in: [Firewall/FWRule.ts:15](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L15)
+Defined in: [Firewall/FWRule.ts:15](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L15)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[logging](../interfaces/interfaces.ifwrule.md#logging)
 
-Defined in: [Firewall/FWRule.ts:16](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L16)
+Defined in: [Firewall/FWRule.ts:16](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L16)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[name](../interfaces/interfaces.ifwrule.md#name)
 
-Defined in: [Firewall/FWRule.ts:17](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L17)
+Defined in: [Firewall/FWRule.ts:17](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L17)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[protocol](../interfaces/interfaces.ifwrule.md#protocol)
 
-Defined in: [Firewall/FWRule.ts:18](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L18)
+Defined in: [Firewall/FWRule.ts:18](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L18)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[protocol_match_excepted](../interfaces/interfaces.ifwrule.md#protocol_match_excepted)
 
-Defined in: [Firewall/FWRule.ts:19](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L19)
+Defined in: [Firewall/FWRule.ts:19](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L19)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[rule_index](../interfaces/interfaces.ifwrule.md#rule_index)
 
-Defined in: [Firewall/FWRule.ts:20](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L20)
+Defined in: [Firewall/FWRule.ts:20](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L20)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[ruleset](../interfaces/interfaces.ifwrule.md#ruleset)
 
-Defined in: [Firewall/FWRule.ts:21](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L21)
+Defined in: [Firewall/FWRule.ts:21](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L21)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[site_id](../interfaces/interfaces.ifwrule.md#site_id)
 
-Defined in: [Firewall/FWRule.ts:22](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L22)
+Defined in: [Firewall/FWRule.ts:22](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L22)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[src_address](../interfaces/interfaces.ifwrule.md#src_address)
 
-Defined in: [Firewall/FWRule.ts:23](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L23)
+Defined in: [Firewall/FWRule.ts:23](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L23)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[src_firewallgroup_ids](../interfaces/interfaces.ifwrule.md#src_firewallgroup_ids)
 
-Defined in: [Firewall/FWRule.ts:24](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L24)
+Defined in: [Firewall/FWRule.ts:24](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L24)
 
 ___
 
@@ -276,7 +276,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[src_mac_address](../interfaces/interfaces.ifwrule.md#src_mac_address)
 
-Defined in: [Firewall/FWRule.ts:25](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L25)
+Defined in: [Firewall/FWRule.ts:25](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L25)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[src_networkconf_id](../interfaces/interfaces.ifwrule.md#src_networkconf_id)
 
-Defined in: [Firewall/FWRule.ts:26](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L26)
+Defined in: [Firewall/FWRule.ts:26](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L26)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[src_networkconf_type](../interfaces/interfaces.ifwrule.md#src_networkconf_type)
 
-Defined in: [Firewall/FWRule.ts:27](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L27)
+Defined in: [Firewall/FWRule.ts:27](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L27)
 
 ___
 
@@ -306,7 +306,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[state_established](../interfaces/interfaces.ifwrule.md#state_established)
 
-Defined in: [Firewall/FWRule.ts:28](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L28)
+Defined in: [Firewall/FWRule.ts:28](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L28)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[state_invalid](../interfaces/interfaces.ifwrule.md#state_invalid)
 
-Defined in: [Firewall/FWRule.ts:29](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L29)
+Defined in: [Firewall/FWRule.ts:29](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L29)
 
 ___
 
@@ -326,7 +326,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[state_new](../interfaces/interfaces.ifwrule.md#state_new)
 
-Defined in: [Firewall/FWRule.ts:30](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L30)
+Defined in: [Firewall/FWRule.ts:30](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L30)
 
 ___
 
@@ -336,7 +336,7 @@ ___
 
 Implementation of: [IFWRule](../interfaces/interfaces.ifwrule.md).[state_related](../interfaces/interfaces.ifwrule.md#state_related)
 
-Defined in: [Firewall/FWRule.ts:31](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L31)
+Defined in: [Firewall/FWRule.ts:31](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L31)
 
 ## Accessors
 
@@ -346,7 +346,7 @@ Defined in: [Firewall/FWRule.ts:31](https://github.com/thib3113/unifi-client/blo
 
 **Returns:** [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)
 
-Defined in: [commons/_ObjectSubSite.ts:15](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubSite.ts#L15)
+Defined in: [commons/_ObjectSubSite.ts:15](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubSite.ts#L15)
 
 • `Protected`set **config**(`value`: [*IObjectSubSiteConfig*](../interfaces/commons__objectsubsite.iobjectsubsiteconfig.md)): *void*
 
@@ -358,7 +358,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubSite.ts:19](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubSite.ts#L19)
+Defined in: [commons/_ObjectSubSite.ts:19](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubSite.ts#L19)
 
 ___
 
@@ -368,7 +368,7 @@ ___
 
 **Returns:** [*IController*](../interfaces/icontroller.icontroller-1.md)
 
-Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L30)
+Defined in: [commons/_ObjectSubController.ts:30](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L30)
 
 • `Protected`set **controller**(`value`: [*IController*](../interfaces/icontroller.icontroller-1.md)): *void*
 
@@ -380,7 +380,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L34)
+Defined in: [commons/_ObjectSubController.ts:34](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L34)
 
 ___
 
@@ -390,7 +390,7 @@ ___
 
 **Returns:** AxiosInstance
 
-Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L23)
+Defined in: [commons/_ObjectSubController.ts:23](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L23)
 
 • `Protected`set **instance**(`value`: AxiosInstance): *void*
 
@@ -402,7 +402,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L27)
+Defined in: [commons/_ObjectSubController.ts:27](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L27)
 
 ___
 
@@ -412,7 +412,7 @@ ___
 
 **Returns:** *WeakMap*<any, any\>
 
-Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L18)
+Defined in: [commons/ObjectWithPrivateValues.ts:18](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/ObjectWithPrivateValues.ts#L18)
 
 ___
 
@@ -422,7 +422,7 @@ ___
 
 **Returns:** [*ISite*](../interfaces/sites_isite.isite.md)
 
-Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L37)
+Defined in: [commons/_ObjectSubController.ts:37](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L37)
 
 • `Protected`set **site**(`value`: [*ISite*](../interfaces/sites_isite.isite.md)): *void*
 
@@ -434,7 +434,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L41)
+Defined in: [commons/_ObjectSubController.ts:41](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L41)
 
 ## Methods
 
@@ -453,7 +453,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:70](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L70)
+Defined in: [commons/_ObjectSubController.ts:70](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L70)
 
 ___
 
@@ -463,7 +463,7 @@ ___
 
 **Returns:** *Promise*<void\>
 
-Defined in: [Firewall/FWRule.ts:132](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L132)
+Defined in: [Firewall/FWRule.ts:132](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L132)
 
 ___
 
@@ -475,7 +475,7 @@ ___
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:55](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L55)
+Defined in: [commons/_ObjectSubController.ts:55](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L55)
 
 ___
 
@@ -499,7 +499,7 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L6)
+Defined in: [commons/ObjectWithPrivateValues.ts:6](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/ObjectWithPrivateValues.ts#L6)
 
 ___
 
@@ -511,7 +511,7 @@ ___
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:52](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L52)
+Defined in: [commons/_ObjectSubController.ts:52](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L52)
 
 ___
 
@@ -529,7 +529,7 @@ Name | Type |
 
 Overrides: [default](commons__objectsubsite.default.md)
 
-Defined in: [Firewall/FWRule.ts:33](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L33)
+Defined in: [Firewall/FWRule.ts:33](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L33)
 
 ___
 
@@ -554,7 +554,7 @@ Name | Type | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubSite.ts:43](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubSite.ts#L43)
+Defined in: [commons/_ObjectSubSite.ts:43](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubSite.ts#L43)
 
 ___
 
@@ -582,7 +582,7 @@ Name | Type | Default value | Description |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/_ObjectSubController.ts:85](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/_ObjectSubController.ts#L85)
+Defined in: [commons/_ObjectSubController.ts:85](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/_ObjectSubController.ts#L85)
 
 ___
 
@@ -592,7 +592,7 @@ ___
 
 **Returns:** *Promise*<void\>
 
-Defined in: [Firewall/FWRule.ts:123](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Firewall/FWRule.ts#L123)
+Defined in: [Firewall/FWRule.ts:123](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Firewall/FWRule.ts#L123)
 
 ___
 
@@ -617,4 +617,4 @@ Name | Type |
 
 Inherited from: [default](commons__objectsubsite.default.md)
 
-Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/commons/ObjectWithPrivateValues.ts#L11)
+Defined in: [commons/ObjectWithPrivateValues.ts:11](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/commons/ObjectWithPrivateValues.ts#L11)
