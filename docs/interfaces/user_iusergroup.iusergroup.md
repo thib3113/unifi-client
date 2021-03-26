@@ -21,7 +21,7 @@
 
 • **create\_time**: *string*
 
-Defined in: [User/IUserGroup.ts:7](https://github.com/thib3113/unifi-client/blob/54bf19f/src/User/IUserGroup.ts#L7)
+Defined in: [User/IUserGroup.ts:7](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUserGroup.ts#L7)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **name**: *string*
 
-Defined in: [User/IUserGroup.ts:3](https://github.com/thib3113/unifi-client/blob/54bf19f/src/User/IUserGroup.ts#L3)
+Defined in: [User/IUserGroup.ts:3](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUserGroup.ts#L3)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **system\_name**: *string*
 
-Defined in: [User/IUserGroup.ts:6](https://github.com/thib3113/unifi-client/blob/54bf19f/src/User/IUserGroup.ts#L6)
+Defined in: [User/IUserGroup.ts:6](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUserGroup.ts#L6)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **unique\_id**: *string*
 
-Defined in: [User/IUserGroup.ts:2](https://github.com/thib3113/unifi-client/blob/54bf19f/src/User/IUserGroup.ts#L2)
+Defined in: [User/IUserGroup.ts:2](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUserGroup.ts#L2)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **up\_id**: *string*
 
-Defined in: [User/IUserGroup.ts:4](https://github.com/thib3113/unifi-client/blob/54bf19f/src/User/IUserGroup.ts#L4)
+Defined in: [User/IUserGroup.ts:4](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUserGroup.ts#L4)
 
 ___
 
@@ -61,4 +61,4 @@ ___
 
 • **up\_ids**: []
 
-Defined in: [User/IUserGroup.ts:5](https://github.com/thib3113/unifi-client/blob/54bf19f/src/User/IUserGroup.ts#L5)
+Defined in: [User/IUserGroup.ts:5](https://github.com/thib3113/unifi-client/blob/d186312/src/User/IUserGroup.ts#L5)
