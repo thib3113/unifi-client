@@ -28,7 +28,7 @@ export default class Devices extends _ObjectSubSite {
                             is_wired: device.is_wired,
                             fixed_ip: device.fixed_ip,
                             network_id: device.network_id,
-                            use_fixedip: device.use_fixedip || !!device.use_fixedip
+                            use_fixedip: Validate.isUndefined(device.use_fixedip) ? device.use_fixedip : !!device.fixed_ip
                         },
                         {
                             urlParams: { site: this.site.name }
