@@ -89,7 +89,7 @@ describe('test commons utilities', () => {
 
         it('should refuse to getSites', async () => {
             try {
-                await c.sites.getSites();
+                await c.sites.list();
                 expect(false).toBeTruthy();
             } catch (e) {
                 expect(true).toBeTruthy();

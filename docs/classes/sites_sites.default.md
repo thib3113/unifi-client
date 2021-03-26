@@ -16,7 +16,7 @@
 
 ### Methods
 
-- [getSites](sites_sites.default.md#getsites)
+- [list](sites_sites.default.md#list)
 
 ## Constructors
 
@@ -32,7 +32,7 @@ Name | Type |
 
 **Returns:** [*default*](sites_sites.default.md)
 
-Defined in: [Sites/Sites.ts:4](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Sites/Sites.ts#L4)
+Defined in: [Sites/Sites.ts:4](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Sites/Sites.ts#L4)
 
 ## Properties
 
@@ -42,10 +42,10 @@ Defined in: [Sites/Sites.ts:4](https://github.com/thib3113/unifi-client/blob/963
 
 ## Methods
 
-### getSites
+### list
 
-▸ **getSites**(): *Promise*<[*default*](sites_site.default.md)[]\>
+▸ **list**(): *Promise*<[*default*](sites_site.default.md)[]\>
 
 **Returns:** *Promise*<[*default*](sites_site.default.md)[]\>
 
-Defined in: [Sites/Sites.ts:7](https://github.com/thib3113/unifi-client/blob/963dbf0/src/Sites/Sites.ts#L7)
+Defined in: [Sites/Sites.ts:7](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/Sites/Sites.ts#L7)

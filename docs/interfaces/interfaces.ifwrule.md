@@ -44,7 +44,7 @@
 
 • **\_id**: *string*
 
-Defined in: [interfaces.ts:26](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L26)
+Defined in: [interfaces.ts:28](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L28)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 • **action**: [*FWRuleActions*](../modules/interfaces.md#fwruleactions)
 
-Defined in: [interfaces.ts:31](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L31)
+Defined in: [interfaces.ts:33](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L33)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 • **dst\_address**: *string*
 
-Defined in: [interfaces.ts:42](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L42)
+Defined in: [interfaces.ts:44](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L44)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 • **dst\_firewallgroup\_ids**: *string*[]
 
-Defined in: [interfaces.ts:41](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L41)
+Defined in: [interfaces.ts:43](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L43)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 • **dst\_networkconf\_id**: *string*
 
-Defined in: [interfaces.ts:48](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L48)
+Defined in: [interfaces.ts:50](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L50)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 • **dst\_networkconf\_type**: *string*
 
-Defined in: [interfaces.ts:49](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L49)
+Defined in: [interfaces.ts:51](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L51)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 • **enabled**: *boolean*
 
-Defined in: [interfaces.ts:30](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L30)
+Defined in: [interfaces.ts:32](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L32)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 • **icmp\_typename**: *string*
 
-Defined in: [interfaces.ts:45](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L45)
+Defined in: [interfaces.ts:47](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L47)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 • **ipsec**: *string*
 
-Defined in: [interfaces.ts:38](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L38)
+Defined in: [interfaces.ts:40](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L40)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 • **logging**: *boolean*
 
-Defined in: [interfaces.ts:33](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L33)
+Defined in: [interfaces.ts:35](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L35)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 • **name**: *string*
 
-Defined in: [interfaces.ts:29](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L29)
+Defined in: [interfaces.ts:31](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L31)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 • **protocol**: *string*
 
-Defined in: [interfaces.ts:44](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L44)
+Defined in: [interfaces.ts:46](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L46)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 • **protocol\_match\_excepted**: *boolean*
 
-Defined in: [interfaces.ts:32](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L32)
+Defined in: [interfaces.ts:34](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L34)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 • **rule\_index**: *string*
 
-Defined in: [interfaces.ts:28](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L28)
+Defined in: [interfaces.ts:30](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L30)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 • **ruleset**: [*ruleSet*](../modules/interfaces.md#ruleset)
 
-Defined in: [interfaces.ts:27](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L27)
+Defined in: [interfaces.ts:29](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L29)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 • **site\_id**: *string*
 
-Defined in: [interfaces.ts:50](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L50)
+Defined in: [interfaces.ts:52](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L52)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 • **src\_address**: *string*
 
-Defined in: [interfaces.ts:43](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L43)
+Defined in: [interfaces.ts:45](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L45)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 • **src\_firewallgroup\_ids**: *string*[]
 
-Defined in: [interfaces.ts:39](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L39)
+Defined in: [interfaces.ts:41](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L41)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 • **src\_mac\_address**: *string*
 
-Defined in: [interfaces.ts:40](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L40)
+Defined in: [interfaces.ts:42](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L42)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 • **src\_networkconf\_id**: *string*
 
-Defined in: [interfaces.ts:46](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L46)
+Defined in: [interfaces.ts:48](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L48)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 • **src\_networkconf\_type**: *string*
 
-Defined in: [interfaces.ts:47](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L47)
+Defined in: [interfaces.ts:49](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L49)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 • **state\_established**: *boolean*
 
-Defined in: [interfaces.ts:35](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L35)
+Defined in: [interfaces.ts:37](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L37)
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 • **state\_invalid**: *boolean*
 
-Defined in: [interfaces.ts:36](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L36)
+Defined in: [interfaces.ts:38](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L38)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 • **state\_new**: *boolean*
 
-Defined in: [interfaces.ts:34](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L34)
+Defined in: [interfaces.ts:36](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L36)
 
 ___
 
@@ -236,4 +236,4 @@ ___
 
 • **state\_related**: *boolean*
 
-Defined in: [interfaces.ts:37](https://github.com/thib3113/unifi-client/blob/963dbf0/src/interfaces.ts#L37)
+Defined in: [interfaces.ts:39](https://github.com/thib3113/unifi-client/blob/8d1ef7c/src/interfaces.ts#L39)

@@ -20,7 +20,7 @@ export default class FWGroup extends _ObjectSubSite implements IFWGroup {
         this.import(props);
     }
 
-    protected import(props: IFWGroup): void {
+    protected import(props: IFWGroup): this {
         if (!Validate.isUndefined(props.name)) {
             this.name = props.name;
         }
@@ -33,6 +33,8 @@ export default class FWGroup extends _ObjectSubSite implements IFWGroup {
         if (!Validate.isUndefined(props.site_id)) {
             this.site_id = props.site_id;
         }
+
+        return this;
     }
 
     public async save(): Promise<void> {
