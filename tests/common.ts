@@ -13,6 +13,11 @@ axios.defaults.adapter = require('axios/lib/adapters/http');
 
 export const isRecordMode = (): boolean => process.env.JEST_RECORD === 'true';
 
+export const generateMac = (): string =>
+    'XX:XX:XX:XX:XX:XX'.replace(/X/g, function () {
+        return '0123456789ABCDEF'.charAt(Math.floor(Math.random() * 16));
+    });
+
 export const setUp = (nock) => {
     return () => {
         dotEnv.config({
