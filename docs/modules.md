@@ -6,9 +6,12 @@
 
 ### Modules
 
-- [Clients](modules/clients.md)
-- [Clients/Clients](modules/clients_clients.md)
 - [Controller](modules/controller.md)
+- [Devices](modules/devices.md)
+- [Devices/Device](modules/devices_device.md)
+- [Devices/Devices](modules/devices_devices.md)
+- [Devices/IDevice](modules/devices_idevice.md)
+- [Devices/IUnknownDevice](modules/devices_iunknowndevice.md)
 - [Errors](modules/errors.md)
 - [Errors/ClientError](modules/errors_clienterror.md)
 - [Errors/EErrorsCodes](modules/errors_eerrorscodes.md)
