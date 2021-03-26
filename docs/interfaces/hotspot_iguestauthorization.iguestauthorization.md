@@ -29,7 +29,7 @@
 
 • **\_id**: *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:6](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L6)
+Defined in: [Hotspot/IGuestAuthorization.ts:6](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L6)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **authorized\_by**: *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:10](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L10)
+Defined in: [Hotspot/IGuestAuthorization.ts:10](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L10)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **end**: *number*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:11](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L11)
+Defined in: [Hotspot/IGuestAuthorization.ts:11](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L11)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **mac**: *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:7](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L7)
+Defined in: [Hotspot/IGuestAuthorization.ts:7](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L7)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **qos\_overwrite**: *boolean*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:16](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L16)
+Defined in: [Hotspot/IGuestAuthorization.ts:16](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L16)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **qos\_rate\_max\_down**: *number*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:15](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L15)
+Defined in: [Hotspot/IGuestAuthorization.ts:15](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L15)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **qos\_rate\_max\_up**: *number*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:14](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L14)
+Defined in: [Hotspot/IGuestAuthorization.ts:14](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L14)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **qos\_usage\_quota**: *number*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:12](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L12)
+Defined in: [Hotspot/IGuestAuthorization.ts:12](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L12)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **site\_id**: *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:9](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L9)
+Defined in: [Hotspot/IGuestAuthorization.ts:9](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L9)
 
 ___
 
@@ -101,4 +101,4 @@ ___
 
 • **start**: *number*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:8](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L8)
+Defined in: [Hotspot/IGuestAuthorization.ts:8](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L8)

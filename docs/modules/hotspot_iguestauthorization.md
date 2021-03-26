@@ -18,4 +18,4 @@
 
 Ƭ **AuthorizedBy**: *api* \| *string*
 
-Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/d186312/src/Hotspot/IGuestAuthorization.ts#L3)
+Defined in: [Hotspot/IGuestAuthorization.ts:3](https://github.com/thib3113/unifi-client/blob/17e4ed2/src/Hotspot/IGuestAuthorization.ts#L3)
