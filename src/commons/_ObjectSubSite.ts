@@ -1,6 +1,4 @@
-import { AxiosInstance } from 'axios';
 import { ISite } from '../Sites/ISite';
-import { IController } from '../IController';
 import _ObjectSubController, { IObjectSubController } from './_ObjectSubController';
 
 export interface IObjectSubSiteConfig extends IObjectSubController {
@@ -21,30 +19,10 @@ export default class _ObjectSubSite extends _ObjectSubController {
     protected set config(value: IObjectSubSiteConfig) {
         this.setPrivate<IObjectSubSiteConfig>('config', value);
     }
-    protected get instance(): AxiosInstance {
-        return this.getPrivate<AxiosInstance>('instance');
-    }
-
-    protected set instance(value: AxiosInstance) {
-        this.setPrivate<AxiosInstance>('instance', value);
-    }
-    protected get controller(): IController {
-        return this.getPrivate<IController>('controller');
-    }
-
-    protected set controller(value: IController) {
-        this.setPrivate<IController>('controller', value);
-    }
-    protected get site(): ISite {
-        return this.getPrivate<ISite>('site');
-    }
-
-    protected set site(value: ISite) {
-        this.setPrivate<ISite>('site', value);
-    }
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-unused-vars
-    protected import(props: any): void {}
+    protected import(props: any): this {
+        return this;
+    }
 
     // toJSON(): Record<string, any> {
     //     const obj = { ...this };

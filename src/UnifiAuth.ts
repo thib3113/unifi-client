@@ -93,7 +93,7 @@ export default class UnifiAuth extends ObjectWithPrivateValues {
 
         this.instance.interceptors.response.use(
             (response) => {
-                if (response.headers['x-csrf-token']) {
+                if (response.headers && response.headers['x-csrf-token']) {
                     this.csrfToken = response.headers['x-csrf-token'];
                 }
 
