@@ -14,8 +14,7 @@
     "watch": "jest --env=jsdom --watch",
     "prepare": "husky install",
     "lint": "eslint -f unix \"src/**/*.{ts,tsx}\"",
-    "generate:documentation": "typedoc --plugin typedoc-plugin-markdown --includeVersion --out docs ./src && git add docs",
-    "ci:generate:documentation": "typedoc --plugin typedoc-neo-theme --includeVersion --out docs ./src",
+    "ci:generate:documentation": "typedoc",
     "prepublishOnly": "npm run build",
     "scan_baddwords": "ts-node .github/scripts/scanForBadWords.ts ./tests/nockFixtures/**/*"
   },
@@ -48,7 +47,6 @@
     "semver": "^7.3.4",
     "set-cookie-parser": "2.4.8",
     "source-map-support": "0.5.19",
-    "typedoc-neo-theme": "^1.1.0",
     "typescript": "4.2.3"
   },
   "devDependencies": {
@@ -76,7 +74,6 @@
     "ts-jest": "26.5.4",
     "ts-node": "9.1.1",
     "typedoc": "0.20.34",
-    "typedoc-plugin-markdown": "3.6.0",
     "uuid": "8.3.2"
   }
 }
