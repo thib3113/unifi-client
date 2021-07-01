@@ -65,7 +65,7 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-tsdoc": "0.2.14",
     "glob": "7.1.7",
-    "husky": "6.0.0",
+    "husky": "7.0.0",
     "jest": "27.0.6",
     "jest-environment-node": "27.0.6",
     "moxios": "0.4.0",
