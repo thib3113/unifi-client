@@ -50,7 +50,7 @@
     "typescript": "4.3.5"
   },
   "devDependencies": {
-    "@types/cookie": "0.4.0",
+    "@types/cookie": "0.4.1",
     "@types/debug": "4.1.6",
     "@types/jest": "26.0.23",
     "@types/moxios": "0.4.11",
