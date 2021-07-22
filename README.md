@@ -95,7 +95,7 @@ the instance returned is an Axios instance, [read more here](https://github.com/
 ## Tests
 This library is auto-tested on :
  - UDM-pro : `latest`
- - Unifi controller : `latest`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23` 
+ - Unifi controller : `latest`, `6.2.25`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23` 
 
 ## References
 This nodejs package/class uses functionality/Know-How gathered from different third-party projects:
