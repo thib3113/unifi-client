@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios';
 import { ISite } from '../Sites/ISite';
-import { IController } from '../IController';
+import type Controller from '../Controller';
 import { ClientError, EErrorsCodes } from '../Errors';
 import Validate from './Validate';
 import semver from 'semver';
@@ -8,7 +8,7 @@ import ObjectWithPrivateValues from './ObjectWithPrivateValues';
 
 export interface IObjectSubController {
     instance: AxiosInstance;
-    controller: IController;
+    controller: Controller;
 }
 
 export default class _ObjectSubController extends ObjectWithPrivateValues {
@@ -20,19 +20,19 @@ export default class _ObjectSubController extends ObjectWithPrivateValues {
     protected set config(value: IObjectSubController) {
         this.setPrivate<IObjectSubController>('config', value);
     }
-    protected get instance(): AxiosInstance {
-        return this.getPrivate<AxiosInstance>('instance');
+    protected get controllerInstance(): AxiosInstance {
+        return this.getPrivate<AxiosInstance>('controllerInstance');
     }
 
-    protected set instance(value: AxiosInstance) {
-        this.setPrivate<AxiosInstance>('instance', value);
+    protected set controllerInstance(value: AxiosInstance) {
+        this.setPrivate<AxiosInstance>('controllerInstance', value);
     }
-    protected get controller(): IController {
-        return this.getPrivate<IController>('controller');
+    protected get controller(): Controller {
+        return this.getPrivate<Controller>('controller');
     }
 
-    protected set controller(value: IController) {
-        this.setPrivate<IController>('controller', value);
+    protected set controller(value: Controller) {
+        this.setPrivate<Controller>('controller', value);
     }
     protected get site(): ISite {
         return this.getPrivate<ISite>('site');
@@ -45,14 +45,14 @@ export default class _ObjectSubController extends ObjectWithPrivateValues {
     constructor(config: IObjectSubController) {
         super();
         this.controller = config.controller;
-        this.instance = config.instance;
+        this.controllerInstance = config.instance;
         this.config = config;
     }
 
-    public getinstance(): AxiosInstance {
-        return this.instance;
+    public getInstance(): AxiosInstance {
+        return this.controllerInstance;
     }
-    public getController(): IController {
+    public getController(): Controller {
         return this.controller;
     }
 

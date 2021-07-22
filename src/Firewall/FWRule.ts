@@ -123,14 +123,14 @@ export default class FWRule extends _ObjectSubSite implements IFWRule {
     public async save(): Promise<void> {
         const rule: IFWRule = { ...this };
         return (
-            await this.instance.put('/api/s/:site/rest/firewallrule/:id', rule, {
+            await this.instance.put('/rest/firewallrule/:id', rule, {
                 urlParams: { site: this.site.name, id: this._id }
             })
         ).data?.data;
     }
 
     public async delete(): Promise<void> {
-        await this.instance.delete('/api/s/:site/rest/firewallrule/:id', {
+        await this.instance.delete('/rest/firewallrule/:id', {
             urlParams: { site: this.site.name, id: this._id }
         });
     }

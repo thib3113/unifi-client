@@ -48,13 +48,13 @@ export default class Hotspots extends _ObjectSubSite {
             json.ap_mac = ap_mac.toLowerCase();
         }
 
-        const res = (await this.instance.post('/api/s/:site/cmd/stamgr', json, { urlParams: { site: this.site.name } })).data?.data.pop();
+        const res = (await this.instance.post('/cmd/stamgr', json, { urlParams: { site: this.site.name } })).data?.data.pop();
         return this.mapObject<GuestAuthorization>(GuestAuthorization, res);
     }
 
     public async unAuthorizeGuest(mac: string): Promise<void> {
         await this.instance.post(
-            '/api/s/:site/cmd/stamgr',
+            '/cmd/stamgr',
             { cmd: 'unauthorize-guest', mac: mac.toLowerCase() },
             { urlParams: { site: this.site.name } }
         );
