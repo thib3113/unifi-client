@@ -5,6 +5,8 @@ import { Controller } from '../src';
 import fs from 'fs';
 import Site from '../src/Sites/Site';
 
+//avoid importing nock here !
+
 export const UNIFI_USERNAME = 'ubnt';
 export const UNIFI_PASSWORD = 'ubnt';
 export const FIXTURES_PATH = path.join(__dirname, 'nockFixtures');
@@ -58,6 +60,7 @@ export const getLoggedSite = async (nock, unifiOs = true): Promise<Site> => {
             site = await getSite();
         }
     } catch (e) {
+        console.log(e);
         throw new Error(`fail to load sites : ${e.name} - ${e.errorCode}`);
     }
     return site;
@@ -77,19 +80,8 @@ export const getAuthentication: (unifiOs?: boolean) => { strictSSL: boolean; pas
 export const getLoggedControllerWithoutSite = async (nock, unifiOs = true): Promise<Controller> => {
     let controller: Controller;
     setUp(nock)();
-    if (unifiOs) {
-        await nock.back('login.json').then(async ({ nockDone }) => {
-            controller = new Controller(getAuthentication(unifiOs));
 
-            // try {
-            await controller.login();
-            // } catch (e) {
-            //     throw new Error('fail to login to controller');
-            // }
-
-            nockDone();
-        });
-    } else {
+    const login = async (unifiOs): Promise<Controller> => {
         controller = new Controller(getAuthentication(unifiOs));
 
         // try {
@@ -97,8 +89,18 @@ export const getLoggedControllerWithoutSite = async (nock, unifiOs = true): Prom
         // } catch (e) {
         //     throw new Error('fail to login to controller');
         // }
+        return controller;
+    };
+
+    if (unifiOs) {
+        return await nock.back('login.json').then(async ({ nockDone }) => {
+            const ctrl = login(unifiOs);
+            nockDone();
+            return ctrl;
+        });
+    } else {
+        return login(unifiOs);
     }
-    return controller;
 };
 
 export const deleteFixtures = (prefix?: string) => {

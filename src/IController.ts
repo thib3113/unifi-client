@@ -16,4 +16,6 @@ export interface IController {
     login(): Promise<IUser>;
 
     logout(): Promise<void>;
+
+    createInstance(siteName?: string): AxiosInstance;
 }

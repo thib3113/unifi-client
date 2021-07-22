@@ -10,10 +10,12 @@ import Site from './Sites/Site';
 import Sites from './Sites/Sites';
 import { IController } from './IController';
 import { ClientError, EErrorsCodes } from './Errors';
+import ObjectWithPrivateValues from './commons/ObjectWithPrivateValues';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
     strictSSL?: boolean;
+    siteName?: string;
 }
 
 const axiosDebug = createDebugger('axios');
@@ -21,7 +23,7 @@ const axiosDebugVerbose = axiosDebug.extend('verbose');
 const axiosCurl = axiosDebug.extend('curl');
 const debug = createDebugger('Controller');
 
-export default class Controller implements IController {
+export default class Controller extends ObjectWithPrivateValues implements IController {
     get sites(): Sites {
         this.needLoggedIn();
         return this._sites;
@@ -34,9 +36,13 @@ export default class Controller implements IController {
     public version: string = '7.0.0';
     private logged: boolean;
 
-    constructor(props: IControllerProps) {
-        this.controllerInstance = axios.create({
-            baseURL: props.url.replace(/\/$/, ''),
+    public createInstance(siteName: string): AxiosInstance {
+        return this._createInstance(siteName);
+    }
+
+    private _createInstance(siteName?: string): AxiosInstance {
+        const instance = axios.create({
+            baseURL: this.props.url.replace(/\/$/, ''),
             authenticationRequest: false,
             maxRedirects: 0,
             headers: {
@@ -44,17 +50,39 @@ export default class Controller implements IController {
                 ['Content-Type']: 'application/json'
             },
             httpsAgent:
-                props.strictSSL === false
+                this.props.strictSSL === false
                     ? new https.Agent({
                           rejectUnauthorized: false
                       })
-                    : undefined
+                    : undefined,
+            site: siteName ?? undefined
         });
 
-        this.auth = new UnifiAuth(props, this.controllerInstance);
-        this.addAxiosDebugInterceptors();
-        this.addAxiosProxyInterceptors();
-        this.addAxiosPlugins();
+        if (this.auth) {
+            this.auth.addInterceptorsToInstance(instance);
+        } else {
+            this.auth = new UnifiAuth(this.props, instance);
+        }
+        //else we create the controller instance
+
+        return this.addAxiosPlugins(this.addAxiosDebugInterceptors(this.addAxiosProxyInterceptors(instance)));
+    }
+
+    // this functions are here to delete this value from rest(...) or JSON
+    protected get props(): IControllerProps {
+        return this.getPrivate<IControllerProps>('props');
+    }
+
+    protected set props(value: IControllerProps) {
+        this.setPrivate<IControllerProps>('props', value);
+    }
+
+    constructor(props: IControllerProps) {
+        super();
+
+        this.props = props;
+
+        this.controllerInstance = this._createInstance();
 
         // prepare sub objects
         this._sites = new Sites(this);
@@ -84,8 +112,8 @@ export default class Controller implements IController {
         this.logged = false;
     }
 
-    addAxiosDebugInterceptors(): void {
-        this.controllerInstance.interceptors.request.use((config) => {
+    addAxiosDebugInterceptors(instance: AxiosInstance): AxiosInstance {
+        instance.interceptors.request.use((config) => {
             // @ts-ignore
             config.metadata = { startTime: new Date() };
             axiosDebug(`Starting Request on url ${config.method} ${getUrlRepresentation(config)}`);
@@ -95,7 +123,7 @@ export default class Controller implements IController {
             return config;
         });
 
-        this.controllerInstance.interceptors.response.use(
+        instance.interceptors.response.use(
             (response) => {
                 // @ts-ignore
                 const duration = (new Date() - response.config?.metadata?.startTime) / 1000 || null;
@@ -132,16 +160,16 @@ export default class Controller implements IController {
             }
         );
 
-        curlirize(this.controllerInstance, (result, err) => {
-            const { command } = result;
-            if (err) {
-                axiosCurl('err :');
-            }
-            axiosCurl(command);
-        });
+        // curlirize(instance, (result, err) => {
+        //     const { command } = result;
+        //     if (err) {
+        //         axiosCurl('err :');
+        //     }
+        //     axiosCurl(command);
+        // });
 
         //add error handler
-        this.controllerInstance.interceptors.response.use(
+        instance.interceptors.response.use(
             (response) => response,
             (error) => {
                 if (error?.response?.config.isRetry) {
@@ -167,20 +195,26 @@ export default class Controller implements IController {
                 return Promise.reject(error);
             }
         );
+        return instance;
     }
 
-    addAxiosProxyInterceptors(): void {
-        this.controllerInstance.interceptors.request.use((config) => {
+    addAxiosProxyInterceptors(instance: AxiosInstance): AxiosInstance {
+        instance.interceptors.request.use((config) => {
             if (this.unifiOs && !config.url.includes('login') && !config.url.includes('logout')) {
                 config.baseURL += '/proxy/network';
             }
+
+            if (config.site) {
+                config.url = `/api/s/${config.site}${config.url}`;
+            }
             return config;
         });
+        return instance;
     }
 
-    addAxiosPlugins(): void {
+    addAxiosPlugins(instance: AxiosInstance): AxiosInstance {
         // manage urlParams
-        this.controllerInstance.interceptors.request.use((config) => {
+        instance.interceptors.request.use((config) => {
             if (!config.url) {
                 return config;
             }
@@ -198,5 +232,10 @@ export default class Controller implements IController {
                 url: currentUrl.pathname
             };
         });
+        return instance;
+    }
+
+    public getInstance(): AxiosInstance {
+        return this.controllerInstance;
     }
 }
