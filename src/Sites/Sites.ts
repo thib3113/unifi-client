@@ -1,8 +1,8 @@
 import Site from './Site';
-import { IController } from '../IController';
+import type Controller from '../Controller';
 
 export default class Sites {
-    constructor(readonly controller: IController) {}
+    constructor(readonly controller: Controller) {}
 
     public async list(): Promise<Array<Site>> {
         return ((await this.controller.controllerInstance.get('/api/self/sites')).data?.data || []).map(
