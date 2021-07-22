@@ -1,11 +1,16 @@
 import { ISite } from '../Sites/ISite';
 import _ObjectSubController, { IObjectSubController } from './_ObjectSubController';
+import { AxiosInstance } from 'axios';
 
 export interface IObjectSubSiteConfig extends IObjectSubController {
     site: ISite;
 }
 
 export default class _ObjectSubSite extends _ObjectSubController {
+    protected get instance(): AxiosInstance {
+        return this.site.getInstance();
+    }
+
     constructor(config: IObjectSubSiteConfig) {
         super(config);
         this.site = config.site;
@@ -19,6 +24,7 @@ export default class _ObjectSubSite extends _ObjectSubController {
     protected set config(value: IObjectSubSiteConfig) {
         this.setPrivate<IObjectSubSiteConfig>('config', value);
     }
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-unused-vars
     protected import(props: any): this {
         return this;

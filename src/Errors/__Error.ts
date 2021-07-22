@@ -43,12 +43,7 @@ export default class __Error implements Error {
         this.message = this._message;
         this.exception = typeof exception === typeof '' ? new Error(exception as string) : (exception as Error);
 
-        // if (this.exception) {
-        //     this.stack = this.exception.stack;
-        // } else {
         this.stack = generateStack();
-
-        // }
 
         // Set the prototype explicitly.
         Object.setPrototypeOf(this, Error.prototype);

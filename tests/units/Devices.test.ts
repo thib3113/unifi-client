@@ -15,10 +15,10 @@ describe('Start device - UnifiOs', () => {
     let site: Site;
     beforeEach(async () => {
         site = await getLoggedSite(nock);
-        moxios.install(site.getController().controllerInstance);
+        moxios.install(site.getInstance());
     });
     afterEach(() => {
-        moxios.uninstall(site.getController().controllerInstance);
+        moxios.uninstall(site.getInstance());
     });
 
     it('should list devices', async () => {

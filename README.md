@@ -69,10 +69,33 @@ All the technical documentation is available [here](https://thib3113.github.io/u
 ## Work In Progress
 check [technical documentation](https://thib3113.github.io/unifi-client/modules) for available methods
 
+You can use directly the instances to do the requests : 
+```typescript
+import Controller from 'unifi-client'
+
+//only works with local accounts
+const controller = new Controller({
+  username: 'ubnt',
+  password: 'ubnt',
+  url: 'https://unifi',
+  strictSSL: false
+});
+
+await controller.login()
+
+//use the controller instance directly . Authentication, url construction and other is already managed for you
+const self = controller.getInstance().get('/api/self');
+
+//for a custom site : 
+const topology = site.getInstance().get('/topology');
+
+```
+the instance returned is an Axios instance, [read more here](https://github.com/axios/axios#instance-methods)
+
 ## Tests
 This library is auto-tested on :
  - UDM-pro : `latest`
- - Unifi controller : `latest`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23` 
+ - Unifi controller : `latest`, `6.2.25`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23` 
 
 ## References
 This nodejs package/class uses functionality/Know-How gathered from different third-party projects:

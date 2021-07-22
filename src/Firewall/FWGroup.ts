@@ -40,14 +40,14 @@ export default class FWGroup extends _ObjectSubSite implements IFWGroup {
     public async save(): Promise<void> {
         const group: IFWGroup = { ...this };
         return (
-            await this.instance.put('/api/s/:site/rest/firewallgroup/:id', group, {
+            await this.instance.put('/rest/firewallgroup/:id', group, {
                 urlParams: { site: this.site.name, id: this._id }
             })
         ).data?.data;
     }
 
     public async delete(): Promise<void> {
-        await this.instance.delete('/api/s/:site/rest/firewallgroup/:id', {
+        await this.instance.delete('/rest/firewallgroup/:id', {
             urlParams: { site: this.site.name, id: this._id }
         });
     }

@@ -4,11 +4,14 @@ import semver from 'semver';
 import Controller from '../../src';
 import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
+import Site from '../../src/Sites/Site';
+import Validate from '../../src/commons/Validate';
+import { AxiosInstance } from 'axios';
 
 describe('start controller - UnifiOs', () => {
     it('should login to controller', async () => {
         const controller = await getLoggedControllerWithoutSite(nock);
-        expect(controller.version).toBe('6.1.67');
+        expect(controller.version).toBe('6.2.26');
         expect(controller.unifiOs).toBeTruthy();
         expect(controller).toBeDefined();
     });
@@ -137,5 +140,43 @@ describe('start controller - non UnifiOs', () => {
         let newToken = controller.auth.token;
 
         expect(newToken).not.toBe(expiredToken);
+    });
+});
+
+describe('validate raw use', () => {
+    let site: Site;
+    let controller: Controller;
+    const axiosInstanceKey: Array<keyof AxiosInstance> = [
+        'defaults',
+        'getUri',
+        'request',
+        'get',
+        'delete',
+        'head',
+        'options',
+        'post',
+        'put',
+        'patch',
+        'interceptors'
+    ];
+    beforeEach(async () => {
+        site = await getLoggedSite(nock, false);
+        controller = site.getController();
+    });
+
+    it('allow raw request to site', async () => {
+        const instance = site.getInstance();
+        expect(Validate.implementsTKeys<AxiosInstance>(instance, axiosInstanceKey)).toBeTruthy();
+        //try a request
+        const res = await instance.get('/stat/sysinfo');
+        expect(res.status).toBe(200);
+    });
+
+    it('allow raw requests to controller', async () => {
+        const instance = controller.getInstance();
+        expect(Validate.implementsTKeys<AxiosInstance>(instance, axiosInstanceKey)).toBeTruthy();
+        //try a request
+        const res = await instance.get('/api/self');
+        expect(res.status).toBe(200);
     });
 });
