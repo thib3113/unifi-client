@@ -160,13 +160,13 @@ export default class Controller extends ObjectWithPrivateValues implements ICont
             }
         );
 
-        // curlirize(instance, (result, err) => {
-        //     const { command } = result;
-        //     if (err) {
-        //         axiosCurl('err :');
-        //     }
-        //     axiosCurl(command);
-        // });
+        curlirize(instance, (result, err) => {
+            const { command } = result;
+            if (err) {
+                axiosCurl('err :');
+            }
+            axiosCurl(command);
+        });
 
         //add error handler
         instance.interceptors.response.use(
