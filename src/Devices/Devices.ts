@@ -17,7 +17,7 @@ export default class Devices extends _ObjectSubSite {
             (
                 (
                     await this.instance.post(
-                        '/api/s/:site/rest/user',
+                        '/rest/user',
                         {
                             mac: device.mac,
                             user_group_id: device.user_group_id,
@@ -45,7 +45,7 @@ export default class Devices extends _ObjectSubSite {
             Device,
             (
                 (
-                    await this.instance.get('/api/s/:site/rest/user/:_id', {
+                    await this.instance.get('/rest/user/:_id', {
                         urlParams: {
                             site: this.site.name,
                             _id
@@ -74,7 +74,7 @@ export default class Devices extends _ObjectSubSite {
     //
     //     // allow to create multiples user, but return sub answer on each users . How to manage it ?
     //     const res = await this.instance.post(
-    //         '/api/s/:site/group/user',
+    //         '/group/user',
     //         { objects: clients.map((c) => ({ data: c })) },
     //         {
     //             urlParams: { site: this.site.name }
@@ -89,7 +89,7 @@ export default class Devices extends _ObjectSubSite {
     async list2(): Promise<Array<Device>> {
         return (
             (
-                await this.instance.get('/api/s/:site/list/user', {
+                await this.instance.get('/list/user', {
                     urlParams: {
                         site: this.site.name
                     }
@@ -101,7 +101,7 @@ export default class Devices extends _ObjectSubSite {
     public async list(): Promise<Array<Device>> {
         return (
             (
-                await this.instance.get('/api/s/:site/stat/alluser', {
+                await this.instance.get('/stat/alluser', {
                     urlParams: {
                         site: this.site.name
                     }

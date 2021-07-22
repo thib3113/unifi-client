@@ -1,11 +1,12 @@
 import { ISite } from './ISite';
 import Firewall from '../Firewall/Firewall';
 import Validate from '../commons/Validate';
-import { IController } from '../IController';
 import { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import _ObjectSubController from '../commons/_ObjectSubController';
 import Hotspots from '../Hotspot/Hotspots';
 import { Devices } from '../Devices';
+import { AxiosInstance } from 'axios';
+import Controller from '../Controller';
 
 export default class Site extends _ObjectSubController implements ISite {
     public _id: string;
@@ -21,7 +22,24 @@ export default class Site extends _ObjectSubController implements ISite {
     public hotspots: Hotspots;
     public devices: Devices;
 
-    constructor(controller: IController, props: ISite) {
+    protected get instance(): AxiosInstance {
+        return this.getPrivate<AxiosInstance>('instance');
+    }
+
+    protected set instance(value: AxiosInstance) {
+        this.setPrivate<AxiosInstance>('instance', value);
+    }
+
+    public getInstance(): AxiosInstance {
+        if (this.instance) {
+            return this.instance;
+        } else {
+            this.instance = this.controller.createInstance(this.name || 'default');
+            return this.instance;
+        }
+    }
+
+    constructor(controller: Controller, props: ISite) {
         super({
             controller: controller,
             instance: controller.controllerInstance
