@@ -113,7 +113,7 @@ export default class Device extends _ObjectSubSite implements IDevice {
             Device,
             (
                 (
-                    await this.instance.post('/api/s/:site/cmd/stamgr', json, {
+                    await this.instance.post('/cmd/stamgr', json, {
                         urlParams: {
                             site: this.site.name
                         },
@@ -125,7 +125,25 @@ export default class Device extends _ObjectSubSite implements IDevice {
     }
 
     public async delete(): Promise<void> {
-        return this.instance.delete('/api/s/:site/rest/user/:id', {
+        return this.instance.delete('/rest/user/:id', {
+            urlParams: {
+                site: this.site.name,
+                id: this._id
+            }
+        });
+    }
+
+    public async save(): Promise<any> {
+        const device: Partial<IDevice> = {};
+
+        device.name = this.name || '';
+
+        device.note = this.note;
+        device.noted = !!this.note;
+
+        device.user_group_id = this.user_group_id;
+
+        return this.instance.post('/upd/user/:id', device, {
             urlParams: {
                 site: this.site.name,
                 id: this._id
