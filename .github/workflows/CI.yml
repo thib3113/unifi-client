@@ -23,7 +23,7 @@ jobs:
       matrix:
         node-version: [14.x]
         #can't test on 5.6.42 because database is too up to date ( 5.12.72 )
-        unifi-version: [ latest, version-6.1.71, version-6.0.45, version-6.0.43, version-6.0.41, version-6.0.36, version-6.0.28, version-6.0.23 ]
+        unifi-version: [ latest, version-6.2.25, version-6.1.71, version-6.0.45, version-6.0.43, version-6.0.41, version-6.0.36, version-6.0.28, version-6.0.23 ]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
