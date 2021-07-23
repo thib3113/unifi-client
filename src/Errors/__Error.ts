@@ -1,7 +1,7 @@
 import path from 'path';
 import { EErrorsCodes } from './EErrorsCodes';
 
-export default class __Error implements Error {
+export class __Error implements Error {
     public stack: string;
     protected _message: string;
     /**

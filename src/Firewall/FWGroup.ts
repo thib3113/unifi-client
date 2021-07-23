@@ -1,9 +1,9 @@
 import { IFWGroup } from '../interfaces';
-import _ObjectSubSite, { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
+import { _ObjectSubSite, IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import { ClientError, EErrorsCodes } from '../Errors';
-import Validate from '../commons/Validate';
+import { Validate } from '../commons/Validate';
 
-export default class FWGroup extends _ObjectSubSite implements IFWGroup {
+export class FWGroup extends _ObjectSubSite implements IFWGroup {
     _id: string;
     group_members: Array<string>;
     group_type: 'address-group' | 'port-group' | 'ipv6-address-group';

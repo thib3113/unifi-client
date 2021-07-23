@@ -1,8 +1,8 @@
 import { deleteFixtures, generateMac, getLoggedSite, isRecordMode } from '../common';
-import Site from '../../src/Sites/Site';
 import nock from 'nock';
-import Device from '../../src/Devices/Device';
 import moxios from 'moxios';
+import { Site } from '../../src/Sites/Site';
+import { Device } from '../../src/Devices/Device';
 
 const PREFIX = 'devices-';
 beforeAll(async () => {

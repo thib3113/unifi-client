@@ -1,12 +1,12 @@
-import _ObjectSubSite from '../commons/_ObjectSubSite';
-import Validate from '../commons/Validate';
 import { ClientError, EErrorsCodes } from '../Errors';
 import { IUnknownDevice } from './IUnknownDevice';
-import Device from './Device';
+import { _ObjectSubSite } from '../commons/_ObjectSubSite';
+import { Device } from './Device';
+import { Validate } from '../commons/Validate';
 
 export type partialDevice = Partial<IUnknownDevice> & { mac: string };
 
-export default class Devices extends _ObjectSubSite {
+export class Devices extends _ObjectSubSite {
     async create(device: partialDevice): Promise<Device> {
         if (Validate.isUndefined(device.mac)) {
             throw new ClientError('mac is mandatory', EErrorsCodes.BAD_PARAMETERS);

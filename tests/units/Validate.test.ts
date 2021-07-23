@@ -1,4 +1,4 @@
-import Validate from '../../src/commons/Validate';
+import { Validate } from '../../src/commons/Validate';
 
 describe('Validate.test.ts', () => {
     it('should validate function mail', () => {

@@ -1,13 +1,23 @@
 const _privateMap = new WeakMap();
-export default class ObjectWithPrivateValues {
+export class ObjectWithPrivateValues {
     constructor() {
         this.setPrivate('__init', true);
     }
+
+    /**
+     * @typeParam T - the type retrieve.
+     * @param key - the key to retrieve
+     */
     protected getPrivate<T>(key: string): T {
         const privateDatas = this.privateMap.get(this);
         return privateDatas[key];
     }
 
+    /**
+     * @typeParam T - the type to set.
+     * @param key - the key to set
+     * @param value - the value
+     */
     protected setPrivate<T>(key: string, value: T): void {
         const privateDatas = this.privateMap.get(this) || {};
         privateDatas[key] = value;

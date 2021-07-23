@@ -1,13 +1,13 @@
-import _ObjectSubSite from '../commons/_ObjectSubSite';
 import { createDebugger } from '../util';
-import Validate from '../commons/Validate';
 import { ClientError, EErrorsCodes } from '../Errors';
 import { IGuestAuthorization } from './IGuestAuthorization';
 import { IAuthorizeGuest } from './IAuthorizeGuest';
-import GuestAuthorization from './GuestAuthorization';
+import { GuestAuthorization } from './GuestAuthorization';
+import { _ObjectSubSite } from '../commons/_ObjectSubSite';
+import { Validate } from '../commons/Validate';
 
 const debug = createDebugger('Hotspots');
-export default class Hotspots extends _ObjectSubSite {
+export class Hotspots extends _ObjectSubSite {
     // constructor(config: IObjectSubSiteConfig) {
     //     super(config);
     //

@@ -1,4 +1,4 @@
-import __Error from './__Error';
+import { __Error } from './__Error';
 
 export interface IUnifiErrorMeta {
     validationError?: {
@@ -7,7 +7,7 @@ export interface IUnifiErrorMeta {
     };
 }
 
-export default class UnifiError extends __Error {
+export class UnifiError extends __Error {
     public meta: IUnifiErrorMeta;
 
     public constructor(message: string | Error = '', code = 0, meta: IUnifiErrorMeta = {}, exception: Error | string = null) {

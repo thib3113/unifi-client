@@ -1,8 +1,8 @@
-import _ObjectSubSite, { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
+import { _ObjectSubSite, IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import { timestampDate } from '../commons/types';
 import { AuthorizedBy, IGuestAuthorization } from './IGuestAuthorization';
 
-export default class GuestAuthorization extends _ObjectSubSite implements IGuestAuthorization {
+export class GuestAuthorization extends _ObjectSubSite implements IGuestAuthorization {
     _id: string;
     authorized_by: AuthorizedBy;
     end: timestampDate;

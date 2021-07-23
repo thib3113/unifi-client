@@ -1,14 +1,13 @@
 import { AxiosInstance, AxiosResponse } from 'axios';
-import ObjectWithPrivateValues from './commons/ObjectWithPrivateValues';
 import { createDebugger } from './util';
 import { IUser } from './User/IUser';
 import setCookieParser from 'set-cookie-parser';
 import { IncomingMessage } from 'http';
 import cookie, { CookieSerializeOptions } from 'cookie';
 import jwt from 'jsonwebtoken';
-import Validate from './commons/Validate';
-import ClientError from './Errors/ClientError';
-import { EErrorsCodes } from './Errors';
+import { ClientError, EErrorsCodes } from './Errors';
+import { Validate } from './commons/Validate';
+import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
 
 export interface IUnifiAuthProps {
     rememberMe?: boolean;
@@ -17,7 +16,7 @@ export interface IUnifiAuthProps {
 }
 
 const debug = createDebugger('UnifiAuth');
-export default class UnifiAuth extends ObjectWithPrivateValues {
+export class UnifiAuth extends ObjectWithPrivateValues {
     private readonly rememberMe: boolean;
     public unifiOs: boolean;
     private get username(): string {
@@ -143,7 +142,7 @@ export default class UnifiAuth extends ObjectWithPrivateValues {
 
     private getCookies(res: AxiosResponse): setCookieParser.CookieMap {
         //res is compatible with incomingMessage for this use
-        return setCookieParser((res as unknown) as IncomingMessage, {
+        return setCookieParser(res as unknown as IncomingMessage, {
             map: true
         });
     }
@@ -239,7 +238,7 @@ export default class UnifiAuth extends ObjectWithPrivateValues {
         return this.token;
     }
 
-    addInterceptorsToInstance(instance: AxiosInstance) {
+    addInterceptorsToInstance(instance: AxiosInstance): void {
         debug('addInterceptorsToInstance');
         this.sitesInstance.push(this.addInterceptors(instance));
     }

@@ -1,7 +1,7 @@
 import { deleteFixtures, getLoggedSite, isRecordMode } from '../common';
-import Site from '../../src/Sites/Site';
 import nock from 'nock';
-import Validate from '../../src/commons/Validate';
+import { Site } from '../../src/Sites/Site';
+import { Validate } from '../../src/commons/Validate';
 
 const PREFIX = 'hotspots-';
 beforeAll(() => {

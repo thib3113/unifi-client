@@ -12,7 +12,7 @@ const stringToBooleanMap = new Map<string, boolean>([
     ['off', false]
 ]);
 
-export default class Validate {
+export class Validate {
     public static mail(mail: string): boolean {
         return Validate.isString(mail) && !!mail.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
     }
