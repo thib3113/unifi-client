@@ -128,6 +128,68 @@
 				<p>Get firewall rules, it return an array of <a href="https://thib3113.github.io/unifi-client/classes/Firewall_FWRule.default.html">FWRule</a></p>
 				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">rules</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">firewall</span><span style="color: #000000">.</span><span style="color: #795E26">getRules</span><span style="color: #000000">();</span>
 </code></pre>
+				<p>###Instances
+				The instances returned by <code>getInstance</code> are basicaly some <a href="https://github.com/axios/axios#instance-methods">axios instances</a> . With some additions : </p>
+				<pre><code class="language-typescript"><span style="color: #008000">//url params</span>
+<span style="color: #008000">// use them to manage a rest url for example</span>
+<span style="color: #001080">instance</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/url/:uuid&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">    </span><span style="color: #001080">urlParams:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">uuid:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;my-uuid&#039;</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">}) </span>
+<span style="color: #008000">// will call the url /url/my-uuid</span>
+
+
+<span style="color: #008000">// apiVersion : </span>
+<span style="color: #008000">// some api call are on the v2 api, so you can set the api version when calling</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">); </span><span style="color: #008000">// default</span>
+<span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">getInstance</span><span style="color: #000000">().</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/super/endpoint&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">    </span><span style="color: #001080">apiVersion:</span><span style="color: #000000"> </span><span style="color: #098658">2</span>
+<span style="color: #000000">});</span>
+<span style="color: #008000">// will call the url /v2/api/site/default/super/endpoint</span>
+</code></pre>
+				<a href="#how-to-use-urls-from-the-unifi-front-" id="how-to-use-urls-from-the-unifi-front-" style="color: inherit; text-decoration: none;">
+					<h3>how to use URLs from the unifi front :</h3>
+				</a>
+				<p>The urls of unifi are like :</p>
+				<ul>
+					<li><code>/proxy/network/v2/api/site/default/notifications</code> for unifiOs
+					or</li>
+					<li><code>/v2/api/site/default/notifications</code> for non unifiOs</li>
+				</ul>
+				<p>the url is constructed like :
+				<code>/[v&lt;ApiVersion&gt;/]api/site/&lt;sitename&gt;[/&lt;urlToCall&gt;]</code></p>
+				<ul>
+					<li>ApiVersion : the version of the API (for version &gt; 1)</li>
+					<li>sitename : the name of the site (already included in site instance)</li>
+				</ul>
+				<p>To illustrate, to call the url I see on my browser network tabs : </p>
+				<p><code>https://192.168.1.1/proxy/network/v2/api/site/default/notifications</code></p>
+				<p>I just need to :</p>
+				<pre><code class="language-typescript"><span style="color: #008000">// configure my controller</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">controller</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Controller</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">username:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ubnt&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">password:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ubnt&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://192.168.1.1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">strictSSL:</span><span style="color: #000000"> </span><span style="color: #0000FF">false</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">//login to the controller</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">login</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">//retrieve sites  </span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sites</span><span style="color: #000000"> = </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">getSites</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">// select the site &quot;default&quot;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">site</span><span style="color: #000000"> = </span><span style="color: #001080">sites</span><span style="color: #000000">.</span><span style="color: #795E26">find</span><span style="color: #000000">((</span><span style="color: #001080">site</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000"> === </span><span style="color: #A31515">&#039;default&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">//call my url</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">notifications</span><span style="color: #000000"> = </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">getInstance</span><span style="color: #000000">().</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/default/notifications&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">    </span><span style="color: #001080">apiVersion:</span><span style="color: #000000"> </span><span style="color: #098658">2</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">//do something with notifications</span>
+</code></pre>
 				<a href="#technical-documentation" id="technical-documentation" style="color: inherit; text-decoration: none;">
 					<h2>Technical documentation</h2>
 				</a>
@@ -251,6 +313,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/IController.html">IController</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/Sites_INetworkStatus.html">Sites/INetwork<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/Sites_ISite.html">Sites/ISite</a>
