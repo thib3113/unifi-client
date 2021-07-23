@@ -1,7 +1,4 @@
-import __Error from './__Error';
-import ClientError from './ClientError';
-import UnifiError from './UnifiError';
-
+export * from './__Error';
+export * from './ClientError';
+export * from './UnifiError';
 export * from './EErrorsCodes';
-
-export { __Error, ClientError, UnifiError };

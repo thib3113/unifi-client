@@ -1,17 +1,17 @@
 import { AxiosInstance } from 'axios';
 import { ISite } from '../Sites/ISite';
-import type Controller from '../Controller';
 import { ClientError, EErrorsCodes } from '../Errors';
-import Validate from './Validate';
 import semver from 'semver';
-import ObjectWithPrivateValues from './ObjectWithPrivateValues';
+import { ObjectWithPrivateValues } from './ObjectWithPrivateValues';
+import { Validate } from './Validate';
+import { Controller } from '../Controller';
 
 export interface IObjectSubController {
     instance: AxiosInstance;
     controller: Controller;
 }
 
-export default class _ObjectSubController extends ObjectWithPrivateValues {
+export class _ObjectSubController extends ObjectWithPrivateValues {
     // this functions are here to delete this value from rest(...) or JSON
     protected get config(): IObjectSubController {
         return this.getPrivate<IObjectSubController>('config');

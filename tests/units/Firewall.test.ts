@@ -1,11 +1,11 @@
 import Controller, { IFWRule } from '../../src';
 import { getLoggedSite } from '../common';
 import nock from 'nock';
-import Site from '../../src/Sites/Site';
-import FWGroup from '../../src/Firewall/FWGroup';
-import FWRule from '../../src/Firewall/FWRule';
 import { IObjectSubSiteConfig } from '../../src/commons/_ObjectSubSite';
 import axios from 'axios';
+import { Site } from '../../src/Sites/Site';
+import { FWRule } from '../../src/Firewall/FWRule';
+import { FWGroup } from '../../src/Firewall/FWGroup';
 
 const PREFIX = 'firewall-';
 // beforeAll(() => {

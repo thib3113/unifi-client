@@ -1,9 +1,9 @@
-import _ObjectSubSite, { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
+import { _ObjectSubSite, IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import { FWRuleActions, IFWRule, networkConfType, ruleSet } from '../interfaces';
 import { ClientError, EErrorsCodes } from '../Errors';
-import Validate from '../commons/Validate';
+import { Validate } from '../commons/Validate';
 
-export default class FWRule extends _ObjectSubSite implements IFWRule {
+export class FWRule extends _ObjectSubSite implements IFWRule {
     _id: string;
     action: FWRuleActions;
     dst_address: string;

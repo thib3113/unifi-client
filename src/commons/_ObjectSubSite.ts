@@ -1,12 +1,12 @@
 import { ISite } from '../Sites/ISite';
-import _ObjectSubController, { IObjectSubController } from './_ObjectSubController';
+import { IObjectSubController, _ObjectSubController } from './_ObjectSubController';
 import { AxiosInstance } from 'axios';
 
 export interface IObjectSubSiteConfig extends IObjectSubController {
     site: ISite;
 }
 
-export default class _ObjectSubSite extends _ObjectSubController {
+export class _ObjectSubSite extends _ObjectSubController {
     protected get instance(): AxiosInstance {
         return this.site.getInstance();
     }

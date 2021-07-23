@@ -1,2 +1,1 @@
-import Firewall from './Firewall';
-export { Firewall };
+export * from './Firewall';
