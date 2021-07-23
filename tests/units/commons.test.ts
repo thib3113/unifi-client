@@ -1,7 +1,7 @@
 import { createDebugger, getUrlRepresentation } from '../../src/util';
 import { Debugger } from 'debug';
 import Controller, { __Error, UnifiError } from '../../src';
-import Validate from '../../src/commons/Validate';
+import { Validate } from '../../src/commons/Validate';
 
 describe('test commons utilities', () => {
     describe('getUrlRepresentation tests', () => {

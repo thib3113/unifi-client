@@ -4,8 +4,8 @@ import semver from 'semver';
 import Controller from '../../src';
 import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
-import Site from '../../src/Sites/Site';
-import Validate from '../../src/commons/Validate';
+import { Site } from '../../src/Sites/Site';
+import { Validate } from '../../src/commons/Validate';
 import { AxiosInstance } from 'axios';
 
 describe('start controller - UnifiOs', () => {
