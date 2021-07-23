@@ -1,9 +1,9 @@
 import { IFWRule, IFWGroup } from '../interfaces';
-import _ObjectSubSite from '../commons/_ObjectSubSite';
-import FWGroup from './FWGroup';
-import FWRule from './FWRule';
+import { FWGroup } from './FWGroup';
+import { FWRule } from './FWRule';
+import { _ObjectSubSite } from '../commons/_ObjectSubSite';
 
-export default class Firewall extends _ObjectSubSite {
+export class Firewall extends _ObjectSubSite {
     public async createRule(group: Omit<IFWRule, '_id' | 'site_id'>): Promise<FWRule> {
         //return an array of groups created, but seems to allow only one group to be created ?
         return this.mapObject<FWRule>(

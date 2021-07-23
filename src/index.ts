@@ -1,4 +1,4 @@
-import Controller from './Controller';
+import { Controller } from './Controller';
 
 export * from './interfaces';
 export * from './Errors';

@@ -1,9 +1,9 @@
-import _ObjectSubSite, { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
+import { _ObjectSubSite, IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import { IDevice } from './IDevice';
 import { ClientError, EErrorsCodes } from '../Errors';
-import Validate from '../commons/Validate';
+import { Validate } from '../commons/Validate';
 
-export default class Device extends _ObjectSubSite implements IDevice {
+export class Device extends _ObjectSubSite implements IDevice {
     constructor(config: IObjectSubSiteConfig, props: IDevice) {
         super(config);
 
@@ -133,7 +133,7 @@ export default class Device extends _ObjectSubSite implements IDevice {
         });
     }
 
-    public async save(): Promise<any> {
+    public async save(): Promise<unknown> {
         const device: Partial<IDevice> = {};
 
         device.name = this.name || '';

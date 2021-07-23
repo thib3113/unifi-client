@@ -1,4 +1,4 @@
-import Controller from './Controller';
+import Controller from './';
 import dotenv from 'dotenv';
 import path from 'path';
 
@@ -8,18 +8,18 @@ dotenv.config({
     path: path.join(__dirname, '..', '.env')
 });
 
-const startDate = new Date();
-const check = async () => {
-    console.log(startDate, new Date());
-    try {
-        const res = await c.sites.list();
-        const a = res;
-        console.log('getSites');
-    } catch (e) {
-        console.log(e);
-    }
-    setTimeout(() => check(), 60000);
-};
+// const startDate = new Date();
+// const check = async () => {
+//     console.log(startDate, new Date());
+//     try {
+//         const res = await c.sites.list();
+//         const a = res;
+//         console.log('getSites');
+//     } catch (e) {
+//         console.log(e);
+//     }
+//     setTimeout(() => check(), 60000);
+// };
 
 let c: Controller;
 const main = async () => {
@@ -34,9 +34,10 @@ const main = async () => {
 
         await c.login();
 
-        const res = await c.sites.list();
-        console.log(res);
-        check();
+        const sites = await c.sites.list();
+
+        const rules = await sites[0].firewall.getRules();
+        console.log(rules);
     } catch (e) {
         console.error(e);
     }

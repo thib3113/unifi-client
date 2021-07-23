@@ -1,16 +1,15 @@
-import UnifiAuth, { IUnifiAuthProps } from './UnifiAuth';
+import { IUnifiAuthProps, UnifiAuth } from './UnifiAuth';
 import axios, { AxiosInstance } from 'axios';
 import { createDebugger, getUrlRepresentation } from './util';
 import https from 'https';
 import { IUser } from './User/IUser';
 import curlirize from 'axios-curlirize';
 import { URL } from 'url';
-import UnifiError from './Errors/UnifiError';
-import Site from './Sites/Site';
-import Sites from './Sites/Sites';
 import { IController } from './IController';
-import { ClientError, EErrorsCodes } from './Errors';
-import ObjectWithPrivateValues from './commons/ObjectWithPrivateValues';
+import { ClientError, EErrorsCodes, UnifiError } from './Errors';
+import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
+import { Sites } from './Sites/Sites';
+import { Site } from './Sites/Site';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
@@ -23,7 +22,7 @@ const axiosDebugVerbose = axiosDebug.extend('verbose');
 const axiosCurl = axiosDebug.extend('curl');
 const debug = createDebugger('Controller');
 
-export default class Controller extends ObjectWithPrivateValues implements IController {
+export class Controller extends ObjectWithPrivateValues implements IController {
     get sites(): Sites {
         this.needLoggedIn();
         return this._sites;

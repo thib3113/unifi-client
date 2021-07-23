@@ -1,7 +1,7 @@
-import Site from './Site';
-import type Controller from '../Controller';
+import { Site } from './Site';
+import { Controller } from '../Controller';
 
-export default class Sites {
+export class Sites {
     constructor(readonly controller: Controller) {}
 
     public async list(): Promise<Array<Site>> {

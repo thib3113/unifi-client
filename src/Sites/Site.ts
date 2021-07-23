@@ -1,14 +1,14 @@
 import { ISite } from './ISite';
-import Firewall from '../Firewall/Firewall';
-import Validate from '../commons/Validate';
 import { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
-import _ObjectSubController from '../commons/_ObjectSubController';
-import Hotspots from '../Hotspot/Hotspots';
+import { Hotspots } from '../Hotspot';
 import { Devices } from '../Devices';
 import { AxiosInstance } from 'axios';
-import Controller from '../Controller';
+import { Firewall } from '../Firewall';
+import { _ObjectSubController } from '../commons/_ObjectSubController';
+import { Controller } from '../Controller';
+import { Validate } from '../commons/Validate';
 
-export default class Site extends _ObjectSubController implements ISite {
+export class Site extends _ObjectSubController implements ISite {
     public _id: string;
     public anonymous_id: string;
     public name: string;

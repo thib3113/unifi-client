@@ -3,7 +3,7 @@ import * as path from 'path';
 import axios from 'axios';
 import { Controller } from '../src';
 import fs from 'fs';
-import Site from '../src/Sites/Site';
+import { Site } from '../src/Sites/Site';
 
 //avoid importing nock here !
 
