@@ -4,7 +4,6 @@
   "main": "build/index.js",
   "description": "NodeJs client for Unifi products (https://www.ui.com/)",
   "scripts": {
-    "debug": "tsc && node -r source-map-support/register build/test.js",
     "start": "node -r source-map-support/register /build/index.js",
     "build": "tsc",
     "test": "jest",
