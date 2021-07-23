@@ -10,11 +10,11 @@ import { ClientError, EErrorsCodes, UnifiError } from './Errors';
 import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
 import { Sites } from './Sites/Sites';
 import { Site } from './Sites/Site';
+import { Validate } from './commons/Validate';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
     strictSSL?: boolean;
-    siteName?: string;
 }
 
 const axiosDebug = createDebugger('axios');
@@ -199,13 +199,24 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     addAxiosProxyInterceptors(instance: AxiosInstance): AxiosInstance {
         instance.interceptors.request.use((config) => {
+            const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
+
             if (this.unifiOs && !config.url.includes('login') && !config.url.includes('logout')) {
                 config.baseURL += '/proxy/network';
             }
 
             if (config.site) {
-                config.url = `/api/s/${config.site}${config.url}`;
+                let siteNameSpace = 's';
+                if (versionedApi) {
+                    siteNameSpace = 'site';
+                }
+                config.url = `/api/${siteNameSpace}/${config.site}${config.url}`;
             }
+
+            if (versionedApi) {
+                config.url = `/v${config.apiVersion}${config.url}`;
+            }
+
             return config;
         });
         return instance;
