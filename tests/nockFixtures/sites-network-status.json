@@ -1,39 +1,36 @@
 [
     {
         "scope": "https://unifi:443",
-        "method": "POST",
-        "path": "/proxy/network/api/s/default/rest/firewallgroup/",
-        "body": {
-            "name": "testGroup",
-            "group_members": [
-                "2001:41d0:302:2100::9ee"
-            ],
-            "group_type": "ipv6-address-group"
-        },
+        "method": "GET",
+        "path": "/proxy/network/v2/api/site/default/network_status",
+        "body": "",
         "status": 200,
         "response": {
-            "meta": {
-                "rc": "ok"
-            },
-            "data": [
-                {
-                    "name": "testGroup",
-                    "group_members": [
-                        "2001:41d0:302:2100::9ee"
-                    ],
-                    "group_type": "ipv6-address-group",
-                    "site_id": "6001f8a73fd98c05e9465f91",
-                    "_id": "605942cfc3d8180463a5794e"
-                }
-            ]
+            "average_satisfaction": 99,
+            "health": "excellent",
+            "historical_satisfaction": [
+                98,
+                98,
+                98,
+                98,
+                98,
+                98,
+                98,
+                98,
+                98,
+                98,
+                99,
+                98
+            ],
+            "reasons": []
         },
         "rawHeaders": [
-            "Vary",
-            "Origin",
+            "vary",
+            "accept-encoding",
             "X-DNS-Prefetch-Control",
             "off",
-            "x-frame-options",
-            "DENY",
+            "X-Frame-Options",
+            "SAMEORIGIN",
             "Strict-Transport-Security",
             "max-age=15552000; includeSubDomains",
             "X-Download-Options",
@@ -46,10 +43,10 @@
             "bytes",
             "content-type",
             "application/json;charset=UTF-8",
-            "content-length",
-            "198",
+            "transfer-encoding",
+            "chunked",
             "date",
-            "Tue, 23 Mar 2021 01:22:23 GMT",
+            "Fri, 23 Jul 2021 18:20:30 GMT",
             "connection",
             "close",
             "Set-Cookie",
