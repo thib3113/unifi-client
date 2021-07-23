@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Controller } from '../src';
 import fs from 'fs';
 import { Site } from '../src/Sites/Site';
+import { isRecordMode } from './isRecordMode';
 
 //avoid importing nock here !
 
@@ -12,8 +13,6 @@ export const UNIFI_PASSWORD = 'ubnt';
 export const FIXTURES_PATH = path.join(__dirname, 'nockFixtures');
 
 axios.defaults.adapter = require('axios/lib/adapters/http');
-
-export const isRecordMode = (): boolean => process.env.JEST_RECORD === 'true';
 
 export const generateMac = (): string =>
     'XX:XX:XX:XX:XX:XX'.replace(/X/g, function () {
@@ -110,3 +109,5 @@ export const deleteFixtures = (prefix?: string) => {
         .map((f) => fs.rmSync(f));
 };
 // export { nock };
+
+export { isRecordMode };

@@ -49,9 +49,18 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
         this.config = config;
     }
 
-    public getInstance(): AxiosInstance {
-        return this.controllerInstance;
+    protected get instance(): AxiosInstance {
+        return this.getPrivate<AxiosInstance>('instance');
     }
+
+    protected set instance(value: AxiosInstance) {
+        this.setPrivate<AxiosInstance>('instance', value);
+    }
+
+    public getInstance(): AxiosInstance {
+        return this.instance;
+    }
+
     public getController(): Controller {
         return this.controller;
     }

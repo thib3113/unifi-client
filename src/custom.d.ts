@@ -6,6 +6,7 @@ declare module 'axios' {
     interface AxiosRequestConfig {
         urlParams?: Record<string, string>;
         site?: string;
+        apiVersion?: number;
         /**
          * default false
          */

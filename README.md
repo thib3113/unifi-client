@@ -80,6 +80,71 @@ Get firewall rules, it return an array of [FWRule](https://thib3113.github.io/un
 const rules = await site.firewall.getRules();
 ```
 
+###Instances
+The instances returned by `getInstance` are basicaly some [axios instances](https://github.com/axios/axios#instance-methods) . With some additions : 
+```typescript
+//url params
+// use them to manage a rest url for example
+instance.get('/url/:uuid', {
+    urlParams: {
+        uuid: 'my-uuid'
+    }
+}) 
+// will call the url /url/my-uuid
+
+
+// apiVersion : 
+// some api call are on the v2 api, so you can set the api version when calling
+console.log(site.name); // default
+site.getInstance().get('/super/endpoint', {
+    apiVersion: 2
+});
+// will call the url /v2/api/site/default/super/endpoint
+```
+
+### how to use URLs from the unifi front : 
+The urls of unifi are like :
+
+- `/proxy/network/v2/api/site/default/notifications` for unifiOs
+or
+- `/v2/api/site/default/notifications` for non unifiOs
+
+the url is constructed like : 
+`/[v<ApiVersion>/]api/site/<sitename>[/<urlToCall>]`
+- ApiVersion : the version of the API (for version > 1)
+- sitename : the name of the site (already included in site instance)
+
+To illustrate, to call the url I see on my browser network tabs : 
+
+`https://192.168.1.1/proxy/network/v2/api/site/default/notifications`
+
+I just need to :
+```typescript
+// configure my controller
+const controller = new Controller({
+    username: 'ubnt',
+    password: 'ubnt',
+    url: 'https://192.168.1.1',
+    strictSSL: false
+});
+
+//login to the controller
+await controller.login()
+
+//retrieve sites  
+const sites = controller.getSites()
+
+// select the site "default"
+const site = sites.find((site) => site.name === 'default');
+
+//call my url
+const notifications = site.getInstance().get('/default/notifications', {
+    apiVersion: 2
+});
+
+//do something with notifications
+```
+
 ## Technical documentation
 All the technical documentation is available [here](https://thib3113.github.io/unifi-client/modules)
 

@@ -2,11 +2,11 @@ import { ISite } from './ISite';
 import { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import { Hotspots } from '../Hotspot';
 import { Devices } from '../Devices';
-import { AxiosInstance } from 'axios';
 import { Firewall } from '../Firewall';
 import { _ObjectSubController } from '../commons/_ObjectSubController';
 import { Controller } from '../Controller';
 import { Validate } from '../commons/Validate';
+import { INetworkStatus } from './INetworkStatus';
 
 export class Site extends _ObjectSubController implements ISite {
     public _id: string;
@@ -21,23 +21,6 @@ export class Site extends _ObjectSubController implements ISite {
     public firewall: Firewall;
     public hotspots: Hotspots;
     public devices: Devices;
-
-    protected get instance(): AxiosInstance {
-        return this.getPrivate<AxiosInstance>('instance');
-    }
-
-    protected set instance(value: AxiosInstance) {
-        this.setPrivate<AxiosInstance>('instance', value);
-    }
-
-    public getInstance(): AxiosInstance {
-        if (this.instance) {
-            return this.instance;
-        } else {
-            this.instance = this.controller.createInstance(this.name || 'default');
-            return this.instance;
-        }
-    }
 
     constructor(controller: Controller, props: ISite) {
         super({
@@ -73,8 +56,20 @@ export class Site extends _ObjectSubController implements ISite {
             controller: this.controller,
             site: this
         };
+
+        //init objects
         this.firewall = new Firewall(config);
         this.hotspots = new Hotspots(config);
         this.devices = new Devices(config);
+
+        this.instance = this.controller.createInstance(this.name || 'default');
+    }
+
+    public async getNetworkStatus(): Promise<INetworkStatus> {
+        return (
+            await this.instance.get(`/network_status`, {
+                apiVersion: 2
+            })
+        ).data;
     }
 }

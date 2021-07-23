@@ -5,7 +5,7 @@ import cookie from 'cookie';
 import { Definition } from 'nock';
 import setCookieParser from 'set-cookie-parser';
 import { v4 as uuidv4 } from 'uuid';
-import { isRecordMode } from './common';
+import { isRecordMode } from './isRecordMode';
 
 const testFolder = path.join(__dirname, 'nockFixtures');
 
