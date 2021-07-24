@@ -92,7 +92,7 @@ export const getLoggedControllerWithoutSite = async (nock, unifiOs = true): Prom
     };
 
     if (unifiOs) {
-        return await nock.back('login.json').then(async ({ nockDone }) => {
+        return nock.back('login.json').then(async ({ nockDone }) => {
             const ctrl = login(unifiOs);
             nockDone();
             return ctrl;
