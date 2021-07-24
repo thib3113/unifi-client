@@ -71,7 +71,7 @@ export const getAuthentication: (unifiOs?: boolean) => { strictSSL: boolean; pas
     return {
         username: (unifiOs ? process.env.TEST_UNIFIOS_USERNAME : process.env.TEST_UNIFI_USERNAME) || UNIFI_USERNAME,
         password: (unifiOs ? process.env.TEST_UNIFIOS_PASSWORD : process.env.TEST_UNIFI_PASSWORD) || UNIFI_PASSWORD,
-        url: unifiOs ? process.env.TEST_UNIFIOS_URL || 'https://unifi' : process.env.TEST_UNIFI_URL || 'https://127.0.0.1:8443',
+        url: unifiOs ? process.env.TEST_UNIFIOS_URL || 'https://unifi2' : process.env.TEST_UNIFI_URL || 'https://127.0.0.1:8443',
         strictSSL: false
     };
 };
