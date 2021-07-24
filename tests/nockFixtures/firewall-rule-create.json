@@ -1,6 +1,6 @@
 [
     {
-        "scope": "https://unifi:443",
+        "scope": "https://unifi2:443",
         "method": "POST",
         "path": "/proxy/network/api/s/default/rest/firewallrule/",
         "body": {
@@ -59,7 +59,7 @@
                     "src_networkconf_id": "",
                     "rule_index": "4090",
                     "site_id": "6001f8a73fd98c05e9465f91",
-                    "_id": "605942cdc3d8180463a5794c"
+                    "_id": "60fc427d5b73cc048861a1c3"
                 }
             ]
         },
@@ -85,11 +85,11 @@
             "content-length",
             "603",
             "date",
-            "Tue, 23 Mar 2021 01:22:20 GMT",
+            "Sat, 24 Jul 2021 16:40:29 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.O2ypJwyL1kpGq-IXIJ-DIgxh-Wb02JhDGmlnSCZniAI; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzOTQ2MGEyYi0yZGU4LTQ0MDEtYmZhZC03ODQwOTMxYTI4YzAiLCJpYXQiOjE2MjcxNDQ4MTksImV4cCI6NDc4MjkwNDgxOX0.T67uNG0wauDY-Xx-cPFuFRw1ltYeWvg5LOwNVM-elyU; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }

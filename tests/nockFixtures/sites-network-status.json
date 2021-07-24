@@ -1,6 +1,6 @@
 [
     {
-        "scope": "https://unifi:443",
+        "scope": "https://unifi2:443",
         "method": "GET",
         "path": "/proxy/network/v2/api/site/default/network_status",
         "body": "",
@@ -16,11 +16,11 @@
                 98,
                 98,
                 98,
-                99,
                 98,
                 98,
                 98,
-                98
+                97,
+                97
             ],
             "reasons": []
         },
@@ -46,11 +46,11 @@
             "transfer-encoding",
             "chunked",
             "date",
-            "Fri, 23 Jul 2021 21:09:52 GMT",
+            "Sat, 24 Jul 2021 16:40:37 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.O2ypJwyL1kpGq-IXIJ-DIgxh-Wb02JhDGmlnSCZniAI; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzOTQ2MGEyYi0yZGU4LTQ0MDEtYmZhZC03ODQwOTMxYTI4YzAiLCJpYXQiOjE2MjcxNDQ4MTksImV4cCI6NDc4MjkwNDgxOX0.T67uNG0wauDY-Xx-cPFuFRw1ltYeWvg5LOwNVM-elyU; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }
