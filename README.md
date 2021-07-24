@@ -4,7 +4,7 @@
 [![CI](https://github.com/thib3113/unifi-client/actions/workflows/CI.yml/badge.svg)](https://github.com/thib3113/unifi-client/actions/workflows/CI.yml) 
 [![codecov](https://codecov.io/gh/thib3113/unifi-client/branch/main/graph/badge.svg?token=MZKEJ9F2WR)](https://codecov.io/gh/thib3113/unifi-client) 
 [![Downloads](https://img.shields.io/npm/dm/unifi-client.svg)](https://www.npmjs.com/package/unifi-client) 
-[![License](https://img.shields.io/github/license/thib3113/unifi-client.svg)](https://github.com/thib3113/unifi-client/blob/master/LICENSE) 
+[![License](https://img.shields.io/github/license/thib3113/unifi-client.svg)](https://github.com/thib3113/unifi-client/blob/main/LICENSE) 
 [![Known Vulnerabilities](https://snyk.io/test/github/thib3113/unifi-client/badge.svg)](https://snyk.io/test/github/thib3113/unifi-client) 
 [![Dependencies status](https://david-dm.org/thib3113/unifi-client.svg)](https://david-dm.org/thib3113/unifi-client) 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal)](https://paypal.me/thib3113) 
