@@ -1,10 +1,10 @@
 [
     {
-        "scope": "https://unifi:443",
+        "scope": "https://unifi2:443",
         "method": "PUT",
-        "path": "/proxy/network/api/s/default/rest/firewallgroup/605942cfc3d8180463a5794e",
+        "path": "/proxy/network/api/s/default/rest/firewallgroup/60fc427e5b73cc048861a1c4",
         "body": {
-            "_id": "605942cfc3d8180463a5794e",
+            "_id": "60fc427e5b73cc048861a1c4",
             "name": "testGroup2",
             "group_type": "ipv6-address-group",
             "group_members": [
@@ -19,7 +19,7 @@
             },
             "data": [
                 {
-                    "_id": "605942cfc3d8180463a5794e",
+                    "_id": "60fc427e5b73cc048861a1c4",
                     "name": "testGroup2",
                     "group_members": [
                         "2001:41d0:302:2100::9ee"
@@ -51,18 +51,18 @@
             "content-length",
             "199",
             "date",
-            "Tue, 23 Mar 2021 01:22:23 GMT",
+            "Sat, 24 Jul 2021 16:40:29 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.O2ypJwyL1kpGq-IXIJ-DIgxh-Wb02JhDGmlnSCZniAI; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzOTQ2MGEyYi0yZGU4LTQ0MDEtYmZhZC03ODQwOTMxYTI4YzAiLCJpYXQiOjE2MjcxNDQ4MTksImV4cCI6NDc4MjkwNDgxOX0.T67uNG0wauDY-Xx-cPFuFRw1ltYeWvg5LOwNVM-elyU; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "https://unifi:443",
+        "scope": "https://unifi2:443",
         "method": "GET",
-        "path": "/proxy/network/api/s/default/rest/firewallgroup/605942cfc3d8180463a5794e",
+        "path": "/proxy/network/api/s/default/rest/firewallgroup/60fc427e5b73cc048861a1c4",
         "body": "",
         "status": 200,
         "response": {
@@ -71,7 +71,7 @@
             },
             "data": [
                 {
-                    "_id": "605942cfc3d8180463a5794e",
+                    "_id": "60fc427e5b73cc048861a1c4",
                     "name": "testGroup2",
                     "group_members": [
                         "2001:41d0:302:2100::9ee"
@@ -103,11 +103,11 @@
             "content-length",
             "199",
             "date",
-            "Tue, 23 Mar 2021 01:22:23 GMT",
+            "Sat, 24 Jul 2021 16:40:29 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.O2ypJwyL1kpGq-IXIJ-DIgxh-Wb02JhDGmlnSCZniAI; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzOTQ2MGEyYi0yZGU4LTQ0MDEtYmZhZC03ODQwOTMxYTI4YzAiLCJpYXQiOjE2MjcxNDQ4MTksImV4cCI6NDc4MjkwNDgxOX0.T67uNG0wauDY-Xx-cPFuFRw1ltYeWvg5LOwNVM-elyU; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }
