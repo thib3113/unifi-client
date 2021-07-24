@@ -74,7 +74,7 @@ const self = controller.getInstance().get('/api/self');
 const topology = site.getInstance().get('/topology');
 ```
 
-Get firewall rules, it return an array of [FWRule](https://thib3113.github.io/unifi-client/classes/Firewall_FWRule.default.html)
+Get firewall rules, it return an array of [FWRule](https://thib3113.github.io/unifi-client/classes/Firewall_FWRule.FWRule.html)
 
 ```typescript
 const rules = await site.firewall.getRules();
