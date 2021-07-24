@@ -1,6 +1,6 @@
 [
     {
-        "scope": "https://unifi:443",
+        "scope": "https://unifi2:443",
         "method": "POST",
         "path": "/api/auth/login",
         "body": {
@@ -10,7 +10,7 @@
         },
         "status": 200,
         "response": {
-            "unique_id": "6fa897ae-a9fe-4635-8f0c-7b1a33244ba3",
+            "unique_id": "0d1961a1-044c-4c56-9549-2667ce62ba73",
             "first_name": "firstName",
             "last_name": "lastName",
             "full_name": "fullName",
@@ -21,11 +21,11 @@
             "avatar_rpath2": "",
             "status": "ACTIVE",
             "employee_number": "",
-            "create_time": 1627140360064,
+            "create_time": 1627144838060,
             "extras": {},
             "username": "ubnt",
             "local_account_exist": true,
-            "password_revision": 1627140360064,
+            "password_revision": 1627144838060,
             "sso_account": "",
             "sso_uuid": "",
             "sso_username": "",
@@ -34,17 +34,17 @@
             "uid_sso_account": "",
             "groups": [
                 {
-                    "unique_id": "288eb13d-2e0f-4cb7-b94b-93af91e3df69",
+                    "unique_id": "2a30be6f-25c2-4ced-8bf0-14d95170493a",
                     "name": "Dream Machine Pro",
                     "up_id": "",
                     "up_ids": [],
                     "system_name": "Dream Machine Pro",
-                    "create_time": "2021-07-24T15:26:00.064Z"
+                    "create_time": "2021-07-24T16:40:38.060Z"
                 }
             ],
             "roles": [
                 {
-                    "unique_id": "37bbfe47-9be8-4ac2-b843-03b33cdc76f1",
+                    "unique_id": "3144b1d8-b69e-460d-8714-ff2cca12f373",
                     "name": "Super Administrator",
                     "system_role": true,
                     "system_key": "super_administrator",
@@ -105,6 +105,7 @@
                 "view:holiday",
                 "view:group",
                 "view:door_group",
+                "view:controller:uid-agent",
                 "view:controller:talk",
                 "view:controller:protect",
                 "view:controller:network",
@@ -167,6 +168,7 @@
                 "edit:group",
                 "edit:feedback",
                 "edit:door_group",
+                "edit:controller:uid-agent",
                 "edit:access.visitor",
                 "edit:access.settings",
                 "edit:access.schedule",
@@ -200,13 +202,13 @@
                 "adopt:access.device"
             ],
             "cloud_access_granted": false,
-            "update_time": 1627140360064,
+            "update_time": 1627144838060,
             "avatar": "",
             "nfc_token": "",
             "nfc_display_id": "",
             "nfc_card_type": "",
             "nfc_card_status": "",
-            "id": "084f7547-bb2c-4a89-a459-a686d051a146",
+            "id": "705fcc90-e764-4cc5-9900-e1eec2ace545",
             "isOwner": false,
             "isSuperAdmin": true
         },
@@ -228,24 +230,24 @@
             "Accept-Ranges",
             "bytes",
             "X-CSRF-Token",
-            "a6b99d1a-9095-40b8-9567-56a6e1e4075f",
+            "c3a64075-f699-4f53-903b-d31463f0cb08",
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "4934",
+            "5000",
             "X-Response-Time",
-            "1012ms",
+            "199ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.9rUKBXhUm7sp6jbxHO3jRhTCRfiIZ_KV3AMoQ2YZfgI; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzOTQ2MGEyYi0yZGU4LTQ0MDEtYmZhZC03ODQwOTMxYTI4YzAiLCJpYXQiOjE2MjcxNDQ4MTksImV4cCI6NDc4MjkwNDgxOX0.T67uNG0wauDY-Xx-cPFuFRw1ltYeWvg5LOwNVM-elyU; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Date",
-            "Sun, 21 Mar 2021 19:23:26 GMT",
+            "Sat, 24 Jul 2021 16:40:25 GMT",
             "Connection",
             "close"
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "https://unifi:443",
+        "scope": "https://unifi2:443",
         "method": "GET",
         "path": "/proxy/network/api/self/sites",
         "body": "",
@@ -289,11 +291,11 @@
             "content-length",
             "237",
             "date",
-            "Sun, 21 Mar 2021 19:23:25 GMT",
+            "Sat, 24 Jul 2021 16:40:25 GMT",
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiJkYWZlNjkyZS00OTA0LTQ2NzgtOWZmMC0zYWU2NmZjYTg4ZjgiLCJpYXQiOjE2MTY3MTIwMjAsImV4cCI6NDc3MjQ3MjAyMH0.9rUKBXhUm7sp6jbxHO3jRhTCRfiIZ_KV3AMoQ2YZfgI; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzOTQ2MGEyYi0yZGU4LTQ0MDEtYmZhZC03ODQwOTMxYTI4YzAiLCJpYXQiOjE2MjcxNDQ4MTksImV4cCI6NDc4MjkwNDgxOX0.T67uNG0wauDY-Xx-cPFuFRw1ltYeWvg5LOwNVM-elyU; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }
