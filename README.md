@@ -145,6 +145,8 @@ const notifications = site.getInstance().get('/default/notifications', {
 //do something with notifications
 ```
 
+More examples in the folder [examples](./examples)
+
 ## Technical documentation
 All the technical documentation is available [here](https://thib3113.github.io/unifi-client/modules)
 
