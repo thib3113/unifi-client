@@ -65,6 +65,25 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         this.controllerInstance = this.addInterceptors(instance);
     }
 
+    public async getCookies(
+        authenticationRequest: boolean = false
+    ): Promise<Array<CookieSerializeOptions & { name: string; value: string }>> {
+        const curDebug = debug.extend('getCookies');
+
+        const cookies: Array<CookieSerializeOptions & { name: string; value: string }> = [];
+        if (!authenticationRequest) {
+            curDebug('not authentification request, include cookie');
+            //if we need to include token
+            cookies.push({ name: this.getCookieTokenName(), value: await this.getToken() });
+        }
+        if (this.csrfToken && !this.unifiOs) {
+            curDebug('set csrfToken (!unifiOs)');
+            //non unifiOs
+            cookies.push({ name: 'csrf_token', value: this.csrfToken });
+        }
+        return cookies;
+    }
+
     private addInterceptors(instance: AxiosInstance): AxiosInstance {
         debug('addInterceptors()');
 
@@ -72,20 +91,13 @@ export class UnifiAuth extends ObjectWithPrivateValues {
             const curDebug = debug.extend('interceptedRequest');
             curDebug('intercept request');
 
-            const cookies: Array<CookieSerializeOptions & { name: string; value: string }> = [];
-            //manage token
-            if (!config.authenticationRequest) {
-                curDebug('not authentification request, include cookie');
-                //if we need to include token
-                cookies.push({ name: this.getCookieTokenName(), value: await this.getToken() });
-            }
+            const cookies: Array<CookieSerializeOptions & { name: string; value: string }> = await this.getCookies(
+                config.authenticationRequest
+            );
+
             if (this.unifiOs && this.csrfToken) {
                 curDebug('set csrfToken (unifiOs)');
                 config.headers['X-CSRF-Token'] = this.csrfToken;
-            } else if (this.csrfToken) {
-                curDebug('set csrfToken (!unifiOs)');
-                //non unifiOs
-                cookies.push({ name: 'csrf_token', value: this.csrfToken });
             }
 
             if (cookies.length > 0) {
@@ -106,7 +118,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
                 }
 
                 if (!this.unifiOs) {
-                    const cookies = this.getCookies(response);
+                    const cookies = this.getCookiesFromResponse(response);
                     if (cookies['csrf_token']) {
                         curDebug('x-csrf-token cookie found, saving it');
                         this.csrfToken = cookies['csrf_token'].value;
@@ -140,7 +152,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         return instance;
     }
 
-    private getCookies(res: AxiosResponse): setCookieParser.CookieMap {
+    private getCookiesFromResponse(res: AxiosResponse): setCookieParser.CookieMap {
         //res is compatible with incomingMessage for this use
         return setCookieParser(res as unknown as IncomingMessage, {
             map: true
@@ -187,7 +199,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         );
 
         curDebug('end login request');
-        const cookies = this.getCookies(res);
+        const cookies = this.getCookiesFromResponse(res);
 
         if (!cookies[this.getCookieTokenName()]) {
             throw new Error('fail to login');
