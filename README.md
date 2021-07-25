@@ -162,16 +162,6 @@ This nodejs package/class uses functionality/Know-How gathered from different th
 * [unifi_sh_api](https://dl.ui.com/unifi/5.12.35/unifi_sh_api)
 * [node-unifi](https://github.com/jens-maus/node-unifi)
 
-## Differences with node-unifi
-* replace deprecated HTTP library [request](https://www.npmjs.com/package/request) by [axios](https://www.npmjs.com/package/axios)
-* replace callback functions by functions returning promises
-* use typescript ( + export typings )
-* auto-renew controller authentication ( it's not a problem for a PHP application, but can be for a long living node js app )
-* more granular files ( not all functions in one file )
-* doesn't need to pass site on each requests
-* add more functions
-* support [debug library](https://www.npmjs.com/package/debug) to debug
-
 ## Debug
 To debug, you can use the [debug](https://www.npmjs.com/package/debug) library, just set the `DEBUG` environnement variable ([check this](https://github.com/visionmedia/debug#cmd)) .
 
