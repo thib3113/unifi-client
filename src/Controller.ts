@@ -1,6 +1,6 @@
 import { IUnifiAuthProps, UnifiAuth } from './UnifiAuth';
-import axios, { AxiosInstance } from 'axios';
-import { createDebugger, getUrlRepresentation } from './util';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { createDebugger, getUrlRepresentation, removeTrailingSlash } from './util';
 import https from 'https';
 import { IUser } from './User/IUser';
 import curlirize from 'axios-curlirize';
@@ -11,10 +11,12 @@ import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
 import { Sites } from './Sites/Sites';
 import { Site } from './Sites/Site';
 import { Validate } from './commons/Validate';
+import { UnifiWebsockets } from './WebSockets';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
     strictSSL?: boolean;
+    webSocketsURL?: string;
 }
 
 const axiosDebug = createDebugger('axios');
@@ -41,7 +43,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     private _createInstance(siteName?: string): AxiosInstance {
         const instance = axios.create({
-            baseURL: this.props.url.replace(/\/$/, ''),
+            baseURL: removeTrailingSlash(this.props.url),
             authenticationRequest: false,
             maxRedirects: 0,
             headers: {
@@ -74,6 +76,15 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     protected set props(value: IControllerProps) {
         this.setPrivate<IControllerProps>('props', value);
+    }
+
+    // this functions are here to delete this value from rest(...) or JSON
+    protected get ws(): UnifiWebsockets {
+        return this.getPrivate<UnifiWebsockets>('ws');
+    }
+
+    protected set ws(value: UnifiWebsockets) {
+        this.setPrivate<UnifiWebsockets>('ws', value);
     }
 
     constructor(props: IControllerProps) {
@@ -197,27 +208,34 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return instance;
     }
 
+    public buildUrl(
+        config: { url?: string; apiVersion?: number; site?: string; baseURL?: string },
+        websockets = false
+    ): AxiosRequestConfig {
+        const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
+
+        if (this.unifiOs && !config.url.includes('login') && !config.url.includes('logout')) {
+            config.baseURL = `${config.baseURL}/proxy/network`;
+        }
+
+        if (config.site) {
+            let siteNameSpace = 's';
+            if (versionedApi) {
+                siteNameSpace = 'site';
+            }
+            config.url = `/${websockets ? 'wss' : 'api'}/${siteNameSpace}/${config.site}${config.url}`;
+        }
+
+        if (versionedApi) {
+            config.url = `/v${config.apiVersion}${config.url}`;
+        }
+
+        return config;
+    }
+
     addAxiosProxyInterceptors(instance: AxiosInstance): AxiosInstance {
         instance.interceptors.request.use((config) => {
-            const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
-
-            if (this.unifiOs && !config.url.includes('login') && !config.url.includes('logout')) {
-                config.baseURL += '/proxy/network';
-            }
-
-            if (config.site) {
-                let siteNameSpace = 's';
-                if (versionedApi) {
-                    siteNameSpace = 'site';
-                }
-                config.url = `/api/${siteNameSpace}/${config.site}${config.url}`;
-            }
-
-            if (versionedApi) {
-                config.url = `/v${config.apiVersion}${config.url}`;
-            }
-
-            return config;
+            return this.buildUrl(config);
         });
         return instance;
     }
@@ -247,5 +265,34 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     public getInstance(): AxiosInstance {
         return this.controllerInstance;
+    }
+
+    public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
+        if (!this.ws) {
+            this.initWebSockets();
+        }
+
+        this.ws.on(eventName, cb);
+        return this;
+    }
+
+    public initWebSockets(): Promise<void> {
+        this.needLoggedIn();
+        let wsUrl;
+        if (this.props.webSocketsURL) {
+            wsUrl = removeTrailingSlash(this.props.webSocketsURL);
+        } else {
+            const urlParsed = new URL(this.props.url);
+            urlParsed.protocol = 'wss';
+            wsUrl = removeTrailingSlash(urlParsed.toString());
+        }
+
+        this.ws = new UnifiWebsockets({
+            controller: this,
+            strictSSL: this.props.strictSSL,
+            url: `${wsUrl}/api/ws/system`
+        });
+
+        return this.ws.initWebSockets().then(() => null);
     }
 }
