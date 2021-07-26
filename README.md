@@ -4,7 +4,7 @@
 [![CI](https://github.com/thib3113/unifi-client/actions/workflows/CI.yml/badge.svg)](https://github.com/thib3113/unifi-client/actions/workflows/CI.yml) 
 [![codecov](https://codecov.io/gh/thib3113/unifi-client/branch/main/graph/badge.svg?token=MZKEJ9F2WR)](https://codecov.io/gh/thib3113/unifi-client) 
 [![Downloads](https://img.shields.io/npm/dm/unifi-client.svg)](https://www.npmjs.com/package/unifi-client) 
-[![License](https://img.shields.io/github/license/thib3113/unifi-client.svg)](https://github.com/thib3113/unifi-client/blob/master/LICENSE) 
+[![License](https://img.shields.io/github/license/thib3113/unifi-client.svg)](https://github.com/thib3113/unifi-client/blob/main/LICENSE) 
 [![Known Vulnerabilities](https://snyk.io/test/github/thib3113/unifi-client/badge.svg)](https://snyk.io/test/github/thib3113/unifi-client) 
 [![Dependencies status](https://david-dm.org/thib3113/unifi-client.svg)](https://david-dm.org/thib3113/unifi-client) 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal)](https://paypal.me/thib3113) 
@@ -198,16 +198,6 @@ This nodejs package/class uses functionality/Know-How gathered from different th
 * [UniFi-API-client](https://github.com/Art-of-WiFi/UniFi-API-client)
 * [unifi_sh_api](https://dl.ui.com/unifi/5.12.35/unifi_sh_api)
 * [node-unifi](https://github.com/jens-maus/node-unifi)
-
-## Differences with node-unifi
-* replace deprecated HTTP library [request](https://www.npmjs.com/package/request) by [axios](https://www.npmjs.com/package/axios)
-* replace callback functions by functions returning promises
-* use typescript ( + export typings )
-* auto-renew controller authentication ( it's not a problem for a PHP application, but can be for a long living node js app )
-* more granular files ( not all functions in one file )
-* doesn't need to pass site on each requests
-* add more functions
-* support [debug library](https://www.npmjs.com/package/debug) to debug
 
 ## Debug
 To debug, you can use the [debug](https://www.npmjs.com/package/debug) library, just set the `DEBUG` environnement variable ([check this](https://github.com/visionmedia/debug#cmd)) .
