@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IDeviceStateChangedEvent | unifi-client - v0.3.0</title>
+	<title>IControllerEvent | unifi-client - v0.3.0</title>
 	<meta name="description" content="Documentation for unifi-client - v0.3.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">unifi-client - v0.3.0</a>
 				</li>
 				<li>
-					<a href="../modules/WebSockets_events_EUnifiEvents.html">WebSockets/events/EUnifiEvents</a>
+					<a href="../modules/WebSockets_events_events.html">WebSockets/events/events</a>
 				</li>
 				<li>
-					<a href="WebSockets_events_EUnifiEvents.IDeviceStateChangedEvent.html">IDeviceStateChangedEvent</a>
+					<a href="WebSockets_events_events.IControllerEvent.html">IControllerEvent</a>
 				</li>
 			</ul>
-			<h1>Interface IDeviceStateChangedEvent</h1>
+			<h1>Interface IControllerEvent</h1>
 		</div>
 	</div>
 </header>
@@ -72,14 +72,27 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="WebSockets_events_EUnifiEvents.IControllerEvent.html" class="tsd-signature-type" data-tsd-kind="Interface">IControllerEvent</a>
+						<span class="target">IControllerEvent</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">IDeviceStateChangedEvent</span>
+								<a href="WebSockets_events_events.IErrorEvent.html" class="tsd-signature-type" data-tsd-kind="Interface">IErrorEvent</a>
+							</li>
+							<li>
+								<a href="WebSockets_events_events.ISystemEvent.html" class="tsd-signature-type" data-tsd-kind="Interface">ISystemEvent</a>
+							</li>
+							<li>
+								<a href="WebSockets_events_events.IUpdateDeviceRestoreProgressEvent.html" class="tsd-signature-type" data-tsd-kind="Interface">IUpdateDeviceRestoreProgressEvent</a>
+							</li>
+							<li>
+								<a href="WebSockets_events_events.IDeviceStateChangedEvent.html" class="tsd-signature-type" data-tsd-kind="Interface">IDeviceStateChangedEvent</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
+			</section>
+			<section class="tsd-panel tsd-kind-interface tsd-parent-kind-module">
+				<h3 class="tsd-before-signature">Indexable</h3>
+				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">unknown</span></div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -88,8 +101,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_events_EUnifiEvents.IDeviceStateChangedEvent.html#system" class="tsd-kind-icon">system</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="WebSockets_events_EUnifiEvents.IDeviceStateChangedEvent.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_events_events.IControllerEvent.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,23 +110,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="system" class="tsd-anchor"></a>
-					<h3>system</h3>
-					<div class="tsd-signature tsd-kind-icon">system<span class="tsd-signature-symbol">:</span> <a href="WebSockets_Interfaces.ISystem.html" class="tsd-signature-type" data-tsd-kind="Interface">ISystem</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/c7ba250/src/WebSockets/events/EUnifiEvents.ts#L113">src/WebSockets/events/EUnifiEvents.ts:113</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="type" class="tsd-anchor"></a>
 					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;DEVICE_STATE_CHANGED&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="WebSockets_events_EUnifiEvents.IControllerEvent.html">IControllerEvent</a>.<a href="WebSockets_events_EUnifiEvents.IControllerEvent.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/c7ba250/src/WebSockets/events/EUnifiEvents.ts#L112">src/WebSockets/events/EUnifiEvents.ts:112</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/62be11f/src/WebSockets/events/events.ts#L32">src/WebSockets/events/events.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -127,50 +128,56 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/WebSockets_events_EUnifiEvents.html">Web<wbr>Sockets/events/EUnifi<wbr>Events</a>
+						<a href="../modules/WebSockets_events_events.html">Web<wbr>Sockets/events/events</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/WebSockets_events_EUnifiEvents.EUnifiControllerEvents.html" class="tsd-kind-icon">EUnifi<wbr>Controller<wbr>Events</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_events_EUnifiEvents.IControllerEvent.html" class="tsd-kind-icon">IController<wbr>Event</a>
+						<a href="../enums/WebSockets_events_events.EUnifiControllerEvents.html" class="tsd-kind-icon">EUnifi<wbr>Controller<wbr>Events</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_events_EUnifiEvents.IDeviceStateChangedEvent.html" class="tsd-kind-icon">IDevice<wbr>State<wbr>Changed<wbr>Event</a>
+						<a href="WebSockets_events_events.IControllerEvent.html" class="tsd-kind-icon">IController<wbr>Event</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="WebSockets_events_EUnifiEvents.IDeviceStateChangedEvent.html#system" class="tsd-kind-icon">system</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-								<a href="WebSockets_events_EUnifiEvents.IDeviceStateChangedEvent.html#type" class="tsd-kind-icon">type</a>
+								<a href="WebSockets_events_events.IControllerEvent.html#type" class="tsd-kind-icon">type</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_events_EUnifiEvents.IErrorEvent.html" class="tsd-kind-icon">IError<wbr>Event</a>
+						<a href="WebSockets_events_events.IDeviceStateChangedEvent.html" class="tsd-kind-icon">IDevice<wbr>State<wbr>Changed<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_events_EUnifiEvents.ISiteEvent.html" class="tsd-kind-icon">ISite<wbr>Event</a>
+						<a href="WebSockets_events_events.IErrorEvent.html" class="tsd-kind-icon">IError<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_events_EUnifiEvents.ISiteEventsEvent.html" class="tsd-kind-icon">ISite<wbr>Events<wbr>Event</a>
+						<a href="WebSockets_events_events.IEventDevice.html" class="tsd-kind-icon">IEvent<wbr>Device</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_events_EUnifiEvents.ISystemEvent.html" class="tsd-kind-icon">ISystem<wbr>Event</a>
+						<a href="WebSockets_events_events.ISiteEvent.html" class="tsd-kind-icon">ISite<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_events_EUnifiEvents.IUpdateDeviceRestoreProgressEvent.html" class="tsd-kind-icon">IUpdate<wbr>Device<wbr>Restore<wbr>Progress<wbr>Event</a>
+						<a href="WebSockets_events_events.ISiteEventsEvent.html" class="tsd-kind-icon">ISite<wbr>Events<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="WebSockets_events_events.IStaSync.html" class="tsd-kind-icon">ISta<wbr>Sync</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="WebSockets_events_events.ISystemEvent.html" class="tsd-kind-icon">ISystem<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="WebSockets_events_events.IUpdateDeviceRestoreProgressEvent.html" class="tsd-kind-icon">IUpdate<wbr>Device<wbr>Restore<wbr>Progress<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/WebSockets_events_EUnifiEvents.html#unifiControllerEvents" class="tsd-kind-icon">unifi<wbr>Controller<wbr>Events</a>
+						<a href="../modules/WebSockets_events_events.html#unifiControllerEvents" class="tsd-kind-icon">unifi<wbr>Controller<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/WebSockets_events_events.html#unifiSiteEvents" class="tsd-kind-icon">unifi<wbr>Site<wbr>Events</a>
 					</li>
 				</ul>
 			</nav>
