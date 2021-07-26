@@ -5,7 +5,7 @@ import cookie from 'cookie';
 import { EControllerEvents } from './events/EControllerEvents';
 import { events, eventDataTypes } from './events';
 import { createDebugger } from '../util';
-import { ISiteEvent, ISiteEventsEvent, unifiControllerEvents } from './events/EUnifiEvents';
+import { ISiteEvent, ISiteEventsEvent, unifiControllerEvents } from './events/events';
 
 export interface IUnifiWebSocketsProps {
     controller: Controller;
