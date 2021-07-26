@@ -2,16 +2,22 @@ import { EventEmitter } from 'events';
 import type { Controller } from '../Controller';
 import WebSocket from 'ws';
 import cookie from 'cookie';
-import semver from 'semver';
 import { EControllerEvents } from './events/EControllerEvents';
 import { events, eventDataTypes } from './events';
+import { createDebugger } from '../util';
+import { ISiteEvent, ISiteEventsEvent, unifiControllerEvents } from './events/EUnifiEvents';
 
 export interface IUnifiWebSocketsProps {
     controller: Controller;
     url: string;
     strictSSL?: boolean;
+    isController?: boolean;
 }
 
+const debug = createDebugger('UnifiWebsockets');
+const eventDebug = debug.extend('events');
+const eventSendDebug = eventDebug.extend('send');
+const eventReceivedDebug = eventDebug.extend('received');
 export class UnifiWebsockets extends EventEmitter {
     private controller: Controller;
     private readonly url: string;
@@ -22,11 +28,14 @@ export class UnifiWebsockets extends EventEmitter {
     private pingPongInterval: NodeJS.Timeout;
     private isReconnecting: boolean;
 
-    static UnifiWebSockets: Array<UnifiWebsockets> = [];
+    // static UnifiWebSockets: Array<UnifiWebsockets> = [];
     public static globalWS: EventEmitter = new EventEmitter();
+    private readonly isController: boolean;
+    private static UnifiWebSockets: Array<UnifiWebsockets> = [];
 
     constructor(props: IUnifiWebSocketsProps) {
         super();
+        debug('constructor()');
 
         //get controller
         this.controller = props.controller;
@@ -35,15 +44,20 @@ export class UnifiWebsockets extends EventEmitter {
 
         this.strictSSL = props.strictSSL;
 
+        this.isController = props.isController ?? false;
+
         //start websockets connexion
         // this.initWebSockets(props).catch((e) => {
         //     this._emit('ctrl.error', e);
         // });
 
+        //register ws on globals
+        this.controller.UnifiWebSockets.push(this);
         UnifiWebsockets.UnifiWebSockets.push(this);
     }
 
     public async initWebSockets(): Promise<void> {
+        debug('initWebSockets()');
         const cookies = await this.controller.auth.getCookies(false);
         this.ws = new WebSocket(this.url, {
             perMessageDeflate: false,
@@ -66,20 +80,10 @@ export class UnifiWebsockets extends EventEmitter {
         this.ws.on('message', (data) => {
             if (data === 'pong') {
                 this._emit(EControllerEvents.PONG);
+                return;
             }
             try {
-                const parsed = JSON.parse(data.toString());
-
-                // manage V6 or V5
-                if (semver.lte(this.controller.version, '6.0.0')) {
-                    if ('data' in parsed && Array.isArray(parsed.data)) {
-                        parsed.data.forEach((entry) => {
-                            this._eventV5(entry);
-                        });
-                    }
-                } else {
-                    this._emit(parsed.type ?? 'unknown', parsed);
-                }
+                this._handleEvent(data);
             } catch (err) {
                 this._emit(EControllerEvents.ERROR, err);
             }
@@ -98,17 +102,13 @@ export class UnifiWebsockets extends EventEmitter {
         });
     }
 
-    private _eventV5(data) {
-        if (data && data.key) {
-            const match = data.key.match(/EVT_([A-Z]{2})_(.*)/);
-            if (match) {
-                const [, group, event] = match;
-                this._emit([group.toLowerCase(), event.toLowerCase()].join('.'), data);
-            }
-        }
-    }
-
+    /**
+     * reconnect to websocket
+     * @private
+     */
     private _reconnect() {
+        const curDebug = debug.extend('_reconnect');
+        curDebug('()');
         if (!this.isReconnecting && !this.isClosed) {
             this.isReconnecting = true;
             setTimeout(async () => {
@@ -120,25 +120,105 @@ export class UnifiWebsockets extends EventEmitter {
                     console.dir('_reconnect() encountered an error');
                 }
             }, this.autoReconnectInterval);
+        } else if (this.isReconnecting) {
+            curDebug('reconnection already in progress');
+        } else {
+            curDebug('socket is closed');
         }
     }
 
+    /**
+     * closes all the websockets
+     */
     static closeSockets(): void {
+        debug('static.closeSockets()');
         this.UnifiWebSockets.forEach((s) => s.close());
     }
 
+    /**
+     * close this websocket connection
+     */
     close(): void {
+        debug('close()');
         this.isClosed = true;
         this.ws.close();
     }
 
+    /**
+     * emit an event on multiple events emitter
+     * @param event
+     * @param args
+     * @private
+     */
     private _emit(event: events | string, ...args: Array<eventDataTypes>): boolean {
+        eventSendDebug(event, ...args);
         //store the result about listeners
         const resEmit1 = this.emit(event, ...args);
         this.emit('*', event, ...args);
+
         //emit global events
-        UnifiWebsockets.globalWS.emit(event, ...args);
-        UnifiWebsockets.globalWS.emit('*', event, ...args);
+        this.controller.globalWS.emit(event, ...args);
+        this.controller.globalWS.emit('*', event, ...args);
         return resEmit1;
+    }
+
+    /**
+     * Handle event for a site
+     * @param event
+     * @private
+     */
+    private _handleSiteEvent(event: ISiteEvent): void {
+        const curDebug = debug.extend('_handleSiteEvent');
+        curDebug('()');
+        eventReceivedDebug('receive event');
+        eventReceivedDebug('meta : %O', event.meta);
+        eventReceivedDebug('data : %O', event.data);
+        if (event.meta?.message === 'events') {
+            const evt = event as ISiteEventsEvent;
+            evt.data.forEach((subEvent) => {
+                const match = subEvent.key.match(/EVT_([A-Z]{2})_(.*)/);
+                if (match) {
+                    const [, group, eventName] = match;
+                    this._emit([group.toLowerCase(), eventName.toLowerCase()].join(':'), subEvent);
+                } else {
+                    curDebug('unable to read the event key, %O', subEvent);
+                }
+            });
+        } else {
+            let evtName = event.meta.message;
+            if (event.meta.product_line) {
+                evtName = `${event.meta.product_line}:${evtName}`;
+            }
+            if (!evtName) {
+                curDebug('fail to get name from meta : %O', event);
+                evtName = 'unknown';
+            }
+            this._emit(evtName, event.data);
+        }
+    }
+
+    /**
+     * globally handle event
+     * @param data
+     * @private
+     */
+    private _handleEvent(data: WebSocket.Data) {
+        const curDebug = debug.extend('_handleEvent');
+        curDebug('()');
+
+        let parsed: unknown;
+        try {
+            parsed = JSON.parse(data.toString());
+        } catch (e) {
+            curDebug('fail to parse event');
+            curDebug(parsed);
+        }
+
+        if (this.isController) {
+            const event = parsed as unifiControllerEvents;
+            this._emit(event.type ?? 'unknown', event);
+        } else {
+            this._handleSiteEvent(parsed as ISiteEvent);
+        }
     }
 }
