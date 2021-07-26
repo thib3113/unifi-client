@@ -104,7 +104,7 @@ export class Site extends _ObjectSubController implements ISite {
             {
                 baseURL: this.controllerInstance.defaults.baseURL,
                 url: '/events',
-                site: 'super'
+                site: this.name
             },
             true
         );

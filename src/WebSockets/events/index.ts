@@ -1,6 +1,7 @@
-import { EUnifiControllerEvents, IDeviceStateChangedEvent, ISystemEvent, IUpdateDeviceRestoreProgressEvent } from './EUnifiEvents';
+import { EUnifiControllerEvents, unifiControllerEvents, unifiSiteEvents } from './events';
 import { EControllerEvents } from './EControllerEvents';
+import { ESiteEvents } from './ESiteEvents';
 
-export type events = EControllerEvents | EUnifiControllerEvents;
+export type events = EControllerEvents | EUnifiControllerEvents | ESiteEvents;
 
-export type eventDataTypes = IDeviceStateChangedEvent | IUpdateDeviceRestoreProgressEvent | ISystemEvent | any;
+export type eventDataTypes = unifiControllerEvents | unifiSiteEvents | any;
