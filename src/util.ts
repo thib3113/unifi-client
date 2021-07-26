@@ -44,3 +44,5 @@ export const getUrlRepresentation = (req: AxiosRequestConfig, hidePassword = tru
         auth: !hidePassword
     });
 };
+
+export const removeTrailingSlash = (stringUrl: string): string => stringUrl.replace(/\/$/, '');
