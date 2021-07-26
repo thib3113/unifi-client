@@ -8,6 +8,10 @@ declare module 'axios' {
         site?: string;
         apiVersion?: number;
         /**
+         * default /proxy/network
+         */
+        unifiUrl?: string;
+        /**
          * default false
          */
         authenticationRequest?: boolean;

@@ -145,6 +145,43 @@ const notifications = site.getInstance().get('/default/notifications', {
 //do something with notifications
 ```
 
+More examples in the folder [examples](./examples)
+
+## Websockets
+This library supports websockets, you can listen on them with : 
+```typescript
+// initWebSockets for controller :
+await controller.initWebSockets();
+
+// listen for controller websockets ( only for unifiOS )
+controller.on() / controller.ws.on()
+
+// listen for super site websockets
+controller.superWS.on();
+
+
+// initWebSockets for site :
+await site.initWebSockets();
+// listen for this site websockets
+site.on() / site.ws.on()
+
+// doesn't known the name of the event ? you can listen on joker : 
+controller.on('*', (eventName, ...args) => {
+    console.log(eventName, ...args);
+});
+
+// want to listen on all websockets of a controller on the same listener 
+// all websockets registered : 
+// - controller websockets if unifiOS 
+// - super site WS
+// - all sites where ws are init ( closed or not )
+controller.globalWS.on('*', (eventName, ...args) => {
+    console.log(eventName, ...args);
+});
+```
+
+the support of websocket is experimental, and with a really bad coverage . Doesn't hesitate to open a PR, to add more websockets types
+
 ## Technical documentation
 All the technical documentation is available [here](https://thib3113.github.io/unifi-client/modules)
 
