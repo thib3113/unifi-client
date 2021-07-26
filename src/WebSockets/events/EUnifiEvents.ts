@@ -4,7 +4,7 @@ import { IApp, IController, IReleaseInformations, ISystem, releaseChannels } fro
 /**
  * only known events, open PR to add more
  */
-export enum EUnifiEvents {
+export enum EUnifiControllerEvents {
     /**
      * check link to get data associated with this event
      * {@link IErrorEvent}
@@ -28,12 +28,17 @@ export enum EUnifiEvents {
     DEVICE_STATE_CHANGED = 'DEVICE_STATE_CHANGED'
 }
 
-export interface IErrorEvent {
+export interface IControllerEvent {
+    type: string;
+    [key: string]: unknown;
+}
+
+export interface IErrorEvent extends IControllerEvent {
     type: 'ERROR';
     message: string;
 }
 
-export interface ISystemEvent {
+export interface ISystemEvent extends IControllerEvent {
     type: 'SYSTEM';
     apps: {
         apps: Array<IApp>;
@@ -85,7 +90,7 @@ export interface ISystemEvent {
     unadoptedUnifiOSDevices: Array<unknown>;
 }
 
-export interface IUpdateDeviceRestoreProgressEvent {
+export interface IUpdateDeviceRestoreProgressEvent extends IControllerEvent {
     type: 'UPDATE_DEVICE_RESTORE_PROGRESS';
     backup: {
         device: {
@@ -103,7 +108,31 @@ export interface IUpdateDeviceRestoreProgressEvent {
     };
 }
 
-export interface IDeviceStateChangedEvent {
+export interface IDeviceStateChangedEvent extends IControllerEvent {
     type: 'DEVICE_STATE_CHANGED';
     system: ISystem;
+}
+
+export type unifiControllerEvents =
+    | IControllerEvent
+    | IErrorEvent
+    | ISystemEvent
+    | IUpdateDeviceRestoreProgressEvent
+    | IDeviceStateChangedEvent;
+
+export interface ISiteEvent {
+    meta: {
+        rc: string;
+        message: string;
+        product_line?: string;
+    };
+    data: Array<unknown>;
+}
+
+export interface ISiteEventsEvent {
+    meta: {
+        rc: string;
+        message: 'events';
+    };
+    data: Array<Record<string, unknown> & { key: string }>;
 }

@@ -12,6 +12,7 @@ import { Sites } from './Sites/Sites';
 import { Site } from './Sites/Site';
 import { Validate } from './commons/Validate';
 import { UnifiWebsockets } from './WebSockets';
+import { EventEmitter } from 'events';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
@@ -25,6 +26,22 @@ const axiosCurl = axiosDebug.extend('curl');
 const debug = createDebugger('Controller');
 
 export class Controller extends ObjectWithPrivateValues implements IController {
+    //
+    /**
+     * store array to close them all if needed, or loop on registered sockets
+     * only available on unifiOS
+     */
+    public UnifiWebSockets: Array<UnifiWebsockets> = [];
+    /**
+     * global event emitter, to listen on all events
+     */
+    public globalWS: EventEmitter = new EventEmitter();
+    /**
+     * listen on super site
+     */
+    public superWS: UnifiWebsockets;
+    public strictSSL: boolean = true;
+
     get sites(): Sites {
         this.needLoggedIn();
         return this._sites;
@@ -51,7 +68,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
                 ['Content-Type']: 'application/json'
             },
             httpsAgent:
-                this.props.strictSSL === false
+                this.strictSSL === false
                     ? new https.Agent({
                           rejectUnauthorized: false
                       })
@@ -91,7 +108,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         super();
 
         this.props = props;
-
+        this.strictSSL = this.props.strictSSL ?? this.strictSSL;
         this.controllerInstance = this._createInstance();
 
         // prepare sub objects
@@ -209,13 +226,14 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     }
 
     public buildUrl(
-        config: { url?: string; apiVersion?: number; site?: string; baseURL?: string },
+        config: { url?: string; apiVersion?: number; site?: string; baseURL?: string; unifiOSUrl?: string },
         websockets = false
     ): AxiosRequestConfig {
         const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
 
         if (this.unifiOs && !config.url.includes('login') && !config.url.includes('logout')) {
-            config.baseURL = `${config.baseURL}/proxy/network`;
+            const proxyPart = config.unifiOSUrl ?? '/proxy/network';
+            config.baseURL = `${config.baseURL}${proxyPart}`;
         }
 
         if (config.site) {
@@ -276,6 +294,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return this;
     }
 
+    // this function need to never be async !!! but return a promise ( so this.ws is init before the real init )
     public initWebSockets(): Promise<void> {
         this.needLoggedIn();
         let wsUrl;
@@ -287,12 +306,51 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             wsUrl = removeTrailingSlash(urlParsed.toString());
         }
 
-        this.ws = new UnifiWebsockets({
+        if (this.unifiOs) {
+            this.ws = new UnifiWebsockets({
+                controller: this,
+                strictSSL: this.strictSSL,
+                url: `${wsUrl}/api/ws/system`,
+                isController: true
+            });
+        } else {
+            const error = () =>
+                new ClientError('controller websockets are only available on unifiOS', EErrorsCodes.UNIFI_CONTROLLER_TYPE_MISMATCH);
+
+            Object.defineProperty(this, 'ws', {
+                get: () => {
+                    throw error();
+                },
+                set: () => {
+                    throw error();
+                }
+            });
+        }
+
+        //build super WS
+        const superWSConfig = this.buildUrl(
+            {
+                baseURL: this.controllerInstance.defaults.baseURL,
+                url: '/events',
+                site: 'super'
+            },
+            true
+        );
+        const superUrlBuilded = `${superWSConfig.baseURL}${superWSConfig.url}`;
+        this.superWS = new UnifiWebsockets({
             controller: this,
-            strictSSL: this.props.strictSSL,
-            url: `${wsUrl}/api/ws/system`
+            strictSSL: this.strictSSL,
+            url: superUrlBuilded,
+            isController: false
         });
 
-        return this.ws.initWebSockets().then(() => null);
+        return new Promise(async (resolve, reject) => {
+            try {
+                await Promise.all([this.unifiOs ? this.ws?.initWebSockets() : Promise.resolve(), this.superWS.initWebSockets()]);
+                resolve();
+            } catch (e) {
+                reject(e);
+            }
+        });
     }
 }
