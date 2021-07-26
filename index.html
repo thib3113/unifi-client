@@ -190,6 +190,41 @@
 
 <span style="color: #008000">//do something with notifications</span>
 </code></pre>
+				<p>More examples in the folder <a href="./examples">examples</a></p>
+				<a href="#websockets" id="websockets" style="color: inherit; text-decoration: none;">
+					<h2>Websockets</h2>
+				</a>
+				<p>This library supports websockets, you can listen on them with : </p>
+				<pre><code class="language-typescript"><span style="color: #008000">// initWebSockets for controller :</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">initWebSockets</span><span style="color: #000000">();</span>
+
+<span style="color: #008000">// listen for controller websockets ( only for unifiOS )</span>
+<span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">() / </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #001080">ws</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">// listen for super site websockets</span>
+<span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #001080">superWS</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">();</span>
+
+
+<span style="color: #008000">// initWebSockets for site :</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">initWebSockets</span><span style="color: #000000">();</span>
+<span style="color: #008000">// listen for this site websockets</span>
+<span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">() / </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">ws</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">// doesn&#039;t known the name of the event ? you can listen on joker : </span>
+<span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;*&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">eventName</span><span style="color: #000000">, ...</span><span style="color: #001080">args</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">eventName</span><span style="color: #000000">, ...</span><span style="color: #001080">args</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// want to listen on all websockets of a controller on the same listener </span>
+<span style="color: #008000">// all websockets registered : </span>
+<span style="color: #008000">// - controller websockets if unifiOS </span>
+<span style="color: #008000">// - super site WS</span>
+<span style="color: #008000">// - all sites where ws are init ( closed or not )</span>
+<span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #001080">globalWS</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;*&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">eventName</span><span style="color: #000000">, ...</span><span style="color: #001080">args</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">eventName</span><span style="color: #000000">, ...</span><span style="color: #001080">args</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>the support of websocket is experimental, and with a really bad coverage . Doesn&#39;t hesitate to open a PR, to add more websockets types</p>
 				<a href="#technical-documentation" id="technical-documentation" style="color: inherit; text-decoration: none;">
 					<h2>Technical documentation</h2>
 				</a>
@@ -302,6 +337,9 @@
 						<a href="modules/IController.html">IController</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/Sites.html">Sites</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/Sites_INetworkStatus.html">Sites/INetwork<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -317,6 +355,9 @@
 						<a href="modules/UnifiAuth.html">Unifi<wbr>Auth</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/User.html">User</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/User_IUser.html">User/IUser</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -324,6 +365,24 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/User_IUserRole.html">User/IUser<wbr>Role</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/WebSockets.html">Web<wbr>Sockets</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/WebSockets_Interfaces.html">Web<wbr>Sockets/<wbr>Interfaces</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/WebSockets_UnifiWebsockets.html">Web<wbr>Sockets/<wbr>Unifi<wbr>Websockets</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/WebSockets_events.html">Web<wbr>Sockets/events</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/WebSockets_events_EControllerEvents.html">Web<wbr>Sockets/events/EController<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/WebSockets_events_EUnifiEvents.html">Web<wbr>Sockets/events/EUnifi<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/commons_ObjectWithPrivateValues.html">commons/<wbr>Object<wbr>With<wbr>Private<wbr>Values</a>
