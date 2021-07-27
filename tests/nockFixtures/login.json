@@ -322,7 +322,7 @@
                     "name": "Dream Machine Pro",
                     "ip_addrs": [
                         "192.168.8.2",
-                        "***REMOVED***"
+                        "51.254.200.228"
                     ],
                     "inform_port": 8080,
                     "https_port": 8443,
