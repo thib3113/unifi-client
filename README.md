@@ -32,7 +32,7 @@ This library is a nodejs client to talk with unifi rest API .
 ```typescript  
 import Controller from 'unifi-client'  
   
-//only works with local accounts  
+// works with local account, check examples for 2FA 
 const controller = new Controller({  
   username: 'ubnt',  
   password: 'ubnt',  
@@ -192,6 +192,9 @@ check [technical documentation](https://thib3113.github.io/unifi-client/modules)
 This library is auto-tested on :
 - UDM-pro : `latest`
 - Unifi controller : `latest`, `6.2.25`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23`
+
+with the last node LTS 
+
 ## References
 This nodejs package/class uses functionality/Know-How gathered from different third-party projects:
 
