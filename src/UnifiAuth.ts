@@ -139,7 +139,13 @@ export class UnifiAuth extends ObjectWithPrivateValues {
                         this.csrfToken = response.headers['x-csrf-token'];
                     }
 
-                    if (!this.unifiOs && response.config && response.status === 401 && !response.config?.retryAuth) {
+                    if (
+                        !this.unifiOs &&
+                        response.config &&
+                        response.status === 401 &&
+                        !response.config?.retryAuth &&
+                        !this.disableAutoLogin
+                    ) {
                         curDebug('login is expired, try to re-login');
                         await this.login();
                         return this.controllerInstance.request({ ...response.config, retryAuth: true });

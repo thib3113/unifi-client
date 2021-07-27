@@ -97,6 +97,41 @@ describe('start controller - UnifiOs', () => {
 
             expect(newToken).not.toBe(expiredToken);
         });
+
+        it('should logout, and disable auto-renew token', async () => {
+            const controller = await getLoggedControllerWithoutSite(nock);
+
+            // @ts-ignore
+            expect(controller.logged).toBeTruthy();
+
+            await nock.back('local-logout.json').then(async ({ nockDone }) => {
+                await controller.logout();
+
+                expect(controller.auth.disableAutoLogin).toBeTruthy();
+                // @ts-ignore
+                expect(controller.logged).toBeFalsy();
+
+                expect.assertions(5);
+                try {
+                    await controller.getSites();
+                } catch (e) {
+                    expect(e.code).toBe(EErrorsCodes.NEED_LOGIN);
+                }
+
+                //force logged = true, and token empty to force "re-login"
+                // @ts-ignore
+                controller.logged = true;
+                // @ts-ignore
+                controller.auth.token = '';
+
+                try {
+                    await controller.getSites();
+                } catch (e) {
+                    expect(e.code).toBe(EErrorsCodes.UNAUTHORIZED);
+                }
+                nockDone();
+            });
+        });
     });
 
     describe('login with ubiquiti 2FA account', () => {
@@ -191,6 +226,38 @@ describe('start controller - non UnifiOs', () => {
         let newToken = controller.auth.token;
 
         expect(newToken).not.toBe(expiredToken);
+    });
+
+    it('should logout, and disable auto-renew token', async () => {
+        const controller = await getLoggedControllerWithoutSite(nock, false);
+
+        // @ts-ignore
+        expect(controller.logged).toBeTruthy();
+
+        await controller.logout();
+
+        // @ts-ignore
+        expect(controller.logged).toBeFalsy();
+        expect(controller.auth.disableAutoLogin).toBeTruthy();
+
+        expect.assertions(5);
+        try {
+            await controller.getSites();
+        } catch (e) {
+            expect(e.code).toBe(EErrorsCodes.NEED_LOGIN);
+        }
+
+        //force logged = true, and token empty to force "re-login"
+        // @ts-ignore
+        controller.logged = true;
+        // @ts-ignore
+        controller.auth.token = '';
+
+        try {
+            await controller.getSites();
+        } catch (e) {
+            expect(e.code).toBe(EErrorsCodes.UNAUTHORIZED);
+        }
     });
 });
 
