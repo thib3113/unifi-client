@@ -111,10 +111,14 @@ describe('start controller - UnifiOs', () => {
                 // @ts-ignore
                 expect(controller.logged).toBeFalsy();
 
-                expect.assertions(5);
+                // expect.assertions(5);
                 try {
                     await controller.getSites();
+                    expect('need to return NEED_LOGIN').toBeFalsy();
                 } catch (e) {
+                    if (e.constructor.name === 'JestAssertionError') {
+                        throw e;
+                    }
                     expect(e.code).toBe(EErrorsCodes.NEED_LOGIN);
                 }
 
@@ -123,10 +127,15 @@ describe('start controller - UnifiOs', () => {
                 controller.logged = true;
                 // @ts-ignore
                 controller.auth.token = '';
+                expect(controller.auth.disableAutoLogin).toBeTruthy();
 
                 try {
                     await controller.getSites();
+                    expect('need to return UNAUTHORIZED').toBeFalsy();
                 } catch (e) {
+                    if (e.constructor.name === 'JestAssertionError') {
+                        throw e;
+                    }
                     expect(e.code).toBe(EErrorsCodes.UNAUTHORIZED);
                 }
                 nockDone();
