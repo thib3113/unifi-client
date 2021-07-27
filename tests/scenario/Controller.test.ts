@@ -1,21 +1,15 @@
 import { getLoggedSite, getLoggedControllerWithoutSite, getAuthentication, setUp, UNIFI_USERNAME } from '../common';
 import nock from 'nock';
 import semver from 'semver';
-import Controller from '../../src';
+import Controller, { EErrorsCodes, Site, UnifiError } from '../../src';
 import jwt from 'jsonwebtoken';
-import { v4 as uuidv4 } from 'uuid';
-import { Site } from '../../src/Sites/Site';
+import { v4 as uuidV4 } from 'uuid';
 import { Validate } from '../../src/commons/Validate';
 import { AxiosInstance } from 'axios';
 
-describe('start controller - UnifiOs', () => {
-    it('should login to controller', async () => {
-        const controller = await getLoggedControllerWithoutSite(nock);
-        expect(controller.version).toBe('6.2.26');
-        expect(controller.unifiOs).toBeTruthy();
-        expect(controller).toBeDefined();
-    });
+const controllerExpectedVersion = '6.2.26';
 
+describe('start controller - UnifiOs', () => {
     it('should list sites', async () => {
         const controller = await getLoggedControllerWithoutSite(nock);
         await nock.back('list-sites.json').then(async ({ nockDone }) => {
@@ -47,49 +41,106 @@ describe('start controller - UnifiOs', () => {
         expect(site).toBeDefined();
     });
 
-    it('shoud fail to login with incorrect password', async () => {
-        setUp(nock);
-        const auth = getAuthentication();
+    describe('login with local account', () => {
+        beforeAll(() => {
+            setUp(nock)();
+        });
+        it('should login to controller', async () => {
+            const controller = await getLoggedControllerWithoutSite(nock);
+            expect(controller).toBeDefined();
+            expect(controller.version).toBe(controllerExpectedVersion);
+            expect(controller.unifiOs).toBeTruthy();
+            expect(controller.auth.disableAutoLogin).toBeFalsy();
+        });
 
-        await nock.back('login-fail.json').then(async ({ nockDone }) => {
-            const c = new Controller({
-                url: auth.url,
-                password: 'aaaaaa',
-                username: UNIFI_USERNAME,
-                strictSSL: auth.strictSSL
+        it('should fail to login with incorrect password', async () => {
+            setUp(nock);
+            const auth = getAuthentication();
+
+            await nock.back('login-local-fail.json').then(async ({ nockDone }) => {
+                const c = new Controller({
+                    url: auth.url,
+                    password: 'aaaaaa',
+                    username: UNIFI_USERNAME,
+                    strictSSL: auth.strictSSL
+                });
+                try {
+                    await c.login();
+                } catch (e) {
+                    expect(e.name).toBe('UnifiError');
+                    expect(e.code).toBe(401);
+                }
+
+                nockDone();
             });
-            try {
-                await c.login();
-            } catch (e) {
-                expect(e.name).toBe('UnifiError');
-                expect(e.code).toBe(401);
-            }
+        });
 
-            nockDone();
+        it('should autorenew token', async () => {
+            const controller = await getLoggedControllerWithoutSite(nock);
+            // @ts-ignore
+            let globToken = controller.auth.token;
+
+            const decodedToken = jwt.decode(globToken);
+            // set expired token
+            decodedToken.exp = 1117584000;
+
+            const expiredToken = jwt.sign(decodedToken, uuidV4());
+            // @ts-ignore
+            controller.auth.token = expiredToken;
+
+            await nock.back('renew-local-login.json').then(async ({ nockDone }) => {
+                await controller.getSites();
+                nockDone();
+            });
+            // @ts-ignore
+            let newToken = controller.auth.token;
+
+            expect(newToken).not.toBe(expiredToken);
         });
     });
 
-    it('should autorenew token', async () => {
-        const controller = await getLoggedControllerWithoutSite(nock);
-        // @ts-ignore
-        let globToken = controller.auth.token;
-
-        const decodedToken = jwt.decode(globToken);
-        // set expired token
-        decodedToken.exp = 1117584000;
-
-        const expiredToken = jwt.sign(decodedToken, uuidv4());
-        // @ts-ignore
-        controller.auth.token = expiredToken;
-
-        await nock.back('renew-login.json').then(async ({ nockDone }) => {
-            await controller.getSites();
-            nockDone();
+    describe('login with ubiquiti 2FA account', () => {
+        beforeAll(() => {
+            setUp(nock)();
         });
-        // @ts-ignore
-        let newToken = controller.auth.token;
+        it('should login to controller', async () => {
+            await nock.back('login-2FA.json').then(async ({ nockDone }) => {
+                const controller = new Controller(getAuthentication(true));
 
-        expect(newToken).not.toBe(expiredToken);
+                await controller.login('123456');
+
+                nockDone();
+                expect(controller.version).toBe(controllerExpectedVersion);
+                expect(controller.unifiOs).toBeTruthy();
+                expect(controller).toBeDefined();
+                expect(controller.auth.disableAutoLogin).toBeTruthy();
+            });
+        });
+
+        it('should not autorenew token', async () => {
+            await nock.back('login-2FA-not-renew.json').then(async ({ nockDone }) => {
+                const controller = new Controller(getAuthentication(true));
+
+                await controller.login('123456');
+                // @ts-ignore
+                let globToken = controller.auth.token;
+
+                const decodedToken = jwt.decode(globToken);
+                // set expired token
+                decodedToken.exp = 1117584000;
+                // @ts-ignore
+                controller.auth.token = jwt.sign(decodedToken, uuidV4());
+
+                //need to throw UNAUTHORIZED because no auto renew
+                expect.assertions(1);
+                try {
+                    await controller.getSites();
+                } catch (e) {
+                    expect(e.code).toBe(EErrorsCodes.UNAUTHORIZED);
+                }
+                nockDone();
+            });
+        });
     });
 });
 
