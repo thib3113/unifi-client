@@ -53,7 +53,7 @@
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiIzOTQ2MGEyYi0yZGU4LTQ0MDEtYmZhZC03ODQwOTMxYTI4YzAiLCJpYXQiOjE2MjcxNDQ4MTksImV4cCI6NDc4MjkwNDgxOX0.T67uNG0wauDY-Xx-cPFuFRw1ltYeWvg5LOwNVM-elyU; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }

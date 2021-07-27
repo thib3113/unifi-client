@@ -1,11 +1,13 @@
 [
     {
         "scope": "https://unifi2:443",
-        "method": "GET",
-        "path": "/",
+        "method": "POST",
+        "path": "/api/auth/logout",
         "body": "",
         "status": 200,
-        "response": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>UniFi</title><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><script defer=\"defer\" src=\"/icons-863ab34bf6f08ac241ee.js\"></script><script defer=\"defer\" src=\"/vendor-c47466fb56ffff27ec40.js\"></script><script defer=\"defer\" src=\"/main-05e40f668b61b985efb6.js\"></script><link href=\"/main.91be1bcb.css\" rel=\"stylesheet\"></head><body><div id=\"root\"></div></body></html>",
+        "response": {
+            "success": true
+        },
         "rawHeaders": [
             "Vary",
             "Origin",
@@ -23,18 +25,16 @@
             "1; mode=block",
             "Accept-Ranges",
             "bytes",
-            "X-CSRF-Token",
-            "878b7d97-5799-4410-8256-47c17e9daf12",
             "Content-Type",
-            "text/html; charset=utf-8",
+            "application/json; charset=utf-8",
             "Content-Length",
-            "447",
+            "21",
             "X-Response-Time",
             "2ms",
             "Set-Cookie",
             "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Date",
-            "Sat, 24 Jul 2021 16:40:24 GMT",
+            "Tue, 27 Jul 2021 21:23:47 GMT",
             "Connection",
             "close"
         ],
@@ -42,17 +42,25 @@
     },
     {
         "scope": "https://unifi2:443",
-        "method": "POST",
-        "path": "/api/auth/login",
-        "body": {
-            "username": "ubnt",
-            "password": "aaaaaa",
-            "rememberMe": true
-        },
-        "status": 401,
+        "method": "GET",
+        "path": "/proxy/network/api/self/sites",
+        "body": "",
+        "status": 200,
         "response": {
-            "errors": [
-                "Invalid username or password"
+            "meta": {
+                "rc": "ok"
+            },
+            "data": [
+                {
+                    "_id": "6001f8a73fd98c05e9465f91",
+                    "anonymous_id": "a3222f4c-3f6f-49f1-a747-ec1afe0fc773",
+                    "name": "default",
+                    "desc": "Default",
+                    "attr_hidden_id": "default",
+                    "attr_no_delete": true,
+                    "role": "admin",
+                    "role_hotspot": false
+                }
             ]
         },
         "rawHeaders": [
@@ -60,8 +68,8 @@
             "Origin",
             "X-DNS-Prefetch-Control",
             "off",
-            "X-Frame-Options",
-            "SAMEORIGIN",
+            "x-frame-options",
+            "DENY",
             "Strict-Transport-Security",
             "max-age=15552000; includeSubDomains",
             "X-Download-Options",
@@ -72,20 +80,16 @@
             "1; mode=block",
             "Accept-Ranges",
             "bytes",
-            "X-CSRF-Token",
-            "cffadf87-0f9d-4df1-92eb-e2f507b05cd3",
-            "Content-Type",
-            "application/json; charset=utf-8",
-            "Content-Length",
-            "56",
-            "X-Response-Time",
-            "530ms",
+            "content-type",
+            "application/json;charset=UTF-8",
+            "content-length",
+            "237",
+            "date",
+            "Tue, 27 Jul 2021 21:23:47 GMT",
+            "connection",
+            "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict",
-            "Date",
-            "Sat, 24 Jul 2021 16:40:25 GMT",
-            "Connection",
-            "close"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }
