@@ -44,7 +44,6 @@ export class UnifiAuth extends ObjectWithPrivateValues {
     private csrfToken: string;
 
     private controllerInstance: AxiosInstance;
-    private sitesInstance: Array<AxiosInstance> = [];
 
     constructor(props: IUnifiAuthProps, instance: AxiosInstance) {
         super();
@@ -273,6 +272,6 @@ export class UnifiAuth extends ObjectWithPrivateValues {
 
     addInterceptorsToInstance(instance: AxiosInstance): void {
         debug('addInterceptorsToInstance');
-        this.sitesInstance.push(this.addInterceptors(instance));
+        this.addInterceptors(instance);
     }
 }
