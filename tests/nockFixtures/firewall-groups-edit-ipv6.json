@@ -55,7 +55,7 @@
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     },
@@ -107,7 +107,7 @@
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }

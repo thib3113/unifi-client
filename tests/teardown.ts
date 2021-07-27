@@ -50,7 +50,8 @@ module.exports = async () => {
 
                         // @ts-ignore rawHeaders seems not typed
                         def.rawHeaders = (def.rawHeaders as Array<string>).map((def) => {
-                            if (def.startsWith('TOKEN=')) {
+                            const tokenCookieStr = 'TOKEN=';
+                            if (def.startsWith('TOKEN=') && def.length > tokenCookieStr.length) {
                                 if (!cookieToken) {
                                     const cookies = setCookieParser.parse(def, {
                                         map: true

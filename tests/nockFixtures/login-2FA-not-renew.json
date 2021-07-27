@@ -32,7 +32,7 @@
             "X-Response-Time",
             "2ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Date",
             "Tue, 27 Jul 2021 19:27:37 GMT",
             "Connection",
@@ -52,7 +52,7 @@
         },
         "status": 200,
         "response": {
-            "unique_id": "c964b0e6-4847-4c8f-9167-5080c42be12e",
+            "unique_id": "bc203b1a-09cd-45d1-9a6a-b5e65bbd1d37",
             "first_name": "firstName",
             "last_name": "lastName",
             "full_name": "fullName",
@@ -63,11 +63,11 @@
             "avatar_rpath2": "",
             "status": "ACTIVE",
             "employee_number": "",
-            "create_time": 1627421991411,
+            "create_time": 1627423986707,
             "extras": {},
             "username": "ubnt",
             "local_account_exist": false,
-            "password_revision": 1627421991411,
+            "password_revision": 1627423986707,
             "sso_account": "demo@ubnt.com",
             "sso_uuid": "45047b75-0546-407b-9c10-d1900498ec30",
             "sso_username": "ubnt",
@@ -76,17 +76,17 @@
             "uid_sso_account": "",
             "groups": [
                 {
-                    "unique_id": "3b7ec18b-a199-4575-8a3e-68534c1e2914",
+                    "unique_id": "86666795-19db-4b7f-9ec4-10b1107becbf",
                     "name": "Dream Machine Pro",
                     "up_id": "",
                     "up_ids": [],
                     "system_name": "Dream Machine Pro",
-                    "create_time": "2021-07-27T21:39:51.411Z"
+                    "create_time": "2021-07-27T22:13:06.707Z"
                 }
             ],
             "roles": [
                 {
-                    "unique_id": "658342b5-9fa1-4128-b378-556910a42cec",
+                    "unique_id": "c6669832-5029-4e65-a723-3cb5549416ea",
                     "name": "Owner",
                     "system_role": true,
                     "system_key": "owner",
@@ -277,13 +277,13 @@
                 "access.open_door:building"
             ],
             "cloud_access_granted": true,
-            "update_time": 1627421991411,
+            "update_time": 1627423986707,
             "avatar": "/proxy/users/avatar/45047b75-0546-407b-9c10-d1900498ec30",
             "nfc_token": "",
             "nfc_display_id": "",
             "nfc_card_type": "",
             "nfc_card_status": "",
-            "id": "152a5178-a5a9-404b-82ae-afe7fc2798da",
+            "id": "67944dfe-7b86-4393-b6f4-1e50758e44bc",
             "isOwner": true,
             "isSuperAdmin": true
         },
@@ -313,7 +313,7 @@
             "X-Response-Time",
             "931ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Date",
             "Tue, 27 Jul 2021 19:27:38 GMT",
             "Connection",
@@ -403,7 +403,7 @@
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     },
@@ -436,7 +436,7 @@
             "X-Response-Time",
             "4ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Content-Type",
             "text/plain; charset=utf-8",
             "Content-Length",

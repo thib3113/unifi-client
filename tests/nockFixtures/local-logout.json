@@ -32,9 +32,9 @@
             "X-Response-Time",
             "2ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Date",
-            "Tue, 27 Jul 2021 21:23:47 GMT",
+            "Tue, 27 Jul 2021 22:13:01 GMT",
             "Connection",
             "close"
         ],
@@ -45,31 +45,15 @@
         "method": "GET",
         "path": "/proxy/network/api/self/sites",
         "body": "",
-        "status": 200,
-        "response": {
-            "meta": {
-                "rc": "ok"
-            },
-            "data": [
-                {
-                    "_id": "6001f8a73fd98c05e9465f91",
-                    "anonymous_id": "a3222f4c-3f6f-49f1-a747-ec1afe0fc773",
-                    "name": "default",
-                    "desc": "Default",
-                    "attr_hidden_id": "default",
-                    "attr_no_delete": true,
-                    "role": "admin",
-                    "role_hotspot": false
-                }
-            ]
-        },
+        "status": 401,
+        "response": "Unauthorized",
         "rawHeaders": [
             "Vary",
             "Origin",
             "X-DNS-Prefetch-Control",
             "off",
-            "x-frame-options",
-            "DENY",
+            "X-Frame-Options",
+            "SAMEORIGIN",
             "Strict-Transport-Security",
             "max-age=15552000; includeSubDomains",
             "X-Download-Options",
@@ -80,16 +64,20 @@
             "1; mode=block",
             "Accept-Ranges",
             "bytes",
-            "content-type",
-            "application/json;charset=UTF-8",
-            "content-length",
-            "237",
-            "date",
-            "Tue, 27 Jul 2021 21:23:47 GMT",
-            "connection",
-            "close",
+            "X-CSRF-Token",
+            "391d3a00-c838-4899-9ea0-062cf252ed05",
+            "X-Response-Time",
+            "83ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI5NjQwYzdiMS1lYjNmLTQzNmEtYjNhNC1lZTkxZGUxZDFkYTAiLCJpYXQiOjE2Mjc0MjE5ODIsImV4cCI6NDc4MzE4MTk4Mn0.PjwHD4pM-zyxWPDZ-Xca36zqmkxbE5rEgEN0kjaqwv8; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "Content-Type",
+            "text/plain; charset=utf-8",
+            "Content-Length",
+            "12",
+            "Date",
+            "Tue, 27 Jul 2021 22:13:04 GMT",
+            "Connection",
+            "close"
         ],
         "responseIsBinary": false
     }
