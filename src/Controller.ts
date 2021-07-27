@@ -2,17 +2,17 @@ import { IUnifiAuthProps, UnifiAuth } from './UnifiAuth';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { createDebugger, getUrlRepresentation, removeTrailingSlash } from './util';
 import https from 'https';
-import { IUser } from './User/IUser';
 import curlirize from 'axios-curlirize';
 import { URL } from 'url';
 import { IController } from './IController';
 import { ClientError, EErrorsCodes, UnifiError } from './Errors';
 import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
-import { Sites } from './Sites/Sites';
-import { Site } from './Sites/Site';
 import { Validate } from './commons/Validate';
 import { UnifiWebsockets } from './WebSockets';
 import { EventEmitter } from 'events';
+import AxiosError from 'axios-error';
+import { Site, Sites } from './Sites';
+import { IUser } from './User';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
@@ -126,8 +126,15 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return this._sites.list();
     }
 
-    async login(): Promise<IUser> {
-        const user = await this.auth.login();
+    /**
+     *
+     * @param token2FA - 2FA token, will disable re-login
+     */
+    async login(token2FA?: string): Promise<IUser> {
+        //re enable autoLogin if disabled
+        this.auth.disableAutoLogin = false;
+        const user = await this.auth.login(token2FA);
+        //get unifiOs / version / and save logged status
         this.unifiOs = this.auth.unifiOs;
         this.version = await this.auth.getVersion();
         this.logged = true;
@@ -136,6 +143,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     async logout(): Promise<void> {
         await this.auth.logout();
+        this.auth.disableAutoLogin = true;
         this.logged = false;
     }
 
@@ -211,12 +219,14 @@ export class Controller extends ObjectWithPrivateValues implements IController {
                         delete error.config.clearCurl;
                     }
                     const meta = error.response.data?.meta;
-                    error = new UnifiError(
-                        meta?.msg || error.response.statusText || 'Unknown HTTP Error',
-                        error.response.status,
-                        meta,
-                        error
-                    );
+                    const message =
+                        meta?.msg ||
+                        error.response.data?.error ||
+                        error.response.data?.errors?.join('\n\n ----- \n\n') ||
+                        error.response.statusText ||
+                        'Unknown HTTP Error';
+                    // axios error will remove circular dependency + format a little the sub error
+                    error = new UnifiError(message, error.response.status, meta, new AxiosError(error));
                 }
 
                 return Promise.reject(error);
