@@ -104,7 +104,6 @@ export class UnifiWebsockets extends EventEmitter {
 
     /**
      * reconnect to websocket
-     * @private
      */
     private _reconnect() {
         const curDebug = debug.extend('_reconnect');
@@ -146,9 +145,8 @@ export class UnifiWebsockets extends EventEmitter {
 
     /**
      * emit an event on multiple events emitter
-     * @param event
-     * @param args
-     * @private
+     * @param event - an event
+     * @param args - an args
      */
     private _emit(event: events | string, ...args: Array<eventDataTypes>): boolean {
         eventSendDebug(event, ...args);
@@ -164,8 +162,7 @@ export class UnifiWebsockets extends EventEmitter {
 
     /**
      * Handle event for a site
-     * @param event
-     * @private
+     * @param event - event
      */
     private _handleSiteEvent(event: ISiteEvent): void {
         const curDebug = debug.extend('_handleSiteEvent');
@@ -199,8 +196,7 @@ export class UnifiWebsockets extends EventEmitter {
 
     /**
      * globally handle event
-     * @param data
-     * @private
+     * @param data - websocket data
      */
     private _handleEvent(data: WebSocket.Data) {
         const curDebug = debug.extend('_handleEvent');

@@ -12,29 +12,8 @@ const main = async () => {
         strictSSL: false
     });
     await controller.login();
-    await controller.initWebSockets();
 
-    // listen on controller, for the event ctrl.connect
-    // check known events in documentation : https://thib3113.github.io/unifi-client/modules/WebSockets_events_EUnifiEvents.html
-    // else check in devtools when using the unifi web app
-    // controller websockets are only available on unifiOS
-    controller.on('*', (eventName, ...args) => {
-        console.log(...args);
-    });
-
-    /**
-     * listen on super site ... seems to be an equivalent of controller websocket for non unifiOS . ( but events and name doesn't use the same form )
-     */
-    controller.superWS.on('*', (eventName, ...args) => {
-        console.log(eventName, ...args);
-    });
-
-    const [site] = await controller.getSites();
-    await site.initWebSockets();
-    site.ws.on('*', (eventName, ...args) => {
-        // fs.writeFileSync(path.join(__dirname, `${eventName.toLowerCase()}`), JSON.stringify(...args))
-        console.log(eventName, ...args);
-    });
+    await controller.logout();
 };
 
 //just run the async main, and log error if needed

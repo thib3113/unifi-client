@@ -1,6 +1,6 @@
 import { AxiosInstance, AxiosResponse } from 'axios';
 import { createDebugger } from './util';
-import { IUser } from './User/IUser';
+import { IUser } from './User';
 import setCookieParser from 'set-cookie-parser';
 import { IncomingMessage } from 'http';
 import cookie, { CookieSerializeOptions } from 'cookie';
@@ -19,6 +19,7 @@ const debug = createDebugger('UnifiAuth');
 export class UnifiAuth extends ObjectWithPrivateValues {
     private readonly rememberMe: boolean;
     public unifiOs: boolean;
+    public disableAutoLogin: boolean = false;
     private get username(): string {
         return this.getPrivate('username');
     }
@@ -43,7 +44,6 @@ export class UnifiAuth extends ObjectWithPrivateValues {
     private csrfToken: string;
 
     private controllerInstance: AxiosInstance;
-    private sitesInstance: Array<AxiosInstance> = [];
 
     constructor(props: IUnifiAuthProps, instance: AxiosInstance) {
         super();
@@ -72,7 +72,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
 
         const cookies: Array<CookieSerializeOptions & { name: string; value: string }> = [];
         if (!authenticationRequest) {
-            curDebug('not authentification request, include cookie');
+            curDebug('not authentification request, include cookies');
             //if we need to include token
             cookies.push({ name: this.getCookieTokenName(), value: await this.getToken() });
         }
@@ -138,7 +138,13 @@ export class UnifiAuth extends ObjectWithPrivateValues {
                         this.csrfToken = response.headers['x-csrf-token'];
                     }
 
-                    if (!this.unifiOs && response.config && response.status === 401 && !response.config?.retryAuth) {
+                    if (
+                        !this.unifiOs &&
+                        response.config &&
+                        response.status === 401 &&
+                        !response.config?.retryAuth &&
+                        !this.disableAutoLogin
+                    ) {
                         curDebug('login is expired, try to re-login');
                         await this.login();
                         return this.controllerInstance.request({ ...response.config, retryAuth: true });
@@ -159,7 +165,11 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         });
     }
 
-    public async login(): Promise<IUser> {
+    /**
+     *
+     * @param token2FA - 2FA token, will disable re-login
+     */
+    public async login(token2FA?: string): Promise<IUser> {
         debug('login()');
         const curDebug = debug.extend('login');
         //reset tokens
@@ -191,12 +201,17 @@ export class UnifiAuth extends ObjectWithPrivateValues {
             {
                 username: this.username,
                 password: this.password,
-                rememberMe: this.rememberMe
+                rememberMe: this.rememberMe,
+                token: token2FA || undefined
             },
             {
                 authenticationRequest: true
             }
         );
+
+        if (token2FA) {
+            this.disableAutoLogin = true;
+        }
 
         curDebug('end login request');
         const cookies = this.getCookiesFromResponse(res);
@@ -218,9 +233,10 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         return res.data;
     }
 
-    public logout(): Promise<void> {
+    public async logout(): Promise<void> {
         debug('logout()');
-        return Promise.resolve(undefined);
+
+        await this.controllerInstance.post(`/api${this.unifiOs ? '/auth' : ''}/logout`);
     }
 
     public async getVersion(): Promise<string> {
@@ -243,7 +259,11 @@ export class UnifiAuth extends ObjectWithPrivateValues {
 
         // non unifiOs token is not a JWT token, can't know if the token is expired with this method ...
         //check if token, or if jwt token will not expire in the 2 next minutes, just in case
-        if (this.unifiOs && (!token || (jwt.decode(token) as { exp: number }).exp * 1000 < Date.now() - 2 * 1000)) {
+        if (
+            this.unifiOs &&
+            (!token || (jwt.decode(token) as { exp: number }).exp * 1000 < Date.now() - 2 * 1000) &&
+            !this.disableAutoLogin
+        ) {
             curDebug('token seems invalid, try to relogin');
             await this.login();
         }
@@ -252,6 +272,6 @@ export class UnifiAuth extends ObjectWithPrivateValues {
 
     addInterceptorsToInstance(instance: AxiosInstance): void {
         debug('addInterceptorsToInstance');
-        this.sitesInstance.push(this.addInterceptors(instance));
+        this.addInterceptors(instance);
     }
 }
