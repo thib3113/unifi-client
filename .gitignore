@@ -154,6 +154,7 @@ config.json
 !.gitkeep
 /package-lock.json
 
+lib
 build
 last-check.json
 yarn.lock

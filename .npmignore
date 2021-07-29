@@ -170,3 +170,4 @@ jest.config.js
 tsconfig.json
 renovate.json
 unifi-storage
+examples/
