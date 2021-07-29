@@ -7,7 +7,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "declaration": true,
-    "outDir": "build"
+    "outDir": "lib"
   },
   "exclude": [
     "node_modules",
@@ -15,8 +15,5 @@
   ],
   "include": [
     "src/**/*.ts"
-  ],
-  "files": [
-    "./src/custom.d.ts"
   ]
 }
