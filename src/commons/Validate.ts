@@ -23,54 +23,54 @@ export class Validate {
     }
 
     // Returns if a value is a string
-    public static isString(value): value is string {
+    public static isString(value: unknown): value is string {
         return typeof value === 'string' || value instanceof String;
     }
     // Returns if a value is really a number
-    public static isNumber(value): value is number {
+    public static isNumber(value: unknown): value is number {
         return typeof value === 'number' && isFinite(value);
     }
 
     // Returns if a value is a function
     // eslint-disable-next-line @typescript-eslint/ban-types
-    public static isFunction(value): value is Function {
+    public static isFunction(value: unknown): value is Function {
         return typeof value === 'function';
     }
     // Returns if a value is an object
     // eslint-disable-next-line @typescript-eslint/ban-types
-    public static isObject(value): value is object {
-        return value && typeof value === 'object' && value.constructor === Object;
+    public static isObject(value: unknown): value is object {
+        return ((value ?? false) as boolean) && typeof value === 'object' && value?.constructor === Object;
     }
     // Returns if a value is null
-    public static isNull(value): value is null {
+    public static isNull(value: unknown): value is null {
         return value === null;
     }
 
     // Returns if a value is undefined
-    public static isUndefined(value): value is undefined {
+    public static isUndefined(value: unknown): value is undefined {
         return typeof value === 'undefined';
     }
 
     // in typescript, the equivalent is
     // const a = undefined ?? bar
-    public static isDefinedNotNull<T>(value): value is NonNullable<MustBeNullable<T>> {
-        return (value as unknown) !== undefined && (value as unknown) !== null;
+    public static isDefinedNotNull<T>(value: unknown): value is NonNullable<MustBeNullable<T>> {
+        return value !== undefined && value !== null;
     }
 
     // Returns if a value is a boolean
-    public static isBoolean(value): value is boolean {
+    public static isBoolean(value: unknown): value is boolean {
         return typeof value === 'boolean';
     }
     // Returns if a value is a regexp
-    public static isRegExp(value): value is RegExp {
-        return value && typeof value === 'object' && value.constructor === RegExp;
+    public static isRegExp(value: unknown): value is RegExp {
+        return ((value ?? false) as boolean) && typeof value === 'object' && value?.constructor === RegExp;
     }
     // Returns if value is an error object
-    public static isError(value): value is Error {
+    public static isError(value: unknown): value is Error {
         return value instanceof Error && typeof value.message !== 'undefined';
     }
     // Returns if value is a date
-    public static isDate(value, acceptTimestamp = true): value is Date {
+    public static isDate(value: unknown, acceptTimestamp = true): value is Date {
         return (
             value instanceof Date ||
             (Validate.isString(value) && !Number.isNaN(Date.parse(value.toString()))) ||
@@ -78,27 +78,27 @@ export class Validate {
         );
     }
     // Returns if value is a Buffer
-    public static isBuffer(value): value is Buffer {
+    public static isBuffer(value: unknown): value is Buffer {
         return Buffer.isBuffer(value);
     }
     // Returns if a Symbol
-    public static isSymbol(value): value is symbol {
+    public static isSymbol(value: unknown): value is symbol {
         return typeof value === 'symbol';
     }
 
-    public static implementsTKeys<T>(obj: any, keys: Array<keyof T>): obj is T {
+    public static implementsTKeys<T>(obj: unknown, keys: Array<keyof T>): obj is T {
         if (!obj || !Array.isArray(keys) || Validate.isString(obj) || Validate.isNumber(obj) || Validate.isBoolean(obj)) {
             return false;
         }
 
+        // @ts-ignore
         return keys.reduce((impl, key) => impl && key in obj, true);
     }
 
     /**
      * Return a boolean depending on the string . ("true", "y", "yes", "oui", "on" return true, else it's return false)
-     * @param {string} str
-     * @param {boolean} strict return null instead of false if not in list
-     * @return {boolean}
+     * @param str -the string
+     * @param strict - return null instead of false if not in list
      */
     public static stringToBoolean(str: string, strict = false): boolean | null {
         return stringToBooleanMap.get((str || '').toLowerCase()) ?? (strict ? null : false);
