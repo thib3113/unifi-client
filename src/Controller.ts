@@ -51,7 +51,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     public auth: UnifiAuth;
     private readonly _sites: Sites;
     public unifiOs: boolean;
-    public version: string = '7.0.0';
+    public version?: string = '7.0.0';
     private logged: boolean;
 
     public createInstance(siteName: string): AxiosInstance {
@@ -67,12 +67,11 @@ export class Controller extends ObjectWithPrivateValues implements IController {
                 Accept: 'application/json',
                 ['Content-Type']: 'application/json'
             },
-            httpsAgent:
-                this.strictSSL === false
-                    ? new https.Agent({
-                          rejectUnauthorized: false
-                      })
-                    : undefined,
+            httpsAgent: !this.strictSSL
+                ? new https.Agent({
+                      rejectUnauthorized: false
+                  })
+                : undefined,
             site: siteName ?? undefined
         });
 
@@ -241,7 +240,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     ): AxiosRequestConfig {
         const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
 
-        if (this.unifiOs && !config.url.includes('login') && !config.url.includes('logout')) {
+        if (this.unifiOs && !config.url?.includes('login') && !config.url?.includes('logout')) {
             const proxyPart = config.unifiOSUrl ?? '/proxy/network';
             config.baseURL = `${config.baseURL}${proxyPart}`;
         }

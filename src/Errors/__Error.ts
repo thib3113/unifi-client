@@ -15,7 +15,7 @@ export class __Error implements Error {
     public exception: Error;
     public message: string;
 
-    public constructor(message: string | Error = '', code: EErrorsCodes = EErrorsCodes.UNKNOWN_ERROR, exception: Error | string = null) {
+    public constructor(message: string | Error = '', code: EErrorsCodes = EErrorsCodes.UNKNOWN_ERROR, exception?: Error | string | null) {
         if (message instanceof Error) {
             exception = message;
             message = message.message;
@@ -25,7 +25,7 @@ export class __Error implements Error {
         this.code = code;
 
         const generateStack = (): string => {
-            let tmpStack = new Error().stack;
+            let tmpStack = new Error().stack || '';
             if (this.exception) {
                 tmpStack += '\n=== CAUSED BY ===\n';
                 tmpStack += `${this.exception.toString()}`;
@@ -59,7 +59,7 @@ export class __Error implements Error {
 
         const message = String(this._message) || '';
 
-        const strComponents = [];
+        const strComponents: Array<string> = [];
 
         const errorCodeStr = this.errorCode ? ` (${this.errorCode})` : '';
 

@@ -1,4 +1,4 @@
-import { getLoggedSite, getLoggedControllerWithoutSite, getAuthentication, setUp, UNIFI_USERNAME } from '../common';
+import { getLoggedSite, getLoggedControllerWithoutSite, getAuthentication, setUp, UNIFI_USERNAME } from './_scripts/common';
 import nock from 'nock';
 import semver from 'semver';
 import Controller, { EErrorsCodes, Site, UnifiError } from '../../src';
