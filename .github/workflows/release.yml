@@ -4,14 +4,12 @@ on:
     types: [created]
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x]
-        #can't test on 5.6.42 because database is too up to date ( 5.12.72 )
+        node-version: [ lts/*, 16]
+        #can't test on 5.6.42 because database is too up-to-date ( 5.12.72 )
         unifi-version: [ latest, version-6.0.23, version-6.0.28, version-6.0.36, version-6.0.41, version-6.0.43, version-6.0.45 ]
 
     steps:
@@ -21,9 +19,8 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           node-version: ${{ matrix.node-version }}
 
-      - name: install+run docker-unifi-controller
+      - name: install+run docker-unifi-controller - Node ${{ matrix.node-version }} - Unifi ${{ matrix.unifi-version }}
         run: |
-          run: |
             # install our own demo database
             mkdir unifi-storage
             sudo tar -C unifi-storage -xf $GITHUB_WORKSPACE/.github/workflows/db-demo-dump.tar.bz2
@@ -44,14 +41,14 @@ jobs:
         env:
           CI: true
 
-  deploy:
+  deploy-npm:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: lts/*
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
         env:
@@ -61,4 +58,23 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+  deploy-GPR:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          registry-url: 'https://npm.pkg.github.com'
+          scope: ${{ github.repository_owner }}
+      - run: npm install
+        env:
+          CI: true
+      - run: npx npe name @${{ github.event.repository.full_name }}
+        name: change scope name
+      - run: npm publish --access public --registry https://npm.pkg.github.com
+        name: publish on GPR
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
