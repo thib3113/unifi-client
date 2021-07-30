@@ -42,7 +42,7 @@ export class UnifiWebsockets extends EventEmitter {
 
         this.url = props.url;
 
-        this.strictSSL = props.strictSSL;
+        this.strictSSL = props.strictSSL ?? true;
 
         this.isController = props.isController ?? false;
 

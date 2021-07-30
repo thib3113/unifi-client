@@ -6,6 +6,7 @@
     "sourceMap": true,
     "allowJs": true,
     "esModuleInterop": true,
+    "strictNullChecks": true,
     "declaration": true,
     "outDir": "lib"
   },
