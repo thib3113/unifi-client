@@ -7,14 +7,14 @@ import setCookieParser from 'set-cookie-parser';
 import { v4 as uuidv4 } from 'uuid';
 import { isRecordMode } from './isRecordMode';
 
-const testFolder = path.join(__dirname, 'nockFixtures');
+const testFolder = path.join(__dirname, '..', '..', 'nockFixtures');
 
 const jwtKey = uuidv4();
 
 module.exports = async () => {
     try {
         if (isRecordMode()) {
-            let cookieToken: string = null;
+            let cookieToken: string = '';
 
             const checkFileFn = (filePath: string) => {
                 if (!fs.existsSync(filePath)) {

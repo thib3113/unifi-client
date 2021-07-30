@@ -1,4 +1,3 @@
-/* eslint-disable */
 const stringToBooleanMap = new Map<string, boolean>([
     ['true', true],
     ['y', true],
@@ -11,6 +10,8 @@ const stringToBooleanMap = new Map<string, boolean>([
     ['non', false],
     ['off', false]
 ]);
+
+export type MustBeNullable<T> = null extends T ? T : undefined extends T ? T : never;
 
 export class Validate {
     public static mail(mail: string): boolean {
@@ -48,6 +49,12 @@ export class Validate {
     // Returns if a value is undefined
     public static isUndefined(value): value is undefined {
         return typeof value === 'undefined';
+    }
+
+    // in typescript, the equivalent is
+    // const a = undefined ?? bar
+    public static isDefinedNotNull<T>(value): value is NonNullable<MustBeNullable<T>> {
+        return (value as unknown) !== undefined && (value as unknown) !== null;
     }
 
     // Returns if a value is a boolean
@@ -93,7 +100,7 @@ export class Validate {
      * @param {boolean} strict return null instead of false if not in list
      * @return {boolean}
      */
-    public static stringToBoolean(str: string, strict = false): boolean {
-        return stringToBooleanMap.get((str || '').toLowerCase()) || (strict ? null : false);
+    public static stringToBoolean(str: string, strict = false): boolean | null {
+        return stringToBooleanMap.get((str || '').toLowerCase()) ?? (strict ? null : false);
     }
 }

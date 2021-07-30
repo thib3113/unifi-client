@@ -1,6 +1,6 @@
-import { deleteFixtures, getLoggedSite, isRecordMode } from '../common';
+import { deleteFixtures, getLoggedSite, isRecordMode } from './_scripts/common';
 import nock from 'nock';
-import { Site } from '../../src/Sites/Site';
+import { Site } from '../../src';
 import { Validate } from '../../src/commons/Validate';
 
 const PREFIX = 'hotspots-';
@@ -68,7 +68,7 @@ describe('HotSpots - UnifiOs', () => {
         // });
 
         it('should unAuthorize guest', async () => {
-            nock(site.getController().controllerInstance.defaults.baseURL)
+            nock(site.getController().controllerInstance.defaults.baseURL || '')
                 .post(`/proxy/network/api/s/${site.name}/cmd/stamgr`, {
                     cmd: 'unauthorize-guest',
                     mac: '00:1b:44:11:3a:b7'

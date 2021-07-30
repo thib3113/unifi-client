@@ -40,8 +40,8 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         return this.unifiOs ? 'TOKEN' : 'unifises';
     }
 
-    private token: string;
-    private csrfToken: string;
+    private token?: string;
+    private csrfToken?: string;
 
     private controllerInstance: AxiosInstance;
 
@@ -74,7 +74,10 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         if (!authenticationRequest) {
             curDebug('not authentification request, include cookies');
             //if we need to include token
-            cookies.push({ name: this.getCookieTokenName(), value: await this.getToken() });
+            const value = await this.getToken();
+            if (value) {
+                cookies.push({ name: this.getCookieTokenName(), value });
+            }
         }
         if (this.csrfToken && !this.unifiOs) {
             curDebug('set csrfToken (!unifiOs)');
@@ -173,8 +176,8 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         debug('login()');
         const curDebug = debug.extend('login');
         //reset tokens
-        this.token = null;
-        this.csrfToken = null;
+        this.token = undefined;
+        this.csrfToken = undefined;
         if (Validate.isUndefined(this.unifiOs)) {
             curDebug('check if unifiOs');
             const resCheck = await this.controllerInstance.get('/', {
@@ -239,7 +242,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         await this.controllerInstance.post(`/api${this.unifiOs ? '/auth' : ''}/logout`);
     }
 
-    public async getVersion(): Promise<string> {
+    public async getVersion(): Promise<string | undefined> {
         //load version
         try {
             const version = ((
@@ -252,7 +255,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         }
     }
 
-    private async getToken(): Promise<string> {
+    private async getToken(): Promise<string | undefined> {
         const curDebug = debug.extend('getToken');
         curDebug('()');
         const token = this.token;
