@@ -171,3 +171,8 @@ tsconfig.json
 renovate.json
 unifi-storage
 examples/
+
+badwords.json
+typedoc.json
+sonar-project.properties
+/.gitattributes
