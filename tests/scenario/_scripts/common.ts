@@ -1,16 +1,19 @@
 import dotEnv from 'dotenv';
 import * as path from 'path';
 import axios from 'axios';
-import { Controller } from '../src';
+import { Controller } from '../../../src';
 import fs from 'fs';
-import { Site } from '../src/Sites/Site';
+import { Site } from '../../../src';
 import { isRecordMode } from './isRecordMode';
+import type { Back } from 'nock';
 
 //avoid importing nock here !
 
+const rootPath = path.join(__dirname, '..', '..', '..');
+
 export const UNIFI_USERNAME = 'ubnt';
 export const UNIFI_PASSWORD = 'ubnt';
-export const FIXTURES_PATH = path.join(__dirname, 'nockFixtures');
+export const FIXTURES_PATH = path.join(rootPath, 'tests', 'nockFixtures');
 
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
@@ -22,7 +25,7 @@ export const generateMac = (): string =>
 export const setUp = (nock) => {
     return () => {
         dotEnv.config({
-            path: path.join(__dirname, '..', '.env')
+            path: path.join(rootPath, '.env')
         });
 
         nock.back.fixtures = FIXTURES_PATH; //this only needs to be set once in your test helper
@@ -38,31 +41,33 @@ export const setUp = (nock) => {
 };
 
 export const getLoggedSite = async (nock, unifiOs = true): Promise<Site> => {
-    let site: Site;
     try {
+        let site: Site;
         let controller = await getLoggedControllerWithoutSite(nock, unifiOs);
         const getSite = async () => {
-            let site;
+            let s;
             // try {
-            [site] = await controller.getSites();
+            [s] = await controller.getSites();
             // } catch (e) {
             //     throw new Error('fail to select site');
             // }
-            return site;
+            return s;
         };
         if (unifiOs) {
-            await nock.back('login-select-sites.json').then(async ({ nockDone }) => {
+            await (nock.back as Back)('login-select-sites.json').then(async ({ nockDone }) => {
                 site = await getSite();
                 nockDone();
             });
         } else {
             site = await getSite();
         }
+
+        // @ts-ignore
+        return site;
     } catch (e) {
         console.log(e);
-        throw new Error(`fail to load sites : ${e.name} - ${e.errorCode}`);
+        throw new Error(`fail to load sites : ${e.name} - ${e.errorCode} : ${e.message} \n ${e.stack}`);
     }
-    return site;
 };
 
 export const getAuthentication: (unifiOs?: boolean) => { strictSSL: boolean; password: string; url: string; username: string } = (
@@ -104,7 +109,7 @@ export const getLoggedControllerWithoutSite = async (nock, unifiOs = true): Prom
 
 export const deleteFixtures = (prefix?: string) => {
     fs.readdirSync(FIXTURES_PATH)
-        .filter((f) => f.startsWith(prefix))
+        .filter((f) => f.startsWith(prefix || ''))
         .map((f) => path.join(FIXTURES_PATH, f))
         .map((f) => fs.rmSync(f));
 };

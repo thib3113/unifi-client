@@ -1,11 +1,10 @@
 import { AxiosInstance } from 'axios';
-import { IUser } from './User/IUser';
-import { Site } from './Sites/Site';
-import { Sites } from './Sites/Sites';
+import { IUser } from './User';
+import { Site, Sites } from './Sites';
 import { UnifiAuth } from './UnifiAuth';
 
 export interface IController {
-    version: string;
+    version?: string;
     auth: UnifiAuth;
     controllerInstance: AxiosInstance;
     sites: Sites;

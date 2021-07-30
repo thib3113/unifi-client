@@ -73,12 +73,8 @@ describe('Validate.test.ts', () => {
         expect(Validate.isSymbol('foo')).toBeFalsy();
     });
     it('should validate function implementsTKeys', () => {
-        expect(
-            Validate.implementsTKeys<Date>(new Date(), ['getDate', 'getDay'])
-        ).toBeTruthy();
-        expect(
-            Validate.implementsTKeys<Date>({}, ['getDate', 'getDay'])
-        ).toBeFalsy();
+        expect(Validate.implementsTKeys<Date>(new Date(), ['getDate', 'getDay'])).toBeTruthy();
+        expect(Validate.implementsTKeys<Date>({}, ['getDate', 'getDay'])).toBeFalsy();
         expect(
             // @ts-ignore
             Validate.implementsTKeys<Date>({}, 'getDate')
@@ -100,5 +96,23 @@ describe('Validate.test.ts', () => {
         expect(Validate.stringToBoolean('non')).toBeFalsy();
         expect(Validate.stringToBoolean('off')).toBeFalsy();
         expect(Validate.stringToBoolean('toto')).toBeFalsy();
+
+        // @ts-ignore
+        expect(Validate.stringToBoolean(undefined)).toBeFalsy();
+        // @ts-ignore
+        expect(Validate.stringToBoolean(null)).toBeFalsy();
+        //tests strict
+        expect(Validate.stringToBoolean('toto', true)).toBe(null);
+        expect(Validate.stringToBoolean('true', true)).toBe(true);
+        expect(Validate.stringToBoolean('false', true)).toBe(false);
+    });
+    it('should validate function isDefinedNotNull', () => {
+        expect(Validate.isDefinedNotNull(null)).toBeFalsy();
+        expect(Validate.isDefinedNotNull(undefined)).toBeFalsy();
+        expect(Validate.isDefinedNotNull('a')).toBeTruthy();
+        expect(Validate.isDefinedNotNull('')).toBeTruthy();
+        expect(Validate.isDefinedNotNull(12)).toBeTruthy();
+        expect(Validate.isDefinedNotNull(0)).toBeTruthy();
+        expect(Validate.isDefinedNotNull(false)).toBeTruthy();
     });
 });

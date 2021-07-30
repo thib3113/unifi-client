@@ -1,6 +1,6 @@
-import { deleteFixtures, getLoggedSite, isRecordMode } from '../common';
+import { deleteFixtures, getLoggedSite, isRecordMode } from './_scripts/common';
 import nock from 'nock';
-import { Site } from '../../src/Sites/Site';
+import { Site } from '../../src';
 
 const PREFIX = 'sites-';
 beforeAll(async () => {

@@ -1,14 +1,13 @@
-import { deleteFixtures, generateMac, getLoggedSite, isRecordMode } from '../common';
+import { deleteFixtures, generateMac, getLoggedSite, isRecordMode } from './_scripts/common';
 import nock from 'nock';
 import moxios from 'moxios';
-import { Site } from '../../src/Sites/Site';
-import { Device } from '../../src/Devices/Device';
+import { Device, Site } from '../../src';
 
 const PREFIX = 'devices-';
 beforeAll(async () => {
-    if (isRecordMode()) {
-        deleteFixtures(PREFIX);
-    }
+    // if (isRecordMode()) {
+    //     deleteFixtures(PREFIX);
+    // }
 });
 describe('Start device - UnifiOs', () => {
     const mac = '00:15:6D:25:4d:d1';
@@ -130,25 +129,25 @@ describe('Start device - UnifiOs', () => {
         const clientTest2 = devices.find((c) => c.mac === 'a0:9b:bd:4e:d0:70');
 
         expect(clientTest1).toBeDefined();
-        expect(clientTest1._id).toBe('6059229dc3d8180463a57109');
-        expect(clientTest1.mac).toBe('00:1e:58:a5:f1:ee');
-        expect(clientTest1.use_fixedip).toBe(true);
-        expect(clientTest1.fixed_ip).toBe('192.168.1.3');
-        expect(clientTest1.site_id).toBe('6001f8a73fd98c05e9465f91');
-        expect(clientTest1.is_wired).toBe(true);
-        expect(clientTest1.is_guest).toBe(false);
-        expect(clientTest1.oui).toBe('D-Link');
-        expect(clientTest1.noted).toBe(false);
+        expect(clientTest1?._id).toBe('6059229dc3d8180463a57109');
+        expect(clientTest1?.mac).toBe('00:1e:58:a5:f1:ee');
+        expect(clientTest1?.use_fixedip).toBe(true);
+        expect(clientTest1?.fixed_ip).toBe('192.168.1.3');
+        expect(clientTest1?.site_id).toBe('6001f8a73fd98c05e9465f91');
+        expect(clientTest1?.is_wired).toBe(true);
+        expect(clientTest1?.is_guest).toBe(false);
+        expect(clientTest1?.oui).toBe('D-Link');
+        expect(clientTest1?.noted).toBe(false);
 
         expect(clientTest2).toBeDefined();
-        expect(clientTest2._id).toBe('6059229dc3d8180463a57108');
-        expect(clientTest2.mac).toBe('a0:9b:bd:4e:d0:70');
-        expect(clientTest2.use_fixedip).toBe(false);
-        expect(clientTest2.site_id).toBe('6001f8a73fd98c05e9465f91');
-        expect(clientTest2.is_wired).toBe(true);
-        expect(clientTest2.is_guest).toBe(false);
-        expect(clientTest2.oui).toBe('TotalAvi');
-        expect(clientTest2.noted).toBe(false);
+        expect(clientTest2?._id).toBe('6059229dc3d8180463a57108');
+        expect(clientTest2?.mac).toBe('a0:9b:bd:4e:d0:70');
+        expect(clientTest2?.use_fixedip).toBe(false);
+        expect(clientTest2?.site_id).toBe('6001f8a73fd98c05e9465f91');
+        expect(clientTest2?.is_wired).toBe(true);
+        expect(clientTest2?.is_guest).toBe(false);
+        expect(clientTest2?.oui).toBe('TotalAvi');
+        expect(clientTest2?.noted).toBe(false);
     });
 
     it('should test alternative list', async () => {
@@ -260,25 +259,25 @@ describe('Start device - UnifiOs', () => {
         const clientTest2 = devices.find((c) => c.mac === 'a0:9b:bd:4e:d0:70');
 
         expect(clientTest1).toBeDefined();
-        expect(clientTest1._id).toBe('6059229dc3d8180463a57109');
-        expect(clientTest1.mac).toBe('00:1e:58:a5:f1:ee');
-        expect(clientTest1.use_fixedip).toBe(true);
-        expect(clientTest1.fixed_ip).toBe('192.168.1.3');
-        expect(clientTest1.site_id).toBe('6001f8a73fd98c05e9465f91');
-        expect(clientTest1.is_wired).toBe(true);
-        expect(clientTest1.is_guest).toBe(false);
-        expect(clientTest1.oui).toBe('D-Link');
-        expect(clientTest1.noted).toBe(false);
+        expect(clientTest1?._id).toBe('6059229dc3d8180463a57109');
+        expect(clientTest1?.mac).toBe('00:1e:58:a5:f1:ee');
+        expect(clientTest1?.use_fixedip).toBe(true);
+        expect(clientTest1?.fixed_ip).toBe('192.168.1.3');
+        expect(clientTest1?.site_id).toBe('6001f8a73fd98c05e9465f91');
+        expect(clientTest1?.is_wired).toBe(true);
+        expect(clientTest1?.is_guest).toBe(false);
+        expect(clientTest1?.oui).toBe('D-Link');
+        expect(clientTest1?.noted).toBe(false);
 
         expect(clientTest2).toBeDefined();
-        expect(clientTest2._id).toBe('6059229dc3d8180463a57108');
-        expect(clientTest2.mac).toBe('a0:9b:bd:4e:d0:70');
-        expect(clientTest2.use_fixedip).toBe(false);
-        expect(clientTest2.site_id).toBe('6001f8a73fd98c05e9465f91');
-        expect(clientTest2.is_wired).toBe(true);
-        expect(clientTest2.is_guest).toBe(false);
-        expect(clientTest2.oui).toBe('TotalAvi');
-        expect(clientTest2.noted).toBe(false);
+        expect(clientTest2?._id).toBe('6059229dc3d8180463a57108');
+        expect(clientTest2?.mac).toBe('a0:9b:bd:4e:d0:70');
+        expect(clientTest2?.use_fixedip).toBe(false);
+        expect(clientTest2?.site_id).toBe('6001f8a73fd98c05e9465f91');
+        expect(clientTest2?.is_wired).toBe(true);
+        expect(clientTest2?.is_guest).toBe(false);
+        expect(clientTest2?.oui).toBe('TotalAvi');
+        expect(clientTest2?.noted).toBe(false);
     });
 
     it('should create client', async () => {
@@ -449,7 +448,7 @@ describe('Start device - UnifiOs', () => {
         let newLyCreated = forgetList.find((c) => c.mac === mac.toLowerCase());
 
         let resForget: Device;
-        newLyCreated.forget().then((r) => {
+        newLyCreated?.forget().then((r) => {
             resForget = r;
         });
 
@@ -520,26 +519,26 @@ describe('Start client - non UnifiOs', () => {
         const clientTest1 = devices.find((c) => c.mac === mac.toLowerCase());
 
         expect(clientTest1).toBeDefined();
-        expect(clientTest1.mac).toBe(mac);
-        expect(clientTest1.is_wired).toBe(true);
-        expect(clientTest1.is_guest).toBe(false);
+        expect(clientTest1?.mac).toBe(mac);
+        expect(clientTest1?.is_wired).toBe(true);
+        expect(clientTest1?.is_guest).toBe(false);
 
         //check alternative list method
         const devices2 = await site.devices.list2();
         const clientTest2 = devices2.find((c) => c.mac === mac.toLowerCase());
 
         expect(clientTest2).toBeDefined();
-        expect(clientTest2.mac).toBe(mac);
-        expect(clientTest2.is_wired).toBe(true);
-        expect(clientTest2.is_guest).toBe(false);
+        expect(clientTest2?.mac).toBe(mac);
+        expect(clientTest2?.is_wired).toBe(true);
+        expect(clientTest2?.is_guest).toBe(false);
 
         //forget
-        const resForget = await clientTest1.forget();
+        const resForget = await clientTest1?.forget();
 
         expect(resForget).toBeDefined();
-        expect(resForget.mac).toBe(mac);
-        expect(resForget.is_wired).toBe(true);
-        expect(resForget.is_guest).toBe(false);
+        expect(resForget?.mac).toBe(mac);
+        expect(resForget?.is_wired).toBe(true);
+        expect(resForget?.is_guest).toBe(false);
 
         const devicesAfterForget = await site.devices.list();
         const devicesAfterForgetFound = devicesAfterForget.find((c) => c.mac === mac.toLowerCase());

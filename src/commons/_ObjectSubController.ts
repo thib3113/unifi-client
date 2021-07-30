@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios';
-import { ISite } from '../Sites/ISite';
+import { ISite } from '../Sites';
 import { ClientError, EErrorsCodes } from '../Errors';
 import semver from 'semver';
 import { ObjectWithPrivateValues } from './ObjectWithPrivateValues';
@@ -91,10 +91,11 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
      * @param unifiOs - need to be unifiOs ? or Unifi Controller ? if no one, pass undefined
      * @param allowUndefined - to undefined check ?
      */
-    protected needVersion<T>(key: keyof this, value: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false): boolean {
+    protected needVersion<T>(key: keyof this, value?: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false): boolean {
         if (this.checkNeeds(minVersion, unifiOs)) {
             if (Validate.isUndefined(value)) {
                 if (allowUndefined) {
+                    // @ts-ignore
                     this[key] = value;
                 }
             } else {

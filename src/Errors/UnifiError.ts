@@ -10,7 +10,7 @@ export interface IUnifiErrorMeta {
 export class UnifiError extends __Error {
     public meta: IUnifiErrorMeta;
 
-    public constructor(message: string | Error = '', code = 0, meta: IUnifiErrorMeta = {}, exception: Error | string = null) {
+    public constructor(message: string | Error = '', code = 0, meta: IUnifiErrorMeta = {}, exception?: Error | string) {
         super(message, code, exception);
 
         //just in case

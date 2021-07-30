@@ -4,7 +4,7 @@ import dotEnv from 'dotenv';
 import { isRecordMode } from './common';
 
 dotEnv.config({
-    path: path.join(__dirname, '..', '.env')
+    path: path.join(__dirname, '..', '..', '..', '.env')
 });
 
 module.exports = async () => {

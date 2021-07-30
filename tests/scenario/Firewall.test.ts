@@ -1,11 +1,8 @@
-import Controller, { IFWRule } from '../../src';
-import { getLoggedSite } from '../common';
+import Controller, { FWGroup, FWRule, IFWRule, Site } from '../../src';
+import { getLoggedSite } from './_scripts/common';
 import nock from 'nock';
 import { IObjectSubSiteConfig } from '../../src/commons/_ObjectSubSite';
 import axios from 'axios';
-import { Site } from '../../src/Sites/Site';
-import { FWRule } from '../../src/Firewall/FWRule';
-import { FWGroup } from '../../src/Firewall/FWGroup';
 
 const PREFIX = 'firewall-';
 // beforeAll(() => {
@@ -151,11 +148,11 @@ describe('Firewall - UnifiOs', () => {
                 const getGroups = await site.firewall.getGroups();
                 const groupFiltered = getGroups.find((g) => g._id === group._id);
                 expect(groupFiltered).toBeDefined();
-                expect(groupFiltered.name).toBe(group.name);
-                expect(groupFiltered.group_members).toStrictEqual(group.group_members);
-                expect(groupFiltered.group_type).toBe(group.group_type);
-                expect(groupFiltered.site_id).toBe(group.site_id);
-                expect(groupFiltered._id).toBe(group._id);
+                expect(groupFiltered?.name).toBe(group.name);
+                expect(groupFiltered?.group_members).toStrictEqual(group.group_members);
+                expect(groupFiltered?.group_type).toBe(group.group_type);
+                expect(groupFiltered?.site_id).toBe(group.site_id);
+                expect(groupFiltered?._id).toBe(group._id);
                 nockDone();
             });
 
@@ -276,11 +273,11 @@ describe('Firewall - non UnifiOs', () => {
             const getGroups = await site.firewall.getGroups();
             const groupFiltered = getGroups.find((g) => g._id === group._id);
             expect(groupFiltered).toBeDefined();
-            expect(groupFiltered.name).toBe(group.name);
-            expect(groupFiltered.group_members).toStrictEqual(group.group_members);
-            expect(groupFiltered.group_type).toBe(group.group_type);
-            expect(groupFiltered.site_id).toBe(group.site_id);
-            expect(groupFiltered._id).toBe(group._id);
+            expect(groupFiltered?.name).toBe(group.name);
+            expect(groupFiltered?.group_members).toStrictEqual(group.group_members);
+            expect(groupFiltered?.group_type).toBe(group.group_type);
+            expect(groupFiltered?.site_id).toBe(group.site_id);
+            expect(groupFiltered?._id).toBe(group._id);
 
             group.name = 'testGroup2';
             await group.save();
