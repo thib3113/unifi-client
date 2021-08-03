@@ -4,6 +4,9 @@ export type timestampDate = number;
  */
 export type dateISOString = string;
 
+// objects that can be : new Date(<input>)
+export type dateInput = timestampDate | dateISOString | Date;
+
 /**
  * xx:xx:xx:xx:xx:xx
  */
