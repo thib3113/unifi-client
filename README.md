@@ -1,6 +1,6 @@
 
 # unifi-client
-[![NPM version](http://img.shields.io/npm/v/unifi-client.svg)](https://www.npmjs.com/package/unifi-client) 
+[![NPM version](https://img.shields.io/npm/v/unifi-client.svg)](https://www.npmjs.com/package/unifi-client) 
 [![CI](https://github.com/thib3113/unifi-client/actions/workflows/CI.yml/badge.svg)](https://github.com/thib3113/unifi-client/actions/workflows/CI.yml) 
 [![codecov](https://codecov.io/gh/thib3113/unifi-client/branch/main/graph/badge.svg?token=MZKEJ9F2WR)](https://codecov.io/gh/thib3113/unifi-client) 
 [![Downloads](https://img.shields.io/npm/dm/unifi-client.svg)](https://www.npmjs.com/package/unifi-client) 
