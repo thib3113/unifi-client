@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios';
-import { ISite } from '../Sites';
+import { Site } from '../Sites';
 import { ClientError, EErrorsCodes } from '../Errors';
 import semver from 'semver';
 import { ObjectWithPrivateValues } from './ObjectWithPrivateValues';
@@ -34,12 +34,12 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
     protected set controller(value: Controller) {
         this.setPrivate<Controller>('controller', value);
     }
-    protected get site(): ISite {
-        return this.getPrivate<ISite>('site');
+    protected get site(): Site {
+        return this.getPrivate<Site>('site');
     }
 
-    protected set site(value: ISite) {
-        this.setPrivate<ISite>('site', value);
+    protected set site(value: Site) {
+        this.setPrivate<Site>('site', value);
     }
 
     constructor(config: IObjectSubController) {
@@ -85,23 +85,11 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
 
     /**
      *
-     * @param key - the key object that need to be only supported on some versions
-     * @param value - the value store in this object
      * @param minVersion - the minimal semver version for this object
-     * @param unifiOs - need to be unifiOs ? or Unifi Controller ? if no one, pass undefined
-     * @param allowUndefined - to undefined check ?
+     * @param unifiOs - need to be unifiOs ? or Unifi Controller ? if no need, pass undefined
      */
-    protected needVersion<T>(key: keyof this, value?: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false): boolean {
+    protected checkNeedVersion(minVersion?: string, unifiOs?: boolean): boolean {
         if (this.checkNeeds(minVersion, unifiOs)) {
-            if (Validate.isUndefined(value)) {
-                if (allowUndefined) {
-                    // @ts-ignore
-                    this[key] = value;
-                }
-            } else {
-                // @ts-ignore
-                this[key] = value;
-            }
             return true;
         }
 
@@ -115,18 +103,43 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
             code = EErrorsCodes.NEED_MORE_RECENT_CONTROLLER;
         }
 
-        const error = new ClientError(str, code);
+        throw new ClientError(str, code);
+    }
 
-        Object.defineProperty(this, key, {
-            // Create a new getter for the property
-            get: () => {
-                throw error;
-            },
-            // Create a new setter for the property
-            set: () => {
-                throw error;
+    /**
+     *
+     * @param key - the key object that need to be only supported on some versions
+     * @param value - the value store in this object
+     * @param minVersion - the minimal semver version for this object
+     * @param unifiOs - need to be unifiOs ? or Unifi Controller ? if no need, pass undefined
+     * @param allowUndefined - to undefined check ?
+     */
+    protected needVersion<T>(key: keyof this, value?: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false): boolean {
+        try {
+            if (this.checkNeedVersion(minVersion, unifiOs)) {
+                if (Validate.isUndefined(value)) {
+                    if (allowUndefined) {
+                        // @ts-ignore
+                        this[key] = value;
+                    }
+                } else {
+                    // @ts-ignore
+                    this[key] = value;
+                }
+                return true;
             }
-        });
+        } catch (e) {
+            Object.defineProperty(this, key, {
+                // Create a new getter for the property
+                get: () => {
+                    throw e;
+                },
+                // Create a new setter for the property
+                set: () => {
+                    throw e;
+                }
+            });
+        }
         return false;
     }
 }

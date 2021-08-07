@@ -6,6 +6,7 @@ export * from './Devices';
 export * from './Hotspot';
 export * from './Firewall';
 export * from './Sites';
+export * from './Stats';
 export * from './User';
 export * from './WebSockets';
 

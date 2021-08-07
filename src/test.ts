@@ -13,7 +13,23 @@ const main = async () => {
     });
     await controller.login();
 
-    await controller.logout();
+    const [site] = await controller.getSites();
+    // const stats = await site.stats.getGatewayStats(EStatsPeriod.FIVE_MINUTES, undefined, undefined, [
+    //     'mem',
+    //     'cpu',
+    //     'loadavg_5',
+    //     'lan-rx_errors',
+    //     'lan-tx_errors',
+    //     'lan-rx_bytes',
+    //     'lan-tx_bytes',
+    //     'lan-rx_packets',
+    //     'lan-tx_packets',
+    //     'lan-rx_dropped',
+    //     'lan-tx_dropped',
+    //     'time'
+    // ]);
+    const stats = await site.stats.getUsersStats();
+    console.log(stats);
 };
 
 //just run the async main, and log error if needed

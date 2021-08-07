@@ -8,6 +8,7 @@ import { Controller } from '../Controller';
 import { Validate } from '../commons/Validate';
 import { INetworkStatus } from './INetworkStatus';
 import { UnifiWebsockets } from '../WebSockets';
+import { Stats } from '../Stats';
 
 export class Site extends _ObjectSubController implements ISite {
     /**
@@ -36,6 +37,7 @@ export class Site extends _ObjectSubController implements ISite {
     public devices: Devices;
 
     public ws: UnifiWebsockets;
+    public stats: Stats;
 
     constructor(controller: Controller, props: ISite) {
         super({
@@ -76,25 +78,9 @@ export class Site extends _ObjectSubController implements ISite {
         this.firewall = new Firewall(config);
         this.hotspots = new Hotspots(config);
         this.devices = new Devices(config);
+        this.stats = new Stats(config);
 
         this.instance = this.controller.createInstance(this.name || 'default');
-    }
-
-    public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
-        if (!this.ws) {
-            this.initWebSockets();
-        }
-
-        this.ws.on(eventName, cb);
-        return this;
-    }
-
-    public async getNetworkStatus(): Promise<INetworkStatus> {
-        return (
-            await this.instance.get(`/network_status`, {
-                apiVersion: 2
-            })
-        ).data;
     }
 
     // this function need to never be async !!! but return a promise ( so this.ws is init before the real init )
@@ -117,5 +103,21 @@ export class Site extends _ObjectSubController implements ISite {
         });
 
         return this.ws.initWebSockets();
+    }
+    public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
+        if (!this.ws) {
+            this.initWebSockets();
+        }
+
+        this.ws.on(eventName, cb);
+        return this;
+    }
+
+    public async getNetworkStatus(): Promise<INetworkStatus> {
+        return (
+            await this.instance.get(`/network_status`, {
+                apiVersion: 2
+            })
+        ).data;
     }
 }
