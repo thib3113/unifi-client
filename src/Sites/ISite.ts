@@ -1,5 +1,3 @@
-import { AxiosInstance } from 'axios';
-
 export interface ISite {
     _id: string;
     anonymous_id: string;
@@ -12,6 +10,4 @@ export interface ISite {
      * UNIFIOS only
      */
     role_hotspot?: boolean;
-
-    getInstance(): AxiosInstance;
 }

@@ -16,7 +16,7 @@
     "lint": "eslint -f unix \"src/**/*.{ts,tsx}\"",
     "ci:generate:documentation": "typedoc",
     "prepublishOnly": "npm run build",
-    "scan_baddwords": "ts-node .github/scripts/scanForBadWords.ts ./tests/nockFixtures/**/*"
+    "scan_baddwords": "ts-node .github/scripts/scanForBadWords.ts ./tests/nockFixtures/**/*.json"
   },
   "bugs": {
     "url": "https://github.com/thib3113/unifi-client/issues"

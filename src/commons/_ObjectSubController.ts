@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios';
-import { ISite } from '../Sites';
+import { Site } from '../Sites';
 import { ClientError, EErrorsCodes } from '../Errors';
 import semver from 'semver';
 import { ObjectWithPrivateValues } from './ObjectWithPrivateValues';
@@ -34,12 +34,12 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
     protected set controller(value: Controller) {
         this.setPrivate<Controller>('controller', value);
     }
-    protected get site(): ISite {
-        return this.getPrivate<ISite>('site');
+    protected get site(): Site {
+        return this.getPrivate<Site>('site');
     }
 
-    protected set site(value: ISite) {
-        this.setPrivate<ISite>('site', value);
+    protected set site(value: Site) {
+        this.setPrivate<Site>('site', value);
     }
 
     constructor(config: IObjectSubController) {

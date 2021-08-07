@@ -16,6 +16,24 @@ module.exports = async () => {
         if (isRecordMode()) {
             let cookieToken: string = '';
 
+            const checkFolder = (folder: string) => {
+                fs.readdirSync(folder)
+                    .filter((f) => f !== 'login.json')
+                    //transform to full path
+                    .map((f) => path.join(folder, f))
+                    //filter directories
+                    .filter((f) => {
+                        if (fs.statSync(f).isDirectory()) {
+                            checkFolder(f);
+                            return false;
+                        }
+                        return true;
+                    })
+                    .map((f) => {
+                        checkFileFn(f);
+                    });
+            };
+
             const checkFileFn = (filePath: string) => {
                 if (!fs.existsSync(filePath)) {
                     return;
@@ -87,11 +105,7 @@ module.exports = async () => {
             //start by the login.json file
             checkFileFn(path.join(testFolder, 'login.json'));
 
-            fs.readdirSync(testFolder)
-                .filter((f) => f !== 'login.json')
-                .map((f) => {
-                    checkFileFn(path.join(testFolder, f));
-                });
+            checkFolder(testFolder);
         }
     } catch (e) {
         console.error(e);

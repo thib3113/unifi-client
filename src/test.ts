@@ -28,7 +28,7 @@ const main = async () => {
     //     'lan-tx_dropped',
     //     'time'
     // ]);
-    const stats = await site.stats.getAllUsers();
+    const stats = await site.stats.getUsersStats();
     console.log(stats);
 };
 
