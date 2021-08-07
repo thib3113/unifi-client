@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>INetworkStatus | unifi-client - v0.5.2</title>
+	<title>IGetSessionQuery | unifi-client - v0.5.2</title>
 	<meta name="description" content="Documentation for unifi-client - v0.5.2">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">unifi-client - v0.5.2</a>
 				</li>
 				<li>
-					<a href="../modules/Sites_INetworkStatus.html">Sites/INetworkStatus</a>
+					<a href="../modules/Stats_Stats.html">Stats/Stats</a>
 				</li>
 				<li>
-					<a href="Sites_INetworkStatus.INetworkStatus.html">INetworkStatus</a>
+					<a href="Stats_Stats.IGetSessionQuery.html">IGetSessionQuery</a>
 				</li>
 			</ul>
-			<h1>Interface INetworkStatus</h1>
+			<h1>Interface IGetSessionQuery</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">INetworkStatus</span>
+						<span class="target">IGetSessionQuery</span>
 					</li>
 				</ul>
 			</section>
@@ -83,10 +83,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Sites_INetworkStatus.INetworkStatus.html#average_satisfaction" class="tsd-kind-icon">average_<wbr>satisfaction</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Sites_INetworkStatus.INetworkStatus.html#health" class="tsd-kind-icon">health</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Sites_INetworkStatus.INetworkStatus.html#historical_satisfaction" class="tsd-kind-icon">historical_<wbr>satisfaction</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Sites_INetworkStatus.INetworkStatus.html#reasons" class="tsd-kind-icon">reasons</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Stats_Stats.IGetSessionQuery.html#_limit" class="tsd-kind-icon">_limit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Stats_Stats.IGetSessionQuery.html#_sort" class="tsd-kind-icon">_sort</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Stats_Stats.IGetSessionQuery.html#end" class="tsd-kind-icon">end</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Stats_Stats.IGetSessionQuery.html#mac" class="tsd-kind-icon">mac</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Stats_Stats.IGetSessionQuery.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Stats_Stats.IGetSessionQuery.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,42 +97,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="average_satisfaction" class="tsd-anchor"></a>
-					<h3>average_<wbr>satisfaction</h3>
-					<div class="tsd-signature tsd-kind-icon">average_<wbr>satisfaction<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="_limit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> _limit</h3>
+					<div class="tsd-signature tsd-kind-icon">_limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Sites/INetworkStatus.ts#L2">src/Sites/INetworkStatus.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Stats/Stats.ts#L13">src/Stats/Stats.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="health" class="tsd-anchor"></a>
-					<h3>health</h3>
-					<div class="tsd-signature tsd-kind-icon">health<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="_sort" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> _sort</h3>
+					<div class="tsd-signature tsd-kind-icon">_sort<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Sites/INetworkStatus.ts#L3">src/Sites/INetworkStatus.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Stats/Stats.ts#L14">src/Stats/Stats.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="historical_satisfaction" class="tsd-anchor"></a>
-					<h3>historical_<wbr>satisfaction</h3>
-					<div class="tsd-signature tsd-kind-icon">historical_<wbr>satisfaction<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></div>
+					<a name="end" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> end</h3>
+					<div class="tsd-signature tsd-kind-icon">end<span class="tsd-signature-symbol">:</span> <a href="../modules/commons_types.html#dateInput" class="tsd-signature-type" data-tsd-kind="Type alias">dateInput</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Sites/INetworkStatus.ts#L4">src/Sites/INetworkStatus.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Stats/Stats.ts#L10">src/Stats/Stats.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="reasons" class="tsd-anchor"></a>
-					<h3>reasons</h3>
-					<div class="tsd-signature tsd-kind-icon">reasons<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">[]</span></div>
+					<a name="mac" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mac</h3>
+					<div class="tsd-signature tsd-kind-icon">mac<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Sites/INetworkStatus.ts#L5">src/Sites/INetworkStatus.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Stats/Stats.ts#L11">src/Stats/Stats.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="start" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> start</h3>
+					<div class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">:</span> <a href="../modules/commons_types.html#dateInput" class="tsd-signature-type" data-tsd-kind="Type alias">dateInput</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Stats/Stats.ts#L9">src/Stats/Stats.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="type" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;all&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;guest&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;user&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/ade1aac/src/Stats/Stats.ts#L12">src/Stats/Stats.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -143,28 +165,37 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/Sites_INetworkStatus.html">Sites/INetwork<wbr>Status</a>
+						<a href="../modules/Stats_Stats.html">Stats/<wbr>Stats</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/Stats_Stats.Stats.html" class="tsd-kind-icon">Stats</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="Sites_INetworkStatus.INetworkStatus.html" class="tsd-kind-icon">INetwork<wbr>Status</a>
+						<a href="Stats_Stats.IGetSessionQuery.html" class="tsd-kind-icon">IGet<wbr>Session<wbr>Query</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Sites_INetworkStatus.INetworkStatus.html#average_satisfaction" class="tsd-kind-icon">average_<wbr>satisfaction</a>
+								<a href="Stats_Stats.IGetSessionQuery.html#_limit" class="tsd-kind-icon">_limit</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Sites_INetworkStatus.INetworkStatus.html#health" class="tsd-kind-icon">health</a>
+								<a href="Stats_Stats.IGetSessionQuery.html#_sort" class="tsd-kind-icon">_sort</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Sites_INetworkStatus.INetworkStatus.html#historical_satisfaction" class="tsd-kind-icon">historical_<wbr>satisfaction</a>
+								<a href="Stats_Stats.IGetSessionQuery.html#end" class="tsd-kind-icon">end</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Sites_INetworkStatus.INetworkStatus.html#reasons" class="tsd-kind-icon">reasons</a>
+								<a href="Stats_Stats.IGetSessionQuery.html#mac" class="tsd-kind-icon">mac</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="Stats_Stats.IGetSessionQuery.html#start" class="tsd-kind-icon">start</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="Stats_Stats.IGetSessionQuery.html#type" class="tsd-kind-icon">type</a>
 							</li>
 						</ul>
 					</li>
