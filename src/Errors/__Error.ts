@@ -45,8 +45,9 @@ export class __Error implements Error {
 
         this.stack = generateStack();
 
+        // TODO I don't remember why this is important
         // Set the prototype explicitly.
-        Object.setPrototypeOf(this, Error.prototype);
+        // Object.setPrototypeOf(this, Error.prototype);
     }
 
     public toString = (): string => {

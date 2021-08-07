@@ -3,6 +3,7 @@ import { dateInput, macAddress, timestampDate } from '../commons/types';
 import { Validate } from '../commons/Validate';
 import { ISiteStats } from './ISiteStats';
 import { EStatsPeriod } from './EStatsPeriod';
+import { ClientError } from '../Errors';
 
 export interface IGetSessionQuery {
     start?: dateInput;
@@ -33,6 +34,10 @@ export class Stats extends _ObjectSubSite {
             start.setHours(end.getHours() - hours);
         } else {
             start = new Date(pStart);
+        }
+
+        if (start > end) {
+            throw new ClientError(`end date can't be before start date`);
         }
 
         return {
@@ -162,7 +167,7 @@ export class Stats extends _ObjectSubSite {
      * - make sure that "Clients Historical Data" has been enabled in the UniFi controller settings in the Maintenance section
      */
     public async getUsersStats(
-        userMac?: string,
+        userMac?: string | Array<string>,
         period: EStatsPeriod = EStatsPeriod.DAILY,
         pStart?: dateInput,
         pEnd?: dateInput,
@@ -188,14 +193,14 @@ export class Stats extends _ObjectSubSite {
 
         const { start, end } = this.getHoursRange(pStart, pEnd, this.getDefaultHourRange(period));
 
-        const payload: { start: number; end: number; attrs: string[]; mac?: string } = {
+        const payload: { start: number; end: number; attrs: string[]; mac?: Array<string> } = {
             attrs: attribs,
             start: start.getTime(),
             end: end.getTime()
         };
 
         if (userMac) {
-            payload.mac = userMac.toLowerCase();
+            payload.mac = (!Array.isArray(userMac) ? [userMac] : userMac).map((mac) => mac.toLowerCase());
         }
 
         return (await this.instance.post(`/stat/report/${period}.user`, payload)).data.data;
@@ -255,6 +260,7 @@ export class Stats extends _ObjectSubSite {
             })
         ).data.data;
     }
+
     /**
      * Fetch IPS/IDS events
      *
@@ -262,8 +268,6 @@ export class Stats extends _ObjectSubSite {
      * - defaults to the past 24 hours
      * - requires a USG
      * - supported in UniFi controller versions 5.9.X and higher
-     *
-     *
      */
     public async getIPSEvents(pStart?: dateInput, pEnd?: dateInput, limit: number = 10000): Promise<Array<unknown>> {
         // return is unknown doesn't hesitate to open a PR
@@ -305,7 +309,8 @@ export class Stats extends _ObjectSubSite {
      * ```
      *
      */
-    public async getSession({ start: pStart, end: pEnd, mac, type = 'all', _limit, _sort }: IGetSessionQuery): Promise<Array<unknown>> {
+    public async getSession(options: IGetSessionQuery = {}): Promise<Array<unknown>> {
+        const { start: pStart, end: pEnd, mac, type = 'all', _limit, _sort } = options;
         //a week
         const { start, end } = this.getHoursRange(pStart, pEnd, 7 * 24);
 
@@ -334,7 +339,7 @@ export class Stats extends _ObjectSubSite {
         const { start, end } = this.getHoursRange(pStart, pEnd, 7 * 24);
 
         return (
-            await this.instance.post(`/stat/ips/event`, {
+            await this.instance.post(`/stat/session`, {
                 start: start.getTime(),
                 end: end.getTime()
             })
