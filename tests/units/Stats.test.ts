@@ -214,6 +214,29 @@ describe('Stats.tests.ts', () => {
                 })
             );
         });
+        it('should test with specific user mac array', async () => {
+            await stats.getUsersStats([macAddress]);
+
+            expect(instance.post).toHaveBeenCalledWith(
+                expect.any(String),
+                expect.objectContaining({
+                    mac: [macAddress]
+                })
+            );
+        });
+        it('should test with specific user mac array uppercase', async () => {
+            await stats.getUsersStats([macAddress.toUpperCase()]);
+
+            expect(instance.post).toHaveBeenCalledWith(
+                expect.any(String),
+                expect.objectContaining({
+                    mac: [macAddress]
+                })
+            );
+
+            //TODO add a failing test to test junit
+            expect(true).toBe(false);
+        });
         it('should test with different period', async () => {
             await stats.getUsersStats(undefined, EStatsPeriod.FIVE_MINUTES);
             await stats.getUsersStats(undefined, EStatsPeriod.HOURLY);
