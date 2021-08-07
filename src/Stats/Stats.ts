@@ -1,7 +1,7 @@
 import { _ObjectSubSite, IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import { dateInput, macAddress, timestampDate } from '../commons/types';
 import { Validate } from '../commons/Validate';
-import { ISiteStats } from './ISiteStats';
+import { IStats } from './IStats';
 import { EStatsPeriod } from './EStatsPeriod';
 import { ClientError } from '../Errors';
 
@@ -15,10 +15,6 @@ export interface IGetSessionQuery {
 }
 
 export class Stats extends _ObjectSubSite {
-    constructor(options: IObjectSubSiteConfig) {
-        super(options);
-    }
-
     /**
      * Return a range of hours, default to the last 12 hours, or 12h before end
      * @param pStart - the start date
@@ -107,7 +103,7 @@ export class Stats extends _ObjectSubSite {
             'wlan-num_sta',
             'time'
         ]
-    ): Promise<Array<ISiteStats>> {
+    ): Promise<Array<IStats>> {
         if (period === EStatsPeriod.FIVE_MINUTES) {
             this.checkNeedVersion('5.5.0');
         }
@@ -136,14 +132,14 @@ export class Stats extends _ObjectSubSite {
         pStart?: dateInput,
         pEnd?: dateInput,
         attribs: Array<'bytes' | 'num_sta' | 'time'> = ['bytes', 'num_sta', 'time']
-    ): Promise<Array<ISiteStats>> {
+    ): Promise<Array<IStats>> {
         if (period === EStatsPeriod.FIVE_MINUTES) {
             this.checkNeedVersion('5.5.0');
         }
 
         const { start, end } = this.getHoursRange(pStart, pEnd, this.getDefaultHourRange(period));
 
-        const payload: { start: number; end: number; attrs: string[]; mac?: string } = {
+        const payload: { start: number; end: number; attrs: Array<string>; mac?: string } = {
             attrs: attribs,
             start: start.getTime(),
             end: end.getTime()
@@ -193,7 +189,7 @@ export class Stats extends _ObjectSubSite {
 
         const { start, end } = this.getHoursRange(pStart, pEnd, this.getDefaultHourRange(period));
 
-        const payload: { start: number; end: number; attrs: string[]; mac?: Array<string> } = {
+        const payload: { start: number; end: number; attrs: Array<string>; mac?: Array<string> } = {
             attrs: attribs,
             start: start.getTime(),
             end: end.getTime()

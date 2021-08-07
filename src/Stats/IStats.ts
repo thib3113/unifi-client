@@ -1,4 +1,4 @@
-export interface ISiteStats {
+export interface IStats {
     'wan-tx_bytes': number;
     'wan-rx_bytes': number;
     'wan2-tx_bytes': number;
@@ -7,7 +7,7 @@ export interface ISiteStats {
     num_sta: number;
     'lan-num_sta': number;
     'wlan-num_sta': number;
-    time: any;
+    time: number;
     site: string;
     o: string;
     oid: string;
