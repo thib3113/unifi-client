@@ -14,9 +14,10 @@
     "watch": "jest --env=jsdom --watch",
     "prepare": "husky install",
     "lint": "eslint -f unix \"src/**/*.{ts,tsx}\"",
+    "ci:eslint": "eslint -f json -o ./coverage/eslint-report.json --ext .ts \"src/**\"",
     "ci:generate:documentation": "typedoc",
     "prepublishOnly": "npm run build",
-    "scan_baddwords": "ts-node .github/scripts/scanForBadWords.ts ./tests/nockFixtures/**/*"
+    "scan_baddwords": "ts-node .github/scripts/scanForBadWords.ts ./tests/nockFixtures/**/*.json"
   },
   "bugs": {
     "url": "https://github.com/thib3113/unifi-client/issues"
@@ -71,6 +72,8 @@
     "husky": "7.0.1",
     "jest": "27.0.6",
     "jest-environment-node": "27.0.6",
+    "jest-junit": "^12.2.0",
+    "jest-sonar": "^0.2.12",
     "moxios": "0.4.0",
     "nock": "13.1.1",
     "prettier": "2.3.2",
@@ -78,5 +81,9 @@
     "ts-node": "10.1.0",
     "typedoc": "0.21.5",
     "uuid": "8.3.2"
+  },
+  "jest-junit": {
+    "outputDirectory": "./coverage/",
+    "outputName": "junit.xml"
   }
 }

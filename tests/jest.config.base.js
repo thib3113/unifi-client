@@ -83,9 +83,6 @@ module.exports = {
     // Run tests from one or more projects
     // projects: null,
 
-    // Use this configuration option to add custom reporters to Jest
-    // reporters: undefined,
-
     // Automatically reset mock state between every test
     // resetMocks: false,
 
@@ -127,7 +124,7 @@ module.exports = {
     // testRegex: "",
 
     // This option allows the use of a custom results processor
-    // testResultsProcessor: null,
+    // testResultsProcessor: 'jest-sonar-reporter',
 
     // This option allows use of a custom test runner
     // testRunner: "jasmine2",

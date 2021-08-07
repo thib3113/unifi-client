@@ -1,9 +1,9 @@
-import { ISite } from '../Sites/ISite';
+import type { Site } from '../Sites';
 import { IObjectSubController, _ObjectSubController } from './_ObjectSubController';
 import { AxiosInstance } from 'axios';
 
 export interface IObjectSubSiteConfig extends IObjectSubController {
-    site: ISite;
+    site: Site;
 }
 
 export class _ObjectSubSite extends _ObjectSubController {

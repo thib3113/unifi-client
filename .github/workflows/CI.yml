@@ -3,12 +3,10 @@
 name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
 on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,56 +25,80 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-    # try to perform a nodejs setup
-    - uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
+      # try to perform a nodejs setup
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    # docker test
-    - name: install+run docker-unifi-controller
-      run: |
-        # install our own demo database
-        mkdir unifi-storage
-        sudo tar -C unifi-storage -xf $GITHUB_WORKSPACE/.github/workflows/db-demo-dump.tar.bz2
-        # create docker-unifi-controller
-        docker create --name=unifi-controller -e PUID=1001 -e PGID=116 -e MEM_LIMIT=1024M -p 8443:8443 -v $GITHUB_WORKSPACE/unifi-storage:/config linuxserver/unifi-controller:${{ matrix.unifi-version }}
-        docker start unifi-controller
-        # wait for unifi-controller to be ready
-        while ! curl -ks https://127.0.0.1:8443; do echo waiting for unifi-controller; sleep 2; done
-        echo unifi-controller answer
+      - name: install+run docker-unifi-controller
+        run: |
+          # install our own demo database
+          mkdir unifi-storage
+          sudo tar -C unifi-storage -xf $GITHUB_WORKSPACE/.github/workflows/db-demo-dump.tar.bz2
+          # create docker-unifi-controller
+          docker create --name=unifi-controller -e PUID=1001 -e PGID=116 -e MEM_LIMIT=1024M -p 8443:8443 -v $GITHUB_WORKSPACE/unifi-storage:/config linuxserver/unifi-controller:${{ matrix.unifi-version }}
+          docker start unifi-controller
+          # wait for unifi-controller to be ready
+          while ! curl -ks https://127.0.0.1:8443; do echo waiting for unifi-controller; sleep 2; done
+          echo unifi-controller answer
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          echo start tests
+          npm run test:CI:coverage
+        env:
+          CI: true
 
-    # run npm tests
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run build --if-present
-        echo start tests
-        npm run test:CI:coverage
-      env:
-        CI: true
+      - name: replace path in coverage files
+        run: find ./coverage -type f -exec sed -i -e "s@$(pwd)@<root>@g" {} \;
+        if: always()
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: coverage
-        path: |
-          ./coverage/clover.xml
-          ./coverage/coverage-final.json
-          ./coverage/lcov.info
-#    - uses: codecov/codecov-action@v1
-#      with:
-#        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-#        files: ./coverage/clover.xml # optional
-#        flags: unittests # optional
-#        name: codecov-umbrella # optional
-#        fail_ci_if_error: false # optional (default = false)
-#        verbose: false # optional (default = false)
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: |
+            ./coverage/clover.xml
+            ./coverage/coverage-final.json
+            ./coverage/lcov.info
+            ./coverage/junit.xml
+            ./coverage/test-report.xml
+        if: always()
+
+
+  eslint:
+    name: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install eslint
+        run: npm install
+      - name: run eslint
+        run: |
+          echo start eslint
+          mkdir coverage
+          npm run ci:eslint
+        continue-on-error: true
+        env:
+          CI: true
+
+      - name: replace path in coverage files
+        run: find ./coverage -type f -exec sed -i -e "s@$(pwd)@<root>@g" {} \;
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: ./coverage/eslint-report.json
 
   send-coverage:
     runs-on: ubuntu-latest
     needs: build
+    if: always()
 
     steps:
       - uses: actions/checkout@v2
@@ -87,8 +109,46 @@ jobs:
       - uses: codecov/codecov-action@v2
         with:
           #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-#          files: ./coverage/clover.xml # optional
+          #          files: ./coverage/clover.xml # optional
           fail_ci_if_error: false # optional (default = false)
-#          verbose: true # optional (default = false)
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    needs: [build, eslint]
+    if: always()
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
+      - uses: actions/download-artifact@v2
+        with:
+          name: coverage
+          path: ./coverage/
 
+      - name: change coverage path in file
+        run: find ./coverage -type f -exec sed -i -e "s@<root>@/github/workspace@g" {} \;
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  junit:
+    name: Junit
+    runs-on: ubuntu-latest
+    needs: build
+    if: always()
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: coverage
+          path: ./coverage/
+      - name: replace <root> in coverage files
+        run: find ./coverage -type f -exec sed -i -e "s@<root>@$(pwd)@g" {} \;
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v2
+        with:
+          report_paths: './coverage/junit.xml'
+          require_tests: true
