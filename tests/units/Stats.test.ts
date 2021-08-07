@@ -233,9 +233,6 @@ describe('Stats.tests.ts', () => {
                     mac: [macAddress]
                 })
             );
-
-            //TODO add a failing test to test junit
-            expect(true).toBe(false);
         });
         it('should test with different period', async () => {
             await stats.getUsersStats(undefined, EStatsPeriod.FIVE_MINUTES);
