@@ -1,4 +1,4 @@
-import { _ObjectSubSite, IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
+import { _ObjectSubSite } from '../commons/_ObjectSubSite';
 import { dateInput, macAddress, timestampDate } from '../commons/types';
 import { Validate } from '../commons/Validate';
 import { IStats } from './IStats';
