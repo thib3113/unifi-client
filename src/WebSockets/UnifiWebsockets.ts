@@ -78,7 +78,7 @@ export class UnifiWebsockets extends EventEmitter {
         });
 
         this.ws.on('message', (data) => {
-            if (data === 'pong') {
+            if (data.toString() === 'pong') {
                 this._emit(EControllerEvents.PONG);
                 return;
             }

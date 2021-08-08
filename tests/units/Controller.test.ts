@@ -1,6 +1,6 @@
 //need to be first
 import { axiosUrlParamsMock, debug, getUrlRepresentationMock } from '../mocks/utils';
-import { Controller, UnifiError } from '../../src';
+import { ClientError, Controller, EErrorsCodes, UnifiError } from '../../src';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import https from 'https';
 import { UnifiAuth } from '../../src/UnifiAuth';
@@ -697,6 +697,314 @@ describe('test controller', () => {
                 });
             });
             it('test addAxiosDebugInterceptors', async () => {});
+        });
+    });
+
+    describe('getInstance', () => {
+        it('return the instance', () => {
+            const controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+
+            expect(controller.getInstance()).toBe(controller.controllerInstance);
+        });
+    });
+
+    describe('needLoggedIn', () => {
+        it('should pass if loggedIn', () => {
+            const controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+
+            // @ts-ignore
+            controller.logged = true;
+
+            // @ts-ignore
+            controller.needLoggedIn();
+
+            expect(true).toBe(true);
+        });
+        it('should throw if not loggedIn', () => {
+            const controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+
+            expect.assertions(3);
+            try {
+                // @ts-ignore
+                controller.needLoggedIn();
+            } catch (e) {
+                expect(e).toBeInstanceOf(ClientError);
+                expect(e.message).toBe('you need to login before');
+                expect(e.code).toBe(EErrorsCodes.NEED_LOGIN);
+            }
+        });
+    });
+
+    describe('getSites', () => {
+        it('should return _sites if logged', async () => {
+            const controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+
+            // @ts-ignore
+            controller.logged = true;
+
+            const mock = jest.fn().mockImplementation(() => Promise.resolve([]));
+            const obj = {
+                list: mock
+            };
+
+            // @ts-ignore
+            controller._sites = obj;
+
+            expect(controller.sites).toBe(obj);
+            expect(await controller.getSites()).toStrictEqual([]);
+            expect(mock).toHaveBeenCalled();
+        });
+    });
+
+    describe('buildUrl', () => {
+        let controller: Controller;
+        const config = {
+            url: '/notifications',
+            baseURL: 'http://unifi'
+        };
+        beforeEach(() => {
+            controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+        });
+        describe('unifiOs', () => {
+            beforeEach(() => {
+                controller.unifiOs = true;
+            });
+
+            it('should build controller url', () => {
+                expect(controller.buildUrl(config)).toStrictEqual({
+                    url: '/notifications',
+                    baseURL: 'http://unifi/proxy/network'
+                });
+            });
+
+            it('should handle login/logout url', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/api/auth/login'
+                    })
+                ).toStrictEqual({
+                    url: '/api/auth/login',
+                    baseURL: 'http://unifi'
+                });
+            });
+
+            it('should handle no url', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: undefined
+                    })
+                ).toStrictEqual({
+                    url: undefined,
+                    baseURL: 'http://unifi/proxy/network'
+                });
+            });
+
+            it('should handle custom unifiOs url', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/groups',
+                        unifiOSUrl: '/proxy/led'
+                    })
+                ).toStrictEqual({
+                    url: '/groups',
+                    unifiOSUrl: '/proxy/led',
+                    baseURL: 'http://unifi/proxy/led'
+                });
+            });
+
+            it('should handle api version', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/notifications',
+                        apiVersion: 2
+                    })
+                ).toStrictEqual({
+                    url: '/v2/notifications',
+                    apiVersion: 2,
+                    baseURL: 'http://unifi/proxy/network'
+                });
+            });
+
+            it('should handle site', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/notifications',
+                        site: 'default'
+                    })
+                ).toStrictEqual({
+                    url: '/api/s/default/notifications',
+                    site: 'default',
+                    baseURL: 'http://unifi/proxy/network'
+                });
+            });
+
+            it('should handle site with api version', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/notifications',
+                        site: 'default',
+                        apiVersion: 2
+                    })
+                ).toStrictEqual({
+                    url: '/v2/api/site/default/notifications',
+                    site: 'default',
+                    baseURL: 'http://unifi/proxy/network',
+                    apiVersion: 2
+                });
+            });
+
+            it('should handle websockets site', () => {
+                expect(
+                    controller.buildUrl(
+                        {
+                            ...config,
+                            url: '/notifications',
+                            site: 'default'
+                        },
+                        true
+                    )
+                ).toStrictEqual({
+                    url: '/wss/s/default/notifications',
+                    site: 'default',
+                    baseURL: 'http://unifi/proxy/network'
+                });
+            });
+        });
+        describe('not unifiOs', () => {
+            beforeEach(() => {
+                controller.unifiOs = false;
+            });
+            it('should build controller url', () => {
+                expect(controller.buildUrl(config)).toStrictEqual({
+                    url: '/notifications',
+                    baseURL: 'http://unifi'
+                });
+            });
+
+            it('should handle login/logout url', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/api/login'
+                    })
+                ).toStrictEqual({
+                    url: '/api/login',
+                    baseURL: 'http://unifi'
+                });
+            });
+
+            it('should handle no url', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: undefined
+                    })
+                ).toStrictEqual({
+                    url: undefined,
+                    baseURL: 'http://unifi'
+                });
+            });
+
+            it('should handle custom unifiOs url', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/groups',
+                        unifiOSUrl: '/proxy/led'
+                    })
+                ).toStrictEqual({
+                    url: '/groups',
+                    unifiOSUrl: '/proxy/led',
+                    baseURL: 'http://unifi'
+                });
+            });
+
+            it('should handle api version', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/notifications',
+                        apiVersion: 2
+                    })
+                ).toStrictEqual({
+                    url: '/v2/notifications',
+                    apiVersion: 2,
+                    baseURL: 'http://unifi'
+                });
+            });
+
+            it('should handle site', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/notifications',
+                        site: 'default'
+                    })
+                ).toStrictEqual({
+                    url: '/api/s/default/notifications',
+                    site: 'default',
+                    baseURL: 'http://unifi'
+                });
+            });
+
+            it('should handle site with api version', () => {
+                expect(
+                    controller.buildUrl({
+                        ...config,
+                        url: '/notifications',
+                        site: 'default',
+                        apiVersion: 2
+                    })
+                ).toStrictEqual({
+                    url: '/v2/api/site/default/notifications',
+                    site: 'default',
+                    baseURL: 'http://unifi',
+                    apiVersion: 2
+                });
+            });
+
+            it('should handle websockets site', () => {
+                expect(
+                    controller.buildUrl(
+                        {
+                            ...config,
+                            url: '/notifications',
+                            site: 'default'
+                        },
+                        true
+                    )
+                ).toStrictEqual({
+                    url: '/wss/s/default/notifications',
+                    site: 'default',
+                    baseURL: 'http://unifi'
+                });
+            });
         });
     });
 });

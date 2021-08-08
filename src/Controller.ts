@@ -235,9 +235,10 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     }
 
     public buildUrl(
-        config: { url?: string; apiVersion?: number; site?: string; baseURL?: string; unifiOSUrl?: string },
+        pConfig: { url?: string; apiVersion?: number; site?: string; baseURL?: string; unifiOSUrl?: string },
         websockets = false
     ): AxiosRequestConfig {
+        const config = { ...pConfig };
         const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
 
         if (this.unifiOs && !config.url?.includes('login') && !config.url?.includes('logout')) {
@@ -327,11 +328,15 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             },
             true
         );
-        const superUrlBuilded = `${superWSConfig.baseURL}${superWSConfig.url}`;
+        if (!superWSConfig.url) {
+            throw new ClientError('fail to generate super site WS url', EErrorsCodes.UNKNOWN_ERROR);
+        }
+        const superUrl = new URL(superWSConfig.url, superWSConfig.baseURL);
+        superUrl.protocol = 'wss';
         this.superWS = new UnifiWebsockets({
             controller: this,
             strictSSL: this.strictSSL,
-            url: superUrlBuilded,
+            url: superUrl.toString(),
             isController: false
         });
 
