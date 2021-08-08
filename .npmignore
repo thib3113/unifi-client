@@ -176,3 +176,5 @@ badwords.json
 typedoc.json
 sonar-project.properties
 /.gitattributes
+
+CODE_OF_CONDUCT.md
