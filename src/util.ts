@@ -1,6 +1,6 @@
 import createDebug, { Debugger } from 'debug';
 import url, { URL, URLSearchParams } from 'url';
-import { AxiosRequestConfig } from 'axios';
+import { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 const debug = createDebug(`unifi-client`);
 /**
@@ -20,7 +20,7 @@ export const createDebugger = (name: string): Debugger => {
  * @param hidePassword - to hide "auth" part of the url
  */
 export const getUrlRepresentation = (req: AxiosRequestConfig, hidePassword = true): string => {
-    const urlParsed = new URL((req.baseURL || '') + (req.url || ''));
+    const urlParsed = new URL((req.baseURL || 'http://localhost') + (req.url || ''));
     const params = new URLSearchParams(urlParsed.search);
 
     if (req.auth) {
@@ -46,3 +46,26 @@ export const getUrlRepresentation = (req: AxiosRequestConfig, hidePassword = tru
 };
 
 export const removeTrailingSlash = (stringUrl: string): string => stringUrl.replace(/\/$/, '');
+
+export const axiosUrlParams = (instance: AxiosInstance): AxiosInstance => {
+    instance.interceptors.request.use((config) => {
+        if (!config.url) {
+            return config;
+        }
+
+        const currentUrl = new URL(config.url, config.baseURL);
+        // parse pathName to implement variables
+        Object.entries(config.urlParams || {}).forEach(([k, v]) => {
+            currentUrl.pathname = currentUrl.pathname.replace(`:${k}`, encodeURIComponent(v));
+        });
+
+        const authPart = currentUrl.username && currentUrl.password ? `${currentUrl.username}:${currentUrl.password}` : '';
+        return {
+            ...config,
+            baseURL: `${currentUrl.protocol}//${authPart}${currentUrl.host}`,
+            url: currentUrl.pathname
+        };
+    });
+
+    return instance;
+};
