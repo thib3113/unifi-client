@@ -1,6 +1,6 @@
 import { IUnifiAuthProps, UnifiAuth } from './UnifiAuth';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { createDebugger, getUrlRepresentation, removeTrailingSlash } from './util';
+import { axiosUrlParams, createDebugger, getUrlRepresentation, removeTrailingSlash } from './util';
 import https from 'https';
 import curlirize from 'axios-curlirize';
 import { URL } from 'url';
@@ -160,30 +160,30 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         instance.interceptors.response.use(
             (response) => {
                 // @ts-ignore
-                const duration = (new Date() - response.config?.metadata?.startTime) / 1000 || null;
+                const duration = (new Date() - response?.config?.metadata?.startTime) / 1000 || null;
                 const durationStr = duration ? ` in ${duration} seconds` : '';
                 axiosDebug(
-                    `Response from ${response.config.method} ${getUrlRepresentation(response.config)} with code ${response.status} ${
-                        response.statusText
+                    `Response from ${response?.config?.method} ${getUrlRepresentation(response?.config)} with code ${response?.status} ${
+                        response?.statusText
                     }${durationStr}`
                 );
-                axiosDebugVerbose('headers : %O', response.headers);
-                axiosDebugVerbose(`headers sent : %O`, response.request._header);
-                axiosDebugVerbose(`payload : %O `, response.data);
+                axiosDebugVerbose('headers : %O', response?.headers);
+                axiosDebugVerbose(`headers sent : %O`, response?.request?._header);
+                axiosDebugVerbose(`payload : %O `, response?.data);
                 return response;
             },
             (error) => {
-                if (error.response) {
+                if (error?.response) {
                     const rep = error.response;
                     axiosDebug(
-                        `Response from ${rep.config.method} ${getUrlRepresentation(rep.config)} with code ${rep.status} ${rep.statusText}`
+                        `Response from ${rep.config?.method} ${getUrlRepresentation(rep.config)} with code ${rep.status} ${rep.statusText}`
                     );
                     axiosDebugVerbose(`headers : %O`, rep.headers);
                     axiosDebugVerbose(`payload : %O`, rep.data);
                 } else {
-                    if (error.isAxiosError) {
+                    if (error?.isAxiosError) {
                         debug(
-                            `Response from ${error.config.method} ${getUrlRepresentation(error.config)} with code ${error.code} ${
+                            `Response from ${error.config?.method} ${getUrlRepresentation(error.config)} with code ${error.code} ${
                                 error.message
                             }`
                         );
@@ -197,7 +197,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         curlirize(instance, (result, err) => {
             const { command } = result;
             if (err) {
-                axiosCurl('err :');
+                axiosCurl('err : %O', err);
             }
             axiosCurl(command);
         });
@@ -206,10 +206,10 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         instance.interceptors.response.use(
             (response) => response,
             (error) => {
-                if (error?.response?.config.isRetry) {
+                if (error?.response?.config?.isRetry) {
                     return Promise.resolve();
                 }
-                if (error.response) {
+                if (error?.response) {
                     if (error.config?.clearCurl) {
                         error.config.clearCurl();
                     } else if (error.config) {
@@ -269,25 +269,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     addAxiosPlugins(instance: AxiosInstance): AxiosInstance {
         // manage urlParams
-        instance.interceptors.request.use((config) => {
-            if (!config.url) {
-                return config;
-            }
-
-            const currentUrl = new URL(config.url, config.baseURL);
-            // parse pathName to implement variables
-            Object.entries(config.urlParams || {}).forEach(([k, v]) => {
-                currentUrl.pathname = currentUrl.pathname.replace(`:${k}`, encodeURIComponent(v));
-            });
-
-            const authPart = currentUrl.username && currentUrl.password ? `${currentUrl.username}:${currentUrl.password}` : '';
-            return {
-                ...config,
-                baseURL: `${currentUrl.protocol}//${authPart}${currentUrl.host}`,
-                url: currentUrl.pathname
-            };
-        });
-        return instance;
+        return axiosUrlParams(instance);
     }
 
     public getInstance(): AxiosInstance {
