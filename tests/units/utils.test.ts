@@ -1,4 +1,5 @@
-import { createDebugger, getUrlRepresentation, removeTrailingSlash } from '../../src/util';
+import { axiosUrlParams, createDebugger, getUrlRepresentation, removeTrailingSlash } from '../../src/util';
+import { AxiosInstance } from 'axios';
 
 describe('utils tests', () => {
     describe('getUrlRepresentation', () => {
@@ -168,6 +169,38 @@ describe('utils tests', () => {
             expect(removeTrailingSlash('http://localhost/')).toBe('http://localhost');
             expect(removeTrailingSlash('/test')).toBe('/test');
             expect(removeTrailingSlash('http://localhost')).toBe('http://localhost');
+        });
+    });
+
+    describe('axiosUrlParams', () => {
+        const mock = jest.fn();
+        const instance = {
+            interceptors: {
+                request: {
+                    use: mock
+                }
+            }
+        } as unknown as AxiosInstance;
+        it('should removeTrailingSlash', () => {
+            expect(axiosUrlParams(instance)).toBe(instance);
+            const config = {
+                url: '/:foo/test',
+                baseURL: 'https://site.com',
+                urlParams: {
+                    foo: 'bar'
+                }
+            };
+            //get fn
+            expect(mock).toBeCalled();
+            const fn = mock.mock.calls.pop().pop();
+            expect(fn({})).toStrictEqual({});
+            expect(fn({ ...config, urlParams: undefined })).toStrictEqual({ ...config, urlParams: undefined });
+            expect(fn(undefined)).toBe(undefined);
+
+            expect(fn(config)).toStrictEqual({
+                ...config,
+                url: '/bar/test'
+            });
         });
     });
 });
