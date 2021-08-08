@@ -49,7 +49,7 @@ export const removeTrailingSlash = (stringUrl: string): string => stringUrl.repl
 
 export const axiosUrlParams = (instance: AxiosInstance): AxiosInstance => {
     instance.interceptors.request.use((config) => {
-        if (!config.url) {
+        if (!config || !config.url) {
             return config;
         }
 
@@ -59,11 +59,12 @@ export const axiosUrlParams = (instance: AxiosInstance): AxiosInstance => {
             currentUrl.pathname = currentUrl.pathname.replace(`:${k}`, encodeURIComponent(v));
         });
 
-        const authPart = currentUrl.username && currentUrl.password ? `${currentUrl.username}:${currentUrl.password}` : '';
+        const retUrl = currentUrl.pathname;
+        currentUrl.pathname = '';
         return {
             ...config,
-            baseURL: `${currentUrl.protocol}//${authPart}${currentUrl.host}`,
-            url: currentUrl.pathname
+            baseURL: removeTrailingSlash(currentUrl.toString()),
+            url: retUrl
         };
     });
 
