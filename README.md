@@ -182,7 +182,9 @@ controller.globalWS.on('*', (eventName, ...args) => {
 
 the support of websocket is experimental, and with a really bad coverage . Doesn't hesitate to open a PR, to add more websockets types
 
-You can install some dependencies to improve performance : [read here](https://github.com/websockets/ws#opt-in-for-performance)
+We add some optionnal dependencies to improve performances, more informations [read here](https://github.com/websockets/ws#opt-in-for-performance)
+they can be skipped by using
+`npm install --no-optional`
 
 ## Technical documentation
 All the technical documentation is available [here](https://thib3113.github.io/unifi-client/modules)
