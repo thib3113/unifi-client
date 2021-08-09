@@ -9,7 +9,6 @@ import { Validate } from '../commons/Validate';
 import { INetworkStatus } from './INetworkStatus';
 import { UnifiWebsockets } from '../WebSockets';
 import { Stats } from '../Stats';
-import { URL } from 'url';
 import { ClientError, EErrorsCodes } from '../Errors';
 
 export class Site extends _ObjectSubController implements ISite {
@@ -100,8 +99,7 @@ export class Site extends _ObjectSubController implements ISite {
         if (!wsConfig.url) {
             throw new ClientError('fail to generate site WS url', EErrorsCodes.UNKNOWN_ERROR);
         }
-        const wsURL = new URL(wsConfig.url, wsConfig.baseURL);
-        wsURL.protocol = 'wss';
+        const wsURL = `${wsConfig.baseURL}${wsConfig.url}`;
         this.ws = new UnifiWebsockets({
             controller: this.controller,
             strictSSL: this.controller.strictSSL,
