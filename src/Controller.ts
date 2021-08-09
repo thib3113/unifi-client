@@ -241,6 +241,10 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         const config = { ...pConfig };
         const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
 
+        if (!config.baseURL) {
+            throw new ClientError('baseURL is needed in the axios instance');
+        }
+
         if (this.unifiOs && !config.url?.includes('login') && !config.url?.includes('logout')) {
             const proxyPart = config.unifiOSUrl ?? '/proxy/network';
             config.baseURL = `${config.baseURL}${proxyPart}`;
@@ -256,6 +260,12 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
         if (versionedApi) {
             config.url = `/v${config.apiVersion}${config.url}`;
+        }
+
+        if (websockets) {
+            const urlParsed = new URL(config.baseURL);
+            urlParsed.protocol = urlParsed.protocol === 'https:' ? 'wss' : 'ws';
+            config.baseURL = removeTrailingSlash(urlParsed.toString());
         }
 
         return config;
@@ -294,7 +304,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             wsUrl = removeTrailingSlash(this.props.webSocketsURL);
         } else {
             const urlParsed = new URL(this.props.url);
-            urlParsed.protocol = 'wss';
+            urlParsed.protocol = urlParsed.protocol === 'https:' ? 'wss' : 'ws';
             wsUrl = removeTrailingSlash(urlParsed.toString());
         }
 
@@ -331,8 +341,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         if (!superWSConfig.url) {
             throw new ClientError('fail to generate super site WS url', EErrorsCodes.UNKNOWN_ERROR);
         }
-        const superUrl = new URL(superWSConfig.url, superWSConfig.baseURL);
-        superUrl.protocol = 'wss';
+        const superUrl = `${superWSConfig.baseURL}${superWSConfig.url}`;
         this.superWS = new UnifiWebsockets({
             controller: this,
             strictSSL: this.strictSSL,

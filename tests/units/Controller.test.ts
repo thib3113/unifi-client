@@ -892,8 +892,39 @@ describe('test controller', () => {
                 ).toStrictEqual({
                     url: '/wss/s/default/notifications',
                     site: 'default',
-                    baseURL: 'http://unifi/proxy/network'
+                    baseURL: 'ws://unifi/proxy/network'
                 });
+            });
+
+            it('should handle secure websockets site', () => {
+                expect(
+                    controller.buildUrl(
+                        {
+                            ...config,
+                            baseURL: 'https://unifi',
+                            url: '/notifications',
+                            site: 'default'
+                        },
+                        true
+                    )
+                ).toStrictEqual({
+                    url: '/wss/s/default/notifications',
+                    site: 'default',
+                    baseURL: 'wss://unifi/proxy/network'
+                });
+            });
+
+            it('should refuse build url without baseUrl', () => {
+                expect.assertions(2);
+                try {
+                    controller.buildUrl({
+                        ...config,
+                        baseURL: undefined
+                    });
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('baseURL is needed in the axios instance');
+                }
             });
         });
         describe('not unifiOs', () => {
@@ -1002,8 +1033,39 @@ describe('test controller', () => {
                 ).toStrictEqual({
                     url: '/wss/s/default/notifications',
                     site: 'default',
-                    baseURL: 'http://unifi'
+                    baseURL: 'ws://unifi'
                 });
+            });
+
+            it('should handle secure websockets site', () => {
+                expect(
+                    controller.buildUrl(
+                        {
+                            ...config,
+                            baseURL: 'https://unifi',
+                            url: '/notifications',
+                            site: 'default'
+                        },
+                        true
+                    )
+                ).toStrictEqual({
+                    url: '/wss/s/default/notifications',
+                    site: 'default',
+                    baseURL: 'wss://unifi'
+                });
+            });
+
+            it('should refuse build url without baseUrl', () => {
+                expect.assertions(2);
+                try {
+                    controller.buildUrl({
+                        ...config,
+                        baseURL: undefined
+                    });
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('baseURL is needed in the axios instance');
+                }
             });
         });
     });

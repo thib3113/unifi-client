@@ -11,16 +11,16 @@ const main = async () => {
     await controller.login();
     await controller.initWebSockets();
 
-    //listen on all events
-    controller.on('*', (eventName, ...args) => {
-        console.log(eventName, ...args);
-    });
-
     // listen on ctrl.connect
     // check known events in documentation : https://thib3113.github.io/unifi-client/modules/WebSockets_events_EUnifiEvents.html
     // else check in devtools when using the unifi web app
     // only compatible with unifiOS
     if (controller.unifiOs) {
+        //listen on all events
+        controller.on('*', (eventName, ...args) => {
+            console.log(eventName, ...args);
+        });
+
         controller.on('ctrl.connect', (...args) => {
             console.log(...args);
         });
