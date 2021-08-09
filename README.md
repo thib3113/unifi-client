@@ -80,7 +80,7 @@ Get firewall rules, it return an array of [FWRule](https://thib3113.github.io/un
 const rules = await site.firewall.getRules();
 ```
 
-###Instances
+### Instances
 The instances returned by `getInstance` are basicaly some [axios instances](https://github.com/axios/axios#instance-methods) . With some additions : 
 ```typescript
 //url params
