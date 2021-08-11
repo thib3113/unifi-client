@@ -352,7 +352,6 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return this;
     }
 
-    // this function need to never be async !!! but return a promise ( so this.ws is init before the real init )
     public initWebSockets(): Promise<void> {
         this._initWebSockets();
         return new Promise(async (resolve, reject) => {
