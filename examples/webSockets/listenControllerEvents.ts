@@ -20,10 +20,11 @@ const main = async () => {
         controller.on('*', (eventName, ...args) => {
             console.log(eventName, ...args);
         });
-
+        //listen on controller connection to server
         controller.on('ctrl.connect', (...args) => {
             console.log(...args);
         });
+        // controller.on is an equivalent of controller.ws.on
     }
 
     /**
