@@ -19,7 +19,7 @@ const debug = createDebugger('UnifiAuth');
 export class UnifiAuth extends ObjectWithPrivateValues {
     private readonly rememberMe: boolean;
     public unifiOs: boolean;
-    public disableAutoLogin: boolean = false;
+    public autoReLogin: boolean = true;
     private get username(): string {
         return this.getPrivate('username');
     }
@@ -141,13 +141,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
                         this.csrfToken = response.headers['x-csrf-token'];
                     }
 
-                    if (
-                        !this.unifiOs &&
-                        response.config &&
-                        response.status === 401 &&
-                        !response.config?.retryAuth &&
-                        !this.disableAutoLogin
-                    ) {
+                    if (!this.unifiOs && response.config && response.status === 401 && !response.config?.retryAuth && this.autoReLogin) {
                         curDebug('login is expired, try to re-login');
                         await this.login();
                         return this.controllerInstance.request({ ...response.config, retryAuth: true });
@@ -213,7 +207,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         );
 
         if (token2FA) {
-            this.disableAutoLogin = true;
+            this.autoReLogin = false;
         }
 
         curDebug('end login request');
@@ -262,11 +256,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
 
         // non unifiOs token is not a JWT token, can't know if the token is expired with this method ...
         //check if token, or if jwt token will not expire in the 2 next minutes, just in case
-        if (
-            this.unifiOs &&
-            (!token || (jwt.decode(token) as { exp: number }).exp * 1000 < Date.now() - 2 * 1000) &&
-            !this.disableAutoLogin
-        ) {
+        if (this.unifiOs && (!token || (jwt.decode(token) as { exp: number }).exp * 1000 < Date.now() - 2 * 1000) && this.autoReLogin) {
             curDebug('token seems invalid, try to relogin');
             await this.login();
         }

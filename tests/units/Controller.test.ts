@@ -1,6 +1,6 @@
 //need to be first
 import { axiosUrlParamsMock, debug, getUrlRepresentationMock } from '../mocks/utils';
-import { ClientError, Controller, EErrorsCodes, UnifiError } from '../../src';
+import { ClientError, Controller, EErrorsCodes, UnifiError, UnifiWebsockets } from '../../src';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import https from 'https';
 import { UnifiAuth } from '../../src/UnifiAuth';
@@ -10,6 +10,7 @@ jest.mock('axios');
 jest.mock('axios-curlirize');
 jest.mock('../../src/UnifiAuth');
 jest.mock('../../src/Sites/Sites');
+jest.mock('../../src/WebSockets/UnifiWebsockets');
 
 describe('test controller', () => {
     const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -892,8 +893,39 @@ describe('test controller', () => {
                 ).toStrictEqual({
                     url: '/wss/s/default/notifications',
                     site: 'default',
-                    baseURL: 'http://unifi/proxy/network'
+                    baseURL: 'ws://unifi/proxy/network'
                 });
+            });
+
+            it('should handle secure websockets site', () => {
+                expect(
+                    controller.buildUrl(
+                        {
+                            ...config,
+                            baseURL: 'https://unifi',
+                            url: '/notifications',
+                            site: 'default'
+                        },
+                        true
+                    )
+                ).toStrictEqual({
+                    url: '/wss/s/default/notifications',
+                    site: 'default',
+                    baseURL: 'wss://unifi/proxy/network'
+                });
+            });
+
+            it('should refuse build url without baseUrl', () => {
+                expect.assertions(2);
+                try {
+                    controller.buildUrl({
+                        ...config,
+                        baseURL: undefined
+                    });
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('baseURL is needed in the axios instance');
+                }
             });
         });
         describe('not unifiOs', () => {
@@ -1002,9 +1034,329 @@ describe('test controller', () => {
                 ).toStrictEqual({
                     url: '/wss/s/default/notifications',
                     site: 'default',
-                    baseURL: 'http://unifi'
+                    baseURL: 'ws://unifi'
                 });
             });
+
+            it('should handle secure websockets site', () => {
+                expect(
+                    controller.buildUrl(
+                        {
+                            ...config,
+                            baseURL: 'https://unifi',
+                            url: '/notifications',
+                            site: 'default'
+                        },
+                        true
+                    )
+                ).toStrictEqual({
+                    url: '/wss/s/default/notifications',
+                    site: 'default',
+                    baseURL: 'wss://unifi'
+                });
+            });
+
+            it('should refuse build url without baseUrl', () => {
+                expect.assertions(2);
+                try {
+                    controller.buildUrl({
+                        ...config,
+                        baseURL: undefined
+                    });
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('baseURL is needed in the axios instance');
+                }
+            });
+        });
+    });
+
+    describe('logout', () => {
+        it('should logout', async () => {
+            const controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+
+            (controller.auth.login as jest.Mock).mockImplementationOnce(() => Promise.resolve(true));
+            (controller.auth.logout as jest.Mock).mockImplementationOnce(() => Promise.resolve(true));
+            (controller.auth.getVersion as jest.Mock).mockImplementationOnce(() => '9.9.9');
+            //try to login
+            expect(await controller.login()).toBe(true);
+            expect(controller.auth.login).toHaveBeenCalledWith(undefined);
+            expect(controller.version).toBe('9.9.9');
+            expect(controller.auth.logout).not.toHaveBeenCalled();
+            // @ts-ignore
+            expect(controller.logged).toBeTruthy();
+            expect(controller.auth.autoReLogin).toBeTruthy();
+
+            (controller.auth.login as jest.Mock).mockClear();
+            (controller.auth.logout as jest.Mock).mockClear();
+            // test logout
+            await controller.logout();
+
+            expect(controller.auth.logout).toHaveBeenCalledWith();
+            // @ts-ignore
+            expect(controller.logged).toBeFalsy();
+            expect(controller.auth.autoReLogin).toBeFalsy();
+        });
+    });
+
+    describe('login', () => {
+        it('should login', async () => {
+            const controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+
+            (controller.auth.login as jest.Mock).mockImplementationOnce(() => true);
+            (controller.auth.getVersion as jest.Mock).mockImplementationOnce(() => '9.9.9');
+
+            expect(await controller.login()).toBe(true);
+            expect(controller.version).toBe('9.9.9');
+            expect(controller.auth.login).toHaveBeenCalledWith(undefined);
+            // @ts-ignore
+            expect(controller.logged).toBeTruthy();
+        });
+
+        it('should login with 2FA', async () => {
+            const controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+
+            (controller.auth.login as jest.Mock).mockImplementationOnce(() => true);
+            (controller.auth.getVersion as jest.Mock).mockImplementationOnce(() => '9.9.9');
+
+            expect(await controller.login('252876')).toBe(true);
+            expect(controller.version).toBe('9.9.9');
+            expect(controller.auth.login).toHaveBeenCalledWith('252876');
+            // @ts-ignore
+            expect(controller.logged).toBeTruthy();
+        });
+    });
+
+    describe('initWebSockets', () => {
+        const unifiWebsocketsMock = UnifiWebsockets as unknown as jest.Mock | jest.Mocked<UnifiWebsockets>;
+        let controller: Controller;
+        beforeEach(() => {
+            controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+            // force login
+            // @ts-ignore
+            controller.logged = true;
+            controller.controllerInstance.defaults.baseURL = 'http://localhost';
+        });
+
+        describe('unifiOs', () => {
+            beforeEach(() => {
+                controller.unifiOs = true;
+            });
+            it('init websockets', async () => {
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).toHaveBeenCalledTimes(2);
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(1, {
+                    controller,
+                    isController: true,
+                    strictSSL: true,
+                    url: 'ws://localhost/api/ws/system'
+                });
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(2, {
+                    controller,
+                    isController: false,
+                    strictSSL: true,
+                    url: 'ws://localhost/proxy/network/wss/s/super/events'
+                });
+            });
+            it('init websockets 2 times', async () => {
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).toHaveBeenCalledTimes(2);
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(1, {
+                    controller,
+                    isController: true,
+                    strictSSL: true,
+                    url: 'ws://localhost/api/ws/system'
+                });
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(2, {
+                    controller,
+                    isController: false,
+                    strictSSL: true,
+                    url: 'ws://localhost/proxy/network/wss/s/super/events'
+                });
+                (unifiWebsocketsMock as jest.Mock).mockClear();
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).not.toHaveBeenCalled();
+            });
+            it('init websockets with custom controller ws url', async () => {
+                // @ts-ignore
+                controller.props.webSocketsURL = 'ws://localhost/custom/ws/url';
+                controller.controllerInstance.defaults.baseURL = 'http://localhost.super.url';
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).toHaveBeenCalledTimes(2);
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(1, {
+                    controller,
+                    isController: true,
+                    strictSSL: true,
+                    url: 'ws://localhost/custom/ws/url/api/ws/system'
+                });
+
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(2, {
+                    controller,
+                    isController: false,
+                    strictSSL: true,
+                    url: 'ws://localhost.super.url/proxy/network/wss/s/super/events'
+                });
+            });
+            it('should refuse if not logged', async () => {
+                // @ts-ignore
+                controller.logged = false;
+                expect.assertions(3);
+                try {
+                    await controller.initWebSockets();
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('you need to login before');
+                    expect(e.code).toBe(EErrorsCodes.NEED_LOGIN);
+                }
+            });
+            it('should use wss if https', async () => {
+                controller.controllerInstance.defaults.baseURL = 'https://localhost';
+                // @ts-ignore
+                controller.props.url = controller.controllerInstance.defaults.baseURL;
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).toHaveBeenCalledTimes(2);
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(1, {
+                    controller,
+                    isController: true,
+                    strictSSL: true,
+                    url: 'wss://localhost/api/ws/system'
+                });
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(2, {
+                    controller,
+                    isController: false,
+                    strictSSL: true,
+                    url: 'wss://localhost/proxy/network/wss/s/super/events'
+                });
+            });
+        });
+        describe('not unifiOs', () => {
+            beforeEach(() => {
+                controller.unifiOs = false;
+            });
+            it('init websockets', async () => {
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).toHaveBeenCalledTimes(1);
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(1, {
+                    controller,
+                    isController: false,
+                    strictSSL: true,
+                    url: 'ws://localhost/wss/s/super/events'
+                });
+            });
+            it('init websockets 2 times', async () => {
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).toHaveBeenCalledTimes(1);
+                expect(unifiWebsocketsMock).toHaveBeenNthCalledWith(1, {
+                    controller,
+                    isController: false,
+                    strictSSL: true,
+                    url: 'ws://localhost/wss/s/super/events'
+                });
+                (unifiWebsocketsMock as jest.Mock).mockClear();
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).not.toHaveBeenCalled();
+            });
+            it('init websockets with custom controller ws url', async () => {
+                // @ts-ignore
+                controller.controllerInstance.defaults.baseURL = 'http://localhost.super.url';
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).toHaveBeenCalledTimes(1);
+                expect(unifiWebsocketsMock).toHaveBeenCalledWith({
+                    controller,
+                    isController: false,
+                    strictSSL: true,
+                    url: 'ws://localhost.super.url/wss/s/super/events'
+                });
+            });
+            it('should refuse if not logged', async () => {
+                // @ts-ignore
+                controller.logged = false;
+                expect.assertions(3);
+                try {
+                    await controller.initWebSockets();
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('you need to login before');
+                    expect(e.code).toBe(EErrorsCodes.NEED_LOGIN);
+                }
+            });
+            it('should throw error if trying to listen controller', async () => {
+                await controller.initWebSockets();
+
+                expect.assertions(6);
+                try {
+                    // @ts-ignore
+                    controller.ws = undefined;
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('controller websockets are only available on unifiOS');
+                    expect(e.code).toBe(EErrorsCodes.UNIFI_CONTROLLER_TYPE_MISMATCH);
+                }
+                try {
+                    expect(controller.ws).toBeDefined();
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('controller websockets are only available on unifiOS');
+                    expect(e.code).toBe(EErrorsCodes.UNIFI_CONTROLLER_TYPE_MISMATCH);
+                }
+            });
+            it('should use wss if https', async () => {
+                controller.controllerInstance.defaults.baseURL = 'https://localhost';
+                // @ts-ignore
+                controller.props.url = controller.controllerInstance.defaults.baseURL;
+                await controller.initWebSockets();
+                expect(unifiWebsocketsMock).toHaveBeenCalledTimes(1);
+                expect(unifiWebsocketsMock).toHaveBeenCalledWith({
+                    controller,
+                    isController: false,
+                    strictSSL: true,
+                    url: 'wss://localhost/wss/s/super/events'
+                });
+            });
+        });
+    });
+    describe('createInstance for sites', () => {
+        let controller: Controller;
+        beforeEach(() => {
+            controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+            (axios.create as jest.Mock).mockClear();
+        });
+
+        it('should create an instance for a sub site', () => {
+            controller.createInstance('test');
+            expect(axios.create).toBeCalledWith({
+                // not authentication
+                authenticationRequest: false,
+                // url set before
+                baseURL: 'http://localhost',
+                // headers json
+                headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+                // doesn't follow redirections
+                maxRedirects: 0,
+                // not site
+                site: 'test'
+            });
+            expect(controller.auth.addInterceptorsToInstance).toHaveBeenCalled();
         });
     });
 });

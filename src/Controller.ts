@@ -95,11 +95,11 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     }
 
     // this functions are here to delete this value from rest(...) or JSON
-    protected get ws(): UnifiWebsockets {
+    public get ws(): UnifiWebsockets {
         return this.getPrivate<UnifiWebsockets>('ws');
     }
 
-    protected set ws(value: UnifiWebsockets) {
+    public set ws(value: UnifiWebsockets) {
         this.setPrivate<UnifiWebsockets>('ws', value);
     }
 
@@ -131,7 +131,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
      */
     async login(token2FA?: string): Promise<IUser> {
         //re enable autoLogin if disabled
-        this.auth.disableAutoLogin = false;
+        this.auth.autoReLogin = true;
         const user = await this.auth.login(token2FA);
         //get unifiOs / version / and save logged status
         this.unifiOs = this.auth.unifiOs;
@@ -142,7 +142,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     async logout(): Promise<void> {
         await this.auth.logout();
-        this.auth.disableAutoLogin = true;
+        this.auth.autoReLogin = false;
         this.logged = false;
     }
 
@@ -241,6 +241,10 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         const config = { ...pConfig };
         const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
 
+        if (!config.baseURL) {
+            throw new ClientError('baseURL is needed in the axios instance');
+        }
+
         if (this.unifiOs && !config.url?.includes('login') && !config.url?.includes('logout')) {
             const proxyPart = config.unifiOSUrl ?? '/proxy/network';
             config.baseURL = `${config.baseURL}${proxyPart}`;
@@ -256,6 +260,12 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
         if (versionedApi) {
             config.url = `/v${config.apiVersion}${config.url}`;
+        }
+
+        if (websockets) {
+            const urlParsed = new URL(config.baseURL);
+            urlParsed.protocol = urlParsed.protocol === 'https:' ? 'wss' : 'ws';
+            config.baseURL = removeTrailingSlash(urlParsed.toString());
         }
 
         return config;
@@ -279,22 +289,25 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
         if (!this.ws) {
-            this.initWebSockets();
+            this._initWebSockets();
         }
 
         this.ws.on(eventName, cb);
         return this;
     }
 
-    // this function need to never be async !!! but return a promise ( so this.ws is init before the real init )
-    public initWebSockets(): Promise<void> {
+    private _initWebSockets(): this {
+        //already init
+        if (this.superWS) {
+            return this;
+        }
         this.needLoggedIn();
         let wsUrl;
         if (this.props.webSocketsURL) {
             wsUrl = removeTrailingSlash(this.props.webSocketsURL);
         } else {
             const urlParsed = new URL(this.props.url);
-            urlParsed.protocol = 'wss';
+            urlParsed.protocol = urlParsed.protocol === 'https:' ? 'wss' : 'ws';
             wsUrl = removeTrailingSlash(urlParsed.toString());
         }
 
@@ -327,12 +340,8 @@ export class Controller extends ObjectWithPrivateValues implements IController {
                 site: 'super'
             },
             true
-        );
-        if (!superWSConfig.url) {
-            throw new ClientError('fail to generate super site WS url', EErrorsCodes.UNKNOWN_ERROR);
-        }
-        const superUrl = new URL(superWSConfig.url, superWSConfig.baseURL);
-        superUrl.protocol = 'wss';
+        ) as AxiosRequestConfig & { url: string };
+        const superUrl = `${superWSConfig.baseURL}${superWSConfig.url}`;
         this.superWS = new UnifiWebsockets({
             controller: this,
             strictSSL: this.strictSSL,
@@ -340,6 +349,11 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             isController: false
         });
 
+        return this;
+    }
+
+    public initWebSockets(): Promise<void> {
+        this._initWebSockets();
         return new Promise(async (resolve, reject) => {
             try {
                 await Promise.all([this.unifiOs ? this.ws?.initWebSockets() : Promise.resolve(), this.superWS.initWebSockets()]);
