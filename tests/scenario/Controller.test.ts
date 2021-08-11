@@ -50,7 +50,7 @@ describe('start controller - UnifiOs', () => {
             expect(controller).toBeDefined();
             expect(controller.version).toBe(controllerExpectedVersion);
             expect(controller.unifiOs).toBeTruthy();
-            expect(controller.auth.disableAutoLogin).toBeFalsy();
+            expect(controller.auth.autoReLogin).toBeTruthy();
         });
 
         it('should fail to login with incorrect password', async () => {
@@ -107,7 +107,7 @@ describe('start controller - UnifiOs', () => {
             await nock.back('local-logout.json').then(async ({ nockDone }) => {
                 await controller.logout();
 
-                expect(controller.auth.disableAutoLogin).toBeTruthy();
+                expect(controller.auth.autoReLogin).toBeFalsy();
                 // @ts-ignore
                 expect(controller.logged).toBeFalsy();
 
@@ -127,7 +127,7 @@ describe('start controller - UnifiOs', () => {
                 controller.logged = true;
                 // @ts-ignore
                 controller.auth.token = '';
-                expect(controller.auth.disableAutoLogin).toBeTruthy();
+                expect(controller.auth.autoReLogin).toBeFalsy();
 
                 try {
                     await controller.getSites();
@@ -157,7 +157,7 @@ describe('start controller - UnifiOs', () => {
                 expect(controller.version).toBe(controllerExpectedVersion);
                 expect(controller.unifiOs).toBeTruthy();
                 expect(controller).toBeDefined();
-                expect(controller.auth.disableAutoLogin).toBeTruthy();
+                expect(controller.auth.autoReLogin).toBeFalsy();
             });
         });
 
@@ -247,7 +247,7 @@ describe('start controller - non UnifiOs', () => {
 
         // @ts-ignore
         expect(controller.logged).toBeFalsy();
-        expect(controller.auth.disableAutoLogin).toBeTruthy();
+        expect(controller.auth.autoReLogin).toBeFalsy();
 
         expect.assertions(5);
         try {
