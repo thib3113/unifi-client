@@ -80,7 +80,7 @@ Get firewall rules, it return an array of [FWRule](https://thib3113.github.io/un
 const rules = await site.firewall.getRules();
 ```
 
-###Instances
+### Instances
 The instances returned by `getInstance` are basicaly some [axios instances](https://github.com/axios/axios#instance-methods) . With some additions : 
 ```typescript
 //url params
@@ -181,6 +181,10 @@ controller.globalWS.on('*', (eventName, ...args) => {
 ```
 
 the support of websocket is experimental, and with a really bad coverage . Doesn't hesitate to open a PR, to add more websockets types
+
+We add some optionnal dependencies to improve performances, more informations [read here](https://github.com/websockets/ws#opt-in-for-performance)
+they can be skipped by using
+`npm install --no-optional`
 
 ## Technical documentation
 All the technical documentation is available [here](https://thib3113.github.io/unifi-client/modules)
