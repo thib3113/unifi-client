@@ -33,7 +33,6 @@ jobs:
       # try to perform a nodejs setup
       - uses: actions/setup-node@v2
         with:
-          cache: 'yarn'
           node-version: ${{ matrix.node-version }}
 
       - name: install+run docker-unifi-controller
