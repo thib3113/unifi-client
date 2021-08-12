@@ -28,7 +28,32 @@
 
 This library is a nodejs client to talk with unifi rest API .
 
+## Start
+
+install it
+```
+yarn add unifi-client
+```
+
+or via npm
+
+```
+npm i unifi-client
+```
+
+and import it in your code : 
+```typescript  
+import Controller from 'unifi-client'  
+```
+
+or with require : 
+```js  
+const { Controller } = require('unifi-client')
+```
 ## Example
+
+Examples are located in [examples folder](./examples)
+
 ```typescript  
 import Controller from 'unifi-client'  
   
