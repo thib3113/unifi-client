@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x]
+        node-version: [ lts/*, 16]
         #can't test on 5.6.42 because database is too up to date ( 5.12.72 )
         unifi-version: [ latest, version-6.2.25, version-6.1.71, version-6.0.45, version-6.0.43, version-6.0.41, version-6.0.36, version-6.0.28, version-6.0.23 ]
 
@@ -33,6 +33,7 @@ jobs:
       # try to perform a nodejs setup
       - uses: actions/setup-node@v2
         with:
+          cache: 'yarn'
           node-version: ${{ matrix.node-version }}
 
       - name: install+run docker-unifi-controller
@@ -48,10 +49,10 @@ jobs:
           echo unifi-controller answer
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
+          yarn install
+          yarn build
           echo start tests
-          npm run test:CI:coverage
+          yarn run test:CI:coverage
         env:
           CI: true
 
