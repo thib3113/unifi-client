@@ -16,28 +16,26 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          registry-url: 'https://npm.pkg.github.com'
+          cache: 'yarn'
           node-version: ${{ matrix.node-version }}
 
-      - name: install+run docker-unifi-controller - Node ${{ matrix.node-version }} - Unifi ${{ matrix.unifi-version }}
+      - name: install+run docker-unifi-controller
         run: |
-            # install our own demo database
-            mkdir unifi-storage
-            sudo tar -C unifi-storage -xf $GITHUB_WORKSPACE/.github/workflows/db-demo-dump.tar.bz2
-            # create docker-unifi-controller
-            docker create --name=unifi-controller -e PUID=1001 -e PGID=116 -e MEM_LIMIT=1024M -p 8443:8443 -v $GITHUB_WORKSPACE/unifi-storage:/config linuxserver/unifi-controller:${{ matrix.unifi-version }}
-            docker start unifi-controller
-            # wait for unifi-controller to be ready
-            while ! curl -ks https://127.0.0.1:8443; do echo waiting for unifi-controller; sleep 2; done
-            echo unifi-controller answer
-
-      # run npm tests
+          # install our own demo database
+          mkdir unifi-storage
+          sudo tar -C unifi-storage -xf $GITHUB_WORKSPACE/.github/workflows/db-demo-dump.tar.bz2
+          # create docker-unifi-controller
+          docker create --name=unifi-controller -e PUID=1001 -e PGID=116 -e MEM_LIMIT=1024M -p 8443:8443 -v $GITHUB_WORKSPACE/unifi-storage:/config linuxserver/unifi-controller:${{ matrix.unifi-version }}
+          docker start unifi-controller
+          # wait for unifi-controller to be ready
+          while ! curl -ks https://127.0.0.1:8443; do echo waiting for unifi-controller; sleep 2; done
+          echo unifi-controller answer
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
+          yarn install
+          yarn build
           echo start tests
-          npm run test:CI
+          yarn run test:CI:coverage
         env:
           CI: true
 
