@@ -1225,7 +1225,7 @@ describe('test controller', () => {
                     expect(e.code).toBe(EErrorsCodes.NEED_LOGIN);
                 }
             });
-            it('should use wss if https', async () => {
+            it('should skip if ws is not defined', async () => {
                 controller.controllerInstance.defaults.baseURL = 'https://localhost';
                 // @ts-ignore
                 controller.props.url = controller.controllerInstance.defaults.baseURL;
@@ -1357,6 +1357,40 @@ describe('test controller', () => {
                 site: 'test'
             });
             expect(controller.auth.addInterceptorsToInstance).toHaveBeenCalled();
+        });
+    });
+
+    describe('on listen on controller ws', () => {
+        let _initWebSocketsMock = jest.fn();
+        let onMock = jest.fn();
+        let controller: Controller;
+        beforeEach(() => {
+            controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+
+            // @ts-ignore
+            controller._initWebSockets = _initWebSocketsMock.mockImplementation(() => {
+                // @ts-ignore
+                controller.ws = {
+                    on: onMock
+                };
+            });
+            onMock.mockClear();
+        });
+
+        it('should listen on controller ws', () => {
+            const fn = () => {};
+            expect(controller.on('*', fn)).toBe(controller);
+            expect(onMock).toHaveBeenCalledWith('*', fn);
+            expect(_initWebSocketsMock).toHaveBeenCalled();
+
+            _initWebSocketsMock.mockClear();
+            expect(controller.on('ctrl.connect', fn)).toBe(controller);
+            expect(onMock).toHaveBeenCalledWith('ctrl.connect', fn);
+            expect(_initWebSocketsMock).not.toHaveBeenCalled();
         });
     });
 });

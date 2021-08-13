@@ -49,12 +49,8 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         super();
         debug('Construct()');
 
-        if (props.username) {
-            this.username = props.username;
-        }
-        if (props.password) {
-            this.password = props.password;
-        }
+        this.username = props.username;
+        this.password = props.password;
 
         if (Validate.isBoolean(props.rememberMe)) {
             this.rememberMe = props.rememberMe;
@@ -239,9 +235,9 @@ export class UnifiAuth extends ObjectWithPrivateValues {
     public async getVersion(): Promise<string | undefined> {
         //load version
         try {
-            const version = ((
+            const version = (
                 await this.controllerInstance.get('/api/s/:site/stat/sysinfo', { urlParams: { site: 'default' } })
-            ).data?.data.pop()).version;
+            ).data?.data?.pop()?.version;
             debug('controller version is : %s', version);
             return version;
         } catch (e) {
@@ -254,9 +250,15 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         curDebug('()');
         const token = this.token;
 
-        // non unifiOs token is not a JWT token, can't know if the token is expired with this method ...
-        //check if token, or if jwt token will not expire in the 2 next minutes, just in case
-        if (this.unifiOs && (!token || (jwt.decode(token) as { exp: number }).exp * 1000 < Date.now() - 2 * 1000) && this.autoReLogin) {
+        if (
+            // non unifiOs token is not a JWT token, can't know if the token is expired with this method ...
+            this.unifiOs &&
+            //check if token, or if jwt token will not expire in the 2 next minutes, just in case
+            (!token || (jwt.decode(token) as { exp: number }).exp * 1000 < Date.now() + 2 * 60 * 1000) &&
+            // autoReLogin enabled ?
+            this.autoReLogin
+        ) {
+            // console.log(this.unifiOs, (jwt.decode(token) as { exp: number }).exp * 1000, Date.now() + 2 * 60 * 1000, this.autoReLogin);
             curDebug('token seems invalid, try to relogin');
             await this.login();
         }
