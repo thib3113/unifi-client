@@ -352,15 +352,8 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return this;
     }
 
-    public initWebSockets(): Promise<void> {
+    public async initWebSockets(): Promise<void> {
         this._initWebSockets();
-        return new Promise(async (resolve, reject) => {
-            try {
-                await Promise.all([this.unifiOs ? this.ws?.initWebSockets() : Promise.resolve(), this.superWS.initWebSockets()]);
-                resolve();
-            } catch (e) {
-                reject(e);
-            }
-        });
+        await Promise.all([this.unifiOs ? this.ws.initWebSockets() : Promise.resolve(), this.superWS.initWebSockets()]);
     }
 }
