@@ -30,6 +30,10 @@ export enum EErrorsCodes {
      * you pass an incorrect parameter
      */
     BAD_PARAMETERS,
+    /**
+     * Client fail to login
+     */
+    FAIL_LOGIN,
     // CODE THAT CAN COME FROM UNIFI ( 100 to 600 )
     CONTINUE = 100,
     SWITCHING_PROTOCOLS = 101,
