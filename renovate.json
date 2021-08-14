@@ -1,16 +1,26 @@
 {
-  "extends": [
-    "config:base",
-    ":separateMajorReleases",
-    ":combinePatchMinorReleases",
-    ":prImmediately",
-    ":updateNotScheduled",
-    ":automergeDisabled",
-    ":ignoreModulesAndTests",
-    ":pinDependencies",
-    ":pinDevDependencies",
-    "group:monorepos",
-    "group:recommended",
-    "workarounds:all"
-  ]
+    "extends": [
+        "config:js-lib",
+        ":separateMajorReleases",
+        ":combinePatchMinorReleases",
+        ":prNotPending",
+        ":disableRateLimiting",
+        ":updateNotScheduled",
+        ":ignoreModulesAndTests",
+        ":pinDevDependencies",
+        ":enableVulnerabilityAlerts",
+        "group:monorepos",
+        "group:recommended",
+        "workarounds:all"
+    ],
+    "packageRules": [
+        {
+            "matchUpdateTypes": ["minor", "patch"],
+            "matchCurrentVersion": "!/^0/",
+            "automerge": true
+        }
+    ],
+    "dependencyDashboard": true,
+    "stabilityDays": 3,
+    "assignees": ["thib3113"]
 }
