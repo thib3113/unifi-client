@@ -9,7 +9,7 @@ import { ClientError, EErrorsCodes } from '../../src';
 jest.mock('axios');
 jest.mock('jsonwebtoken');
 
-describe('test UnifiAuth', () => {
+describe('UnifiAuth.test.ts', () => {
     const interceptors: {
         requests: Array<(config: AxiosRequestConfig) => AxiosRequestConfig>;
         response: Array<[(response: AxiosResponse) => AxiosResponse, (error: any) => any]>;
