@@ -90,9 +90,236 @@ describe('test UnifiAuth', () => {
         beforeEach(() => {
             auth = new UnifiAuth({ username: 'user', password: 'passwd' }, instance);
         });
-        it('should intercept request', () => {});
-        it('should intercept response', () => {});
-        it('should intercept error  response', () => {});
+        describe('should intercept request', () => {
+            let interceptor: (config: AxiosRequestConfig) => AxiosRequestConfig;
+            beforeEach(() => {
+                interceptor = interceptors.requests[0];
+            });
+            it('should set cookies for unifiOs', async () => {
+                auth.unifiOs = true;
+                // @ts-ignore
+                auth.csrfToken = 'crsfTokenTest';
+                auth.getCookies = jest.fn().mockImplementationOnce(() => [
+                    {
+                        name: 'cookie_name',
+                        value: 'aaaaa'
+                    }
+                ]);
+                expect(
+                    await interceptor({
+                        authenticationRequest: false,
+                        headers: {}
+                    })
+                ).toStrictEqual({
+                    authenticationRequest: false,
+                    headers: {
+                        Cookie: 'cookie_name=aaaaa',
+                        'X-CSRF-Token': 'crsfTokenTest'
+                    }
+                });
+            });
+            it('should set cookies for non unifiOs', async () => {
+                auth.unifiOs = false;
+                auth.getCookies = jest.fn().mockImplementationOnce(() => [
+                    {
+                        name: 'cookie_name',
+                        value: 'aaaaa'
+                    }
+                ]);
+                expect(
+                    await interceptor({
+                        authenticationRequest: false,
+                        headers: {}
+                    })
+                ).toStrictEqual({
+                    authenticationRequest: false,
+                    headers: {
+                        Cookie: 'cookie_name=aaaaa'
+                    }
+                });
+            });
+            it('should not set cookies if no cookies', async () => {
+                auth.unifiOs = false;
+                auth.getCookies = jest.fn().mockImplementationOnce(() => []);
+                expect(
+                    await interceptor({
+                        authenticationRequest: false,
+                        headers: {}
+                    })
+                ).toStrictEqual({
+                    authenticationRequest: false,
+                    headers: {}
+                });
+            });
+        });
+        describe('should intercept response', () => {
+            let interceptor: (response: AxiosResponse) => AxiosResponse;
+            const getCookiesFromResponseMock = jest.fn();
+            beforeEach(() => {
+                interceptor = interceptors.response[0][0];
+                // @ts-ignore
+                auth.getCookiesFromResponse = getCookiesFromResponseMock;
+            });
+            it('should save the csrfToken from headers on unifiOs', () => {
+                auth.unifiOs = true;
+                expect(
+                    interceptor({
+                        config: {},
+                        data: undefined,
+                        status: 0,
+                        statusText: '',
+                        headers: {
+                            'x-csrf-token': 'test-x-csrf-token'
+                        }
+                    })
+                ).toStrictEqual({
+                    config: {},
+                    headers: {
+                        'x-csrf-token': 'test-x-csrf-token'
+                    },
+                    data: undefined,
+                    status: 0,
+                    statusText: ''
+                });
+                // @ts-ignore
+                expect(auth.csrfToken).toBe('test-x-csrf-token');
+            });
+            it('should save the csrfToken from cookies on non unifiOs', () => {
+                auth.unifiOs = false;
+
+                getCookiesFromResponseMock.mockImplementationOnce(() => ({
+                    csrf_token: {
+                        value: 'test-x-csrf-token-not-unifios'
+                    }
+                }));
+
+                expect(
+                    interceptor({
+                        config: {},
+                        data: undefined,
+                        status: 0,
+                        statusText: '',
+                        headers: {
+                            'x-frame-options': 'SAMEORIGIN'
+                        }
+                    })
+                ).toStrictEqual({
+                    config: {},
+                    headers: {
+                        'x-frame-options': 'SAMEORIGIN'
+                    },
+                    data: undefined,
+                    status: 0,
+                    statusText: ''
+                });
+                // @ts-ignore
+                expect(auth.csrfToken).toBe('test-x-csrf-token-not-unifios');
+            });
+            it('should handle no cookies on non unifiOs', () => {
+                auth.unifiOs = false;
+
+                getCookiesFromResponseMock.mockImplementationOnce(() => ({}));
+
+                expect(
+                    interceptor({
+                        config: {},
+                        data: undefined,
+                        status: 0,
+                        statusText: '',
+                        headers: {
+                            'x-frame-options': 'SAMEORIGIN'
+                        }
+                    })
+                ).toStrictEqual({
+                    config: {},
+                    headers: {
+                        'x-frame-options': 'SAMEORIGIN'
+                    },
+                    data: undefined,
+                    status: 0,
+                    statusText: ''
+                });
+                // @ts-ignore
+                expect(auth.csrfToken).toBe(undefined);
+            });
+        });
+        describe('should intercept error  response', () => {
+            let interceptor: (error: any) => any;
+            beforeEach(() => {
+                interceptor = interceptors.response[0][1];
+            });
+            it('should handle errors but getting csrf token too', async () => {
+                expect.assertions(3);
+                try {
+                    // @ts-ignore
+                    expect(auth.csrfToken).toBeUndefined();
+                    await interceptor({
+                        response: {
+                            headers: { 'x-csrf-token': 'test-csrf-token' }
+                        }
+                    });
+                } catch (e) {
+                    // @ts-ignore
+                    expect(auth.csrfToken).toBe('test-csrf-token');
+                    expect(e).toStrictEqual({
+                        response: {
+                            headers: {
+                                'x-csrf-token': 'test-csrf-token'
+                            }
+                        }
+                    });
+                }
+            });
+            it('should handle no csrf token header', async () => {
+                expect.assertions(3);
+                try {
+                    // @ts-ignore
+                    expect(auth.csrfToken).toBeUndefined();
+                    await interceptor({
+                        response: {
+                            headers: {}
+                        }
+                    });
+                } catch (e) {
+                    // @ts-ignore
+                    expect(auth.csrfToken).toBeUndefined();
+                    expect(e).toStrictEqual({
+                        response: {
+                            headers: {}
+                        }
+                    });
+                }
+            });
+            it('should handle errors and return for next use', async () => {
+                expect.assertions(1);
+                try {
+                    await interceptor({});
+                } catch (e) {
+                    expect(e).toStrictEqual({});
+                }
+            });
+            describe('non unifiOs', () => {
+                const loginMock = jest.fn().mockResolvedValue('');
+                const requestMock = jest.fn();
+                beforeEach(() => {
+                    auth.login = loginMock;
+                    auth.unifiOs = false;
+                    auth.autoReLogin = true;
+                    // @ts-ignore
+                    auth.controllerInstance.request = requestMock;
+                });
+                it(`should auto retry if it's not unifiOs and UNAUTHORIZED`, async () => {
+                    await interceptor({
+                        response: {
+                            config: {},
+                            status: 401
+                        }
+                    });
+                    expect(loginMock).toHaveBeenCalledTimes(1);
+                    expect(requestMock).toHaveBeenCalledWith(expect.objectContaining({ retryAuth: true }));
+                });
+            });
+        });
     });
     describe('getToken', () => {
         const threeMinutes = 3 * 60 * 1000;

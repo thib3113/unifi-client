@@ -30,6 +30,10 @@ export enum EErrorsCodes {
      * you pass an incorrect parameter
      */
     BAD_PARAMETERS,
+    /**
+     * Client fail to login
+     */
+    FAIL_LOGIN,
     // CODE THAT CAN COME FROM UNIFI ( 100 to 600 )
     CONTINUE = 100,
     SWITCHING_PROTOCOLS = 101,
@@ -73,6 +77,5 @@ export enum EErrorsCodes {
     BAD_GATEWAY = 502,
     SERVICE_UNAVAILABLE = 503,
     GATEWAY_TIMEOUT = 504,
-    HTTP_VERSION_NOT_SUPPORTED = 505,
-    FAIL_LOGIN
+    HTTP_VERSION_NOT_SUPPORTED = 505
 }
