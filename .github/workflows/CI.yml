@@ -146,7 +146,7 @@ jobs:
       - name: replace <root> in coverage files
         run: find ./coverage -type f -exec sed -i -e "s@<root>@$(pwd)@g" {} \;
       - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v2
+        uses: mikepenz/action-junit-report@v2.4.3
         with:
           report_paths: './coverage/junit.xml'
           require_tests: true
