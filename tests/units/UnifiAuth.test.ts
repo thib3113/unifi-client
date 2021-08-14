@@ -4,6 +4,7 @@ import { UnifiAuth } from '../../src/UnifiAuth';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import jwt from 'jsonwebtoken';
 import { IncomingMessage } from 'http';
+import { ClientError, EErrorsCodes } from '../../src';
 
 jest.mock('axios');
 jest.mock('jsonwebtoken');
@@ -290,7 +291,7 @@ describe('test UnifiAuth', () => {
             it('should return cookies for normal request', async () => {
                 getTokenMock.mockImplementationOnce(() => Promise.resolve('aaaaa'));
 
-                expect(await auth.getCookies(false)).toStrictEqual([
+                expect(await auth.getCookies()).toStrictEqual([
                     {
                         name: 'cookie_name',
                         value: 'aaaaa'
@@ -358,6 +359,323 @@ describe('test UnifiAuth', () => {
                     }
                 ]);
                 expect(getTokenMock).toHaveBeenCalled();
+            });
+        });
+    });
+    describe('login', () => {
+        let auth: UnifiAuth;
+        const axiosMock = axios as jest.Mocked<typeof axios>;
+
+        const getCookiesFromResponseMock = jest.fn();
+        const getCookieTokenNameMock = jest.fn();
+        beforeEach(() => {
+            auth = new UnifiAuth({ username: 'user', password: 'passwd' }, axios);
+            axiosMock.get.mockClear();
+
+            getCookiesFromResponseMock.mockClear();
+            getCookieTokenNameMock.mockClear();
+
+            getCookiesFromResponseMock.mockImplementation(() => ({
+                TEST_TOKEN: {
+                    httpOnly: true,
+                    name: 'TEST_TOKEN',
+                    path: '/',
+                    sameSite: 'strict',
+                    secure: true,
+                    value: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpADFGGL9.eyJjc3JmVG9rZW4iOiIwNGE2NTJlZS0zZDI0LTQxNTEtOTYzZS01NzY3ZWJjYzFmZTIiLCJ1c2VySWQiOiIzMDEyOGRlMC1iYjc4LTQ4NjEtOTMzMS1hNDNmYmRkY2E1MzgiLCJyZW1lbWJlck1lIjp0cnVlLCJpc1JlbWVtYmVyZWQiOnRydWUsImlhdCI6MTYyNjk1NTQxNCwiZXhwIjoxNjI5NTQ3NDE0LCJwYXNzd29yZFJldmlzaW9uIjowfQ.SQMdsqzesqzew6lLsNijqSpcKToVjZlKvZsNA2yFE58NSoVzz5HLRMV'
+                }
+            }));
+            getCookieTokenNameMock.mockImplementation(() => 'TEST_TOKEN');
+
+            // @ts-ignore
+            auth.getCookiesFromResponse = getCookiesFromResponseMock;
+            // @ts-ignore
+            auth.getCookieTokenName = getCookieTokenNameMock;
+
+            debug.debugMock.mockClear();
+            debug.debugExtend.mockClear();
+        });
+        it('should login to unifiOs', async () => {
+            axiosMock.get.mockImplementationOnce(() =>
+                Promise.resolve({
+                    status: 200,
+                    headers: {
+                        ['x-csrf-token']: 'aaaaaa'
+                    }
+                })
+            );
+            axiosMock.post.mockImplementationOnce(() =>
+                Promise.resolve({
+                    data: {
+                        unique_id: '3ce548f1-dcf0-4eb2-a912-a6bc3858d1d6',
+                        first_name: 'firstName',
+                        last_name: 'lastName',
+                        full_name: 'fullName',
+                        email: 'demo@ubnt.com',
+                        email_status: 'UNVERIFIED',
+                        phone: '',
+                        avatar_relative_path: '',
+                        avatar_rpath2: '',
+                        status: 'ACTIVE'
+                    }
+                })
+            );
+
+            expect(await auth.login()).toStrictEqual({
+                unique_id: '3ce548f1-dcf0-4eb2-a912-a6bc3858d1d6',
+                first_name: 'firstName',
+                last_name: 'lastName',
+                full_name: 'fullName',
+                email: 'demo@ubnt.com',
+                email_status: 'UNVERIFIED',
+                phone: '',
+                avatar_relative_path: '',
+                avatar_rpath2: '',
+                status: 'ACTIVE'
+            });
+            expect(axiosMock.get).toBeCalledWith('/', { authenticationRequest: true, validateStatus: expect.any(Function) });
+            //validateStatus need to return true for all statuses
+            expect(axiosMock.get.mock.calls['0']['1'].validateStatus()).toBeTruthy();
+            expect(debug.debugExtend).toBeCalledWith('login');
+            expect(auth.unifiOs).toBeTruthy();
+            expect(auth.autoReLogin).toBeTruthy();
+            expect(axiosMock.post).toBeCalledWith(
+                '/api/auth/login',
+                { password: 'passwd', rememberMe: true, token: undefined, username: 'user' },
+                { authenticationRequest: true }
+            );
+            //check debug messages
+            expect(debug.debugMock).toHaveBeenNthCalledWith(1, 'login()');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(2, 'check if unifiOs');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(3, 'os found : unifiOs');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(4, 'start login request');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(5, 'end login request');
+        });
+        it('should login to not unifiOs', async () => {
+            getCookiesFromResponseMock.mockImplementationOnce(() => ({
+                TEST_TOKEN: {
+                    httpOnly: true,
+                    name: 'TEST_TOKEN',
+                    path: '/',
+                    sameSite: 'strict',
+                    secure: true,
+                    value: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpADFGGL9.eyJjc3JmVG9rZW4iOiIwNGE2NTJlZS0zZDI0LTQxNTEtOTYzZS01NzY3ZWJjYzFmZTIiLCJ1c2VySWQiOiIzMDEyOGRlMC1iYjc4LTQ4NjEtOTMzMS1hNDNmYmRkY2E1MzgiLCJyZW1lbWJlck1lIjp0cnVlLCJpc1JlbWVtYmVyZWQiOnRydWUsImlhdCI6MTYyNjk1NTQxNCwiZXhwIjoxNjI5NTQ3NDE0LCJwYXNzd29yZFJldmlzaW9uIjowfQ.SQMdsqzesqzew6lLsNijqSpcKToVjZlKvZsNA2yFE58NSoVzz5HLRMV'
+                },
+                csrf_token: {
+                    httpOnly: true,
+                    name: 'csrf_token',
+                    path: '/',
+                    sameSite: 'strict',
+                    secure: true,
+                    value: 'csrf_token_value'
+                }
+            }));
+            axiosMock.get.mockImplementationOnce(() =>
+                Promise.resolve({
+                    status: 302,
+                    headers: {
+                        location: '/manage'
+                    }
+                })
+            );
+            axiosMock.post.mockImplementationOnce(() =>
+                Promise.resolve({
+                    data: {
+                        unique_id: '3ce548f1-dcf0-4eb2-a912-a6bc3858d1d6',
+                        first_name: 'firstName',
+                        last_name: 'lastName',
+                        full_name: 'fullName',
+                        email: 'demo@ubnt.com',
+                        email_status: 'UNVERIFIED',
+                        phone: '',
+                        avatar_relative_path: '',
+                        avatar_rpath2: '',
+                        status: 'ACTIVE'
+                    }
+                })
+            );
+            expect(await auth.login()).toStrictEqual({
+                avatar_relative_path: '',
+                avatar_rpath2: '',
+                email: 'demo@ubnt.com',
+                email_status: 'UNVERIFIED',
+                first_name: 'firstName',
+                full_name: 'fullName',
+                last_name: 'lastName',
+                phone: '',
+                status: 'ACTIVE',
+                unique_id: '3ce548f1-dcf0-4eb2-a912-a6bc3858d1d6'
+            });
+            expect(auth.unifiOs).toBeFalsy();
+            expect(auth.autoReLogin).toBeTruthy();
+            expect(axiosMock.get).toBeCalledWith('/', { authenticationRequest: true, validateStatus: expect.any(Function) });
+            //validateStatus need to return true for all statuses
+            expect(axiosMock.get.mock.calls['0']['1'].validateStatus()).toBeTruthy();
+            expect(debug.debugExtend).toBeCalledWith('login');
+            expect(axiosMock.post).toBeCalledWith(
+                '/api/login',
+                { password: 'passwd', rememberMe: true, token: undefined, username: 'user' },
+                { authenticationRequest: true }
+            );
+            //check debug messages
+            expect(debug.debugMock).toHaveBeenNthCalledWith(1, 'login()');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(2, 'check if unifiOs');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(3, 'os found : not unifiOs');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(4, 'start login request');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(5, 'end login request');
+            expect(debug.debugMock).toHaveBeenNthCalledWith(6, 'found csrf token in cookie, saving it');
+        });
+        it('should skip detection if already detected', async () => {
+            getCookiesFromResponseMock.mockImplementationOnce(() => ({
+                TEST_TOKEN: {
+                    httpOnly: true,
+                    name: 'TEST_TOKEN',
+                    path: '/',
+                    sameSite: 'strict',
+                    secure: true,
+                    value: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpADFGGL9.eyJjc3JmVG9rZW4iOiIwNGE2NTJlZS0zZDI0LTQxNTEtOTYzZS01NzY3ZWJjYzFmZTIiLCJ1c2VySWQiOiIzMDEyOGRlMC1iYjc4LTQ4NjEtOTMzMS1hNDNmYmRkY2E1MzgiLCJyZW1lbWJlck1lIjp0cnVlLCJpc1JlbWVtYmVyZWQiOnRydWUsImlhdCI6MTYyNjk1NTQxNCwiZXhwIjoxNjI5NTQ3NDE0LCJwYXNzd29yZFJldmlzaW9uIjowfQ.SQMdsqzesqzew6lLsNijqSpcKToVjZlKvZsNA2yFE58NSoVzz5HLRMV'
+                },
+                csrf_token: {
+                    httpOnly: true,
+                    name: 'csrf_token',
+                    path: '/',
+                    sameSite: 'strict',
+                    secure: true,
+                    value: 'csrf_token_value'
+                }
+            }));
+            axiosMock.post.mockImplementationOnce(() =>
+                Promise.resolve({
+                    data: 'data'
+                })
+            );
+
+            //simulate an os already known
+            auth.unifiOs = true;
+            await auth.login();
+
+            expect(auth.unifiOs).toBeTruthy();
+            expect(auth.autoReLogin).toBeTruthy();
+            expect(axiosMock.get).not.toBeCalled();
+        });
+        it('should handle 2FA', async () => {
+            axiosMock.get.mockImplementationOnce(() =>
+                Promise.resolve({
+                    status: 200,
+                    headers: {
+                        ['x-csrf-token']: 'aaaaaa'
+                    }
+                })
+            );
+            axiosMock.post.mockImplementationOnce(() =>
+                Promise.resolve({
+                    data: {
+                        unique_id: '3ce548f1-dcf0-4eb2-a912-a6bc3858d1d6',
+                        first_name: 'firstName',
+                        last_name: 'lastName',
+                        full_name: 'fullName',
+                        email: 'demo@ubnt.com',
+                        email_status: 'UNVERIFIED',
+                        phone: '',
+                        avatar_relative_path: '',
+                        avatar_rpath2: '',
+                        status: 'ACTIVE'
+                    }
+                })
+            );
+            //simulate an os already known
+            await auth.login('123456');
+
+            expect(auth.autoReLogin).toBeFalsy();
+            expect(axiosMock.post).toBeCalledWith(
+                '/api/auth/login',
+                { password: 'passwd', rememberMe: true, token: '123456', username: 'user' },
+                { authenticationRequest: true }
+            );
+        });
+        describe('check errors', () => {
+            it('should handle an unknown result from os detection', async () => {
+                axiosMock.get.mockImplementationOnce(() =>
+                    Promise.resolve({
+                        status: 302,
+                        headers: {
+                            location: '/other_os_redirection'
+                        }
+                    })
+                );
+
+                expect.assertions(3);
+                try {
+                    await auth.login();
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.code).toBe(EErrorsCodes.FAIL_TO_DETECT_UNIFIOS);
+                    expect(e.message).toBe('fail to detect unifiOs or not !');
+                }
+            });
+            it('should handle a token not found in cookies', async () => {
+                getCookiesFromResponseMock.mockImplementation(() => ({
+                    TATA_YOYO: {
+                        httpOnly: true,
+                        name: 'TATA_YOYO',
+                        path: '/',
+                        sameSite: 'strict',
+                        secure: true,
+                        value: 'aaaaaaa'
+                    }
+                }));
+                axiosMock.get.mockImplementationOnce(() =>
+                    Promise.resolve({
+                        status: 200,
+                        headers: {
+                            ['x-csrf-token']: 'aaaaaa'
+                        }
+                    })
+                );
+
+                expect.assertions(3);
+                try {
+                    await auth.login();
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.code).toBe(EErrorsCodes.FAIL_LOGIN);
+                    expect(e.message).toMatch('fail to get token from cookies[');
+                }
+            });
+
+            it('should handle not unifiOs without csrf_cookie', async () => {
+                getCookiesFromResponseMock.mockImplementationOnce(() => ({
+                    TEST_TOKEN: {
+                        httpOnly: true,
+                        name: 'TEST_TOKEN',
+                        path: '/',
+                        sameSite: 'strict',
+                        secure: true,
+                        value: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpADFGGL9.eyJjc3JmVG9rZW4iOiIwNGE2NTJlZS0zZDI0LTQxNTEtOTYzZS01NzY3ZWJjYzFmZTIiLCJ1c2VySWQiOiIzMDEyOGRlMC1iYjc4LTQ4NjEtOTMzMS1hNDNmYmRkY2E1MzgiLCJyZW1lbWJlck1lIjp0cnVlLCJpc1JlbWVtYmVyZWQiOnRydWUsImlhdCI6MTYyNjk1NTQxNCwiZXhwIjoxNjI5NTQ3NDE0LCJwYXNzd29yZFJldmlzaW9uIjowfQ.SQMdsqzesqzew6lLsNijqSpcKToVjZlKvZsNA2yFE58NSoVzz5HLRMV'
+                    }
+                }));
+                axiosMock.get.mockImplementationOnce(() =>
+                    Promise.resolve({
+                        status: 302,
+                        headers: {
+                            location: '/manage'
+                        }
+                    })
+                );
+                axiosMock.post.mockImplementationOnce(() =>
+                    Promise.resolve({
+                        data: 'data'
+                    })
+                );
+
+                expect.assertions(3);
+                try {
+                    await auth.login();
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.code).toBe(EErrorsCodes.FAIL_GET_CSRF_COOKIE);
+                    expect(e.message).toMatch('fail to get CSRF token from cookies');
+                }
             });
         });
     });
