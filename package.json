@@ -89,5 +89,15 @@
   "jest-junit": {
     "outputDirectory": "./coverage/",
     "outputName": "junit.xml"
-  }
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/thib3113/unifi-client"
+    },
+    {
+      "type": "individual",
+      "url": "https://paypal.me/thib3113"
+    }
+  ]
 }
