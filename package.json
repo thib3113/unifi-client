@@ -76,6 +76,7 @@
     "husky": "7.0.1",
     "jest": "27.0.6",
     "jest-environment-node": "27.0.6",
+    "jest-github-reporter": "^1.0.2",
     "jest-junit": "12.2.0",
     "jest-sonar": "0.2.12",
     "moxios": "0.4.0",

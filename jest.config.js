@@ -7,6 +7,7 @@ module.exports = {
     reporters: [
         'default',
         'jest-junit',
+        'jest-github-reporter',
         [
             'jest-sonar',
             {
