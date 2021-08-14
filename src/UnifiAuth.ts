@@ -210,7 +210,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         const cookies = this.getCookiesFromResponse(res);
 
         if (!cookies[this.getCookieTokenName()]) {
-            throw new Error('fail to login');
+            throw new ClientError(`fail to get token from cookies[${this.getCookieTokenName()}]`, EErrorsCodes.FAIL_LOGIN);
         }
 
         this.token = cookies[this.getCookieTokenName()].value;
