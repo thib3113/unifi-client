@@ -49,9 +49,15 @@ jobs:
           yarn install
           yarn build
           echo start tests
-          yarn run test:CI:coverage
         env:
           CI: true
+      - uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: true
+        with:
+          test-command: yarn run test:CI:coverage
+
 
       - name: replace path in coverage files
         run: find ./coverage -type f -exec sed -i -e "s@$(pwd)@<root>@g" {} \;
