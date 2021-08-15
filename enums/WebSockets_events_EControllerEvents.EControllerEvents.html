@@ -75,8 +75,10 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="WebSockets_events_EControllerEvents.EControllerEvents.html#CLOSE" class="tsd-kind-icon">CLOSE</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="WebSockets_events_EControllerEvents.EControllerEvents.html#CONNECTION" class="tsd-kind-icon">CONNECTION</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="WebSockets_events_EControllerEvents.EControllerEvents.html#ERROR" class="tsd-kind-icon">ERROR</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="WebSockets_events_EControllerEvents.EControllerEvents.html#FATAL_ERROR" class="tsd-kind-icon">FATAL_<wbr>ERROR</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="WebSockets_events_EControllerEvents.EControllerEvents.html#PONG" class="tsd-kind-icon">PONG</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="WebSockets_events_EControllerEvents.EControllerEvents.html#RECONNECTION" class="tsd-kind-icon">RECONNECTION</a></li>
 							</ul>
@@ -87,12 +89,27 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="CLOSE" class="tsd-anchor"></a>
+					<h3>CLOSE</h3>
+					<div class="tsd-signature tsd-kind-icon">CLOSE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;ctrl.close&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/51a6301/src/WebSockets/events/EControllerEvents.ts#L7">src/WebSockets/events/EControllerEvents.ts:7</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>close of the connection, will try a reconnection</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="CONNECTION" class="tsd-anchor"></a>
 					<h3>CONNECTION</h3>
 					<div class="tsd-signature tsd-kind-icon">CONNECTION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;ctrl.connect&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/4fb1f0f/src/WebSockets/events/EControllerEvents.ts#L2">src/WebSockets/events/EControllerEvents.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/51a6301/src/WebSockets/events/EControllerEvents.ts#L2">src/WebSockets/events/EControllerEvents.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -102,9 +119,29 @@
 					<div class="tsd-signature tsd-kind-icon">ERROR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;ctrl.error&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/4fb1f0f/src/WebSockets/events/EControllerEvents.ts#L5">src/WebSockets/events/EControllerEvents.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/51a6301/src/WebSockets/events/EControllerEvents.ts#L12">src/WebSockets/events/EControllerEvents.ts:12</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>will try a reconnection</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="FATAL_ERROR" class="tsd-anchor"></a>
+					<h3>FATAL_<wbr>ERROR</h3>
+					<div class="tsd-signature tsd-kind-icon">FATAL_<wbr>ERROR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;ctrl.fatal_error&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/51a6301/src/WebSockets/events/EControllerEvents.ts#L16">src/WebSockets/events/EControllerEvents.ts:16</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>will not reconnect</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="PONG" class="tsd-anchor"></a>
@@ -112,7 +149,7 @@
 					<div class="tsd-signature tsd-kind-icon">PONG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;pong&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/4fb1f0f/src/WebSockets/events/EControllerEvents.ts#L4">src/WebSockets/events/EControllerEvents.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/51a6301/src/WebSockets/events/EControllerEvents.ts#L8">src/WebSockets/events/EControllerEvents.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -122,7 +159,7 @@
 					<div class="tsd-signature tsd-kind-icon">RECONNECTION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;ctrl.reconnect&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/4fb1f0f/src/WebSockets/events/EControllerEvents.ts#L3">src/WebSockets/events/EControllerEvents.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/51a6301/src/WebSockets/events/EControllerEvents.ts#L3">src/WebSockets/events/EControllerEvents.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -147,10 +184,16 @@
 						<a href="WebSockets_events_EControllerEvents.EControllerEvents.html" class="tsd-kind-icon">EController<wbr>Events</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="WebSockets_events_EControllerEvents.EControllerEvents.html#CLOSE" class="tsd-kind-icon">CLOSE</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="WebSockets_events_EControllerEvents.EControllerEvents.html#CONNECTION" class="tsd-kind-icon">CONNECTION</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="WebSockets_events_EControllerEvents.EControllerEvents.html#ERROR" class="tsd-kind-icon">ERROR</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="WebSockets_events_EControllerEvents.EControllerEvents.html#FATAL_ERROR" class="tsd-kind-icon">FATAL_<wbr>ERROR</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="WebSockets_events_EControllerEvents.EControllerEvents.html#PONG" class="tsd-kind-icon">PONG</a>
