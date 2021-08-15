@@ -3,6 +3,7 @@ jest.useFakeTimers();
 import { debug } from '../mocks/utils';
 import { controller } from '../mocks';
 import { EControllerEvents, UnifiWebsockets } from '../../src';
+
 jest.mock('ws');
 
 afterAll(() => {
@@ -242,6 +243,32 @@ describe('UnifiWebsockets', () => {
                 UnifiWebsockets.UnifiWebSockets = [{ close: closeMock }];
                 UnifiWebsockets.closeSockets();
                 expect(closeMock).toBeCalled();
+            });
+        });
+        describe('_emit', () => {
+            const emitMock = jest.fn();
+            const globalEmitMock = jest.fn();
+            beforeEach(() => {
+                uws.emit = emitMock;
+                // @ts-ignore
+                controller.globalWS = {
+                    emit: globalEmitMock
+                };
+            });
+
+            it('emit event', () => {
+                // @ts-ignore
+                uws._emit(EControllerEvents.PONG, 'params1', 'params2');
+
+                expect(debug.debugMock).toBeCalledWith('pong', 'params1', 'params2');
+                // emit on the uws object
+                expect(emitMock).toBeCalledWith('pong', 'params1', 'params2');
+                // emit on joker
+                expect(emitMock).toBeCalledWith('*', 'pong', 'params1', 'params2');
+                // emit on the global ws object
+                expect(globalEmitMock).toBeCalledWith('pong', 'params1', 'params2');
+                // emit on joker
+                expect(globalEmitMock).toBeCalledWith('*', 'pong', 'params1', 'params2');
             });
         });
     });
