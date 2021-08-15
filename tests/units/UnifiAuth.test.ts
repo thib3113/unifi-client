@@ -906,8 +906,4 @@ describe('UnifiAuth.test.ts', () => {
             });
         });
     });
-
-    it('fail test for junit', () => {
-        expect(true).toBeFalsy();
-    });
 });

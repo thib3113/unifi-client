@@ -58,8 +58,6 @@ jobs:
         with:
           test-command: yarn run test:CI:coverage
           coverage-comment: false
-          check-name: tests/jest
-
 
       - name: replace path in coverage files
         run: find ./coverage -type f -exec sed -i -e "s@$(pwd)@<root>@g" {} \;
