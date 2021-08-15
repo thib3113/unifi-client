@@ -4,6 +4,7 @@ const path = require('path');
 module.exports = {
     ...baseConfig,
 
+    displayName: 'scenarios tests',
     // A path to a module which exports an async function that is triggered once before all test suites
     globalSetup: path.resolve(path.join(__dirname, './_scripts/globalSetup.ts')),
 
@@ -14,5 +15,9 @@ module.exports = {
     setupFiles: [path.resolve(path.join(__dirname, './_scripts/setup.ts'))],
 
     // The test environment that will be used for testing
-    testEnvironment: path.resolve(path.join(__dirname, './_scripts/environment.js'))
+    testEnvironment: path.resolve(path.join(__dirname, './_scripts/environment.js')),
+
+    testMatch: baseConfig.testMatchPattern.map((pattern) => path.posix.join(__dirname, pattern)),
+    testMatchPattern: undefined
 };
+delete module.exports.testMatchPattern;
