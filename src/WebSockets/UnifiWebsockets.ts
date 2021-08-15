@@ -183,8 +183,8 @@ export class UnifiWebsockets extends EventEmitter {
                 }
             });
         } else {
-            let evtName = event.meta.message;
-            if (event.meta.product_line) {
+            let evtName = event.meta?.message;
+            if (event.meta?.product_line) {
                 evtName = `${event.meta.product_line}:${evtName}`;
             }
             if (!evtName) {
@@ -208,12 +208,12 @@ export class UnifiWebsockets extends EventEmitter {
             parsed = JSON.parse(data.toString());
         } catch (e) {
             curDebug('fail to parse event');
-            curDebug(parsed);
+            curDebug(e);
         }
 
         if (this.isController) {
             const event = parsed as unifiControllerEvents;
-            this._emit(event.type ?? 'unknown', event);
+            this._emit(event?.type ?? 'unknown', event);
         } else {
             this._handleSiteEvent(parsed as ISiteEvent);
         }
