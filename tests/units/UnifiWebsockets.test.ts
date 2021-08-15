@@ -1,8 +1,10 @@
+import { Buffer } from 'buffer';
+
 jest.useFakeTimers();
 
 import { debug } from '../mocks/utils';
 import { controller } from '../mocks';
-import { EControllerEvents, UnifiWebsockets } from '../../src';
+import { EControllerEvents, ISiteEvent, UnifiWebsockets } from '../../src';
 
 jest.mock('ws');
 
@@ -269,6 +271,216 @@ describe('UnifiWebsockets', () => {
                 expect(globalEmitMock).toBeCalledWith('pong', 'params1', 'params2');
                 // emit on joker
                 expect(globalEmitMock).toBeCalledWith('*', 'pong', 'params1', 'params2');
+            });
+        });
+        describe('_handleSiteEvent', () => {
+            const emitMock = jest.fn();
+            beforeEach(() => {
+                // @ts-ignore
+                uws._emit = emitMock;
+            });
+            it('should handle a site event containing events', () => {
+                const event: ISiteEvent = {
+                    meta: {
+                        rc: 'ok',
+                        message: 'events'
+                    },
+                    data: [
+                        {
+                            guest: '00:1b:44:11:3a:b7',
+                            minutes: '20',
+                            admin: 'Admin[ubnt]',
+                            site_id: '5ec06b5646e0fb010b201880',
+                            is_admin: true,
+                            key: 'EVT_AD_GuestAuthorizedFor',
+                            subsystem: 'wlan',
+                            is_negative: false,
+                            time: 1629055537179,
+                            datetime: '2021-08-15T19:25:37Z',
+                            msg: 'Guest[00:1b:44:11:3a:b7] is authorized by Admin[ubnt] for 20 minutes',
+                            _id: '61196a311a55720128999ed2'
+                        },
+                        {
+                            guest: '00:1b:44:11:3a:b7',
+                            admin: 'Admin[ubnt]',
+                            site_id: '5ec06b5646e0fb010b201880',
+                            is_admin: true,
+                            key: 'EVT_AD_GuestUnauthorized',
+                            subsystem: 'wlan',
+                            is_negative: false,
+                            time: 1629055537572,
+                            datetime: '2021-08-15T19:25:37Z',
+                            msg: 'Guest[00:1b:44:11:3a:b7] is unauthorized by Admin[ubnt]',
+                            _id: '61196a311a55720128999ed8'
+                        }
+                    ]
+                };
+
+                // @ts-ignore
+                uws._handleSiteEvent(event);
+                expect(emitMock).toBeCalledWith('ad:guestauthorizedfor', {
+                    guest: '00:1b:44:11:3a:b7',
+                    minutes: '20',
+                    admin: 'Admin[ubnt]',
+                    site_id: '5ec06b5646e0fb010b201880',
+                    is_admin: true,
+                    key: 'EVT_AD_GuestAuthorizedFor',
+                    subsystem: 'wlan',
+                    is_negative: false,
+                    time: 1629055537179,
+                    datetime: '2021-08-15T19:25:37Z',
+                    msg: 'Guest[00:1b:44:11:3a:b7] is authorized by Admin[ubnt] for 20 minutes',
+                    _id: '61196a311a55720128999ed2'
+                });
+                expect(emitMock).toBeCalledWith('ad:guestunauthorized', {
+                    guest: '00:1b:44:11:3a:b7',
+                    admin: 'Admin[ubnt]',
+                    site_id: '5ec06b5646e0fb010b201880',
+                    is_admin: true,
+                    key: 'EVT_AD_GuestUnauthorized',
+                    subsystem: 'wlan',
+                    is_negative: false,
+                    time: 1629055537572,
+                    datetime: '2021-08-15T19:25:37Z',
+                    msg: 'Guest[00:1b:44:11:3a:b7] is unauthorized by Admin[ubnt]',
+                    _id: '61196a311a55720128999ed8'
+                });
+                expect(debug.debugMock).toHaveBeenNthCalledWith(1, '()');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(2, 'receive event');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(3, 'meta : %O', { message: 'events', rc: 'ok' });
+                expect(debug.debugMock).toHaveBeenNthCalledWith(4, 'data : %O', expect.anything());
+            });
+            it('should handle a site event without message', () => {
+                const event: ISiteEvent = {
+                    meta: {
+                        rc: 'ok',
+                        message: ''
+                    },
+                    data: []
+                };
+
+                // @ts-ignore
+                uws._handleSiteEvent(event);
+                expect(emitMock).toBeCalledWith('unknown', []);
+                expect(debug.debugMock).toHaveBeenNthCalledWith(1, '()');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(2, 'receive event');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(3, 'meta : %O', { message: '', rc: 'ok' });
+                expect(debug.debugMock).toHaveBeenNthCalledWith(4, 'data : %O', expect.anything());
+                expect(debug.debugMock).toHaveBeenNthCalledWith(5, 'fail to get name from meta : %O', {
+                    data: [],
+                    meta: { message: '', rc: 'ok' }
+                });
+                expect(emitMock).toBeCalledWith('unknown', []);
+            });
+            it('should handle a site event without meta', () => {
+                const event: ISiteEvent = {
+                    // @ts-ignore
+                    meta: undefined,
+                    data: []
+                };
+
+                // @ts-ignore
+                uws._handleSiteEvent(event);
+                expect(emitMock).toBeCalledWith('unknown', []);
+                expect(debug.debugMock).toHaveBeenNthCalledWith(1, '()');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(2, 'receive event');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(3, 'meta : %O', undefined);
+                expect(debug.debugMock).toHaveBeenNthCalledWith(4, 'data : %O', expect.anything());
+            });
+            it(`should handle a site event with a key that doesn't match the regex in events`, () => {
+                const event: ISiteEvent = {
+                    meta: {
+                        rc: 'ok',
+                        message: 'events'
+                    },
+                    data: [
+                        {
+                            guest: '00:1b:44:11:3a:b7',
+                            minutes: '20',
+                            admin: 'Admin[ubnt]',
+                            site_id: '5ec06b5646e0fb010b201880',
+                            is_admin: true,
+                            key: 'GuestAuthorizedFor',
+                            subsystem: 'wlan',
+                            is_negative: false,
+                            time: 1629055537179,
+                            datetime: '2021-08-15T19:25:37Z',
+                            msg: 'Guest[00:1b:44:11:3a:b7] is authorized by Admin[ubnt] for 20 minutes',
+                            _id: '61196a311a55720128999ed2'
+                        }
+                    ]
+                };
+
+                // @ts-ignore
+                uws._handleSiteEvent(event);
+                expect(debug.debugMock).toHaveBeenNthCalledWith(1, '()');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(2, 'receive event');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(3, 'meta : %O', { message: 'events', rc: 'ok' });
+                expect(debug.debugMock).toHaveBeenNthCalledWith(4, 'data : %O', expect.anything());
+                expect(debug.debugMock).toHaveBeenNthCalledWith(5, 'unable to read the event key, %O', expect.anything());
+            });
+            it(`should handle a site event with a product line`, () => {
+                const event: ISiteEvent = {
+                    meta: {
+                        rc: 'ok',
+                        message: 'user',
+                        product_line: 'protect'
+                    },
+                    data: []
+                };
+
+                // @ts-ignore
+                uws._handleSiteEvent(event);
+                expect(debug.debugMock).toHaveBeenNthCalledWith(1, '()');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(2, 'receive event');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(3, 'meta : %O', {
+                    rc: 'ok',
+                    message: 'user',
+                    product_line: 'protect'
+                });
+                expect(debug.debugMock).toHaveBeenNthCalledWith(4, 'data : %O', []);
+                expect(emitMock).toBeCalledWith('protect:user', []);
+            });
+        });
+        describe('handleEvent', () => {
+            const emitMock = jest.fn();
+            const handleSiteEventMock = jest.fn();
+            beforeEach(() => {
+                // @ts-ignore
+                uws._emit = emitMock;
+                // @ts-ignore
+                uws._handleSiteEvent = handleSiteEventMock;
+            });
+            it('should _handleEvent', () => {
+                // @ts-ignore
+                uws.isController = true;
+                // @ts-ignore
+                uws._handleEvent(Buffer.from(JSON.stringify({ type: 'test', test: 'aaaa' })));
+                expect(emitMock).toBeCalledWith('test', { test: 'aaaa', type: 'test' });
+            });
+            it('should _handleEvent without type', () => {
+                // @ts-ignore
+                uws.isController = true;
+                // @ts-ignore
+                uws._handleEvent(Buffer.from(JSON.stringify({ test: 'aaaa' })));
+                expect(emitMock).toBeCalledWith('unknown', { test: 'aaaa' });
+            });
+            it('should handle invalid json buffer', () => {
+                // @ts-ignore
+                uws.isController = true;
+                // @ts-ignore
+                uws._handleEvent(Buffer.from('test'));
+                expect(emitMock).toBeCalledWith('unknown', undefined);
+                expect(debug.debugMock).toHaveBeenNthCalledWith(1, '()');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(2, 'fail to parse event');
+                expect(debug.debugMock).toHaveBeenNthCalledWith(3, expect.any(SyntaxError));
+            });
+            it('should handle site events', () => {
+                // @ts-ignore
+                uws.isController = false;
+                // @ts-ignore
+                uws._handleEvent(Buffer.from(JSON.stringify({ type: 'test', test: 'aaaa' })));
+                expect(handleSiteEventMock).toBeCalledWith({ type: 'test', test: 'aaaa' });
             });
         });
     });
