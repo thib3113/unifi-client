@@ -3,7 +3,7 @@ import type { Controller } from '../Controller';
 import WebSocket from 'ws';
 import cookie from 'cookie';
 import { EControllerEvents } from './events/EControllerEvents';
-import { events, eventDataTypes } from './events';
+import { eventDataTypes, events } from './events';
 import { createDebugger } from '../util';
 import { ISiteEvent, ISiteEventsEvent, unifiControllerEvents } from './events/events';
 
@@ -90,13 +90,13 @@ export class UnifiWebsockets extends EventEmitter {
         });
 
         this.ws.on('close', () => {
-            this._emit('ctrl.close');
+            this._emit(EControllerEvents.CLOSE);
             clearInterval(this.pingPongInterval);
             this._reconnect();
         });
 
         this.ws.on('error', (err) => {
-            this._emit('ctrl.error', err);
+            this._emit(EControllerEvents.ERROR, err);
             clearInterval(this.pingPongInterval);
             this._reconnect();
         });
@@ -116,7 +116,8 @@ export class UnifiWebsockets extends EventEmitter {
                     this.isReconnecting = false;
                     await this.initWebSockets();
                 } catch (e) {
-                    console.dir('_reconnect() encountered an error');
+                    curDebug('fail to reconnect %O', e);
+                    this._emit(EControllerEvents.FATAL_ERROR, e);
                 }
             }, this.autoReconnectInterval);
         } else if (this.isReconnecting) {
