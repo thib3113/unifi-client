@@ -44,6 +44,11 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
 
     constructor(config: IObjectSubController) {
         super();
+
+        if (!config || !config.controller || !config.instance) {
+            throw new ClientError('ObjectSubController not correctly initialized');
+        }
+
         this.controller = config.controller;
         this.controllerInstance = config.instance;
         this.config = config;
@@ -88,9 +93,9 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
      * @param minVersion - the minimal semver version for this object
      * @param unifiOs - need to be unifiOs ? or Unifi Controller ? if no need, pass undefined
      */
-    protected checkNeedVersion(minVersion?: string, unifiOs?: boolean): boolean {
+    protected checkNeedVersion(minVersion?: string, unifiOs?: boolean): void {
         if (this.checkNeeds(minVersion, unifiOs)) {
-            return true;
+            return;
         }
 
         let str: string;
@@ -116,18 +121,17 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
      */
     protected needVersion<T>(key: keyof this, value?: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false): boolean {
         try {
-            if (this.checkNeedVersion(minVersion, unifiOs)) {
-                if (Validate.isUndefined(value)) {
-                    if (allowUndefined) {
-                        // @ts-ignore
-                        this[key] = value;
-                    }
-                } else {
+            this.checkNeedVersion(minVersion, unifiOs);
+            if (Validate.isUndefined(value)) {
+                if (allowUndefined) {
                     // @ts-ignore
                     this[key] = value;
                 }
-                return true;
+            } else {
+                // @ts-ignore
+                this[key] = value;
             }
+            return true;
         } catch (e) {
             Object.defineProperty(this, key, {
                 // Create a new getter for the property
