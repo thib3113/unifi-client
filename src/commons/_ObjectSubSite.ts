@@ -1,6 +1,7 @@
 import type { Site } from '../Sites';
 import { IObjectSubController, _ObjectSubController } from './_ObjectSubController';
 import { AxiosInstance } from 'axios';
+import { ClientError } from '../Errors';
 
 export interface IObjectSubSiteConfig extends IObjectSubController {
     site: Site;
@@ -13,6 +14,9 @@ export class _ObjectSubSite extends _ObjectSubController {
 
     constructor(config: IObjectSubSiteConfig) {
         super(config);
+        if (!config.site) {
+            throw new ClientError('ObjectSubSite not correctly initialized');
+        }
         this.site = config.site;
     }
 
