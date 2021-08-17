@@ -93,10 +93,10 @@ const rules2 = await site[1].firewall.getRules();
 How to use the HTTP instances
 ```typescript      
 //use the controller instance directly . Authentication, url construction and other is already managed for you  
-const self = controller.getInstance().get('/api/self');  
+const self = await controller.getInstance().get('/api/self');  
   
 //for a custom site :   
-const topology = site.getInstance().get('/topology');
+const topology = await site.getInstance().get('/topology');
 ```
 
 Get firewall rules, it return an array of [FWRule](https://thib3113.github.io/unifi-client/classes/Firewall_FWRule.FWRule.html)
