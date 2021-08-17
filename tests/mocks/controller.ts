@@ -11,8 +11,9 @@ const controller = new Controller({
 });
 
 // @ts-ignore
-// controller.controllerInstance = axios;
-Object.defineProperty(controller, 'controllerInstance', () => axios);
+// noinspection JSConstantReassignment
+controller.controllerInstance = axios;
+// Object.defineProperty(controller, 'controllerInstance', axios);
 
 controller.getInstance = jest.fn().mockImplementation(() => controller.controllerInstance);
 
