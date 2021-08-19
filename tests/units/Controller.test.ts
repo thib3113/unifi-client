@@ -1145,6 +1145,31 @@ describe('test controller', () => {
                     expect(e.message).toBe('baseURL is needed in the axios instance');
                 }
             });
+
+            describe('test with urls', () => {
+                type testDatas = [string, Partial<AxiosRequestConfig>, boolean];
+                const rawUrls: Array<{ expected: string; config: Partial<AxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
+                    fs.readFileSync(path.join(__dirname, '..', 'mocks', 'not-unifios-urls.json')).toString()
+                );
+
+                const urls: Array<testDatas> = Object.values(rawUrls).map(({ config, websockets, expected }) => [
+                    expected,
+                    config,
+                    websockets ?? false
+                ]);
+
+                it.each<testDatas>(urls)('should generate correct url : %s', (expectedUrl, params, websockets) => {
+                    const builtUrl = controller.buildUrl(
+                        {
+                            ...params,
+                            baseURL: params.baseURL ?? 'https://unifi'
+                        },
+                        websockets
+                    );
+
+                    expect(`${builtUrl.baseURL}${builtUrl.url}`).toBe(expectedUrl);
+                });
+            });
         });
     });
 
