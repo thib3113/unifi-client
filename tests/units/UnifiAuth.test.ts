@@ -667,9 +667,9 @@ describe('UnifiAuth.test.ts', () => {
             expect(auth.unifiOs).toBeTruthy();
             expect(auth.autoReLogin).toBeTruthy();
             expect(axiosMock.post).toBeCalledWith(
-                '/api/auth/login',
+                '/auth/login',
                 { password: 'passwd', rememberMe: true, token: undefined, username: 'user' },
-                { authenticationRequest: true }
+                { authenticationRequest: true, apiPart: true }
             );
             //check debug messages
             expect(debug.debugMock).toHaveBeenNthCalledWith(1, 'login()');
@@ -740,9 +740,9 @@ describe('UnifiAuth.test.ts', () => {
             expect(axiosMock.get.mock.calls['0']['1'].validateStatus()).toBeTruthy();
             expect(debug.debugExtend).toBeCalledWith('login');
             expect(axiosMock.post).toBeCalledWith(
-                '/api/login',
+                '/login',
                 { password: 'passwd', rememberMe: true, token: undefined, username: 'user' },
-                { authenticationRequest: true }
+                { authenticationRequest: true, apiPart: true }
             );
             //check debug messages
             expect(debug.debugMock).toHaveBeenNthCalledWith(1, 'login()');
@@ -815,9 +815,9 @@ describe('UnifiAuth.test.ts', () => {
 
             expect(auth.autoReLogin).toBeFalsy();
             expect(axiosMock.post).toBeCalledWith(
-                '/api/auth/login',
+                '/auth/login',
                 { password: 'passwd', rememberMe: true, token: '123456', username: 'user' },
-                { authenticationRequest: true }
+                { authenticationRequest: true, apiPart: true }
             );
         });
         describe('check errors', () => {

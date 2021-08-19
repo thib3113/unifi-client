@@ -191,7 +191,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         curDebug('start login request');
         // non unifiOS => token work 7 days with rememberMe
         const res = await this.controllerInstance.post(
-            this.unifiOs ? '/api/auth/login' : '/api/login',
+            this.unifiOs ? '/auth/login' : '/login',
             {
                 username: this.username,
                 password: this.password,
@@ -199,7 +199,8 @@ export class UnifiAuth extends ObjectWithPrivateValues {
                 token: token2FA || undefined
             },
             {
-                authenticationRequest: true
+                authenticationRequest: true,
+                apiPart: true
             }
         );
 

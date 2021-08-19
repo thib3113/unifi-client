@@ -1,0 +1,252 @@
+[
+    { "expected": "https://unifi/api/s/default/rest/portconf", "config": { "url": "/rest/portconf", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/api/s/default/stat/widget/radio-ai-data",
+        "config": { "url": "/stat/widget/radio-ai-data", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/rest/channelplan",
+        "config": { "url": "/rest/channelplan", "site": "default", "apiPart": true }
+    },
+    { "expected": "https://unifi/api/s/default/rest/wlanconf", "config": { "url": "/rest/wlanconf", "site": "default", "apiPart": true } },
+    { "expected": "https://unifi/api/s/default/stat/health", "config": { "url": "/stat/health", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/api/s/default/rest/networkconf",
+        "config": { "url": "/rest/networkconf", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/device-basic",
+        "config": { "url": "/stat/device-basic", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/alert/setting",
+        "config": { "url": "/alert/setting", "apiVersion": 2, "site": "default", "apiPart": true }
+    },
+    { "expected": "https://unifi/api/s/default/cmd/firmware", "config": { "url": "/cmd/firmware", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/api/s/default/rest/scheduletask?action=upgrade",
+        "config": { "url": "/rest/scheduletask?action=upgrade", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/widget/warnings",
+        "config": { "url": "/stat/widget/warnings", "site": "default", "apiPart": true }
+    },
+    { "expected": "https://unifi/api/s/default/cmd/backup", "config": { "url": "/cmd/backup", "site": "default", "apiPart": true } },
+    { "expected": "https://unifi/api/s/default/cmd/sitemgr", "config": { "url": "/cmd/sitemgr", "site": "default", "apiPart": true } },
+    { "expected": "https://unifi/api/s/default/stat/sdn", "config": { "url": "/stat/sdn", "site": "default", "apiPart": true } },
+    { "expected": "https://unifi/v2/api/timezones", "config": { "url": "/timezones", "apiVersion": 2 } },
+    { "expected": "https://unifi/api/s/default/stat/ccode", "config": { "url": "/stat/ccode", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/v2/api/site/default/wan/enriched-configuration",
+        "config": { "url": "/wan/enriched-configuration", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/api/s/default/rest/dynamicdns",
+        "config": { "url": "/rest/dynamicdns", "site": "default", "apiPart": true }
+    },
+    { "expected": "https://unifi/api/s/default/rest/routing", "config": { "url": "/rest/routing", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/api/s/default/rest/portforward",
+        "config": { "url": "/rest/portforward", "site": "default", "apiPart": true }
+    },
+    { "expected": "https://unifi/api/s/default/rest/dpigroup", "config": { "url": "/rest/dpigroup", "site": "default", "apiPart": true } },
+    { "expected": "https://unifi/api/s/default/rest/dpiapp", "config": { "url": "/rest/dpiapp", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/api/s/default/rest/firewallrule",
+        "config": { "url": "/rest/firewallrule", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/rest/firewallgroup",
+        "config": { "url": "/rest/firewallgroup", "site": "default", "apiPart": true }
+    },
+    { "expected": "https://unifi/api/s/default/stat/device", "config": { "url": "/stat/device", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/api/s/default/stat/widget/subnet-suggest",
+        "config": { "url": "/stat/widget/subnet-suggest", "site": "default", "apiPart": true }
+    },
+    { "expected": "https://unifi/api/s/default/rest/account", "config": { "url": "/rest/account", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/api/s/default/rest/dhcpoption",
+        "config": { "url": "/rest/dhcpoption", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/lan/enriched-configuration",
+        "config": { "url": "/lan/enriched-configuration", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/languages.9b303d72b8d876fb67158cf2d10eb88c.json",
+        "config": { "url": "/manage/react/data/locales/en/languages.9b303d72b8d876fb67158cf2d10eb88c.json" }
+    },
+    { "expected": "https://unifi/api/ui-data", "config": { "url": "/api/ui-data" } },
+    {
+        "expected": "https://unifi/api/s/default/rest/hotspotpackage/?_sort=index",
+        "config": { "url": "/rest/hotspotpackage/?_sort=index", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/wlan-capabilities",
+        "config": { "url": "/wlan-capabilities", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/api/s/default/rest/hotspot2conf",
+        "config": { "url": "/rest/hotspot2conf", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/rest/usergroup",
+        "config": { "url": "/rest/usergroup", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/settings.442ed2cf6396de7bd81b951be1bfcfed.json",
+        "config": { "url": "/manage/react/data/locales/en/settings.442ed2cf6396de7bd81b951be1bfcfed.json" }
+    },
+    { "expected": "https://unifi/api/s/default/stat/sysinfo", "config": { "url": "/stat/sysinfo", "site": "default", "apiPart": true } },
+    { "expected": "https://unifi/api/s/default/get/setting", "config": { "url": "/get/setting", "site": "default", "apiPart": true } },
+    { "expected": "https://unifi/api/self/sites", "config": { "url": "/self/sites", "apiPart": true } },
+    {
+        "expected": "https://unifi/api/s/default/rest/radiusprofile",
+        "config": { "url": "/rest/radiusprofile", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/current-channel",
+        "config": { "url": "/stat/current-channel", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/wlan/enriched-configuration",
+        "config": { "url": "/wlan/enriched-configuration", "apiVersion": 2, "site": "default" }
+    },
+    { "expected": "https://unifi/v2/api/site/default/apgroups", "config": { "url": "/apgroups", "apiVersion": 2, "site": "default" } },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/eventStrings.1a95203293d1c5b73225ac06d13c1a43.json",
+        "config": { "url": "/manage/react/data/locales/en/eventStrings.1a95203293d1c5b73225ac06d13c1a43.json" }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/activity.b0f711ea8446b841f81d41582cd78017.json",
+        "config": { "url": "/manage/react/data/locales/en/activity.b0f711ea8446b841f81d41582cd78017.json" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/alert?timestampFrom=1628764854000&timestampTo=1629410400000&pageSize=250&pageNumber=0&sortByField=TIMESTAMP&sortDirection=DESCENDING",
+        "config": {
+            "url": "/alert?timestampFrom=1628764854000&timestampTo=1629410400000&pageSize=250&pageNumber=0&sortByField=TIMESTAMP&sortDirection=DESCENDING",
+            "apiVersion": 2,
+            "site": "default"
+        }
+    },
+    { "expected": "https://unifi/api/s/default/stat/sta", "config": { "url": "/stat/sta", "site": "default", "apiPart": true } },
+    { "expected": "https://unifi/api/s/default/stat/alluser", "config": { "url": "/stat/alluser", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/v2/api/site/default/dpi/latest-client-stats",
+        "config": { "url": "/dpi/latest-client-stats", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/dpi/client/changes?timestampFrom=1629283297305&timestampTo=1629369697305",
+        "config": { "url": "/dpi/client/changes?timestampFrom=1629283297305&timestampTo=1629369697305", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/rogueap?within=24",
+        "config": { "url": "/stat/rogueap?within=24", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/wifiScanner.cf78f5adfaac061ef97c80db351cac10.json",
+        "config": { "url": "/manage/react/data/locales/en/wifiScanner.cf78f5adfaac061ef97c80db351cac10.json" }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/insights.ae4466a2b63d5d692f6da6a9a2335d48.json",
+        "config": { "url": "/manage/react/data/locales/en/insights.ae4466a2b63d5d692f6da6a9a2335d48.json" }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/statistics.59a0bb161c54befbe67c3941d30b757f.json",
+        "config": { "url": "/manage/react/data/locales/en/statistics.59a0bb161c54befbe67c3941d30b757f.json" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/dpi/client/changes?timestampFrom=1629283292864&timestampTo=1629369692864",
+        "config": { "url": "/dpi/client/changes?timestampFrom=1629283292864&timestampTo=1629369692864", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/report/daily.user",
+        "config": { "url": "/stat/report/daily.user", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/pagination.fd64b392d2408a4f703cd5c0a2a28939.json",
+        "config": { "url": "/manage/react/data/locales/en/pagination.fd64b392d2408a4f703cd5c0a2a28939.json" }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/remoteuservpn",
+        "config": { "url": "/stat/remoteuservpn", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/alluser?blocked=true",
+        "config": { "url": "/stat/alluser?blocked=true", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/alluser?is_offline=true&within=168",
+        "config": { "url": "/stat/alluser?is_offline=true&within=168", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/report/daily.device",
+        "config": { "url": "/stat/report/daily.device", "site": "default", "apiPart": true }
+    },
+    { "expected": "https://unifi/api/s/default/rest/tag", "config": { "url": "/rest/tag", "site": "default", "apiPart": true } },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/clients.15050b4d3cf3a17a994be6b2394baed0.json",
+        "config": { "url": "/manage/react/data/locales/en/clients.15050b4d3cf3a17a994be6b2394baed0.json" }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/devices.d24d63d5be27d8054f94fc1d94c44799.json",
+        "config": { "url": "/manage/react/data/locales/en/devices.d24d63d5be27d8054f94fc1d94c44799.json" }
+    },
+    {
+        "expected": "https://unifi/manage/react/data/locales/en/topology.9a199679a8438110b5e18f2984b96e5e.json",
+        "config": { "url": "/manage/react/data/locales/en/topology.9a199679a8438110b5e18f2984b96e5e.json" }
+    },
+    { "expected": "https://unifi/v2/api/site/default/topology", "config": { "url": "/topology", "apiVersion": 2, "site": "default" } },
+    {
+        "expected": "https://unifi/v2/api/system/event/SETUP_COMPLETED/first",
+        "config": { "url": "/system/event/SETUP_COMPLETED/first", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/widget/health",
+        "config": { "url": "/stat/widget/health", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/s/default/stat/sitedpi?type=by_app",
+        "config": { "url": "/stat/sitedpi?type=by_app", "site": "default", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/client/stats/fingerprint-os?start=1629283282413&end=1629369682413",
+        "config": { "url": "/client/stats/fingerprint-os?start=1629283282413&end=1629369682413", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/dashboard?scale=5minutes&start=1629283199000&end=1629369901000",
+        "config": { "url": "/dashboard?scale=5minutes&start=1629283199000&end=1629369901000", "apiVersion": 2, "site": "default" }
+    },
+    { "expected": "https://unifi/api/self", "config": { "url": "/api/self" } },
+    {
+        "expected": "https://unifi/v2/api/site/default/network_status",
+        "config": { "url": "/network_status", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/client/stats/fingerprint-os?start=1629283278085&end=1629369678085",
+        "config": { "url": "/client/stats/fingerprint-os?start=1629283278085&end=1629369678085", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/client/stats/fingerprint-os?start=1626732000000&end=1629410400000",
+        "config": { "url": "/client/stats/fingerprint-os?start=1626732000000&end=1629410400000", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/dashboard?scale=daily&start=1626652799000&end=1629417601000",
+        "config": { "url": "/dashboard?scale=daily&start=1626652799000&end=1629417601000", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/client/stats/fingerprint-os?start=1628978400000&end=1629410400000",
+        "config": { "url": "/client/stats/fingerprint-os?start=1628978400000&end=1629410400000", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/dashboard?scale=hourly&start=1628974799000&end=1629410401000",
+        "config": { "url": "/dashboard?scale=hourly&start=1628974799000&end=1629410401000", "apiVersion": 2, "site": "default" }
+    },
+    {
+        "expected": "https://unifi/v2/api/site/default/client/stats/fingerprint-os?start=1629283270059&end=1629369670059",
+        "config": { "url": "/client/stats/fingerprint-os?start=1629283270059&end=1629369670059", "apiVersion": 2, "site": "default" }
+    },
+    { "expected": "https://unifi/v2/api/site/default/notifications", "config": { "url": "/notifications", "site": "default", "apiVersion": 2 } },
+    { "expected": "https://unifi/api/login", "config": { "url": "/login","apiPart": true } }
+]
