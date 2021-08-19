@@ -10,6 +10,7 @@ import { INetworkStatus } from './INetworkStatus';
 import { UnifiWebsockets } from '../WebSockets';
 import { Stats } from '../Stats';
 import { ClientError, EErrorsCodes } from '../Errors';
+import { EProxyNamespaces } from '../interfaces';
 
 export class Site extends _ObjectSubController implements ISite {
     /**
@@ -81,7 +82,10 @@ export class Site extends _ObjectSubController implements ISite {
         this.devices = new Devices(config);
         this.stats = new Stats(config);
 
-        this.instance = this.controller.createInstance(this.name || 'default');
+        this.instance = this.controller.createInstance(this.name || 'default', {
+            proxyNamespace: EProxyNamespaces.NETWORK,
+            apiPart: 'api'
+        });
     }
 
     // this function need to never be async !!! but return a promise ( so this.ws is init before the real init )
