@@ -13,7 +13,6 @@ import { EventEmitter } from 'events';
 import AxiosError from 'axios-error';
 import { Site, Sites } from './Sites';
 import { IUser } from './User';
-import { DeviceFingerprint, Fingerprints, FingerprintsSK } from './Devices/FingerPrintsTypes';
 import { EProxyNamespaces, IBuildUrlParams, proxyNamespace } from './interfaces';
 
 export interface IControllerProps extends IUnifiAuthProps {
