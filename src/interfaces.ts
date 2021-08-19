@@ -51,57 +51,6 @@ export interface IFWRule {
     dst_networkconf_type: networkConfType;
     site_id: string;
 }
-// interface interfaces {
-//     _id: '6053c2f6c3d8180463a410be';
-//     action: 'accept';
-//     enabled: true;
-//     dst_address: '';
-//     dst_firewallgroup_ids: [];
-//     dst_networkconf_type: 'NETv4';
-//     icmp_typename: '';
-//     ipsec: '';
-//     logging: false;
-//     name: 'test';
-//     protocol: 'all';
-//     protocol_match_excepted: false;
-//     ruleset: 'WAN_IN';
-//     src_firewallgroup_ids: [];
-//     src_address: '51.254.200.228';
-//     src_mac_address: '';
-//     src_networkconf_type: 'NETv4';
-//     state_established: false;
-//     state_invalid: false;
-//     state_new: false;
-//     state_related: false;
-//     dst_networkconf_id: '';
-//     src_networkconf_id: '';
-//     rule_index: '2001';
-//     site_id: '6001f8a73fd98c05e9465f91';
-// }
-
-// <ul
-//     class="options__dHxfJEu2 options-default__dHxfJEu2 options-default-dark__dHxfJEu2 optionsOpen-default__ISNDd9xL"
-//     data-testid="options"
-//     tabindex="-1"
-//     style=""
-// >
-//     <li
-//         id="dropdownOptions_"
-//         class="option__dHxfJEu2 option-default__dHxfJEu2 option-default-dark__dHxfJEu2 optionOpen__ISNDd9xL undefined selected__dHxfJEu2 "
-//         aria-selected="true"
-//         role="option"
-//     >
-//         Before Predefined Rules
-//     </li>
-//     <li
-//         id="dropdownOptions_"
-//         class="option__dHxfJEu2 option-default__dHxfJEu2 option-default-dark__dHxfJEu2 optionOpen__ISNDd9xL undefined"
-//         aria-selected="false"
-//         role="option"
-//     >
-//         After
-//     </li>
-// </ul>;
 
 export interface IFWGroup {
     _id: string;
@@ -109,4 +58,43 @@ export interface IFWGroup {
     group_type: 'address-group' | 'port-group' | 'ipv6-address-group';
     group_members: Array<string>;
     site_id: string;
+}
+
+export enum EProxyNamespaces {
+    LED = 'led',
+    NETWORK = 'network',
+    USERS = 'users',
+    ACCESS_ULP_GO = 'access/ulp-go',
+    ACCESS = 'access',
+    PROTECT = 'protect',
+    TALK = 'talk'
+}
+
+export type proxyNamespace = EProxyNamespaces | string | boolean;
+
+export interface IBuildUrlParams {
+    url?: string;
+    /**
+     * the APIVersion
+     */
+    apiVersion?: number;
+    /**
+     * the current site selected
+     */
+    site?: string;
+    baseURL?: string;
+    /**
+     * the namespace of the proxy part
+     * default network
+     */
+    proxyNamespace?: proxyNamespace;
+    /**
+     * skip the url builder, you need to prepare the url manually
+     * default false
+     */
+    skipURLBuilder?: boolean;
+    /**
+     * add the /api in the URL ? or maybe the wss ?
+     */
+    apiPart?: string | boolean;
 }
