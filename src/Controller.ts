@@ -328,7 +328,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     // websockets
     public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
-        if (!this.ws) {
+        if (!this.superWS) {
             this._initWebSockets();
         }
 
@@ -393,8 +393,10 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return this;
     }
 
-    public async initWebSockets(): Promise<void> {
-        this._initWebSockets();
+    public async initWebSockets(forceReset = false): Promise<void> {
+        if (!this.superWS || forceReset) {
+            this._initWebSockets();
+        }
         await Promise.all([this.unifiOs ? this.ws.initWebSockets() : Promise.resolve(), this.superWS.initWebSockets()]);
     }
 }
