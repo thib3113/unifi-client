@@ -1171,6 +1171,18 @@ describe('test controller', () => {
                 });
             });
         });
+        it(`should crash if url doesn't start with a /`, () => {
+            expect.assertions(2);
+            try {
+                controller.buildUrl({
+                    baseURL: 'http',
+                    url: 'test'
+                });
+            } catch (e) {
+                expect(e).toBeInstanceOf(ClientError);
+                expect(e.message).toBe('url need to start with a slash /');
+            }
+        });
     });
 
     describe('logout', () => {

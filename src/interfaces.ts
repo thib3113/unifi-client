@@ -89,11 +89,6 @@ export interface IBuildUrlParams {
      */
     proxyNamespace?: proxyNamespace;
     /**
-     * skip the url builder, you need to prepare the url manually
-     * default false
-     */
-    skipURLBuilder?: boolean;
-    /**
      * add the /api in the URL ? or maybe the wss ?
      */
     apiPart?: string | boolean;

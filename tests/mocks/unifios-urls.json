@@ -403,7 +403,7 @@
         "expected": "https://unifi/proxy/network/v2/api/unifi-core/general-info",
         "config": { "url": "/unifi-core/general-info", "apiVersion": 2, "proxyNamespace": "network" }
     },
-    { "expected": "https://unifi/", "config": { "url": "/", "skipURLBuilder": true, "proxyNamespace": false } },
+    { "expected": "https://unifi/", "config": { "url": "/", "proxyNamespace": false } },
     { "expected": "https://unifi/api/cloud/backup/list", "config": { "url": "/cloud/backup/list", "proxyNamespace": false, "apiPart": true } },
     {
         "expected": "https://unifi/api/controllers/access/disable",
