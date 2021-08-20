@@ -1508,7 +1508,6 @@ describe('test controller', () => {
             _initWebSocketsMock.mockClear();
             expect(controller.on('ctrl.connect', fn)).toBe(controller);
             expect(onMock).toHaveBeenCalledWith('ctrl.connect', fn);
-            expect(_initWebSocketsMock).not.toHaveBeenCalled();
         });
     });
 });
