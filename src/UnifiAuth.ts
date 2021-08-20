@@ -8,6 +8,7 @@ import jwt from 'jsonwebtoken';
 import { ClientError, EErrorsCodes } from './Errors';
 import { Validate } from './commons/Validate';
 import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
+import { EProxyNamespaces } from './interfaces';
 
 export interface IUnifiAuthProps {
     rememberMe?: boolean;
@@ -190,7 +191,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         curDebug('start login request');
         // non unifiOS => token work 7 days with rememberMe
         const res = await this.controllerInstance.post(
-            this.unifiOs ? '/api/auth/login' : '/api/login',
+            this.unifiOs ? '/auth/login' : '/login',
             {
                 username: this.username,
                 password: this.password,
@@ -198,7 +199,8 @@ export class UnifiAuth extends ObjectWithPrivateValues {
                 token: token2FA || undefined
             },
             {
-                authenticationRequest: true
+                authenticationRequest: true,
+                apiPart: true
             }
         );
 
@@ -236,7 +238,10 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         //load version
         try {
             const version = (
-                await this.controllerInstance.get('/api/s/:site/stat/sysinfo', { urlParams: { site: 'default' } })
+                await this.controllerInstance.get('/api/s/:site/stat/sysinfo', {
+                    urlParams: { site: 'default' },
+                    proxyNamespace: EProxyNamespaces.NETWORK
+                })
             ).data?.data?.pop()?.version;
             debug('controller version is : %s', version);
             return version;

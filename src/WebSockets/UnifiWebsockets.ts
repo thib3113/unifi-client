@@ -70,7 +70,7 @@ export class UnifiWebsockets extends EventEmitter {
         // init ping pong
         this.pingPongInterval = setInterval(() => {
             this.ws.send('ping');
-        }, 15000);
+        }, 15000) as number | NodeJS.Timeout as NodeJS.Timeout;
 
         this.ws.on('open', () => {
             this.isReconnecting = false;

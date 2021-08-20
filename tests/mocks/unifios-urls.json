@@ -1,0 +1,542 @@
+[
+    {
+        "expected": "https://unifi/proxy/access/api/setup/da",
+        "config": { "url": "/setup/da", "proxyNamespace": "access", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/upgrade/devices/all/last_version",
+        "config": { "url": "/upgrade/devices/all/last_version", "proxyNamespace": "access", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/access_policies",
+        "config": { "url": "/access_policies", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/access/info",
+        "config": { "url": "/access/info", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/dashboard/open_doors",
+        "config": { "url": "/dashboard/open_doors", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/devices/group",
+        "config": { "url": "/devices/group", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/devices/topology",
+        "config": { "url": "/devices/topology", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/event/histogram",
+        "config": { "url": "/event/histogram", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/info?isAccess=1",
+        "config": { "url": "/info?isAccess=1", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/networks",
+        "config": { "url": "/networks", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/policies/resources?show_door_group=false&show_elevator=true",
+        "config": {
+            "url": "/policies/resources?show_door_group=false&show_elevator=true",
+            "proxyNamespace": "access",
+            "apiVersion": 2
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/settings",
+        "config": { "url": "/settings", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/setup",
+        "config": { "url": "/setup", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/setup/step",
+        "config": { "url": "/setup/step", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/user/self?isAccess=1",
+        "config": { "url": "/user/self?isAccess=1", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/users?page_num=1&page_size=50",
+        "config": { "url": "/users?page_num=1&page_size=50", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/visitors/all?page_num=1&page_size=20",
+        "config": { "url": "/visitors/all?page_num=1&page_size=20", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/visitors/all?page_num=1&page_size=20&condition=",
+        "config": {
+            "url": "/visitors/all?page_num=1&page_size=20&condition=",
+            "proxyNamespace": "access",
+            "apiVersion": 2
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/visitors/all?page_num=1&page_size=50",
+        "config": { "url": "/visitors/all?page_num=1&page_size=50", "proxyNamespace": "access", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/api/v2/visitors/upcoming?status=&page_num=1&page_size=50",
+        "config": {
+            "url": "/visitors/upcoming?status=&page_num=1&page_size=50",
+            "proxyNamespace": "access",
+            "apiVersion": 2
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/access/ulp-go/api/logs/search?page_num=1&page_size=50",
+        "config": { "url": "/logs/search?page_num=1&page_size=50", "proxyNamespace": "access/ulp-go", "apiVersion": true }
+    },
+    {
+        "expected": "https://unifi/proxy/access/ulp-go/api/logs/search?page_size=50&page_num=1",
+        "config": { "url": "/logs/search?page_size=50&page_num=1", "proxyNamespace": "access/ulp-go", "apiVersion": true }
+    },
+    {
+        "expected": "https://unifi/proxy/access/ulp-go/api/logs/search?page_size=8&page_num=1",
+        "config": { "url": "/logs/search?page_size=8&page_num=1", "proxyNamespace": "access/ulp-go", "apiVersion": true }
+    },
+    {
+        "expected": "https://unifi/proxy/access/ulp-go/api/v2/locations/buildings?with_children=true",
+        "config": {
+            "url": "/locations/buildings?with_children=true",
+            "proxyNamespace": "access/ulp-go",
+            "apiVersion": 2
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/access/ulp-go/api/v2/system_log/search?page_size=50&page_num=1",
+        "config": {
+            "url": "/system_log/search?page_size=50&page_num=1",
+            "proxyNamespace": "access/ulp-go",
+            "apiVersion": 2
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/access/ulp-go/api/v2/user_groups",
+        "config": { "url": "/user_groups", "proxyNamespace": "access/ulp-go", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/ulp-go/api/v2/users/count",
+        "config": { "url": "/users/count", "proxyNamespace": "access/ulp-go", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/access/ulp-go/api/v2/users/search?page_size=20&page_num=1&condition=",
+        "config": {
+            "url": "/users/search?page_size=20&page_num=1&condition=",
+            "proxyNamespace": "access/ulp-go",
+            "apiVersion": 2
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/cmd/firmware",
+        "config": { "url": "/cmd/firmware", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/get/setting",
+        "config": { "url": "/get/setting", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/dpiapp",
+        "config": { "url": "/rest/dpiapp", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/dpigroup",
+        "config": { "url": "/rest/dpigroup", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/firewallgroup",
+        "config": { "url": "/rest/firewallgroup", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/hotspot2conf",
+        "config": { "url": "/rest/hotspot2conf", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/hotspotpackage/?_sort=index",
+        "config": { "url": "/rest/hotspotpackage/?_sort=index", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/networkconf",
+        "config": { "url": "/rest/networkconf", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/radiusprofile",
+        "config": { "url": "/rest/radiusprofile", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/tag",
+        "config": { "url": "/rest/tag", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/rest/wlanconf",
+        "config": { "url": "/rest/wlanconf", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/alluser",
+        "config": { "url": "/stat/alluser", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/alluser?blocked=true",
+        "config": { "url": "/stat/alluser?blocked=true", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/current-channel",
+        "config": { "url": "/stat/current-channel", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/device",
+        "config": { "url": "/stat/device", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/device-basic",
+        "config": { "url": "/stat/device-basic", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/device/f4:92:bf:72:51:28",
+        "config": { "url": "/stat/device/f4:92:bf:72:51:28", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/device/f4:92:bf:72:51:28?cfg=system",
+        "config": { "url": "/stat/device/f4:92:bf:72:51:28?cfg=system", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/guest?within=24",
+        "config": { "url": "/stat/guest?within=24", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/health",
+        "config": { "url": "/stat/health", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/payment?start=1626645600000&end=1629323999999",
+        "config": {
+            "url": "/stat/payment?start=1626645600000&end=1629323999999",
+            "site": "default",
+            "proxyNamespace": "network",
+            "apiPart": true
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/payment?start=1626652800000&end=1629331200000",
+        "config": {
+            "url": "/stat/payment?start=1626652800000&end=1629331200000",
+            "site": "default",
+            "proxyNamespace": "network",
+            "apiPart": true
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/payment?within=24",
+        "config": { "url": "/stat/payment?within=24", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/report/5minutes.ap",
+        "config": { "url": "/stat/report/5minutes.ap", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/report/5minutes.gw",
+        "config": { "url": "/stat/report/5minutes.gw", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/report/daily.device",
+        "config": { "url": "/stat/report/daily.device", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/report/daily.user",
+        "config": { "url": "/stat/report/daily.user", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/rogueap?within=24",
+        "config": { "url": "/stat/rogueap?within=24", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/sdn",
+        "config": { "url": "/stat/sdn", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/sta",
+        "config": { "url": "/stat/sta", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/sysinfo",
+        "config": { "url": "/stat/sysinfo", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/voucher",
+        "config": { "url": "/stat/voucher", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/widget/radio-ai-data",
+        "config": { "url": "/stat/widget/radio-ai-data", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/api/s/default/stat/widget/subnet-suggest",
+        "config": { "url": "/stat/widget/subnet-suggest", "site": "default", "proxyNamespace": "network", "apiPart": true }
+    },
+    { "expected": "https://unifi/proxy/network/api/self", "config": { "url": "/self", "proxyNamespace": "network", "apiPart": true } },
+    {
+        "expected": "https://unifi/proxy/network/api/self/sites",
+        "config": { "url": "/self/sites", "proxyNamespace": "network", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/network/guest/preview/s/default/#/preview/",
+        "config": { "url": "/guest/preview/s/default/#/preview/", "apiPart": false, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/guest/preview/s/default/locales/en/countries.json?v=1.6.1",
+        "config": { "url": "/guest/preview/s/default/locales/en/countries.json?v=1.6.1", "apiPart": false, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/guest/preview/s/default/locales/en/portal.json?v=1.6.1",
+        "config": { "url": "/guest/preview/s/default/locales/en/portal.json?v=1.6.1", "apiPart": false, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/guest/preview/s/default/views/home.html?v=1.6.1",
+        "config": { "url": "/guest/preview/s/default/views/home.html?v=1.6.1", "apiPart": false, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/guest/preview/s/default/views/partials/credentials.html?v=1.6.1",
+        "config": {
+            "url": "/guest/preview/s/default/views/partials/credentials.html?v=1.6.1",
+            "apiPart": false,
+            "proxyNamespace": "network"
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/network/guest/preview/s/default/views/portal.html?v=1.6.1",
+        "config": { "url": "/guest/preview/s/default/views/portal.html?v=1.6.1", "apiPart": false, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/guest/s/default/hotspotpackages",
+        "config": { "url": "/guest/s/default/hotspotpackages", "apiPart": false, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/fingerprint_devices/0",
+        "config": { "url": "/fingerprint_devices/0", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/alert?timestampFrom=1628710440000&timestampTo=1629324000000&pageSize=250&pageNumber=0&sortByField=TIMESTAMP&sortDirection=DESCENDING",
+        "config": {
+            "url": "/site/default/alert?timestampFrom=1628710440000&timestampTo=1629324000000&pageSize=250&pageNumber=0&sortByField=TIMESTAMP&sortDirection=DESCENDING",
+            "apiVersion": 2,
+            "proxyNamespace": "network"
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/alert/mark-as-read",
+        "config": { "url": "/site/default/alert/mark-as-read", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/alert/setting",
+        "config": { "url": "/site/default/alert/setting", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/apgroups",
+        "config": { "url": "/site/default/apgroups", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/client/stats/fingerprint-os?start=1629228841590&end=1629315241590",
+        "config": {
+            "url": "/site/default/client/stats/fingerprint-os?start=1629228841590&end=1629315241590",
+            "apiVersion": 2,
+            "proxyNamespace": "network"
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/dashboard?scale=5minutes&start=1629228599000&end=1629315301000",
+        "config": {
+            "url": "/site/default/dashboard?scale=5minutes&start=1629228599000&end=1629315301000",
+            "apiVersion": 2,
+            "proxyNamespace": "network"
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/dpi/client/changes?timestampFrom=1629228859698&timestampTo=1629315259698",
+        "config": {
+            "url": "/site/default/dpi/client/changes?timestampFrom=1629228859698&timestampTo=1629315259698",
+            "apiVersion": 2,
+            "proxyNamespace": "network"
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/dpi/latest-client-stats",
+        "config": { "url": "/site/default/dpi/latest-client-stats", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/lan/enriched-configuration",
+        "config": { "url": "/site/default/lan/enriched-configuration", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/network_status",
+        "config": { "url": "/site/default/network_status", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/topology",
+        "config": { "url": "/site/default/topology", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/utilization/last24h",
+        "config": { "url": "/site/default/utilization/last24h", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/wan/enriched-configuration",
+        "config": { "url": "/site/default/wan/enriched-configuration", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/wlan-capabilities",
+        "config": { "url": "/site/default/wlan-capabilities", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/site/default/wlan/enriched-configuration",
+        "config": { "url": "/site/default/wlan/enriched-configuration", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    { "expected": "https://unifi/proxy/network/v2/api/timezones", "config": { "url": "/timezones", "apiVersion": 2, "proxyNamespace": "network" } },
+    {
+        "expected": "https://unifi/proxy/network/v2/api/unifi-core/general-info",
+        "config": { "url": "/unifi-core/general-info", "apiVersion": 2, "proxyNamespace": "network" }
+    },
+    { "expected": "https://unifi/", "config": { "url": "/", "proxyNamespace": false } },
+    { "expected": "https://unifi/api/cloud/backup/list", "config": { "url": "/cloud/backup/list", "proxyNamespace": false, "apiPart": true } },
+    {
+        "expected": "https://unifi/api/controllers/access/disable",
+        "config": { "url": "/controllers/access/disable", "proxyNamespace": false, "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/api/controllers/protect/disable",
+        "config": { "url": "/controllers/protect/disable", "proxyNamespace": false, "apiPart": true }
+    },
+    { "expected": "https://unifi/api/controllers/talk/disable", "config": { "url": "/controllers/talk/disable", "proxyNamespace": false, "apiPart": true } },
+    { "expected": "https://unifi/api/system", "config": { "url": "/system", "proxyNamespace": false, "apiPart": true } },
+    { "expected": "https://unifi/api/users/self", "config": { "url": "/users/self", "proxyNamespace": false, "apiPart": true } },
+    {
+        "expected": "https://unifi/proxy/protect/api/backups",
+        "config": { "url": "/backups", "proxyNamespace": "protect", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/protect/api/bootstrap",
+        "config": { "url": "/bootstrap", "proxyNamespace": "protect", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/protect/api/events?end=1629316800000&start=1629230400000",
+        "config": { "url": "/events?end=1629316800000&start=1629230400000", "proxyNamespace": "protect", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/protect/api/events?end=1629323999099&start=1629151200000&types=disconnect&types=recordingOff&types=update&types=offline&types=off",
+        "config": {
+            "url": "/events?end=1629323999099&start=1629151200000&types=disconnect&types=recordingOff&types=update&types=offline&types=off",
+            "proxyNamespace": "protect", "apiPart": true
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/protect/api/nvr/changelog",
+        "config": { "url": "/nvr/changelog", "proxyNamespace": "protect", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/protect/api/users/2222f944001414038777777ee",
+        "config": { "url": "/users/2222f944001414038777777ee", "proxyNamespace": "protect", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/talk/api/diagnostics/setup_discovered_devices",
+        "config": { "url": "/diagnostics/setup_discovered_devices", "proxyNamespace": "talk", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/talk/api/diagnostics/setup_step",
+        "config": { "url": "/diagnostics/setup_step", "proxyNamespace": "talk", "apiPart": true }
+    },
+    { "expected": "https://unifi/proxy/talk/api/health", "config": { "url": "/health", "proxyNamespace": "talk", "apiPart": true } },
+    { "expected": "https://unifi/proxy/talk/api/info", "config": { "url": "/info", "proxyNamespace": "talk", "apiPart": true } },
+    { "expected": "https://unifi/proxy/talk/api/install", "config": { "url": "/install", "proxyNamespace": "talk", "apiPart": true } },
+    { "expected": "https://unifi/proxy/talk/api/installs", "config": { "url": "/installs", "proxyNamespace": "talk", "apiPart": true } },
+    { "expected": "https://unifi/proxy/talk/api/register", "config": { "url": "/register", "proxyNamespace": "talk", "apiPart": true } },
+    {
+        "expected": "https://unifi/proxy/talk/api/setup/sync",
+        "config": { "url": "/setup/sync", "proxyNamespace": "talk", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/talk/api/user/role",
+        "config": { "url": "/user/role", "proxyNamespace": "talk", "apiPart": true }
+    },
+    {
+        "expected": "https://unifi/proxy/users/api/v2/info?refresh=true",
+        "config": { "url": "/info?refresh=true", "proxyNamespace": "users", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/users/api/v2/permissions?user_id=a39dbd8e-86b7-4eea-b5f6-67adce4b9a45",
+        "config": {
+            "url": "/permissions?user_id=a39dbd8e-86b7-4eea-b5f6-67adce4b9a45",
+            "proxyNamespace": "users",
+            "apiVersion": 2
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/users/api/v2/roles",
+        "config": { "url": "/roles", "proxyNamespace": "users", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/users/api/v2/ucore/controllers",
+        "config": { "url": "/ucore/controllers", "proxyNamespace": "users", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/users/api/v2/user_groups",
+        "config": { "url": "/user_groups", "proxyNamespace": "users", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/users/api/v2/user/self",
+        "config": { "url": "/user/self", "proxyNamespace": "users", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/users/api/v2/users/count",
+        "config": { "url": "/users/count", "proxyNamespace": "users", "apiVersion": 2 }
+    },
+    {
+        "expected": "https://unifi/proxy/users/api/v2/users/filter_by_roles?page_num=1&page_size=50",
+        "config": {
+            "url": "/users/filter_by_roles?page_num=1&page_size=50",
+            "proxyNamespace": "users",
+            "apiVersion": 2
+        }
+    },
+    {
+        "expected": "https://unifi/proxy/users/avatar/93747157-9968-4516-84ee-b140417d3271",
+        "config": { "url": "/avatar/93747157-9968-4516-84ee-b140417d3271", "proxyNamespace": "users", "apiPart": false }
+    },
+    { "expected": "https://unifi/api/auth/login", "config": { "url": "/auth/login", "proxyNamespace": false, "apiPart": true } },
+    {
+        "expected": "wss://unifi/api/ws/system",
+        "config": { "url": "/ws/system", "proxyNamespace": false, "apiPart": true },
+        "websockets": true
+    },
+    {
+        "expected": "wss://unifi/proxy/network/wss/s/default/events",
+        "config": { "url": "/events", "site": "default", "proxyNamespace": "network" },
+        "websockets": true
+    },
+    {
+        "expected": "wss://unifi/proxy/network/wss/s/super/events",
+        "config": { "url": "/events", "site": "super", "proxyNamespace": "network" },
+        "websockets": true
+    },
+    {
+        "expected": "ws://unifi/api/ws/system",
+        "config": { "baseURL": "http://unifi", "url": "/ws/system", "proxyNamespace": false, "apiPart": true },
+        "websockets": true
+    },
+    {
+        "expected": "ws://unifi/proxy/network/wss/s/default/events",
+        "config": { "baseURL": "http://unifi", "url": "/events", "site": "default", "proxyNamespace": "network" },
+        "websockets": true
+    },
+    {
+        "expected": "ws://unifi/proxy/network/wss/s/super/events",
+        "config": { "baseURL": "http://unifi", "url": "/events", "site": "super", "proxyNamespace": "network" },
+        "websockets": true
+    }
+]
