@@ -1488,6 +1488,10 @@ describe('test controller', () => {
             // @ts-ignore
             controller._initWebSockets = _initWebSocketsMock.mockImplementation(() => {
                 // @ts-ignore
+                controller.superWS = {
+                    on: onMock
+                };
+                // @ts-ignore
                 controller.ws = {
                     on: onMock
                 };
