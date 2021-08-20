@@ -13,6 +13,7 @@ import { EventEmitter } from 'events';
 import AxiosError from 'axios-error';
 import { Site, Sites } from './Sites';
 import { IUser } from './User';
+import { EProxyNamespaces, IBuildUrlParams, proxyNamespace } from './interfaces';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
@@ -54,12 +55,13 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     public version?: string = '7.0.0';
     private logged: boolean;
 
-    public createInstance(siteName: string): AxiosInstance {
-        return this._createInstance(siteName);
+    public createInstance(siteName: string, config?: AxiosRequestConfig): AxiosInstance {
+        return this._createInstance(siteName, config);
     }
 
-    private _createInstance(siteName?: string): AxiosInstance {
+    private _createInstance(siteName?: string, config?: AxiosRequestConfig): AxiosInstance {
         const instance = axios.create({
+            ...config,
             baseURL: removeTrailingSlash(this.props.url),
             authenticationRequest: false,
             maxRedirects: 0,
@@ -146,7 +148,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         this.logged = false;
     }
 
-    addAxiosDebugInterceptors(instance: AxiosInstance): AxiosInstance {
+    private addAxiosDebugInterceptors(instance: AxiosInstance): AxiosInstance {
         instance.interceptors.request.use((config) => {
             // @ts-ignore
             config.metadata = { startTime: new Date() };
@@ -234,32 +236,61 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return instance;
     }
 
-    public buildUrl(
-        pConfig: { url?: string; apiVersion?: number; site?: string; baseURL?: string; unifiOSUrl?: string },
-        websockets = false
-    ): AxiosRequestConfig {
-        const config = { ...pConfig };
-        const versionedApi = Validate.isNumber(config.apiVersion) && config.apiVersion > 1;
+    public buildUrl(pConfig: IBuildUrlParams, websockets = false): AxiosRequestConfig {
+        const versionedApi = Validate.isNumber(pConfig.apiVersion) && pConfig.apiVersion > 1;
 
-        if (!config.baseURL) {
+        if (!pConfig.baseURL) {
             throw new ClientError('baseURL is needed in the axios instance');
         }
 
-        if (this.unifiOs && !config.url?.includes('login') && !config.url?.includes('logout')) {
-            const proxyPart = config.unifiOSUrl ?? '/proxy/network';
-            config.baseURL = `${config.baseURL}${proxyPart}`;
+        const config: IBuildUrlParams & { baseURL: string; proxyNamespace: proxyNamespace } = {
+            ...pConfig,
+            url: pConfig.url,
+            site: pConfig.site,
+            apiVersion: pConfig.apiVersion,
+            baseURL: pConfig.baseURL,
+            proxyNamespace: pConfig.proxyNamespace ?? false,
+            apiPart: pConfig.apiPart
+        };
+
+        if (config.url && config.url.charAt(0) !== '/') {
+            throw new ClientError('url need to start with a slash /');
         }
 
+        // use a unifi proxy namespace ?
+        // && !config.url?.includes('login') && !config.url?.includes('logout')
+        if (this.unifiOs && config.proxyNamespace) {
+            config.baseURL = `${config.baseURL}/proxy/${config.proxyNamespace}`;
+        }
+
+        if (!config.url) {
+            return config;
+        }
+
+        //get the site part of the url
+        let sitePart = '';
         if (config.site) {
             let siteNameSpace = 's';
             if (versionedApi) {
                 siteNameSpace = 'site';
             }
-            config.url = `/${websockets ? 'wss' : 'api'}/${siteNameSpace}/${config.site}${config.url}`;
+            sitePart = `/${siteNameSpace}/${config.site}`;
         }
 
+        //get the api version part
+        let apiVersionPart = '';
         if (versionedApi) {
-            config.url = `/v${config.apiVersion}${config.url}`;
+            apiVersionPart = `/v${config.apiVersion}`;
+        }
+
+        //manage the apiPart
+        let apiPart = '';
+        if (config.apiPart === true || (!websockets && config.apiVersion)) {
+            apiPart = '/api';
+        } else if (config.apiPart) {
+            apiPart = `/${config.apiPart}`;
+        } else if (websockets && config.apiPart !== false) {
+            apiPart = '/wss';
         }
 
         if (websockets) {
@@ -268,17 +299,25 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             config.baseURL = removeTrailingSlash(urlParsed.toString());
         }
 
+        // if not unifiOs, all the request are "in the network namespace"
+        let apiVersionPrefix = false;
+        if (config.proxyNamespace === EProxyNamespaces.NETWORK || !this.unifiOs) {
+            apiVersionPrefix = true;
+        }
+
+        config.url = (apiVersionPrefix ? apiVersionPart : '') + apiPart + (!apiVersionPrefix ? apiVersionPart : '') + sitePart + config.url;
+
         return config;
     }
 
-    addAxiosProxyInterceptors(instance: AxiosInstance): AxiosInstance {
+    private addAxiosProxyInterceptors(instance: AxiosInstance): AxiosInstance {
         instance.interceptors.request.use((config) => {
             return this.buildUrl(config);
         });
         return instance;
     }
 
-    addAxiosPlugins(instance: AxiosInstance): AxiosInstance {
+    private addAxiosPlugins(instance: AxiosInstance): AxiosInstance {
         // manage urlParams
         return axiosUrlParams(instance);
     }
@@ -287,6 +326,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return this.controllerInstance;
     }
 
+    // websockets
     public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
         if (!this.ws) {
             this._initWebSockets();
@@ -337,7 +377,8 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             {
                 baseURL: this.controllerInstance.defaults.baseURL,
                 url: '/events',
-                site: 'super'
+                site: 'super',
+                proxyNamespace: EProxyNamespaces.NETWORK
             },
             true
         ) as AxiosRequestConfig & { url: string };

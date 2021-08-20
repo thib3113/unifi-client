@@ -26,9 +26,15 @@
     "unifi",
     "ubiquiti",
     "unifi-controller",
-    "cloud-key",
+    "unifi-websockets",
+    "unifi-events",
+    "Ubiquiti Networks",
+    "ubnt",
     "network",
-    "UDM"
+    "UDM",
+    "UDM pro",
+    "cloud-key",
+    "websockets"
   ],
   "author": {
     "email": "thib3113@gmail.com",

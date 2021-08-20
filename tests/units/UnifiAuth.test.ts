@@ -431,20 +431,20 @@ describe('UnifiAuth.test.ts', () => {
 
             expect(await auth.getVersion()).toBe('6.2.26');
             expect(debug.debugMock).toHaveBeenCalledWith('controller version is : %s', '6.2.26');
-            expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', { urlParams: { site: 'default' } });
+            expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', expect.objectContaining({ urlParams: { site: 'default' } }));
         });
         describe('test errors', () => {
             it('should return undefined if failed', async () => {
                 (axios.get as jest.Mock).mockImplementationOnce(() => Promise.reject());
 
                 expect(await auth.getVersion()).toBe(undefined);
-                expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', { urlParams: { site: 'default' } });
+                expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', expect.objectContaining({ urlParams: { site: 'default' } }));
             });
             it('should return undefined if no data', async () => {
                 (axios.get as jest.Mock).mockImplementationOnce(() => Promise.resolve({}));
 
                 expect(await auth.getVersion()).toBe(undefined);
-                expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', { urlParams: { site: 'default' } });
+                expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', expect.objectContaining({ urlParams: { site: 'default' } }));
             });
             it('should return undefined if no data in unifi response', async () => {
                 (axios.get as jest.Mock).mockImplementationOnce(() =>
@@ -454,7 +454,7 @@ describe('UnifiAuth.test.ts', () => {
                 );
 
                 expect(await auth.getVersion()).toBe(undefined);
-                expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', { urlParams: { site: 'default' } });
+                expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', expect.objectContaining({ urlParams: { site: 'default' } }));
             });
             it('should return undefined if empty data array in unifi response', async () => {
                 (axios.get as jest.Mock).mockImplementationOnce(() =>
@@ -466,7 +466,7 @@ describe('UnifiAuth.test.ts', () => {
                 );
 
                 expect(await auth.getVersion()).toBe(undefined);
-                expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', { urlParams: { site: 'default' } });
+                expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', expect.objectContaining({ urlParams: { site: 'default' } }));
             });
         });
     });
@@ -667,9 +667,9 @@ describe('UnifiAuth.test.ts', () => {
             expect(auth.unifiOs).toBeTruthy();
             expect(auth.autoReLogin).toBeTruthy();
             expect(axiosMock.post).toBeCalledWith(
-                '/api/auth/login',
+                '/auth/login',
                 { password: 'passwd', rememberMe: true, token: undefined, username: 'user' },
-                { authenticationRequest: true }
+                { authenticationRequest: true, apiPart: true }
             );
             //check debug messages
             expect(debug.debugMock).toHaveBeenNthCalledWith(1, 'login()');
@@ -740,9 +740,9 @@ describe('UnifiAuth.test.ts', () => {
             expect(axiosMock.get.mock.calls['0']['1'].validateStatus()).toBeTruthy();
             expect(debug.debugExtend).toBeCalledWith('login');
             expect(axiosMock.post).toBeCalledWith(
-                '/api/login',
+                '/login',
                 { password: 'passwd', rememberMe: true, token: undefined, username: 'user' },
-                { authenticationRequest: true }
+                { authenticationRequest: true, apiPart: true }
             );
             //check debug messages
             expect(debug.debugMock).toHaveBeenNthCalledWith(1, 'login()');
@@ -815,9 +815,9 @@ describe('UnifiAuth.test.ts', () => {
 
             expect(auth.autoReLogin).toBeFalsy();
             expect(axiosMock.post).toBeCalledWith(
-                '/api/auth/login',
+                '/auth/login',
                 { password: 'passwd', rememberMe: true, token: '123456', username: 'user' },
-                { authenticationRequest: true }
+                { authenticationRequest: true, apiPart: true }
             );
         });
         describe('check errors', () => {
