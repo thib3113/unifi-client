@@ -1488,6 +1488,10 @@ describe('test controller', () => {
             // @ts-ignore
             controller._initWebSockets = _initWebSocketsMock.mockImplementation(() => {
                 // @ts-ignore
+                controller.superWS = {
+                    on: onMock
+                };
+                // @ts-ignore
                 controller.ws = {
                     on: onMock
                 };
@@ -1504,7 +1508,6 @@ describe('test controller', () => {
             _initWebSocketsMock.mockClear();
             expect(controller.on('ctrl.connect', fn)).toBe(controller);
             expect(onMock).toHaveBeenCalledWith('ctrl.connect', fn);
-            expect(_initWebSocketsMock).not.toHaveBeenCalled();
         });
     });
 });
