@@ -328,9 +328,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     // websockets
     public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
-        if (!this.ws) {
-            this._initWebSockets();
-        }
+        this._initWebSockets();
 
         this.ws.on(eventName, cb);
         return this;
