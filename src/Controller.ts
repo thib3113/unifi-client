@@ -14,6 +14,7 @@ import AxiosError from 'axios-error';
 import { Site, Sites } from './Sites';
 import { IUser } from './User';
 import { EProxyNamespaces, IBuildUrlParams, proxyNamespace } from './interfaces';
+import { IDeviceFingerprint, Fingerprints, FingerprintsRaw } from './Clients';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
@@ -394,5 +395,44 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     public async initWebSockets(): Promise<void> {
         this._initWebSockets();
         await Promise.all([this.unifiOs ? this.ws.initWebSockets() : Promise.resolve(), this.superWS.initWebSockets()]);
+    }
+
+    public async getDevicesFingerPrints(): Promise<Fingerprints> {
+        const fingerprintsRaw = (
+            await this.getInstance().get<FingerprintsRaw>('/fingerprint_devices/0', {
+                apiVersion: 2,
+                proxyNamespace: EProxyNamespaces.NETWORK
+            })
+        ).data;
+
+        const convertKeyToNumber = <T>(object: Record<string, T>): Record<number, T> => {
+            return Object.fromEntries(Object.entries(object).map(([k, v]) => [Number(k), v])) as unknown as Record<number, T>;
+        };
+
+        const devices = Object.entries(fingerprintsRaw.dev_ids).map(([k, v]) => {
+            const value: IDeviceFingerprint = {
+                deviceFamily: v.family_id,
+                deviceType: v.dev_type_id,
+                name: v.name,
+                osClass: v.os_class_id,
+                osName: v.os_name_id,
+                fb: v.fb_id,
+                tm: v.tm_id,
+                category: v.ctag_id,
+                vendor: v.vendor_id
+            };
+            return [Number(k), value];
+        }) as unknown as Record<number, IDeviceFingerprint>;
+
+        return {
+            categories: convertKeyToNumber<string>(fingerprintsRaw.ctag_ids),
+            // @ts-ignore
+            devices: Object.fromEntries(devices),
+            deviceTypes: convertKeyToNumber<string>(fingerprintsRaw.dev_type_ids),
+            deviceFamilies: convertKeyToNumber<string>(fingerprintsRaw.family_ids),
+            osNames: convertKeyToNumber<string>(fingerprintsRaw.os_name_ids),
+            osClass: convertKeyToNumber<string>(fingerprintsRaw.os_class_ids),
+            vendors: convertKeyToNumber<string>(fingerprintsRaw.vendor_ids)
+        };
     }
 }

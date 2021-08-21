@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { Controller } from './Controller';
+import { Controller, Client } from '../../src';
 
 dotenv.config();
 
@@ -13,15 +13,26 @@ const main = async () => {
     });
     await controller.login();
 
-    // retrieve controller fingerprints
-    // const fingerprints = await controller.getDevicesFingerPrints();
-
     const [site] = await controller.getSites();
 
-    // list devices
+    // list clients
     const clients = await site.clients.list();
-    const [client] = clients;
-    console.log(client);
+
+    //search client by mac address
+    const client = clients.find((d) => d.mac === '04:18:d6:85:ed:f2');
+
+    //check if the client is found
+    if (client) {
+        // block it
+        await client.block();
+
+        // unblock if needed
+        // await client.unblock()
+    }
+
+    // OR USE MANUAL WAY TO INIT Client Object ( for unknown client for exemple )
+    const client2 = new Client({ controller, site }, { mac: '04:18:d6:85:ed:f2' });
+    await client2.block();
 };
 
 //just run the async main, and log error if needed

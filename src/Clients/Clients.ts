@@ -1,34 +1,44 @@
 import { ClientError, EErrorsCodes } from '../Errors';
-import { IUnknownDevice } from './IUnknownDevice';
+import { IUnknownClient } from './IUnknownClient';
 import { _ObjectSubSite } from '../commons/_ObjectSubSite';
-import { Device } from './Device';
+import { Client } from './Client';
 import { Validate } from '../commons/Validate';
 
-export type partialDevice = Partial<IUnknownDevice> & { mac: string };
+export type partialClient = Partial<IUnknownClient> & { mac: string };
 
-export class Devices extends _ObjectSubSite {
-    async create(device: partialDevice): Promise<Device> {
-        if (Validate.isUndefined(device.mac)) {
+interface IClientListParams {
+    blocked?: true;
+    type?: 'all' | 'blocked' | string;
+    conn?: 'all' | string;
+    /**
+     * clients within last X seconds
+     */
+    within?: number;
+}
+
+export class Clients extends _ObjectSubSite {
+    async create(client: partialClient): Promise<Client> {
+        if (Validate.isUndefined(client.mac)) {
             throw new ClientError('mac is mandatory', EErrorsCodes.BAD_PARAMETERS);
         }
 
-        return this.mapObject<Device>(
-            Device,
+        return this.mapObject<Client>(
+            Client,
             (
                 (
                     await this.instance.post(
                         '/rest/user',
                         {
-                            mac: device.mac,
-                            user_group_id: device.user_group_id,
-                            name: device.name,
-                            note: device.note,
-                            noted: device.noted || !!device.note,
-                            is_guest: device.is_guest,
-                            is_wired: device.is_wired,
-                            fixed_ip: device.fixed_ip,
-                            network_id: device.network_id,
-                            use_fixedip: Validate.isUndefined(device.use_fixedip) ? device.use_fixedip : !!device.fixed_ip
+                            mac: client.mac,
+                            user_group_id: client.user_group_id ?? client.usergroup_id,
+                            name: client.name,
+                            note: client.note,
+                            noted: client.noted || !!client.note,
+                            is_guest: client.is_guest,
+                            is_wired: client.is_wired,
+                            fixed_ip: client.fixed_ip,
+                            network_id: client.network_id,
+                            use_fixedip: client.use_fixedip ?? !!client.fixed_ip
                         },
                         {
                             urlParams: { site: this.site.name }
@@ -40,9 +50,9 @@ export class Devices extends _ObjectSubSite {
     }
 
     // get return a different kind of device
-    async get(_id: string): Promise<Device> {
-        return this.mapObject<Device>(
-            Device,
+    async get(_id: string): Promise<Client> {
+        return this.mapObject<Client>(
+            Client,
             (
                 (
                     await this.instance.get('/rest/user/:_id', {
@@ -85,28 +95,30 @@ export class Devices extends _ObjectSubSite {
     // }
 
     // other way to do a list, seems to return same results...
-    // but available if better works for you
-    async list2(): Promise<Array<Device>> {
+    // but available if works better for you
+    async list2(params?: IClientListParams): Promise<Array<Client>> {
         return (
             (
                 await this.instance.get('/list/user', {
+                    params,
                     urlParams: {
                         site: this.site.name
                     }
                 })
             ).data?.data || []
-        ).map((r) => this.mapObject<Device>(Device, r));
+        ).map((r) => this.mapObject<Client>(Client, r));
     }
 
-    public async list(): Promise<Array<Device>> {
+    public async list(params?: IClientListParams): Promise<Array<Client>> {
         return (
             (
                 await this.instance.get('/stat/alluser', {
+                    params,
                     urlParams: {
                         site: this.site.name
                     }
                 })
             ).data?.data || []
-        ).map((r) => this.mapObject<Device>(Device, r));
+        ).map((r) => this.mapObject<Client>(Client, r));
     }
 }

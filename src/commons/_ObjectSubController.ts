@@ -5,6 +5,8 @@ import semver from 'semver';
 import { ObjectWithPrivateValues } from './ObjectWithPrivateValues';
 import { Validate } from './Validate';
 import { Controller } from '../Controller';
+import { Debugger } from 'debug';
+import { createDebugger } from '../util';
 
 export interface IObjectSubController {
     instance: AxiosInstance;
@@ -52,6 +54,7 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
         this.controller = config.controller;
         this.controllerInstance = config.instance;
         this.config = config;
+        this.debug = createDebugger('_ObjectSubController');
     }
 
     protected get instance(): AxiosInstance {
@@ -145,5 +148,13 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
             });
         }
         return false;
+    }
+
+    protected get debug(): Debugger {
+        return this.getPrivate<Debugger>('debug');
+    }
+
+    protected set debug(value: Debugger) {
+        this.setPrivate<Debugger>('debug', value);
     }
 }

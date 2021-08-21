@@ -1,11 +1,13 @@
 import { ipString } from '../interfaces';
+import { macAddress } from '../commons/types';
 
-export interface IUnknownDevice {
-    mac: string;
+export interface IUnknownClient {
+    mac: macAddress;
     user_group_id?: string;
-    name: string;
-    note: string;
-    noted: boolean;
+    usergroup_id?: string;
+    name?: string;
+    note?: string;
+    noted?: boolean;
     is_guest: boolean;
     is_wired: boolean;
 
