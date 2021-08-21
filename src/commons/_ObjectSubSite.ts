@@ -18,7 +18,7 @@ export class _ObjectSubSite extends _ObjectSubController {
     constructor(config: IObjectSubSiteConfig) {
         super({
             ...config,
-            instance: config.controller.controllerInstance
+            instance: config?.controller?.controllerInstance
         });
         if (!config.site) {
             throw new ClientError('ObjectSubSite not correctly initialized');

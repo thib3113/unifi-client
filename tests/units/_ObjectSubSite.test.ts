@@ -22,8 +22,7 @@ describe('_objectSubSite', () => {
             try {
                 // @ts-ignore
                 new _ObjectSubSite({
-                    controller,
-                    instance: axios
+                    controller
                 });
             } catch (e) {
                 expect(e).toBeInstanceOf(ClientError);
@@ -34,7 +33,6 @@ describe('_objectSubSite', () => {
     it('construct', () => {
         const subSite = new _ObjectSubSite({
             controller,
-            instance: axios,
             site
         });
         // @ts-ignore
@@ -44,7 +42,7 @@ describe('_objectSubSite', () => {
             expect(subSite.config).toStrictEqual({
                 controller,
                 site,
-                instance: axios
+                instance: controller.controllerInstance
             });
         } catch (e) {
             console.log(e.stack);
@@ -53,7 +51,6 @@ describe('_objectSubSite', () => {
     it('should return this after import', () => {
         const subSite = new _ObjectSubSite({
             controller,
-            instance: axios,
             site
         });
         // @ts-ignore
@@ -64,7 +61,6 @@ describe('_objectSubSite', () => {
         beforeEach(() => {
             subSite = new _ObjectSubSite({
                 controller,
-                instance: axios,
                 site
             });
             (FWRule as jest.Mock).mockClear();
@@ -87,7 +83,6 @@ describe('_objectSubSite', () => {
     it('get instance', () => {
         const subSite = new _ObjectSubSite({
             controller,
-            instance: axios,
             site
         });
 

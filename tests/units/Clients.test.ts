@@ -7,7 +7,15 @@ beforeAll(async () => {
     // }
 });
 describe('Client', () => {
-    describe('UnifiOs', () => {});
+    describe('UnifiOs', () => {
+        it('should todo add tests', () => {
+            expect(true).toBeTruthy();
+        });
+    });
 
-    describe('non UnifiOs', () => {});
+    describe('non UnifiOs', () => {
+        it('should todo add tests', () => {
+            expect(true).toBeTruthy();
+        });
+    });
 });
