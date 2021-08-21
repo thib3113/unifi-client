@@ -109,6 +109,21 @@ export class Clients extends _ObjectSubSite {
         ).map((r) => this.mapObject<Client>(Client, r));
     }
 
+    // other way to do a list, seems to return more details in results...
+    // but less results ( same as the clients view )
+    async list3(params?: IClientListParams): Promise<Array<Client>> {
+        const res =
+            (
+                await this.instance.get('/stat/sta', {
+                    params,
+                    urlParams: {
+                        site: this.site.name
+                    }
+                })
+            ).data?.data || [];
+        return res.map((r) => this.mapObject<Client>(Client, r));
+    }
+
     public async list(params?: IClientListParams): Promise<Array<Client>> {
         return (
             (

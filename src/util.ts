@@ -1,6 +1,8 @@
 import createDebug, { Debugger } from 'debug';
 import url, { URL, URLSearchParams } from 'url';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { dateInput } from './commons/types';
+import { Validate } from './commons/Validate';
 
 const debug = createDebug(`unifi-client`);
 /**
@@ -69,4 +71,8 @@ export const axiosUrlParams = (instance: AxiosInstance): AxiosInstance => {
     });
 
     return instance;
+};
+
+export const convertTimestampSecondsToDate = (time: dateInput): Date => {
+    return new Date(Validate.isNumber(time) ? time * 1000 : time);
 };

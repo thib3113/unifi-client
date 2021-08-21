@@ -397,16 +397,25 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         await Promise.all([this.unifiOs ? this.ws.initWebSockets() : Promise.resolve(), this.superWS.initWebSockets()]);
     }
 
-    public async getDevicesFingerPrints(): Promise<Fingerprints> {
+    /**
+     *
+     * @param source not sure about it, but some number can return different results, and doesn't seems to be like pages
+     */
+    public async getDevicesFingerPrints(source = 0): Promise<Fingerprints> {
         const fingerprintsRaw = (
-            await this.getInstance().get<FingerprintsRaw>('/fingerprint_devices/0', {
+            await this.getInstance().get<FingerprintsRaw>('/fingerprint_devices/:source', {
                 apiVersion: 2,
-                proxyNamespace: EProxyNamespaces.NETWORK
+                proxyNamespace: EProxyNamespaces.NETWORK,
+                urlParams: {
+                    source: (source ?? 0).toString()
+                }
             })
         ).data;
 
-        const convertKeyToNumber = <T>(object: Record<string, T>): Record<number, T> => {
-            return Object.fromEntries(Object.entries(object).map(([k, v]) => [Number(k), v])) as unknown as Record<number, T>;
+        const convertKeyToNumber = <T>(object?: Record<string, T>): Record<number, T> => {
+            return !object
+                ? {}
+                : (Object.fromEntries(Object.entries(object).map(([k, v]) => [Number(k), v])) as unknown as Record<number, T>);
         };
 
         const devices = Object.entries(fingerprintsRaw.dev_ids).map(([k, v]) => {

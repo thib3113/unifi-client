@@ -5,7 +5,7 @@ export interface FingerprintsRaw {
     os_class_ids: Record<number, string>;
     os_name_ids: Record<number, string>;
     vendor_ids: Record<number, string>;
-    ctag_ids: Record<number, string>;
+    ctag_ids?: Record<number, string>;
 }
 
 export interface DeviceFingerprintRaw {
