@@ -5,7 +5,7 @@ import setCookieParser from 'set-cookie-parser';
 import { IncomingMessage } from 'http';
 import cookie, { CookieSerializeOptions } from 'cookie';
 import jwt from 'jsonwebtoken';
-import { ClientError, EErrorsCodes } from './Errors';
+import { ClientError, EErrorsCodes, UnifiError } from './Errors';
 import { Validate } from './commons/Validate';
 import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
 import { EProxyNamespaces } from './interfaces';
@@ -131,14 +131,14 @@ export class UnifiAuth extends ObjectWithPrivateValues {
                 const curDebug = debug.extend('interceptedErroredResponse');
                 curDebug('intercept errored response');
 
-                if (error.response) {
-                    const response = error.response;
-                    if (response.headers && response.headers['x-csrf-token']) {
+                if (error.response || error instanceof UnifiError) {
+                    const response = error instanceof UnifiError ? error.axiosError?.response : error.response;
+                    if (response?.headers && response?.headers['x-csrf-token']) {
                         curDebug('x-csrf-token header found, saving it');
                         this.csrfToken = response.headers['x-csrf-token'];
                     }
 
-                    if (!this.unifiOs && response.config && response.status === 401 && !response.config.retryAuth && this.autoReLogin) {
+                    if (!this.unifiOs && response?.config && response?.status === 401 && !response?.config.retryAuth && this.autoReLogin) {
                         curDebug('login is expired, try to re-login');
                         await this.login();
                         return this.controllerInstance.request({ ...response.config, retryAuth: true });
