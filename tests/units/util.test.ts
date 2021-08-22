@@ -1,116 +1,214 @@
-import { createDebugger, getUrlRepresentation } from '../../src/util';
-import { Debugger } from 'debug';
-import Controller, { __Error, UnifiError } from '../../src';
-import { Validate } from '../../src/commons/Validate';
+import { axiosUrlParams, convertTimestampSecondsToDate, createDebugger, getUrlRepresentation, removeTrailingSlash } from '../../src/util';
+import { AxiosInstance } from 'axios';
 
-describe('test commons utilities', () => {
-    describe('getUrlRepresentation tests', () => {
-        it('should return correct url without auth', () => {
-            const res = getUrlRepresentation(
-                {
-                    baseURL: 'https://user:pass@localhost:8080',
-                    url: '/url',
-                    params: {
-                        foo: 'bar'
-                    },
+describe('utils tests', () => {
+    describe('getUrlRepresentation', () => {
+        const req = {
+            baseURL: 'http://unifi.lan',
+            url: '/aaa',
+            auth: {
+                username: 'username',
+                password: 'password'
+            },
+            params: {
+                foo: 'bar'
+            }
+        };
+
+        it('get the url representation without auth', () => {
+            expect(getUrlRepresentation(req)).toBe('http://unifi.lan/aaa?foo=bar');
+            expect(
+                getUrlRepresentation({
+                    ...req,
+                    baseURL: undefined
+                })
+            ).toBe('http://localhost/aaa?foo=bar');
+            expect(
+                getUrlRepresentation({
+                    ...req,
+                    url: undefined
+                })
+            ).toBe('http://unifi.lan/?foo=bar');
+            expect(
+                getUrlRepresentation({
+                    ...req,
                     auth: {
-                        username: 'user',
-                        password: 'password'
+                        ...req.auth,
+                        password: ''
                     }
-                },
-                true
-            );
-
-            expect(res).toBe('https://localhost:8080/url?foo=bar');
+                })
+            ).toBe('http://unifi.lan/aaa?foo=bar');
+            expect(
+                getUrlRepresentation({
+                    ...req,
+                    auth: {
+                        ...req.auth,
+                        username: ''
+                    }
+                })
+            ).toBe('http://unifi.lan/aaa?foo=bar');
+            expect(
+                getUrlRepresentation({
+                    ...req,
+                    params: {}
+                })
+            ).toBe('http://unifi.lan/aaa');
+            expect(
+                getUrlRepresentation({
+                    ...req,
+                    url: '/?fi=bar'
+                })
+            ).toBe('http://unifi.lan/?fi=bar&foo=bar');
         });
-
-        it('should return correct url with auth', () => {
-            let res = getUrlRepresentation(
-                {
-                    baseURL: 'https://localhost:8080',
-                    url: '/url',
-                    params: {
-                        foo: 'bar'
+        it('get the url representation with auth', () => {
+            expect(getUrlRepresentation(req)).toBe('http://unifi.lan/aaa?foo=bar');
+            expect(
+                getUrlRepresentation(
+                    {
+                        ...req,
+                        baseURL: undefined
                     },
-                    auth: {
-                        username: 'user',
-                        password: 'password'
-                    }
-                },
-                false
-            );
-
-            expect(res).toBe('https://user:password@localhost:8080/url?foo=bar');
-
-            res = getUrlRepresentation(
-                {
-                    baseURL: 'https://us:pass@localhost:8080',
-                    url: '/url',
-                    params: {
-                        foo: 'bar'
+                    false
+                )
+            ).toBe('http://username:password@localhost/aaa?foo=bar');
+            expect(
+                getUrlRepresentation(
+                    {
+                        ...req,
+                        url: undefined
                     },
-                    auth: {
-                        username: 'user',
-                        password: 'password'
-                    }
-                },
-                false
-            );
-
-            expect(res).toBe('https://us:pass@localhost:8080/url?foo=bar');
+                    false
+                )
+            ).toBe('http://username:password@unifi.lan/?foo=bar');
+            expect(
+                getUrlRepresentation(
+                    {
+                        ...req,
+                        auth: {
+                            ...req.auth,
+                            password: ''
+                        }
+                    },
+                    false
+                )
+            ).toBe('http://username@unifi.lan/aaa?foo=bar');
+            expect(
+                getUrlRepresentation(
+                    {
+                        ...req,
+                        auth: {
+                            ...req.auth,
+                            username: ''
+                        }
+                    },
+                    false
+                )
+            ).toBe('http://:password@unifi.lan/aaa?foo=bar');
+            expect(
+                getUrlRepresentation(
+                    {
+                        ...req,
+                        params: {}
+                    },
+                    false
+                )
+            ).toBe('http://username:password@unifi.lan/aaa');
+            expect(
+                getUrlRepresentation(
+                    {
+                        ...req,
+                        url: '/?fi=bar'
+                    },
+                    false
+                )
+            ).toBe('http://username:password@unifi.lan/?fi=bar&foo=bar');
+        });
+        it(`doesn't erase auth part if already in url`, () => {
+            expect(
+                getUrlRepresentation(
+                    {
+                        baseURL: 'http://username:password@localhost',
+                        auth: {
+                            password: 'password2',
+                            username: 'username2'
+                        }
+                    },
+                    false
+                )
+            ).toBe('http://username:password@localhost/');
+        });
+        it(`should work without auth`, () => {
+            expect(
+                getUrlRepresentation(
+                    {
+                        baseURL: 'http://localhost'
+                    },
+                    false
+                )
+            ).toBe('http://localhost/');
         });
     });
-
-    describe('createDebugger tests', () => {
-        let debug: Debugger;
-        debug = createDebugger('test');
-        expect(debug.namespace).toBe('unifi-client:test');
-        expect(() => {
-            // @ts-ignore
-            createDebugger();
-        }).toThrow();
-    });
-
-    describe('test Controller without login', () => {
-        const c = new Controller({
-            url: '',
-            password: '',
-            username: ''
+    describe('createDebugger', () => {
+        it('should create a debugger', () => {
+            const d = createDebugger('test');
+            expect(d.namespace).toBe('unifi-client:test');
         });
-
-        it('should refuse to getSites', async () => {
+        it('should force to set a name', () => {
+            expect.assertions(2);
             try {
-                await c.getSites();
-                expect(false).toBeTruthy();
+                createDebugger('');
             } catch (e) {
-                expect(true).toBeTruthy();
+                expect(e).toBeInstanceOf(Error);
+                expect(e.message).toBe('name is mandatory');
             }
         });
-
-        it('should refuse to getSites', async () => {
-            try {
-                await c.sites.list();
-                expect(false).toBeTruthy();
-            } catch (e) {
-                expect(true).toBeTruthy();
-            }
+    });
+    describe('removeTrailingSlash ', () => {
+        it('should removeTrailingSlash', () => {
+            expect(removeTrailingSlash('/test/')).toBe('/test');
+            expect(removeTrailingSlash('http://localhost/')).toBe('http://localhost');
+            expect(removeTrailingSlash('/test')).toBe('/test');
+            expect(removeTrailingSlash('http://localhost')).toBe('http://localhost');
         });
     });
 
-    describe('test errors', () => {
-        it('should stringify errors', () => {
-            const error_str = new UnifiError(
-                'fail',
-                500,
-                { validationError: { field: 'bar', pattern: '' } },
-                new Error('caused by me')
-            ).toString();
-            expect(Validate.isString(error_str)).toBeTruthy();
-        });
+    describe('axiosUrlParams', () => {
+        const mock = jest.fn();
+        const instance = {
+            interceptors: {
+                request: {
+                    use: mock
+                }
+            }
+        } as unknown as AxiosInstance;
+        it('should removeTrailingSlash', () => {
+            expect(axiosUrlParams(instance)).toBe(instance);
+            const config = {
+                url: '/:foo/test',
+                baseURL: 'https://site.com',
+                urlParams: {
+                    foo: 'bar'
+                }
+            };
+            //get fn
+            expect(mock).toBeCalled();
+            const fn = mock.mock.calls.pop().pop();
+            expect(fn({})).toStrictEqual({});
+            expect(fn({ ...config, urlParams: undefined })).toStrictEqual({ ...config, urlParams: undefined });
+            expect(fn(undefined)).toBe(undefined);
 
-        it('should accept another error', () => {
-            const error_str = new __Error(new Error('caused by me')).toString();
-            expect(Validate.isString(error_str)).toBeTruthy();
+            expect(fn(config)).toStrictEqual({
+                ...config,
+                url: '/bar/test'
+            });
+        });
+    });
+    describe('convertTimestampSecondsToDate ', () => {
+        it('should build date from timestamp', () => {
+            expect(convertTimestampSecondsToDate(1593556874)).toStrictEqual(new Date('2020-06-30T22:41:14.000Z'));
+        });
+        it('should build from other than timestamp', () => {
+            expect(convertTimestampSecondsToDate('2020-06-30T22:41:14.000Z')).toStrictEqual(new Date('2020-06-30T22:41:14.000Z'));
         });
     });
 });

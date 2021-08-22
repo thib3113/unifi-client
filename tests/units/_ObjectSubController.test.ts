@@ -33,6 +33,8 @@ describe('_ObjectSubController', () => {
             subController.site = { foo: 'bar' };
             // @ts-ignore
             expect(subController.site).toStrictEqual({ foo: 'bar' });
+            // @ts-ignore
+            expect(subController.debug).toStrictEqual(expect.any(Function));
         });
         it('should reject non valid configuration', () => {
             expect.assertions(6);
@@ -126,6 +128,15 @@ describe('_ObjectSubController', () => {
                     expect(e.message).toBe('need minimal controller version 2.0.1');
                 }
             });
+            it('should add parameterName in the error', () => {
+                expect.assertions(2);
+                try {
+                    subController.checkNeedVersion('2.0.1', undefined, 'test');
+                } catch (e) {
+                    expect(e).toBeInstanceOf(ClientError);
+                    expect(e.message).toBe('test need minimal controller version 2.0.1');
+                }
+            });
         });
         describe('needVersion', () => {
             const checkNeedVersionMock = jest.fn();
@@ -163,6 +174,7 @@ describe('_ObjectSubController', () => {
                 });
                 expect(subController.needVersion('foo', 'bar', '6.0.0', true, true)).toBeFalsy();
                 expect('foo' in subController).toBeTruthy();
+
                 expect.assertions(6);
                 try {
                     // this will crash
@@ -180,6 +192,26 @@ describe('_ObjectSubController', () => {
                     expect(e).toBeInstanceOf(Error);
                     expect(e.message).toBe('needVersion error');
                 }
+            });
+        });
+
+        describe('toJSON', () => {
+            const checkNeedVersionMock = jest.fn();
+            beforeEach(() => {
+                subController.checkNeedVersion = checkNeedVersionMock;
+            });
+
+            it('test to Json to remove blocked keys', () => {
+                checkNeedVersionMock.mockImplementationOnce(() => true);
+                expect(subController.needVersion('foo', 'bar', '6.0.0', true)).toBeTruthy();
+                checkNeedVersionMock.mockImplementationOnce(() => {
+                    throw new Error('my error');
+                });
+                expect(subController.needVersion('tata', 'yoyo', '6.0.0', true)).toBeFalsy();
+
+                expect(JSON.parse(JSON.stringify(subController))).toStrictEqual({
+                    foo: 'bar'
+                });
             });
         });
     });

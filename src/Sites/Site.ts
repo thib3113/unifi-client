@@ -48,6 +48,11 @@ export class Site extends _ObjectSubController implements ISite {
             controller: controller,
             instance: controller.controllerInstance
         });
+
+        if (!props.name) {
+            throw new ClientError('name is mandatory for a site . The default unifi site name is "default"');
+        }
+
         this.name = props.name;
         this.debug = Site.debug.extend(this.name);
 
@@ -83,7 +88,7 @@ export class Site extends _ObjectSubController implements ISite {
         this.clients = new Clients(config);
         this.stats = new Stats(config);
 
-        this.instance = this.controller.createInstance(this.name || 'default', {
+        this.instance = this.controller.createInstance(this.name, {
             proxyNamespace: EProxyNamespaces.NETWORK,
             apiPart: 'api'
         });

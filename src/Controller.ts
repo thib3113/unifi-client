@@ -399,7 +399,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     /**
      *
-     * @param source not sure about it, but some number can return different results, and doesn't seems to be like pages
+     * @param source - not sure about it, but some number can return different results, and doesn't seems to be like pages
      */
     public async getDevicesFingerPrints(source = 0): Promise<Fingerprints> {
         const fingerprintsRaw = (

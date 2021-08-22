@@ -57,6 +57,14 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
         this.debug = createDebugger('_ObjectSubController');
     }
 
+    public toJSON(): Partial<this> {
+        const ret = {};
+        Object.entries(this).forEach(([k, v]) => {
+            ret[k] = v;
+        });
+        return ret;
+    }
+
     protected get instance(): AxiosInstance {
         return this.getPrivate<AxiosInstance>('instance');
     }
@@ -95,19 +103,20 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
      *
      * @param minVersion - the minimal semver version for this object
      * @param unifiOs - need to be unifiOs ? or Unifi Controller ? if no need, pass undefined
+     * @param parameterName - a name for the parameter
      */
-    protected checkNeedVersion(minVersion?: string, unifiOs?: boolean): void {
+    protected checkNeedVersion(minVersion?: string, unifiOs?: boolean, parameterName = ''): void {
         if (this.checkNeeds(minVersion, unifiOs)) {
             return;
         }
 
-        let str: string;
+        let str = parameterName ? `${parameterName} ` : '';
         let code: EErrorsCodes;
         if (Validate.isBoolean(unifiOs)) {
-            str = `need ${unifiOs ? '' : 'non-'}UnifiOs controller`;
+            str += `need ${unifiOs ? '' : 'non-'}UnifiOs controller`;
             code = EErrorsCodes.UNIFI_CONTROLLER_TYPE_MISMATCH;
         } else {
-            str = `need minimal controller version ${minVersion}`;
+            str += `need minimal controller version ${minVersion}`;
             code = EErrorsCodes.NEED_MORE_RECENT_CONTROLLER;
         }
 
@@ -124,7 +133,7 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
      */
     protected needVersion<T>(key: keyof this, value?: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false): boolean {
         try {
-            this.checkNeedVersion(minVersion, unifiOs);
+            this.checkNeedVersion(minVersion, unifiOs, `${this.constructor.name}.${key}`);
             if (Validate.isUndefined(value)) {
                 if (allowUndefined) {
                     // @ts-ignore
