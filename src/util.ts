@@ -55,7 +55,7 @@ export const axiosUrlParams = (instance: AxiosInstance): AxiosInstance => {
             return config;
         }
 
-        const currentUrl = new URL(config.url, config.baseURL);
+        const currentUrl = new URL(`${removeTrailingSlash(config.baseURL || '')}${config.url}`);
         // parse pathName to implement variables
         Object.entries(config.urlParams || {}).forEach(([k, v]) => {
             currentUrl.pathname = currentUrl.pathname.replace(`:${k}`, encodeURIComponent(v));

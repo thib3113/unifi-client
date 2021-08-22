@@ -78,14 +78,16 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             site: siteName ?? undefined
         });
 
+        //interceptors are called in reverse order
+        this.addAxiosProxyInterceptors(this.addAxiosPlugins(this.addAxiosDebugInterceptors(instance)));
+
         if (this.auth) {
             this.auth.addInterceptorsToInstance(instance);
         } else {
             this.auth = new UnifiAuth(this.props, instance);
         }
-        //else we create the controller instance
 
-        return this.addAxiosPlugins(this.addAxiosDebugInterceptors(this.addAxiosProxyInterceptors(instance)));
+        return instance;
     }
 
     // this functions are here to delete this value from rest(...) or JSON
@@ -399,15 +401,17 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     /**
      *
-     * @param source - not sure about it, but some number can return different results, and doesn't seems to be like pages
+     * @param folder - not sure about it, but some number can return different results
+     * seems to return https://static.ubnt.com/fingerprint/{folder}/devicelist.json
+     * tested with 0 1 2
      */
-    public async getDevicesFingerPrints(source = 0): Promise<Fingerprints> {
+    public async getDevicesFingerPrints(folder: 0 | 1 | 2 | number = 0): Promise<Fingerprints> {
         const fingerprintsRaw = (
-            await this.getInstance().get<FingerprintsRaw>('/fingerprint_devices/:source', {
+            await this.getInstance().get<FingerprintsRaw>('/fingerprint_devices/:folder', {
                 apiVersion: 2,
                 proxyNamespace: EProxyNamespaces.NETWORK,
                 urlParams: {
-                    source: (source ?? 0).toString()
+                    source: (folder ?? 0).toString()
                 }
             })
         ).data;
@@ -418,25 +422,29 @@ export class Controller extends ObjectWithPrivateValues implements IController {
                 : (Object.fromEntries(Object.entries(object).map(([k, v]) => [Number(k), v])) as unknown as Record<number, T>);
         };
 
-        const devices = Object.entries(fingerprintsRaw.dev_ids).map(([k, v]) => {
-            const value: IDeviceFingerprint = {
-                deviceFamily: v.family_id,
-                deviceType: v.dev_type_id,
-                name: v.name,
-                osClass: v.os_class_id,
-                osName: v.os_name_id,
-                fb: v.fb_id,
-                tm: v.tm_id,
-                category: v.ctag_id,
-                vendor: v.vendor_id
-            };
-            return [Number(k), value];
-        }) as unknown as Record<number, IDeviceFingerprint>;
+        const devices = !fingerprintsRaw.dev_ids
+            ? fingerprintsRaw.dev_ids
+            : Object.fromEntries(
+                  Object.entries(fingerprintsRaw.dev_ids).map(([k, v]) => {
+                      const value: IDeviceFingerprint = {
+                          deviceFamily: v.family_id ? Number(v.family_id) : undefined,
+                          deviceType: v.dev_type_id ? Number(v.dev_type_id) : undefined,
+                          name: v.name,
+                          osClass: v.os_class_id ? Number(v.os_class_id) : undefined,
+                          osName: v.os_name_id ? Number(v.os_name_id) : undefined,
+                          fb: v.fb_id ? Number(v.fb_id) : undefined,
+                          tm: v.tm_id ? Number(v.tm_id) : undefined,
+                          category: v.ctag_id ? Number(v.ctag_id) : undefined,
+                          vendor: v.vendor_id ? Number(v.vendor_id) : undefined,
+                          classId: v.class_id ? Number(v.class_id) : undefined
+                      };
+                      return [Number(k), value];
+                  })
+              );
 
         return {
             categories: convertKeyToNumber<string>(fingerprintsRaw.ctag_ids),
-            // @ts-ignore
-            devices: Object.fromEntries(devices),
+            devices,
             deviceTypes: convertKeyToNumber<string>(fingerprintsRaw.dev_type_ids),
             deviceFamilies: convertKeyToNumber<string>(fingerprintsRaw.family_ids),
             osNames: convertKeyToNumber<string>(fingerprintsRaw.os_name_ids),
