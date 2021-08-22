@@ -314,7 +314,9 @@ describe('Common tests', () => {
             // @ts-ignore
             controller,
             // @ts-ignore
-            site: new Site(controller, {})
+            site: new Site(controller, {
+                name: 'default'
+            })
         };
     });
 
