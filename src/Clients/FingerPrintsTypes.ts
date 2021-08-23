@@ -1,5 +1,5 @@
 export interface FingerprintsRaw {
-    dev_ids: Record<number, DeviceFingerprintRaw>;
+    dev_ids: Record<number, IDeviceFingerprintRaw>;
     dev_type_ids?: Record<number, string>;
     family_ids?: Record<number, string>;
     os_class_ids?: Record<number, string>;
@@ -8,7 +8,7 @@ export interface FingerprintsRaw {
     ctag_ids?: Record<number, string>;
 }
 
-export interface DeviceFingerprintRaw {
+export interface IDeviceFingerprintRaw {
     id?: number;
     name: string;
     vendor_id: number | string;
@@ -20,16 +20,6 @@ export interface DeviceFingerprintRaw {
     fb_id?: null | string;
     tm_id?: null | string;
     ctag_id?: null | string;
-}
-
-export interface Fingerprints {
-    devices: Record<number, IDeviceFingerprint>;
-    deviceTypes: Record<number, string>;
-    deviceFamilies: Record<number, string>;
-    osClass: Record<number, string>;
-    osNames: Record<number, string>;
-    vendors: Record<number, string>;
-    categories: Record<number, string>;
 }
 
 export interface IDeviceFingerprint {

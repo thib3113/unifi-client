@@ -14,7 +14,7 @@ import AxiosError from 'axios-error';
 import { Site, Sites } from './Sites';
 import { IUser } from './User';
 import { EProxyNamespaces, IBuildUrlParams, proxyNamespace } from './interfaces';
-import { IDeviceFingerprint, Fingerprints, FingerprintsRaw } from './Clients';
+import { FingerprintsRaw, DeviceFingerPrints } from './Clients';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
@@ -402,10 +402,10 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     /**
      *
      * @param folder - not sure about it, but some number can return different results
-     * seems to return https://static.ubnt.com/fingerprint/{folder}/devicelist.json
+     * seems to return https://static.ubnt.com/fingerprint/:folder/devicelist.json
      * tested with 0 1 2
      */
-    public async getDevicesFingerPrints(folder: 0 | 1 | 2 | number = 0): Promise<Fingerprints> {
+    public async getDevicesFingerPrints(folder: 0 | 1 | 2 | number = 0): Promise<DeviceFingerPrints> {
         const fingerprintsRaw = (
             await this.getInstance().get<FingerprintsRaw>('/fingerprint_devices/:folder', {
                 apiVersion: 2,
@@ -416,40 +416,6 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             })
         ).data;
 
-        const convertKeyToNumber = <T>(object?: Record<string, T>): Record<number, T> => {
-            return !object
-                ? {}
-                : (Object.fromEntries(Object.entries(object).map(([k, v]) => [Number(k), v])) as unknown as Record<number, T>);
-        };
-
-        const devices = !fingerprintsRaw.dev_ids
-            ? fingerprintsRaw.dev_ids
-            : Object.fromEntries(
-                  Object.entries(fingerprintsRaw.dev_ids).map(([k, v]) => {
-                      const value: IDeviceFingerprint = {
-                          deviceFamily: v.family_id ? Number(v.family_id) : undefined,
-                          deviceType: v.dev_type_id ? Number(v.dev_type_id) : undefined,
-                          name: v.name,
-                          osClass: v.os_class_id ? Number(v.os_class_id) : undefined,
-                          osName: v.os_name_id ? Number(v.os_name_id) : undefined,
-                          fb: v.fb_id ? Number(v.fb_id) : undefined,
-                          tm: v.tm_id ? Number(v.tm_id) : undefined,
-                          category: v.ctag_id ? Number(v.ctag_id) : undefined,
-                          vendor: v.vendor_id ? Number(v.vendor_id) : undefined,
-                          classId: v.class_id ? Number(v.class_id) : undefined
-                      };
-                      return [Number(k), value];
-                  })
-              );
-
-        return {
-            categories: convertKeyToNumber<string>(fingerprintsRaw.ctag_ids),
-            devices,
-            deviceTypes: convertKeyToNumber<string>(fingerprintsRaw.dev_type_ids),
-            deviceFamilies: convertKeyToNumber<string>(fingerprintsRaw.family_ids),
-            osNames: convertKeyToNumber<string>(fingerprintsRaw.os_name_ids),
-            osClass: convertKeyToNumber<string>(fingerprintsRaw.os_class_ids),
-            vendors: convertKeyToNumber<string>(fingerprintsRaw.vendor_ids)
-        };
+        return new DeviceFingerPrints(fingerprintsRaw);
     }
 }

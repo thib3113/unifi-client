@@ -13,6 +13,19 @@ export type DeviceData = Partial<IDevice> & {
 export class Client extends _ObjectSubSite {
     static debug = createDebugger('client');
 
+    private get old(): Partial<Client> {
+        return this.getPrivate('old');
+    }
+
+    private set old(data: Partial<Client>) {
+        this.setPrivate('old', data);
+    }
+
+    private importValue<T>(k: string, v: T) {
+        this.old[k] = v;
+        this[k] = v;
+    }
+
     constructor(config: IObjectSubSiteConfig, props: Partial<IClientRaw> & { mac: string }) {
         super(config);
 
@@ -21,6 +34,7 @@ export class Client extends _ObjectSubSite {
             throw new ClientError('mac is needed', EErrorsCodes.UNKNOWN_ERROR);
         }
         this.debug = Client.debug.extend(this.mac);
+        this.old = {};
         this.import(props);
 
         this.needVersion('forget', this._forget, '5.9.0');
@@ -29,18 +43,19 @@ export class Client extends _ObjectSubSite {
     protected import(props: Partial<IClientRaw>): this {
         this.debug('import()');
         if (!Validate.isUndefined(props._id)) {
-            this._id = props._id;
+            this.importValue('_id', props._id);
         }
         if (!Validate.isUndefined(props.site_id)) {
-            this.siteId = props.site_id;
+            this.importValue('siteId', props.site_id);
         }
         if (!Validate.isUndefined(props.oui)) {
-            this.oui = props.oui;
+            this.importValue('oui', props.oui);
         }
         if (!Validate.isUndefined(props.hostname)) {
-            this.hostname = props.hostname;
+            this.importValue('hostname', props.hostname);
         }
 
+        //prepare the device
         let device: DeviceData = this.device?._original ?? this.device ?? {};
 
         if (!Validate.isUndefined(props.fingerprint_source)) {
@@ -72,238 +87,239 @@ export class Client extends _ObjectSubSite {
             const _original = { ...device };
             device = {
                 id: props.dev_id_override,
+                _overridden: props.fingerprint_override,
                 _original
             };
         }
 
-        this.device = device;
+        this.importValue('device', device);
 
         if (!Validate.isUndefined(props.confidence)) {
-            this.confidence = props.confidence;
+            this.importValue('confidence', props.confidence);
         }
 
         if (!Validate.isUndefined(props.fw_version)) {
-            this.firmwareVersion = props.fw_version;
+            this.importValue('firmwareVersion', props.fw_version);
         }
         if (!Validate.isUndefined(props.score)) {
-            this.score = props.score;
+            this.importValue('score', props.score);
         }
         if (!Validate.isUndefined(props.blocked)) {
-            this.blocked = props.blocked;
+            this.importValue('blocked', props.blocked);
         }
         if (!Validate.isUndefined(props.user_group_id) || !Validate.isUndefined(props.usergroup_id)) {
-            this.groupId = props.user_group_id || props.usergroup_id;
+            this.importValue('groupId', props.user_group_id || props.usergroup_id);
         }
         if (!Validate.isUndefined(props.name)) {
-            this.name = props.name;
+            this.importValue('name', props.name);
         }
         if (!Validate.isUndefined(props.note)) {
-            this.note = props.note;
+            this.importValue('note', props.note);
         }
         if (!Validate.isUndefined(props.noted)) {
-            this.noted = props.noted;
+            this.importValue('noted', props.noted);
         }
         if (!Validate.isUndefined(props.is_guest)) {
-            this.isGuest = props.is_guest;
+            this.importValue('isGuest', props.is_guest);
         }
         if (!Validate.isUndefined(props.is_wired)) {
-            this.isWired = props.is_wired;
+            this.importValue('isWired', props.is_wired);
         }
         if (!Validate.isUndefined(props.fixed_ip)) {
-            this.fixedIp = props.fixed_ip;
+            this.importValue('fixedIp', props.fixed_ip);
         }
         if (!Validate.isUndefined(props.network_id)) {
-            this.networkId = props.network_id;
+            this.importValue('networkId', props.network_id);
         }
         if (!Validate.isUndefined(props.use_fixedip)) {
-            this.useFixedIp = props.use_fixedip;
+            this.importValue('useFixedIp', props.use_fixedip);
         }
         if (!Validate.isUndefined(props.first_seen)) {
-            this.firstSeen = convertTimestampSecondsToDate(props.first_seen);
+            this.importValue('firstSeen', convertTimestampSecondsToDate(props.first_seen));
         }
         if (!Validate.isUndefined(props.last_seen)) {
-            this.lastSeen = convertTimestampSecondsToDate(props.last_seen);
+            this.importValue('lastSeen', convertTimestampSecondsToDate(props.last_seen));
         }
 
         if (!Validate.isUndefined(props.assoc_time)) {
-            this.assocTime = convertTimestampSecondsToDate(props.assoc_time);
+            this.importValue('assocTime', convertTimestampSecondsToDate(props.assoc_time));
         }
         if (!Validate.isUndefined(props.latest_assoc_time)) {
-            this.latestAssocTime = convertTimestampSecondsToDate(props.latest_assoc_time);
+            this.importValue('latestAssocTime', convertTimestampSecondsToDate(props.latest_assoc_time));
         }
         if (!Validate.isUndefined(props.user_id)) {
-            this.userId = props.user_id;
+            this.importValue('userId', props.user_id);
         }
         if (!Validate.isUndefined(props._uptime_by_ugw)) {
-            this._uptimeByUgw = props._uptime_by_ugw;
+            this.importValue('_uptimeByUgw', props._uptime_by_ugw);
         }
         if (!Validate.isUndefined(props._last_seen_by_ugw)) {
-            this._lastSeenByUgw = convertTimestampSecondsToDate(props._last_seen_by_ugw);
+            this.importValue('_lastSeenByUgw', convertTimestampSecondsToDate(props._last_seen_by_ugw));
         }
         if (!Validate.isUndefined(props._is_guest_by_ugw)) {
-            this._isGuestByUGW = props._is_guest_by_ugw;
+            this.importValue('_isGuestByUGW', props._is_guest_by_ugw);
         }
         if (!Validate.isUndefined(props.gw_mac)) {
-            this.gwMac = props.gw_mac;
+            this.importValue('gwMac', props.gw_mac);
         }
         if (!Validate.isUndefined(props.network)) {
-            this.network = props.network;
+            this.importValue('network', props.network);
         }
         if (!Validate.isUndefined(props.uptime)) {
-            this.uptime = props.uptime;
+            this.importValue('uptime', props.uptime);
         }
         if (!Validate.isUndefined(props.tx_bytes)) {
-            this.txBytes = props.tx_bytes;
+            this.importValue('txBytes', props.tx_bytes);
         }
         if (!Validate.isUndefined(props.rx_bytes)) {
-            this.rxBytes = props.rx_bytes;
+            this.importValue('rxBytes', props.rx_bytes);
         }
         if (!Validate.isUndefined(props.tx_packets)) {
-            this.txPackets = props.tx_packets;
+            this.importValue('txPackets', props.tx_packets);
         }
         if (!Validate.isUndefined(props.tx_retries)) {
-            this.txRetries = props.tx_retries;
+            this.importValue('txRetries', props.tx_retries);
         }
         if (!Validate.isUndefined(props.wifi_tx_attempts)) {
-            this.wifiTxAttempts = props.wifi_tx_attempts;
+            this.importValue('wifiTxAttempts', props.wifi_tx_attempts);
         }
         if (!Validate.isUndefined(props.rx_packets)) {
-            this.rxPackets = props.rx_packets;
+            this.importValue('rxPackets', props.rx_packets);
         }
         if (!Validate.isUndefined(props['tx_bytes-r'])) {
-            this.txBytesR = props['tx_bytes-r'];
+            this.importValue('txBytesR', props['tx_bytes-r']);
         }
         if (!Validate.isUndefined(props['rx_bytes-r'])) {
-            this.rxBytesR = props['rx_bytes-r'];
+            this.importValue('rxBytesR', props['rx_bytes-r']);
         }
         if (!Validate.isUndefined(props.qos_policy_applied)) {
-            this.qosPolicyApplied = props.qos_policy_applied;
+            this.importValue('qosPolicyApplied', props.qos_policy_applied);
         }
         if (!Validate.isUndefined(props._uptime_by_usw)) {
-            this._uptimeByUSW = props._uptime_by_usw;
+            this.importValue('_uptimeByUSW', props._uptime_by_usw);
         }
         if (!Validate.isUndefined(props._last_seen_by_usw)) {
-            this._lastSeenByUSW = convertTimestampSecondsToDate(props._last_seen_by_usw);
+            this.importValue('_lastSeenByUSW', convertTimestampSecondsToDate(props._last_seen_by_usw));
         }
         if (!Validate.isUndefined(props._is_guest_by_usw)) {
-            this._isGuestByUSW = props._is_guest_by_usw;
+            this.importValue('_isGuestByUSW', props._is_guest_by_usw);
         }
         if (!Validate.isUndefined(props.sw_mac)) {
-            this.swMac = props.sw_mac;
+            this.importValue('swMac', props.sw_mac);
         }
         if (!Validate.isUndefined(props.sw_depth)) {
-            this.swDepth = props.sw_depth;
+            this.importValue('swDepth', props.sw_depth);
         }
         if (!Validate.isUndefined(props.sw_port)) {
-            this.swPort = props.sw_port;
+            this.importValue('swPort', props.sw_port);
         }
         if (!Validate.isUndefined(props.wired_rate_mbps)) {
-            this.wiredRateMbps = props.wired_rate_mbps;
+            this.importValue('wiredRateMbps', props.wired_rate_mbps);
         }
         if (!Validate.isUndefined(props.anomalies)) {
-            this.anomalies = props.anomalies;
+            this.importValue('anomalies', props.anomalies);
         }
         if (!Validate.isUndefined(props.ip)) {
-            this.ip = props.ip;
+            this.importValue('ip', props.ip);
         }
         if (!Validate.isUndefined(props.satisfaction)) {
-            this.satisfaction = props.satisfaction;
+            this.importValue('satisfaction', props.satisfaction);
         }
         if (!Validate.isUndefined(props['bytes-r'])) {
-            this.bytesR = props['bytes-r'];
+            this.importValue('bytesR', props['bytes-r']);
         }
         if (!Validate.isUndefined(props._uptime_by_uap)) {
-            this._uptimeByUAP = props._uptime_by_uap;
+            this.importValue('_uptimeByUAP', props._uptime_by_uap);
         }
         if (!Validate.isUndefined(props._last_seen_by_uap)) {
-            this._lastSeenByUAP = convertTimestampSecondsToDate(props._last_seen_by_uap);
+            this.importValue('_lastSeenByUAP', convertTimestampSecondsToDate(props._last_seen_by_uap));
         }
         if (!Validate.isUndefined(props._is_guest_by_uap)) {
-            this._isGuestByUAP = props._is_guest_by_uap;
+            this.importValue('_isGuestByUAP', props._is_guest_by_uap);
         }
         if (!Validate.isUndefined(props.ap_mac)) {
-            this.apMac = props.ap_mac;
+            this.importValue('apMac', props.ap_mac);
         }
         if (!Validate.isUndefined(props.channel)) {
-            this.channel = props.channel;
+            this.importValue('channel', props.channel);
         }
         if (!Validate.isUndefined(props.radio)) {
-            this.radio = props.radio;
+            this.importValue('radio', props.radio);
         }
         if (!Validate.isUndefined(props.radio_name)) {
-            this.radioName = props.radio_name;
+            this.importValue('radioName', props.radio_name);
         }
         if (!Validate.isUndefined(props.essid)) {
-            this.essid = props.essid;
+            this.importValue('essid', props.essid);
         }
         if (!Validate.isUndefined(props.bssid)) {
-            this.bssid = props.bssid;
+            this.importValue('bssid', props.bssid);
         }
         if (!Validate.isUndefined(props.powersave_enabled)) {
-            this.powersaveEnabled = props.powersave_enabled;
+            this.importValue('powersaveEnabled', props.powersave_enabled);
         }
         if (!Validate.isUndefined(props.is_11r)) {
-            this.is11r = props.is_11r;
+            this.importValue('is11r', props.is_11r);
         }
         if (!Validate.isUndefined(props.user_group_id_computed)) {
-            this.userGroupIdComputed = props.user_group_id_computed;
+            this.importValue('userGroupIdComputed', props.user_group_id_computed);
         }
         if (!Validate.isUndefined(props.ccq)) {
-            this.ccq = props.ccq;
+            this.importValue('ccq', props.ccq);
         }
         if (!Validate.isUndefined(props.rssi)) {
-            this.rssi = props.rssi;
+            this.importValue('rssi', props.rssi);
         }
         if (!Validate.isUndefined(props.noise)) {
-            this.noise = props.noise;
+            this.importValue('noise', props.noise);
         }
         if (!Validate.isUndefined(props.signal)) {
-            this.signal = props.signal;
+            this.importValue('signal', props.signal);
         }
         if (!Validate.isUndefined(props.tx_rate)) {
-            this.txRate = props.tx_rate;
+            this.importValue('txRate', props.tx_rate);
         }
         if (!Validate.isUndefined(props.rx_rate)) {
-            this.rxRate = props.rx_rate;
+            this.importValue('rxRate', props.rx_rate);
         }
         if (!Validate.isUndefined(props.tx_power)) {
-            this.txPower = props.tx_power;
+            this.importValue('txPower', props.tx_power);
         }
         if (!Validate.isUndefined(props.idletime)) {
-            this.idletime = props.idletime;
+            this.importValue('idletime', props.idletime);
         }
         if (!Validate.isUndefined(props.dhcpend_time)) {
-            this.dhcpendTime = props.dhcpend_time;
+            this.importValue('dhcpendTime', props.dhcpend_time);
         }
         if (!Validate.isUndefined(props.anon_client_id)) {
-            this.anonClientId = props.anon_client_id;
+            this.importValue('anonClientId', props.anon_client_id);
         }
         if (!Validate.isUndefined(props.tx_mcs)) {
-            this.txMcs = props.tx_mcs;
+            this.importValue('txMcs', props.tx_mcs);
         }
         if (!Validate.isUndefined(props.vlan)) {
-            this.vlan = props.vlan;
+            this.importValue('vlan', props.vlan);
         }
         if (!Validate.isUndefined(props.radio_proto)) {
-            this.radioProto = props.radio_proto;
+            this.importValue('radioProto', props.radio_proto);
         }
         if (!Validate.isUndefined(props['wired-tx_bytes'])) {
-            this.wiredTxBytes = props['wired-tx_bytes'];
+            this.importValue('wiredTxBytes', props['wired-tx_bytes']);
         }
         if (!Validate.isUndefined(props['wired-rx_bytes'])) {
-            this.wiredRxBytes = props['wired-rx_bytes'];
+            this.importValue('wiredRxBytes', props['wired-rx_bytes']);
         }
         if (!Validate.isUndefined(props['wired-tx_packets'])) {
-            this.wiredTxPackets = props['wired-tx_packets'];
+            this.importValue('wiredTxPackets', props['wired-tx_packets']);
         }
         if (!Validate.isUndefined(props['wired-rx_packets'])) {
-            this.wiredRxPackets = props['wired-rx_packets'];
+            this.importValue('wiredRxPackets', props['wired-rx_packets']);
         }
         if (!Validate.isUndefined(props['wired-tx_bytes-r'])) {
-            this.wiredTxBytesR = props['wired-tx_bytes-r'];
+            this.importValue('wiredTxBytesR', props['wired-tx_bytes-r']);
         }
         if (!Validate.isUndefined(props['wired-rx_bytes-r'])) {
-            this.wiredRxBytesR = props['wired-rx_bytes-r'];
+            this.importValue('wiredRxBytesR', props['wired-rx_bytes-r']);
         }
         return this;
     }
@@ -341,23 +357,50 @@ export class Client extends _ObjectSubSite {
         });
     }
 
-    public async save(): Promise<unknown> {
+    public async save(): Promise<this> {
         this.debug('save()');
         const device: Partial<IClientRaw> = {};
 
         device.name = this.name || '';
 
-        device.note = this.note;
-        device.noted = !!this.note;
+        // check if note was updated
+        if (this.note != this.old.note) {
+            // add note / noted
+            device.note = this.note;
+            device.noted = !!this.note;
+        }
 
+        //set user group id
         device.user_group_id = this.groupId;
+        device.usergroup_id = this.groupId;
 
-        return this.instance.post('/upd/user/:id', device, {
-            urlParams: {
-                site: this.site.name,
-                id: this._id
-            }
-        });
+        //check fixed ip
+        if (this.useFixedIp && !this.fixedIp) {
+            throw new ClientError('fixed_ip is needed to use fixed_ip', EErrorsCodes.FIXED_IP_NEEDED);
+        } else if (this.fixedIp && !this.useFixedIp) {
+            this.debug('warn : please set useFixedIp to true');
+            this.useFixedIp = true;
+        }
+
+        device.use_fixedip = this.useFixedIp;
+        device.fixed_ip = this.fixedIp;
+
+        const res = (
+            (
+                await this.instance.post<IUnifiResponseEnveloppe<Array<IClientRaw>>>('/upd/user/:id', device, {
+                    urlParams: {
+                        site: this.site.name,
+                        id: this._id
+                    }
+                })
+            ).data.data || []
+        ).pop();
+        //import only if res is updated
+        if (res) {
+            this.import(res);
+        }
+
+        return this;
     }
 
     public async block(): Promise<this> {

@@ -26,22 +26,22 @@ const main = async () => {
         const { device } = client;
 
         if (device.id) {
-            deviceFingerPrint = fingerprints.devices[device.id];
+            deviceFingerPrint = fingerprints.devices ? fingerprints.devices[device.id] : undefined;
         }
 
-        let deviceFullPart = '';
+        let deviceFullPart;
         if (deviceFingerPrint) {
             const osName =
                 Number(deviceFingerPrint.osName) > 1
-                    ? fingerprints.osNames[deviceFingerPrint.osName]
-                    : fingerprints.osClass[deviceFingerPrint.osClass];
+                    ? fingerprints.osNames[deviceFingerPrint.osName || 0]
+                    : fingerprints.osClasses[deviceFingerPrint.osClass || 0];
 
             const deviceType =
                 Number(deviceFingerPrint.deviceType) > 1
-                    ? fingerprints.deviceTypes[deviceFingerPrint.deviceType]
-                    : fingerprints.deviceFamilies[deviceFingerPrint.deviceFamily];
+                    ? fingerprints.deviceTypes[deviceFingerPrint.deviceType || 0]
+                    : fingerprints.deviceFamilies[deviceFingerPrint.deviceFamily || 0];
 
-            const vendor = fingerprints.vendors[deviceFingerPrint.vendor];
+            const vendor = fingerprints.vendors[deviceFingerPrint.vendor || 0];
 
             const category =
                 deviceFingerPrint.category && fingerprints.categories[deviceFingerPrint.category]

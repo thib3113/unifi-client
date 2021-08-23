@@ -34,6 +34,11 @@ export enum EErrorsCodes {
      * Client fail to login
      */
     FAIL_LOGIN,
+    /**
+     * fixed ip is needed to set fixed ip
+     */
+    FIXED_IP_NEEDED,
+
     // CODE THAT CAN COME FROM UNIFI ( 100 to 600 )
     CONTINUE = 100,
     SWITCHING_PROTOCOLS = 101,
