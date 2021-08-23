@@ -22,7 +22,9 @@ jobs:
       - name: generate lock files
         run: yarn
       - name: generate tests datas
-        run: yarn generate:data
+        run: |
+          yarn generate:data
+          yarn list
       - name: Cache package-lock
         uses: actions/cache@v2
         with:
