@@ -440,11 +440,16 @@ describe('Clients', () => {
                 });
             });
 
-            let newLyCreated = forgetList.find((c) => c.mac === mac.toLowerCase());
+            let resForget: boolean = false;
+            let newLyCreated = forgetList.find((c) => c.mac === mac.toLowerCase()) as Client;
 
-            newLyCreated?.forget().then(() => true);
+            expect(newLyCreated).toBeDefined();
 
-            const res4 = await new Promise<Client>(() => {
+            newLyCreated.forget().then((r) => {
+                resForget = r;
+            });
+
+            await new Promise<void>((resolve) => {
                 moxios.wait(async () => {
                     let request = moxios.requests.mostRecent();
 
@@ -454,36 +459,25 @@ describe('Clients', () => {
                             meta: {
                                 rc: 'ok'
                             },
-                            data: [
-                                {
-                                    _id: '60593c42c3d8180463a57747',
-                                    mac: '00:15:6d:25:4d:d1',
-                                    fixed_ip: '192.168.1.5',
-                                    use_fixedip: false,
-                                    site_id: '6001f8a73fd98c05e9465f91',
-                                    is_wired: true,
-                                    is_guest: false,
-                                    oui: 'Ubiquiti',
-                                    noted: false
-                                }
-                            ]
+                            data: {
+                                _id: '60593c42c3d8180463a57747',
+                                mac: '00:15:6d:25:4d:d1',
+                                fixed_ip: '192.168.1.5',
+                                use_fixedip: false,
+                                site_id: '6001f8a73fd98c05e9465f91',
+                                is_wired: true,
+                                is_guest: false,
+                                oui: 'Ubiquiti',
+                                noted: false
+                            }
                         }
                     });
-                    // resolve(resForget);
+                    resolve();
                 });
             });
-            // nock.load(path.join(fixturesPath, `${PREFIX}forget.json`));
-            // const res4 = await newLyCreated.forget();
-            expect(res4._id).toBe('60593c42c3d8180463a57747');
-            expect(res4.mac).toBe('00:15:6d:25:4d:d1');
-            expect(res4.fixedIp).toBe('192.168.1.5');
-            expect(res4.useFixedIp).toBe(false);
-            expect(res4.siteId).toBe('6001f8a73fd98c05e9465f91');
-            expect(res4.isWired).toBe(true);
-            expect(res4.isGuest).toBe(false);
-            expect(res4.oui).toBe('Ubiquiti');
-            expect(res4.noted).toBe(false);
-        }, 15000);
+
+            expect(resForget).toBeTruthy();
+        });
     });
 
     describe('non UnifiOs', () => {
