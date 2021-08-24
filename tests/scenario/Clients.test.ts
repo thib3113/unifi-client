@@ -483,7 +483,7 @@ describe('Clients', () => {
             expect(res4.isGuest).toBe(false);
             expect(res4.oui).toBe('Ubiquiti');
             expect(res4.noted).toBe(false);
-        });
+        }, 15000);
     });
 
     describe('non UnifiOs', () => {
