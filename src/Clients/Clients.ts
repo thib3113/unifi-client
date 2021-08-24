@@ -3,6 +3,8 @@ import { IUnknownClient } from './IUnknownClient';
 import { _ObjectSubSite } from '../commons/_ObjectSubSite';
 import { Client } from './Client';
 import { Validate } from '../commons/Validate';
+import { IUnifiResponseEnveloppe } from '../interfaces';
+import { IClientRaw } from './IClientRaw';
 
 export type partialClient = Partial<IUnknownClient> & { mac: string };
 
@@ -17,53 +19,44 @@ interface IClientListParams {
 }
 
 export class Clients extends _ObjectSubSite {
-    async create(client: partialClient): Promise<Client> {
+    async create(client: partialClient): Promise<Client | undefined> {
         if (Validate.isUndefined(client.mac)) {
             throw new ClientError('mac is mandatory', EErrorsCodes.BAD_PARAMETERS);
         }
 
-        return this.mapObject<Client>(
-            Client,
-            (
-                (
-                    await this.instance.post(
-                        '/rest/user',
-                        {
-                            mac: client.mac,
-                            user_group_id: client.user_group_id ?? client.usergroup_id,
-                            name: client.name,
-                            note: client.note,
-                            noted: client.noted || !!client.note,
-                            is_guest: client.is_guest,
-                            is_wired: client.is_wired,
-                            fixed_ip: client.fixed_ip,
-                            network_id: client.network_id,
-                            use_fixedip: client.use_fixedip ?? !!client.fixed_ip
-                        },
-                        {
-                            urlParams: { site: this.site.name }
-                        }
-                    )
-                ).data?.data || []
-            ).pop()
-        );
+        const created = (
+            await this.instance.post<IUnifiResponseEnveloppe<Array<IClientRaw>>>('/rest/user', {
+                mac: client.mac.toLowerCase(),
+                user_group_id: client.user_group_id ?? client.usergroup_id,
+                name: client.name,
+                note: client.note,
+                noted: client.noted || !!client.note,
+                is_guest: client.is_guest,
+                is_wired: client.is_wired,
+                fixed_ip: client.fixed_ip,
+                network_id: client.network_id,
+                use_fixedip: client.use_fixedip ?? !!client.fixed_ip
+            })
+        ).data?.data;
+
+        if (created?.length > 0) {
+            return this.mapObject<Client>(Client, created[0]);
+        }
     }
 
     // get return a different kind of device
-    async get(_id: string): Promise<Client> {
-        return this.mapObject<Client>(
-            Client,
-            (
-                (
-                    await this.instance.get('/rest/user/:_id', {
-                        urlParams: {
-                            site: this.site.name,
-                            _id
-                        }
-                    })
-                ).data?.data || []
-            ).pop()
-        );
+    async get(_id: string): Promise<Client | undefined> {
+        const result = (
+            await this.instance.get<IUnifiResponseEnveloppe<Array<IClientRaw>>>('/rest/user/:_id', {
+                urlParams: {
+                    _id
+                }
+            })
+        ).data?.data;
+
+        if (result?.length > 0) {
+            return this.mapObject<Client>(Client, result[0]);
+        }
     }
 
     // async createMultiples(pClients: Array<partialClient>): Promise<any> {
@@ -100,10 +93,7 @@ export class Clients extends _ObjectSubSite {
         return (
             (
                 await this.instance.get('/list/user', {
-                    params,
-                    urlParams: {
-                        site: this.site.name
-                    }
+                    params
                 })
             ).data?.data || []
         ).map((r) => this.mapObject<Client>(Client, r));
@@ -115,10 +105,7 @@ export class Clients extends _ObjectSubSite {
         const res =
             (
                 await this.instance.get('/stat/sta', {
-                    params,
-                    urlParams: {
-                        site: this.site.name
-                    }
+                    params
                 })
             ).data?.data || [];
         return res.map((r) => this.mapObject<Client>(Client, r));
@@ -128,10 +115,7 @@ export class Clients extends _ObjectSubSite {
         return (
             (
                 await this.instance.get('/stat/alluser', {
-                    params,
-                    urlParams: {
-                        site: this.site.name
-                    }
+                    params
                 })
             ).data?.data || []
         ).map((r) => this.mapObject<Client>(Client, r));
