@@ -36,7 +36,9 @@ export class Client extends _ObjectSubSite {
             throw new ClientError('mac is needed', EErrorsCodes.UNKNOWN_ERROR);
         }
         this.debug = Client.debug.extend(this.mac);
-        this.old = {};
+        this.old = {
+            mac: this.mac
+        };
         this.import(props);
 
         this.needVersion('forget', this._forget, '5.9.0');
