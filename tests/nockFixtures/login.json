@@ -301,9 +301,9 @@
                 {
                     "timezone": "Europe/Paris",
                     "autobackup": false,
-                    "build": "atag_6.2.26_15319",
-                    "version": "6.2.26",
-                    "previous_version": "6.2.25",
+                    "build": "atag_6.4.51_16045",
+                    "version": "6.4.51",
+                    "previous_version": "6.2.26",
                     "debug_mgmt": "warn",
                     "debug_system": "warn",
                     "debug_device": "warn",

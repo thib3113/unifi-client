@@ -7,7 +7,7 @@ import { v4 as uuidV4 } from 'uuid';
 import { Validate } from '../../src/commons/Validate';
 import { AxiosInstance } from 'axios';
 
-const controllerExpectedVersion = '6.2.26';
+const controllerExpectedVersion = '6.4.51';
 
 describe('Controller', () => {
     describe('start controller - UnifiOs', () => {

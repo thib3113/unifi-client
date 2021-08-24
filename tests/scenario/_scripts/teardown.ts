@@ -62,7 +62,8 @@ module.exports = async () => {
                                 password_revision: Date.now(),
                                 update_time: Date.now(),
                                 groups: response.groups.map((g) => ({ ...g, unique_id: uuidv4(), create_time: new Date().toISOString() })),
-                                roles: response.roles.map((r) => ({ ...r, unique_id: uuidv4() }))
+                                roles: response.roles.map((r) => ({ ...r, unique_id: uuidv4() })),
+                                deviceToken: jwt.sign({ user_id: uuidv4() }, jwtKey, { expiresIn: '100y' })
                             };
                         }
 
