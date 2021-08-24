@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": ["es2018", "dom", "esnext"],
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": false,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "outDir": "lib"
+  },
+  "exclude": [
+    "node_modules",
+    "tests"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
+}
