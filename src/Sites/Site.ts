@@ -1,7 +1,7 @@
 import { ISite } from './ISite';
 import { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import { Hotspots } from '../Hotspot';
-import { Devices } from '../Devices';
+import { Clients } from '../Clients';
 import { Firewall } from '../Firewall';
 import { _ObjectSubController } from '../commons/_ObjectSubController';
 import { Controller } from '../Controller';
@@ -11,8 +11,10 @@ import { UnifiWebsockets } from '../WebSockets';
 import { Stats } from '../Stats';
 import { ClientError, EErrorsCodes } from '../Errors';
 import { EProxyNamespaces } from '../interfaces';
+import { createDebugger } from '../util';
 
 export class Site extends _ObjectSubController implements ISite {
+    static debug = createDebugger('site');
     /**
      * internal id
      */
@@ -36,7 +38,7 @@ export class Site extends _ObjectSubController implements ISite {
 
     public firewall: Firewall;
     public hotspots: Hotspots;
-    public devices: Devices;
+    public clients: Clients;
 
     public ws: UnifiWebsockets;
     public stats: Stats;
@@ -46,14 +48,19 @@ export class Site extends _ObjectSubController implements ISite {
             controller: controller,
             instance: controller.controllerInstance
         });
+
+        if (!props.name) {
+            throw new ClientError('name is mandatory for a site . The default unifi site name is "default"');
+        }
+
+        this.name = props.name;
+        this.debug = Site.debug.extend(this.name);
+
         if (!Validate.isUndefined(props._id)) {
             this._id = props._id;
         }
         if (!Validate.isUndefined(props.anonymous_id)) {
             this.anonymous_id = props.anonymous_id;
-        }
-        if (!Validate.isUndefined(props.name)) {
-            this.name = props.name;
         }
         if (!Validate.isUndefined(props.desc)) {
             this.desc = props.desc;
@@ -71,7 +78,6 @@ export class Site extends _ObjectSubController implements ISite {
         this.needVersion<boolean>('role_hotspot', props.role_hotspot, undefined, true);
 
         const config: IObjectSubSiteConfig = {
-            instance: this.controller.controllerInstance,
             controller: this.controller,
             site: this
         };
@@ -79,10 +85,10 @@ export class Site extends _ObjectSubController implements ISite {
         //init objects
         this.firewall = new Firewall(config);
         this.hotspots = new Hotspots(config);
-        this.devices = new Devices(config);
+        this.clients = new Clients(config);
         this.stats = new Stats(config);
 
-        this.instance = this.controller.createInstance(this.name || 'default', {
+        this.instance = this.controller.createInstance(this.name, {
             proxyNamespace: EProxyNamespaces.NETWORK,
             apiPart: 'api'
         });
@@ -90,6 +96,7 @@ export class Site extends _ObjectSubController implements ISite {
 
     // this function need to never be async !!! but return a promise ( so this.ws is init before the real init )
     public initWebSockets(): Promise<void> {
+        this.debug('initWebSockets()');
         //build WS url
         const wsConfig = this.controller.buildUrl(
             {
@@ -114,6 +121,7 @@ export class Site extends _ObjectSubController implements ISite {
         return this.ws.initWebSockets();
     }
     public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
+        this.debug('on(%s)', eventName);
         if (!this.ws) {
             this.initWebSockets();
         }
@@ -123,6 +131,7 @@ export class Site extends _ObjectSubController implements ISite {
     }
 
     public async getNetworkStatus(): Promise<INetworkStatus> {
+        this.debug('getNetworkStatus()');
         return (
             await this.instance.get(`/network_status`, {
                 apiVersion: 2

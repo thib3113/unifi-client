@@ -3,20 +3,60 @@ on:
   release:
     types: [created]
 jobs:
-  build:
+  prepare:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [ lts/*, 16]
-        #can't test on 5.6.42 because database is too up-to-date ( 5.12.72 )
-        unifi-version: [ latest, version-6.0.23, version-6.0.28, version-6.0.36, version-6.0.41, version-6.0.43, version-6.0.45 ]
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
+          node-version: lts/*
+      - name: generate lock files
+        run: yarn
+      - uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          cache: yarn
+      - name: generate tests datas
+        run: |
+          yarn generate:data
+          yarn list > yarn.list
+      - uses: actions/upload-artifact@v2
+        with:
+          name: prepare
+          path: |
+            ./yarn.list
+            ./yarn.lock
+            ./tests/datas
+
+  # This workflow contains a single job called "build"
+  build:
+    needs: [ prepare ]
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # do a matrix test with different node versions
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [ lts/*, 16 ]
+        #can't test on 5.6.42 because database is too up to date ( 5.12.72 )
+        unifi-version: [ latest, version-6.2.25, version-6.1.71, version-6.0.45, version-6.0.43, version-6.0.41, version-6.0.36, version-6.0.28, version-6.0.23 ]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: prepare
+          path: .
+
+      # try to perform a nodejs setup
+      - uses: actions/setup-node@v2
+        with:
           node-version: ${{ matrix.node-version }}
+          cache: yarn
 
       - name: install+run docker-unifi-controller
         run: |

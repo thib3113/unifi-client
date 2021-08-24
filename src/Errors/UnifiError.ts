@@ -1,6 +1,8 @@
 import { __Error } from './__Error';
+import AxiosError from 'axios-error';
 
 export interface IUnifiErrorMeta {
+    msg?: string;
     validationError?: {
         field: string;
         pattern: string;
@@ -9,8 +11,9 @@ export interface IUnifiErrorMeta {
 
 export class UnifiError extends __Error {
     public meta: IUnifiErrorMeta;
+    public axiosError?: AxiosError;
 
-    public constructor(message: string | Error = '', code = 0, pMeta: IUnifiErrorMeta = {}, exception?: Error | string) {
+    public constructor(message: string | Error = '', code = 0, pMeta: IUnifiErrorMeta = {}, exception?: AxiosError) {
         super(message, code, exception);
         //clone meta object before removing parts
         const meta = { ...pMeta };
@@ -27,6 +30,7 @@ export class UnifiError extends __Error {
         this.message = this._message;
         // Set the prototype explicitly.
         // Object.setPrototypeOf(this, Error.prototype);
+        this.axiosError = exception;
     }
 
     name: string = 'UnifiError';

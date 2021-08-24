@@ -22,4 +22,6 @@ export const resetControllerVersion = () => {
     controller.version = version;
 };
 
+controller.createInstance = jest.fn().mockImplementation(() => axios);
+
 export { controller };

@@ -14,6 +14,7 @@ import AxiosError from 'axios-error';
 import { Site, Sites } from './Sites';
 import { IUser } from './User';
 import { EProxyNamespaces, IBuildUrlParams, proxyNamespace } from './interfaces';
+import { FingerprintsRaw, DeviceFingerPrints } from './Clients';
 
 export interface IControllerProps extends IUnifiAuthProps {
     url: string;
@@ -77,14 +78,16 @@ export class Controller extends ObjectWithPrivateValues implements IController {
             site: siteName ?? undefined
         });
 
+        //interceptors are called in reverse order
+        this.addAxiosProxyInterceptors(this.addAxiosPlugins(this.addAxiosDebugInterceptors(instance)));
+
         if (this.auth) {
             this.auth.addInterceptorsToInstance(instance);
         } else {
             this.auth = new UnifiAuth(this.props, instance);
         }
-        //else we create the controller instance
 
-        return this.addAxiosPlugins(this.addAxiosDebugInterceptors(this.addAxiosProxyInterceptors(instance)));
+        return instance;
     }
 
     // this functions are here to delete this value from rest(...) or JSON
@@ -394,5 +397,25 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     public async initWebSockets(): Promise<void> {
         this._initWebSockets();
         await Promise.all([this.unifiOs ? this.ws.initWebSockets() : Promise.resolve(), this.superWS.initWebSockets()]);
+    }
+
+    /**
+     *
+     * @param folder - not sure about it, but some number can return different results
+     * seems to return https://static.ubnt.com/fingerprint/:folder/devicelist.json
+     * tested with 0 1 2
+     */
+    public async getDevicesFingerPrints(folder: 0 | 1 | 2 | number = 0): Promise<DeviceFingerPrints> {
+        const fingerprintsRaw = (
+            await this.getInstance().get<FingerprintsRaw>('/fingerprint_devices/:folder', {
+                apiVersion: 2,
+                proxyNamespace: EProxyNamespaces.NETWORK,
+                urlParams: {
+                    source: (folder ?? 0).toString()
+                }
+            })
+        ).data;
+
+        return new DeviceFingerPrints(fingerprintsRaw);
     }
 }

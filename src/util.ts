@@ -1,6 +1,8 @@
 import createDebug, { Debugger } from 'debug';
 import url, { URL, URLSearchParams } from 'url';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { dateInput } from './commons/types';
+import { Validate } from './commons/Validate';
 
 const debug = createDebug(`unifi-client`);
 /**
@@ -53,7 +55,7 @@ export const axiosUrlParams = (instance: AxiosInstance): AxiosInstance => {
             return config;
         }
 
-        const currentUrl = new URL(config.url, config.baseURL);
+        const currentUrl = new URL(`${removeTrailingSlash(config.baseURL || '')}${config.url}`);
         // parse pathName to implement variables
         Object.entries(config.urlParams || {}).forEach(([k, v]) => {
             currentUrl.pathname = currentUrl.pathname.replace(`:${k}`, encodeURIComponent(v));
@@ -69,4 +71,8 @@ export const axiosUrlParams = (instance: AxiosInstance): AxiosInstance => {
     });
 
     return instance;
+};
+
+export const convertTimestampSecondsToDate = (time: dateInput): Date => {
+    return new Date(Validate.isNumber(time) ? time * 1000 : time);
 };
