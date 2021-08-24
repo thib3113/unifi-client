@@ -27,11 +27,12 @@ jobs:
       - name: generate tests datas
         run: |
           yarn generate:data
-          yarn list
+          yarn list > yarn.list
       - uses: actions/upload-artifact@v2
         with:
           name: prepare
           path: |
+            ./yarn.list
             ./yarn.lock
             ./tests/datas
 
