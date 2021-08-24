@@ -422,15 +422,15 @@ describe('UnifiAuth.test.ts', () => {
                     data: {
                         data: [
                             {
-                                version: '6.2.26'
+                                version: '6.4.51'
                             }
                         ]
                     }
                 })
             );
 
-            expect(await auth.getVersion()).toBe('6.2.26');
-            expect(debug.debugMock).toHaveBeenCalledWith('controller version is : %s', '6.2.26');
+            expect(await auth.getVersion()).toBe('6.4.51');
+            expect(debug.debugMock).toHaveBeenCalledWith('controller version is : %s', '6.4.51');
             expect(axios.get).toBeCalledWith('/api/s/:site/stat/sysinfo', expect.objectContaining({ urlParams: { site: 'default' } }));
         });
         describe('test errors', () => {
