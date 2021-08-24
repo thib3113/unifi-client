@@ -25,13 +25,12 @@ jobs:
         run: |
           yarn generate:data
           yarn list
-      - name: Cache package-lock
-        uses: actions/cache@v2
+      - uses: actions/upload-artifact@v2
         with:
+          name: prepare
           path: |
             ./yarn.lock
             ./tests/datas
-          key: ${{ runner.os }}-${{ hashFiles('././tests/datas/**/*') }}-${{ hashFiles('./yarn.lock') }}
 
   # This workflow contains a single job called "build"
   build:
@@ -60,7 +59,10 @@ jobs:
             ./tests/datas
           key: ${{ runner.os }}-
           restore-keys: ${{ runner.os }}-
-
+      - uses: actions/download-artifact@v2
+        with:
+          name: prepare
+          path: .
       # try to perform a nodejs setup
       - uses: actions/setup-node@v2
         with:
