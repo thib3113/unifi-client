@@ -311,11 +311,12 @@ describe('Common tests', () => {
         // controller = await getLoggedControllerWithoutSite(nock);
         // const [site] = await controller.getSites();
         config = {
-            instance: axios.create(),
             // @ts-ignore
             controller,
             // @ts-ignore
-            site: new Site(controller, {})
+            site: new Site(controller, {
+                name: 'default'
+            })
         };
     });
 

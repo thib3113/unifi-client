@@ -1,6 +1,7 @@
+// noinspection DuplicatedCode
 //need to be first
 import { axiosUrlParamsMock, debug, getUrlRepresentationMock } from '../mocks/utils';
-import { ClientError, Controller, EErrorsCodes, EProxyNamespaces, UnifiError, UnifiWebsockets } from '../../src';
+import { ClientError, Controller, DeviceFingerPrints, EErrorsCodes, EProxyNamespaces, UnifiError, UnifiWebsockets } from '../../src';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import https from 'https';
 import { UnifiAuth } from '../../src/UnifiAuth';
@@ -964,7 +965,7 @@ describe('test controller', () => {
             describe('test with urls', () => {
                 type testDatas = [string, Partial<AxiosRequestConfig>, boolean];
                 const rawUrls: Array<{ expected: string; config: Partial<AxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
-                    fs.readFileSync(path.join(__dirname, '..', 'mocks', 'unifios-urls.json')).toString()
+                    fs.readFileSync(path.join(__dirname, '..', 'datas', 'urlBuilder', 'unifios-urls.json')).toString()
                 );
 
                 const urls: Array<testDatas> = Object.values(rawUrls).map(({ config, websockets, expected }) => [
@@ -1149,7 +1150,7 @@ describe('test controller', () => {
             describe('test with urls', () => {
                 type testDatas = [string, Partial<AxiosRequestConfig>, boolean];
                 const rawUrls: Array<{ expected: string; config: Partial<AxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
-                    fs.readFileSync(path.join(__dirname, '..', 'mocks', 'not-unifios-urls.json')).toString()
+                    fs.readFileSync(path.join(__dirname, '..', 'datas', 'urlBuilder', 'not-unifios-urls.json')).toString()
                 );
 
                 const urls: Array<testDatas> = Object.values(rawUrls).map(({ config, websockets, expected }) => [
@@ -1509,5 +1510,212 @@ describe('test controller', () => {
             expect(controller.on('ctrl.connect', fn)).toBe(controller);
             expect(onMock).toHaveBeenCalledWith('ctrl.connect', fn);
         });
+    });
+
+    describe('getDevicesFingerPrints', () => {
+        let controller: Controller;
+        beforeEach(() => {
+            controller = new Controller({
+                url: 'http://localhost',
+                username: 'username',
+                password: 'password'
+            });
+        });
+
+        it('return a full list', async () => {
+            mockedAxios.get.mockImplementationOnce(() =>
+                Promise.resolve({
+                    data: {}
+                })
+            );
+            const fingerprints = await controller.getDevicesFingerPrints();
+            expect(fingerprints).toBeInstanceOf(DeviceFingerPrints);
+            expect(mockedAxios.get).toHaveBeenCalledWith('/fingerprint_devices/:folder', {
+                apiVersion: 2,
+                proxyNamespace: 'network',
+                urlParams: { source: '0' }
+            });
+        });
+
+        // it('should handle a list without some parts', async () => {
+        //     mockedAxios.get.mockImplementationOnce(() =>
+        //         Promise.resolve({
+        //             data: {}
+        //         })
+        //     );
+        //     const fingerprints = await controller.getDevicesFingerPrints();
+        //     expect(fingerprints).toStrictEqual({
+        //         categories: {},
+        //         deviceFamilies: {
+        //             1: 'Smart TV & Set-top box',
+        //             2: 'Game Console',
+        //             3: 'Handheld'
+        //         },
+        //         deviceTypes: {
+        //             1: 'Desktop/Laptop',
+        //             2: 'Router',
+        //             3: 'VoIP Phone',
+        //             4: 'Miscellaneous',
+        //             5: 'IPTV',
+        //             6: 'Smartphone'
+        //         },
+        //         devices: {
+        //             19: {
+        //                 deviceFamily: 9,
+        //                 deviceType: 44,
+        //                 fb: 11366,
+        //                 name: 'Google Pixel XL',
+        //                 osClass: 5,
+        //                 osName: 56,
+        //                 tm: 2193,
+        //                 vendor: undefined,
+        //                 category: undefined,
+        //                 classId: undefined
+        //             },
+        //             20: {
+        //                 deviceFamily: 9,
+        //                 deviceType: 44,
+        //                 name: 'Google Pixel',
+        //                 osClass: 5,
+        //                 osName: undefined,
+        //                 tm: 2194,
+        //                 fb: undefined,
+        //                 vendor: 7,
+        //                 category: undefined,
+        //                 classId: undefined
+        //             },
+        //             21: {
+        //                 deviceFamily: 10,
+        //                 deviceType: 44,
+        //                 fb: 8438,
+        //                 name: 'Google Pixel C',
+        //                 osClass: undefined,
+        //                 osName: 56,
+        //                 tm: 2195,
+        //                 vendor: 7,
+        //                 category: undefined,
+        //                 classId: undefined
+        //             },
+        //             283: {
+        //                 deviceFamily: 9,
+        //                 deviceType: undefined,
+        //                 fb: 33901,
+        //                 name: 'Google Pixel 2 ',
+        //                 osClass: 5,
+        //                 osName: 56,
+        //                 tm: 2889,
+        //                 vendor: 7,
+        //                 category: undefined,
+        //                 classId: undefined
+        //             },
+        //             284: {
+        //                 deviceFamily: undefined,
+        //                 deviceType: 44,
+        //                 fb: 33902,
+        //                 name: 'Google Pixel 2 XL',
+        //                 osClass: 5,
+        //                 osName: 56,
+        //                 tm: 2888,
+        //                 vendor: 7,
+        //                 category: undefined,
+        //                 classId: undefined
+        //             },
+        //             2801: {
+        //                 deviceFamily: 9,
+        //                 deviceType: 44,
+        //                 fb: undefined,
+        //                 name: 'Google Pixel 3 XL',
+        //                 osClass: 5,
+        //                 osName: 56,
+        //                 tm: 0,
+        //                 vendor: 7,
+        //                 category: undefined,
+        //                 classId: undefined
+        //             },
+        //             2822: {
+        //                 deviceFamily: 9,
+        //                 deviceType: 44,
+        //                 fb: 43354,
+        //                 name: 'Google Pixel 3',
+        //                 osClass: 5,
+        //                 osName: 56,
+        //                 tm: undefined,
+        //                 vendor: 7,
+        //                 category: undefined,
+        //                 classId: undefined
+        //             },
+        //             3655: {
+        //                 category: 101,
+        //                 deviceFamily: 7,
+        //                 deviceType: 12,
+        //                 fb: 0,
+        //                 name: 'UniFi AP LR',
+        //                 classId: undefined,
+        //                 osClass: 1,
+        //                 osName: 1,
+        //                 tm: 0,
+        //                 vendor: 234
+        //             },
+        //             3915: {
+        //                 classId: 11,
+        //                 deviceFamily: 3809,
+        //                 name: 'Galaxy player 70 Plus',
+        //                 vendor: 202,
+        //                 tm: undefined,
+        //                 category: undefined,
+        //                 deviceType: undefined,
+        //                 fb: undefined,
+        //                 osClass: undefined,
+        //                 osName: undefined
+        //             }
+        //         },
+        //         osClass: {
+        //             1: 'Others',
+        //             2: 'VxWorks',
+        //             3: 'Linux',
+        //             4: 'Network Boot Loader',
+        //             5: 'Android'
+        //         },
+        //         osNames: {
+        //             1: 'Others',
+        //             2: 'VxWorks',
+        //             3: 'Linux'
+        //         },
+        //         vendors: {
+        //             1: 'Others',
+        //             2: '2Wire, Inc.'
+        //         }
+        //     });
+        // });
+
+        it('should handle a default page of 0', async () => {
+            mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: {} }));
+            // @ts-ignore
+            await controller.getDevicesFingerPrints(null);
+            expect(mockedAxios.get).toHaveBeenCalledWith('/fingerprint_devices/:folder', {
+                apiVersion: 2,
+                proxyNamespace: 'network',
+                urlParams: { source: '0' }
+            });
+        });
+
+        // describe('test all fingerprints', () => {
+        //     //try to load known fingerprints files, without errors
+        //     const fingerPrintPath = path.join(__dirname, '..', 'datas', 'fingerprints');
+        //     // get json files
+        //     const files = fs
+        //         .readdirSync(fingerPrintPath)
+        //         .filter((f) => f.endsWith('.json'))
+        //         .map((f) => path.join(fingerPrintPath, f));
+        //     //protect again a "no datas" test pass
+        //     if (files.length < 1) {
+        //         throw new Error('fail to read fingerprints datas to test');
+        //     }
+        //     it.each<string>(files)('should correctly parse %s', async (file) => {
+        //         mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: JSON.parse(fs.readFileSync(file).toString()) }));
+        //         await controller.getDevicesFingerPrints();
+        //         expect(true).toBeTruthy();
+        //     });
+        // });
     });
 });

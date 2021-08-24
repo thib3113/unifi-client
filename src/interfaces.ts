@@ -93,3 +93,10 @@ export interface IBuildUrlParams {
      */
     apiPart?: string | boolean;
 }
+
+export interface IUnifiResponseEnveloppe<T = unknown> {
+    meta: {
+        rc: 'ok' | string;
+    };
+    data: T;
+}

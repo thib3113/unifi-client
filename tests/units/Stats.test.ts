@@ -7,8 +7,7 @@ describe('Stats.tests.ts', () => {
     let instance = site.getInstance() as jest.Mocked<typeof axios>;
     const stats = new Stats({
         site,
-        controller,
-        instance
+        controller
     });
 
     instance.post.mockImplementation(() =>

@@ -8,7 +8,9 @@ export const removeTrailingSlashMock = jest.fn();
 
 export const axiosUrlParamsMock = jest.fn().mockImplementation((instance) => instance);
 
-export const getUrlRepresentationMock = jest.fn().mockImplementation((instance) => instance);
+export const getUrlRepresentationMock = jest.fn().mockImplementation((req) => req);
+
+export const convertTimestampSecondsToDateMock = jest.fn();
 
 jest.mock('../../src/util', () => {
     const originalModule = jest.requireActual('../../src/util');
@@ -16,7 +18,8 @@ jest.mock('../../src/util', () => {
         createDebugger: createDebuggerMock,
         removeTrailingSlash: removeTrailingSlashMock.mockImplementation((str) => originalModule.removeTrailingSlash(str)),
         axiosUrlParams: axiosUrlParamsMock,
-        getUrlRepresentation: getUrlRepresentationMock
+        getUrlRepresentation: getUrlRepresentationMock,
+        convertTimestampSecondsToDate: convertTimestampSecondsToDateMock.mockImplementation(originalModule.convertTimestampSecondsToDate)
     };
 });
 
