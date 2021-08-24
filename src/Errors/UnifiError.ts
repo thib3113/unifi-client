@@ -2,6 +2,7 @@ import { __Error } from './__Error';
 import AxiosError from 'axios-error';
 
 export interface IUnifiErrorMeta {
+    msg?: string;
     validationError?: {
         field: string;
         pattern: string;

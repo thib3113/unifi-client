@@ -50,15 +50,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      - name: Cache package-lock
-        uses: actions/cache@v2
-        with:
-          path: |
-            ./yarn.lock
-            ./tests/datas
-          key: ${{ runner.os }}-
-          restore-keys: ${{ runner.os }}-
       - uses: actions/download-artifact@v2
         with:
           name: prepare
@@ -68,7 +59,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
-
       - name: install+run docker-unifi-controller
         run: |
           # install our own demo database

@@ -282,7 +282,7 @@ describe('Clients', () => {
                     mac,
                     fixed_ip: '192.168.1.5'
                 })
-                .then((r) => (res = r));
+                .then((r: Client) => (res = r));
             const resCreate = await new Promise<Client>((resolve) => {
                 moxios.wait(async () => {
                     let request = moxios.requests.mostRecent();
@@ -488,10 +488,10 @@ describe('Clients', () => {
         });
 
         it('should crud clients', async () => {
-            const resCreate = await site.clients.create({
+            const resCreate = (await site.clients.create({
                 mac
                 //need a security gateway to set static ip
-            });
+            })) as Client;
 
             expect(resCreate).toBeDefined();
 
