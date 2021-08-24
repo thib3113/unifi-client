@@ -21,8 +21,10 @@ export class Client extends _ObjectSubSite {
         this.setPrivate('old', data);
     }
 
-    private importValue<T>(k: string, v: T) {
+    private importValue(k: keyof Client, v: unknown) {
+        // @ts-ignore
         this.old[k] = v;
+        // @ts-ignore
         this[k] = v;
     }
 
@@ -40,7 +42,7 @@ export class Client extends _ObjectSubSite {
         this.needVersion('forget', this._forget, '5.9.0');
     }
 
-    protected import(props: Partial<IClientRaw>): this {
+    public import(props: Partial<IClientRaw>): this {
         this.debug('import()');
         if (!Validate.isUndefined(props._id)) {
             this.importValue('_id', props._id);
@@ -70,6 +72,9 @@ export class Client extends _ObjectSubSite {
         if (!Validate.isUndefined(props.os_name)) {
             device.os = props.os_name;
         }
+        if (!Validate.isUndefined(props.os_name)) {
+            device.os = props.os_name;
+        }
         if (!Validate.isUndefined(props.dev_vendor)) {
             device.vendor = props.dev_vendor;
         }
@@ -87,7 +92,7 @@ export class Client extends _ObjectSubSite {
             const _original = { ...device };
             device = {
                 id: props.dev_id_override,
-                _overridden: props.fingerprint_override,
+                _overridden: true,
                 _original
             };
         }
@@ -151,10 +156,10 @@ export class Client extends _ObjectSubSite {
             this.importValue('userId', props.user_id);
         }
         if (!Validate.isUndefined(props._uptime_by_ugw)) {
-            this.importValue('_uptimeByUgw', props._uptime_by_ugw);
+            this.importValue('_uptimeByUGW', props._uptime_by_ugw);
         }
         if (!Validate.isUndefined(props._last_seen_by_ugw)) {
-            this.importValue('_lastSeenByUgw', convertTimestampSecondsToDate(props._last_seen_by_ugw));
+            this.importValue('_lastSeenByUGW', convertTimestampSecondsToDate(props._last_seen_by_ugw));
         }
         if (!Validate.isUndefined(props._is_guest_by_ugw)) {
             this.importValue('_isGuestByUGW', props._is_guest_by_ugw);
@@ -270,6 +275,18 @@ export class Client extends _ObjectSubSite {
         if (!Validate.isUndefined(props.rssi)) {
             this.importValue('rssi', props.rssi);
         }
+        if (!Validate.isUndefined(props['wired-tx_packets'])) {
+            this.importValue('wiredTxPackets', props['wired-tx_packets']);
+        }
+        if (!Validate.isUndefined(props['wired-rx_packets'])) {
+            this.importValue('wiredRxPackets', props['wired-rx_packets']);
+        }
+        if (!Validate.isUndefined(props['wired-tx_bytes-r'])) {
+            this.importValue('wiredTxBytesR', props['wired-tx_bytes-r']);
+        }
+        if (!Validate.isUndefined(props['wired-rx_bytes-r'])) {
+            this.importValue('wiredRxBytesR', props['wired-rx_bytes-r']);
+        }
         if (!Validate.isUndefined(props.noise)) {
             this.importValue('noise', props.noise);
         }
@@ -309,18 +326,6 @@ export class Client extends _ObjectSubSite {
         if (!Validate.isUndefined(props['wired-rx_bytes'])) {
             this.importValue('wiredRxBytes', props['wired-rx_bytes']);
         }
-        if (!Validate.isUndefined(props['wired-tx_packets'])) {
-            this.importValue('wiredTxPackets', props['wired-tx_packets']);
-        }
-        if (!Validate.isUndefined(props['wired-rx_packets'])) {
-            this.importValue('wiredRxPackets', props['wired-rx_packets']);
-        }
-        if (!Validate.isUndefined(props['wired-tx_bytes-r'])) {
-            this.importValue('wiredTxBytesR', props['wired-tx_bytes-r']);
-        }
-        if (!Validate.isUndefined(props['wired-rx_bytes-r'])) {
-            this.importValue('wiredRxBytesR', props['wired-rx_bytes-r']);
-        }
         return this;
     }
 
@@ -331,30 +336,18 @@ export class Client extends _ObjectSubSite {
      * only supported with controller versions 5.9.X and higher, can be
      * slow (up to 5 minutes) on larger controllers
      */
-    public forget: () => Promise<Client>;
-    private async _forget(): Promise<Client> {
+    public forget: () => Promise<boolean>;
+    private async _forget(): Promise<boolean> {
         this.debug('forget()');
         const json = { cmd: 'forget-sta', macs: [this.mac] };
-        return this.mapObject<Client>(
-            Client,
-            (
-                (
-                    await this.instance.post('/cmd/stamgr', json, {
-                        timeout: 10 * 60 * 1000
-                    })
-                ).data?.data || []
-            ).pop()
-        );
-    }
 
-    public async delete(): Promise<void> {
-        this.debug('delete()');
-        return this.instance.delete('/rest/user/:id', {
-            urlParams: {
-                site: this.site.name,
-                id: this._id
-            }
-        });
+        const res = (
+            await this.instance.post<IUnifiResponseEnveloppe<IClientRaw>>('/cmd/stamgr', json, {
+                timeout: 10 * 60 * 1000
+            })
+        ).data;
+
+        return res?.meta?.rc === 'ok';
     }
 
     public async save(): Promise<this> {
@@ -405,28 +398,29 @@ export class Client extends _ObjectSubSite {
 
     public async block(): Promise<this> {
         this.debug('block()');
-        this.import(
-            (
-                await this.instance.post<IUnifiResponseEnveloppe<IClientRaw>>('/cmd/stamgr', {
-                    cmd: 'block-sta',
-                    mac: this.mac.toLowerCase()
-                })
-            ).data?.data
-        );
+        const res = (
+            await this.instance.post<IUnifiResponseEnveloppe<IClientRaw>>('/cmd/stamgr', {
+                cmd: 'block-sta',
+                mac: this.mac.toLowerCase()
+            })
+        ).data?.data;
+        if (res) {
+            this.import(res);
+        }
         return this;
     }
 
     public async unblock(): Promise<this> {
         this.debug('unblock()');
-
-        this.import(
-            (
-                await this.instance.post<IUnifiResponseEnveloppe<IClientRaw>>('/cmd/stamgr', {
-                    cmd: 'unblock-sta',
-                    mac: this.mac.toLowerCase()
-                })
-            ).data?.data
-        );
+        const res = (
+            await this.instance.post<IUnifiResponseEnveloppe<IClientRaw>>('/cmd/stamgr', {
+                cmd: 'unblock-sta',
+                mac: this.mac.toLowerCase()
+            })
+        ).data?.data;
+        if (res) {
+            this.import(res);
+        }
         return this;
     }
 
@@ -454,8 +448,8 @@ export class Client extends _ObjectSubSite {
     public assocTime?: Date;
     public latestAssocTime?: Date;
     public userId?: string;
-    public _uptimeByUgw?: number;
-    public _lastSeenByUgw?: Date;
+    public _uptimeByUGW?: number;
+    public _lastSeenByUGW?: Date;
     public _isGuestByUGW?: boolean;
     public gwMac?: string;
     public network?: string;

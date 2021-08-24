@@ -1,14 +1,8 @@
-import { deleteFixtures, generateMac, getLoggedSite, isRecordMode } from './_scripts/common';
+import { generateMac, getLoggedSite } from './_scripts/common';
 import nock from 'nock';
 import moxios from 'moxios';
 import { Client, Site } from '../../src';
 
-const PREFIX = 'clients-';
-beforeAll(async () => {
-    // if (isRecordMode()) {
-    //     deleteFixtures(PREFIX);
-    // }
-});
 describe('Clients', () => {
     describe('UnifiOs', () => {
         const mac = '00:15:6D:25:4d:d1';
@@ -448,12 +442,9 @@ describe('Clients', () => {
 
             let newLyCreated = forgetList.find((c) => c.mac === mac.toLowerCase());
 
-            let resForget: Client;
-            newLyCreated?.forget().then((r) => {
-                resForget = r;
-            });
+            newLyCreated?.forget().then(() => true);
 
-            const res4 = await new Promise<Client>((resolve) => {
+            const res4 = await new Promise<Client>(() => {
                 moxios.wait(async () => {
                     let request = moxios.requests.mostRecent();
 
@@ -478,7 +469,7 @@ describe('Clients', () => {
                             ]
                         }
                     });
-                    resolve(resForget);
+                    // resolve(resForget);
                 });
             });
             // nock.load(path.join(fixturesPath, `${PREFIX}forget.json`));
@@ -534,12 +525,7 @@ describe('Clients', () => {
             expect(clientTest2?.isGuest).toBe(false);
 
             //forget
-            const resForget = await clientTest1?.forget();
-
-            expect(resForget).toBeDefined();
-            expect(resForget?.mac).toBe(mac);
-            expect(resForget?.isWired).toBe(true);
-            expect(resForget?.isGuest).toBe(false);
+            expect(await clientTest1?.forget()).toBeTruthy();
 
             const devicesAfterForget = await site.clients.list();
             const devicesAfterForgetFound = devicesAfterForget.find((c) => c.mac === mac.toLowerCase());
