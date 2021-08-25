@@ -6,6 +6,7 @@
 [![Downloads](https://img.shields.io/npm/dm/unifi-client.svg)](https://www.npmjs.com/package/unifi-client) 
 [![License](https://img.shields.io/github/license/thib3113/unifi-client.svg)](https://github.com/thib3113/unifi-client/blob/main/LICENSE) 
 [![Known Vulnerabilities](https://snyk.io/test/github/thib3113/unifi-client/badge.svg)](https://snyk.io/test/github/thib3113/unifi-client) 
+[![unifi-client](https://snyk.io/advisor/npm-package/unifi-client/badge.svg)](https://snyk.io/advisor/npm-package/unifi-client)
 [![Dependencies status](https://david-dm.org/thib3113/unifi-client.svg)](https://david-dm.org/thib3113/unifi-client) 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal)](https://paypal.me/thib3113) 
 [![GitHub stars](https://img.shields.io/github/stars/thib3113/unifi-client.svg?style=social&label=Star)](https://github.com/thib3113/unifi-client/stargazers/)
