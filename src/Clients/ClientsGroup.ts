@@ -3,6 +3,7 @@ import { ClientError, EErrorsCodes } from '../Errors';
 import { createDebugger } from '../util';
 import { Validate } from '../commons/Validate';
 import { IClientGroupRaw } from './IClientGroupRaw';
+import { IUnifiResponseEnveloppe } from '../interfaces';
 
 export class ClientsGroup extends _ObjectSubSite {
     static debug = createDebugger('clientsGroup');
@@ -23,36 +24,56 @@ export class ClientsGroup extends _ObjectSubSite {
             this.name = props.name;
         }
         if (!Validate.isUndefined(props.site_id)) {
-            this.site_id = props.site_id;
+            this.siteId = props.site_id;
         }
-
         if (!Validate.isUndefined(props.attr_hidden_id)) {
-            this.attr_hidden_id = props.attr_hidden_id;
+            this.hiddenId = props.attr_hidden_id;
         }
         if (!Validate.isUndefined(props.attr_no_delete)) {
-            this.attr_no_delete = props.attr_no_delete;
+            this.noDelete = props.attr_no_delete;
         }
         if (!Validate.isUndefined(props.qos_rate_max_up)) {
-            this.qos_rate_max_up = props.qos_rate_max_up;
+            this.maxUploadBandwidth = props.qos_rate_max_up;
         }
         if (!Validate.isUndefined(props.qos_rate_max_down)) {
-            this.qos_rate_max_down = props.qos_rate_max_down;
+            this.maxDownloadBandwidth = props.qos_rate_max_down;
         }
 
         return this;
     }
 
+    public async save(): Promise<this> {
+        const payload = {
+            _id: this._id,
+            site_id: this.siteId,
+            name: this.name,
+            qos_rate_max_down: this.maxDownloadBandwidth,
+            qos_rate_max_up: this.maxUploadBandwidth
+        };
+
+        const groups = (
+            await this.instance.put<IUnifiResponseEnveloppe<Array<IClientGroupRaw>>>('/rest/usergroup/:_id', payload, {
+                urlParams: { _id: this._id }
+            })
+        ).data.data;
+
+        if (groups.length > 0) {
+            this.import(groups[0]);
+        }
+        return this;
+    }
+
     public _id: string;
-    public site_id: string;
+    public siteId: string;
     public name: string;
-    public attr_hidden_id?: string;
-    public attr_no_delete?: boolean;
+    public hiddenId?: string;
+    public noDelete?: boolean;
     /**
      * upload QOS for this group, in kbps
      */
-    public qos_rate_max_up?: number;
+    public maxUploadBandwidth?: number;
     /**
      * download QOS for this group, in kbps
      */
-    public qos_rate_max_down?: number;
+    public maxDownloadBandwidth?: number;
 }
