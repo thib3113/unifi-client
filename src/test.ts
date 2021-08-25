@@ -18,24 +18,9 @@ const main = async () => {
 
     const [site] = await controller.getSites();
 
-    const mac = 'XX:XX:XX:XX:XX:XX'
-        .replace(/X/g, function () {
-            return '0123456789ABCDEF'.charAt(Math.floor(Math.random() * 16));
-        })
-        .toLowerCase();
-    await site.clients.create({
-        mac
-    });
+    const groups = await site.clientsGroups.list();
 
-    // list devices
-    const clients = await site.clients.list();
-    const client = clients.find((c) => c.mac === mac);
-
-    if (client) {
-        console.log(await client.forget());
-    } else {
-        console.log(`client with mac ${mac} not found`);
-    }
+    console.log(groups);
 };
 
 //just run the async main, and log error if needed
