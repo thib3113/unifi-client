@@ -328,6 +328,9 @@ export class Client extends _ObjectSubSite {
         if (!Validate.isUndefined(props['wired-rx_bytes'])) {
             this.importValue('wiredRxBytes', props['wired-rx_bytes']);
         }
+        if (!Validate.isUndefined(props['disconnect_timestamp'])) {
+            this.importValue('lastDisconnect', convertTimestampSecondsToDate(props.disconnect_timestamp));
+        }
         return this;
     }
 
@@ -507,4 +510,5 @@ export class Client extends _ObjectSubSite {
     public wiredRxPackets?: number;
     public wiredTxBytesR?: number;
     public wiredRxBytesR?: number;
+    public lastDisconnect?: Date;
 }

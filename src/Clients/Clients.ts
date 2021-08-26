@@ -44,12 +44,25 @@ export class Clients extends _ObjectSubSite {
         }
     }
 
-    // get return a different kind of device
-    async get(_id: string): Promise<Client | undefined> {
+    async getById(_id: string): Promise<Client | undefined> {
         const result = (
             await this.instance.get<IUnifiResponseEnveloppe<Array<IClientRaw>>>('/rest/user/:_id', {
                 urlParams: {
                     _id
+                }
+            })
+        ).data?.data;
+
+        if (result?.length > 0) {
+            return this.mapObject<Client>(Client, result[0]);
+        }
+    }
+
+    async getByMac(mac: string): Promise<Client | undefined> {
+        const result = (
+            await this.instance.get<IUnifiResponseEnveloppe<Array<IClientRaw>>>('/stat/sta/:mac', {
+                urlParams: {
+                    mac
                 }
             })
         ).data?.data;
@@ -99,8 +112,8 @@ export class Clients extends _ObjectSubSite {
         ).map((r) => this.mapObject<Client>(Client, r));
     }
 
-    // other way to do a list, seems to return more details in results...
-    // but less results ( same as the clients view )
+    // list online clients
+    // less results but more detailed ( same as the "clients" view )
     async list3(params?: IClientListParams): Promise<Array<Client>> {
         const res =
             (

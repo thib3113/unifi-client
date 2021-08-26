@@ -14,6 +14,7 @@ const clientRaw = {
     oui: 'D-Link',
     noted: false,
     assoc_time: 1629481568,
+    disconnect_timestamp: 1629581568,
     latest_assoc_time: 1629481569,
     user_id: '6001f1004fd98c05fa465fe5',
     first_seen: 1610742016,
@@ -182,6 +183,7 @@ describe('Client', () => {
             expect(client.txMcs).toBe(clientRaw.tx_mcs);
             expect(client.vlan).toBe(clientRaw.vlan);
             expect(client.radioProto).toBe(clientRaw.radio_proto);
+            expect(client.lastDisconnect).toStrictEqual(new Date('2021-08-21T21:32:48.000Z'));
         });
         it('should force a mac', () => {
             try {
