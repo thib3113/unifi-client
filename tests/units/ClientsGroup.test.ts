@@ -65,7 +65,7 @@ describe('ClientsGroup', () => {
                 mockedAxios.put.mockImplementationOnce(() => Promise.resolve({ data: { meta: { rc: 'ok' }, data: [] } }));
                 const importMock = jest.fn();
                 group.import = importMock;
-                group.maxDownloadBandwidth = 1000 * 1000; //1 Gbps
+                group.maxDownloadBandwidth = 10 * 1000; //10 Mbps
                 await group.save();
                 expect(mockedAxios.put).toHaveBeenCalledWith(
                     '/rest/usergroup/:_id',
@@ -73,7 +73,7 @@ describe('ClientsGroup', () => {
                         _id: groupRaw._id,
                         name: groupRaw.name,
                         qos_rate_max_up: groupRaw.qos_rate_max_up,
-                        qos_rate_max_down: 1000 * 1000, //1 Gbps
+                        qos_rate_max_down: 10 * 1000, //10 Mbps
                         site_id: groupRaw.site_id
                     },
                     { urlParams: { _id: groupRaw._id } }
@@ -94,14 +94,14 @@ describe('ClientsGroup', () => {
                         }
                     })
                 );
-                group.maxUploadBandwidth = 1000 * 1000; //1 Gbps
+                group.maxUploadBandwidth = 1000; //1 Mbps
                 await group.save();
                 expect(mockedAxios.put).toHaveBeenCalledWith(
                     '/rest/usergroup/:_id',
                     {
                         _id: groupRaw._id,
                         name: groupRaw.name,
-                        qos_rate_max_up: 1000 * 1000, //1 Gbps
+                        qos_rate_max_up: 1000, //1 Mbps
                         qos_rate_max_down: groupRaw.qos_rate_max_down,
                         site_id: groupRaw.site_id
                     },

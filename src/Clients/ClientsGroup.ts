@@ -77,11 +77,11 @@ export class ClientsGroup extends _ObjectSubSite {
     public hiddenId?: string;
     public noDelete?: boolean;
     /**
-     * upload QOS for this group, in kbps
+     * upload QOS for this group, in Kbps
      */
     public maxUploadBandwidth?: number;
     /**
-     * download QOS for this group, in kbps
+     * download QOS for this group, in Kbps
      */
     public maxDownloadBandwidth?: number;
 }

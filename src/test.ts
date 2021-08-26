@@ -18,20 +18,19 @@ const main = async () => {
 
     const [site] = await controller.getSites();
 
-    // const groups = await site.clientsGroups.list();
-    //
-    // console.log(groups);
-    //
-    // await site.clientsGroups.create({
-    //     name: 'test',
-    //     downloadBandwidth: 1000,
-    //     uploadBandwidth: 1000
-    // });
+    await site.clientsGroups.create({
+        name: 'test',
+        downloadBandwidth: 1000,
+        uploadBandwidth: 1000
+    });
 
     const group = (await site.clientsGroups.list()).find((g) => g.name === 'test');
     if (group) {
         group.maxDownloadBandwidth = 100 * 1000;
         await group.save();
+        console.log(group);
+
+        await group.delete();
     }
 };
 
