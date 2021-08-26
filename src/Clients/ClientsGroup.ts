@@ -42,6 +42,14 @@ export class ClientsGroup extends _ObjectSubSite {
         return this;
     }
 
+    public async delete(): Promise<boolean> {
+        const res = await this.instance.delete<IUnifiResponseEnveloppe<Array<void>>>('/rest/usergroup/:_id', {
+            urlParams: { _id: this._id }
+        });
+
+        return res.data.meta.rc === 'ok';
+    }
+
     public async save(): Promise<this> {
         const payload = {
             _id: this._id,
