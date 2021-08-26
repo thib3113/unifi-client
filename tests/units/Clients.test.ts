@@ -2,6 +2,7 @@ import { Client, ClientError, Clients, EErrorsCodes } from '../../src';
 import { controller, site } from '../mocks';
 import axios from 'axios';
 import { generateMac } from '../scenario/_scripts/common';
+import { macAddress } from '../globals';
 
 describe('Clients', () => {
     let clients: Clients;
@@ -119,11 +120,11 @@ describe('Clients', () => {
             }
         });
     });
-    describe('get', () => {
+    describe('getById', () => {
         it('should get by id', async () => {
             mapObjectMock.mockImplementationOnce(() => {});
             mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: { data: [client] } }));
-            await clients.get('monId');
+            await clients.getById('monId');
 
             expect(mockedAxios.get).toHaveBeenCalledWith('/rest/user/:_id', { urlParams: { _id: 'monId' } });
             expect(mapObjectMock).toHaveBeenCalledWith(Client, client);
@@ -132,9 +133,28 @@ describe('Clients', () => {
         it('should handle no results', async () => {
             mapObjectMock.mockImplementationOnce(() => {});
             mockedAxios.get.mockImplementationOnce(() => Promise.resolve({}));
-            await clients.get('monId');
+            await clients.getById('monId');
 
             expect(mockedAxios.get).toHaveBeenCalledWith('/rest/user/:_id', { urlParams: { _id: 'monId' } });
+            expect(mapObjectMock).not.toHaveBeenCalled();
+        });
+    });
+    describe('getByMac', () => {
+        it('should get by mac', async () => {
+            mapObjectMock.mockImplementationOnce(() => {});
+            mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: { data: [client] } }));
+            await clients.getByMac(macAddress);
+
+            expect(mockedAxios.get).toHaveBeenCalledWith('/stat/sta/:mac', { urlParams: { mac: macAddress } });
+            expect(mapObjectMock).toHaveBeenCalledWith(Client, client);
+        });
+
+        it('should handle no results', async () => {
+            mapObjectMock.mockImplementationOnce(() => {});
+            mockedAxios.get.mockImplementationOnce(() => Promise.resolve({}));
+            await clients.getByMac(macAddress);
+
+            expect(mockedAxios.get).toHaveBeenCalledWith('/stat/sta/:mac', { urlParams: { mac: macAddress } });
             expect(mapObjectMock).not.toHaveBeenCalled();
         });
     });
