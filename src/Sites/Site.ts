@@ -12,6 +12,7 @@ import { Stats } from '../Stats';
 import { ClientError, EErrorsCodes } from '../Errors';
 import { EProxyNamespaces } from '../interfaces';
 import { createDebugger } from '../util';
+import { ClientsGroups } from '../Clients/ClientsGroups';
 
 export class Site extends _ObjectSubController implements ISite {
     static debug = createDebugger('site');
@@ -39,6 +40,7 @@ export class Site extends _ObjectSubController implements ISite {
     public firewall: Firewall;
     public hotspots: Hotspots;
     public clients: Clients;
+    public clientsGroups: ClientsGroups;
 
     public ws: UnifiWebsockets;
     public stats: Stats;
@@ -86,6 +88,7 @@ export class Site extends _ObjectSubController implements ISite {
         this.firewall = new Firewall(config);
         this.hotspots = new Hotspots(config);
         this.clients = new Clients(config);
+        this.clientsGroups = new ClientsGroups(config);
         this.stats = new Stats(config);
 
         this.instance = this.controller.createInstance(this.name, {
