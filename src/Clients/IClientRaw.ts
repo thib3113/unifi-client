@@ -84,4 +84,5 @@ export interface IClientRaw extends IUnknownClient {
     'wired-rx_packets'?: number;
     'wired-tx_bytes-r'?: number;
     'wired-rx_bytes-r'?: number;
+    disconnect_timestamp?: dateInput;
 }
