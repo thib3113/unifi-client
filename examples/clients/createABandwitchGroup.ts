@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { Controller } from './Controller';
+import { Controller, Client } from '../../src';
 
 dotenv.config();
 
@@ -13,25 +13,17 @@ const main = async () => {
     });
     await controller.login();
 
-    // retrieve controller fingerprints
-    // const fingerprints = await controller.getDevicesFingerPrints();
-
     const [site] = await controller.getSites();
 
+    // create the profil with :
+    // - name "test"
+    // - maxDownload 10Mbps ( 10000 Kbps )
+    // - maxUpload 1Mbps ( 1000 Kbps )
     await site.clientsGroups.create({
         name: 'test',
-        downloadBandwidth: 1000,
+        downloadBandwidth: 10000,
         uploadBandwidth: 1000
     });
-
-    const group = (await site.clientsGroups.list()).find((g) => g.name === 'test');
-    if (group) {
-        group.maxDownloadBandwidth = 100 * 1000;
-        await group.save();
-        console.log(group);
-
-        await group.delete();
-    }
 };
 
 //just run the async main, and log error if needed

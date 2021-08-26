@@ -2,7 +2,6 @@ import Controller, { FWGroup, FWRule, IFWRule, Site } from '../../src';
 import { getLoggedSite } from './_scripts/common';
 import nock from 'nock';
 import { IObjectSubSiteConfig } from '../../src/commons/_ObjectSubSite';
-import axios from 'axios';
 
 const PREFIX = 'firewall-';
 // beforeAll(() => {

@@ -1,0 +1,46 @@
+[
+    {
+        "scope": "https://unifi2:443",
+        "method": "DELETE",
+        "path": "/proxy/network/api/s/default/rest/usergroup/61275997cb9b2406b615361e",
+        "body": "",
+        "status": 200,
+        "response": {
+            "meta": {
+                "rc": "ok"
+            },
+            "data": []
+        },
+        "rawHeaders": [
+            "Vary",
+            "Origin",
+            "X-DNS-Prefetch-Control",
+            "off",
+            "x-frame-options",
+            "DENY",
+            "Strict-Transport-Security",
+            "max-age=15552000; includeSubDomains",
+            "X-Download-Options",
+            "noopen",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "Accept-Ranges",
+            "bytes",
+            "X-CSRF-Token",
+            "209de3a9-3452-4958-8be4-1852b9073945",
+            "content-type",
+            "application/json;charset=UTF-8",
+            "content-length",
+            "30",
+            "date",
+            "Thu, 26 Aug 2021 09:06:31 GMT",
+            "Set-Cookie",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]
