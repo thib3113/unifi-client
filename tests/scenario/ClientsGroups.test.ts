@@ -58,4 +58,37 @@ describe('ClientsGroups', () => {
             });
         });
     });
+
+    describe('non UnifiOs', () => {
+        let site: Site;
+        let groups: ClientsGroups;
+        beforeEach(async () => {
+            site = await getLoggedSite(nock, false);
+            groups = new ClientsGroups({ controller: site.getController(), site });
+        });
+
+        it('should crud a client groups', async () => {
+            let group: ClientsGroup;
+            //try to create
+            const tmpGrp = await groups.create({ ...groupRaw });
+
+            expect(tmpGrp).toBeDefined();
+            group = tmpGrp as ClientsGroup;
+
+            const tmpGrp2 = (await groups.list()).find((g) => g._id === group._id);
+            expect(tmpGrp2).toStrictEqual(group);
+
+            group.maxUploadBandwidth = 1000;
+            await group.save();
+            expect(group.toJSON()).toStrictEqual({
+                _id: expect.any(String),
+                maxDownloadBandwidth: -1,
+                maxUploadBandwidth: 1000,
+                name: 'test',
+                siteId: site._id
+            });
+
+            expect(await group.delete()).toBeTruthy();
+        });
+    });
 });
