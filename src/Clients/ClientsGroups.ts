@@ -20,6 +20,7 @@ export class ClientsGroups extends _ObjectSubSite {
      * Create user group
      */
     async create(clientGroup: partialClientsGroup): Promise<ClientsGroup | undefined> {
+        this.debug('create()');
         const payload: ICreateClientsGroupRaw = {
             name: clientGroup.name,
             qos_rate_max_down: clientGroup.downloadBandwidth ?? -1,
@@ -32,6 +33,7 @@ export class ClientsGroups extends _ObjectSubSite {
     }
 
     async list(): Promise<Array<ClientsGroup>> {
+        this.debug('create()');
         const res = (await this.instance.get('/list/usergroup')).data?.data || [];
         return res.map((r) => this.mapObject<ClientsGroup>(ClientsGroup, r));
     }

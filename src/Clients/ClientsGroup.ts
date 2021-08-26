@@ -20,6 +20,7 @@ export class ClientsGroup extends _ObjectSubSite {
     }
 
     public import(props: Partial<IClientGroupRaw>): this {
+        this.debug('import()');
         if (!Validate.isUndefined(props.name)) {
             this.name = props.name;
         }
@@ -43,6 +44,7 @@ export class ClientsGroup extends _ObjectSubSite {
     }
 
     public async delete(): Promise<boolean> {
+        this.debug('delete()');
         const res = await this.instance.delete<IUnifiResponseEnveloppe<Array<void>>>('/rest/usergroup/:_id', {
             urlParams: { _id: this._id }
         });
@@ -51,6 +53,7 @@ export class ClientsGroup extends _ObjectSubSite {
     }
 
     public async save(): Promise<this> {
+        this.debug('save()');
         const payload = {
             _id: this._id,
             site_id: this.siteId,
