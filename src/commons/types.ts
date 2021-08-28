@@ -1,3 +1,5 @@
+import type { BaseDevice, LANDevice, WLANDevice } from '../Devices';
+
 export type timestampDate = number;
 /**
  * 2021-07-09T07:43:13+00:00
@@ -14,6 +16,8 @@ export type macAddress = string;
 
 export type ipV4Address = string;
 export type ipv6Address = string;
+
+export type netMask = string;
 
 export type ipv4CIDR = string;
 export type ipv6CIDR = string;
@@ -38,3 +42,5 @@ export type percentageToOne = number;
  * 0 to 100
  */
 export type percentage = number;
+
+export type tDevice = LANDevice | WLANDevice | BaseDevice;

@@ -13,6 +13,7 @@ import { ClientError, EErrorsCodes } from '../Errors';
 import { EProxyNamespaces } from '../interfaces';
 import { createDebugger } from '../util';
 import { ClientsGroups } from '../Clients/ClientsGroups';
+import { Devices } from '../Devices';
 
 export class Site extends _ObjectSubController implements ISite {
     static debug = createDebugger('site');
@@ -44,6 +45,7 @@ export class Site extends _ObjectSubController implements ISite {
 
     public ws: UnifiWebsockets;
     public stats: Stats;
+    public devices: Devices;
 
     constructor(controller: Controller, props: ISite) {
         super({
@@ -89,6 +91,7 @@ export class Site extends _ObjectSubController implements ISite {
         this.hotspots = new Hotspots(config);
         this.clients = new Clients(config);
         this.clientsGroups = new ClientsGroups(config);
+        this.devices = new Devices(config);
         this.stats = new Stats(config);
 
         this.instance = this.controller.createInstance(this.name, {
