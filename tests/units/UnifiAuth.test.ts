@@ -661,8 +661,10 @@ describe('UnifiAuth.test.ts', () => {
                 status: 'ACTIVE'
             });
             expect(axiosMock.get).toBeCalledWith('/', { authenticationRequest: true, validateStatus: expect.any(Function) });
+
+            const mockCall = axiosMock.get.mock.calls[0][1] as AxiosRequestConfig;
             //validateStatus need to return true for all statuses
-            expect(axiosMock.get.mock.calls['0']['1'].validateStatus()).toBeTruthy();
+            expect(mockCall.validateStatus && mockCall.validateStatus(1)).toBeTruthy();
             expect(debug.debugExtend).toBeCalledWith('login');
             expect(auth.unifiOs).toBeTruthy();
             expect(auth.autoReLogin).toBeTruthy();
@@ -737,7 +739,9 @@ describe('UnifiAuth.test.ts', () => {
             expect(auth.autoReLogin).toBeTruthy();
             expect(axiosMock.get).toBeCalledWith('/', { authenticationRequest: true, validateStatus: expect.any(Function) });
             //validateStatus need to return true for all statuses
-            expect(axiosMock.get.mock.calls['0']['1'].validateStatus()).toBeTruthy();
+            const mockCall = axiosMock.get.mock.calls[0][1] as AxiosRequestConfig;
+            //validateStatus need to return true for all statuses
+            expect(mockCall.validateStatus && mockCall.validateStatus(1)).toBeTruthy();
             expect(debug.debugExtend).toBeCalledWith('login');
             expect(axiosMock.post).toBeCalledWith(
                 '/login',
