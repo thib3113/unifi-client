@@ -10,9 +10,13 @@ import { INetworkStatus } from './INetworkStatus';
 import { UnifiWebsockets } from '../WebSockets';
 import { Stats } from '../Stats';
 import { ClientError, EErrorsCodes } from '../Errors';
-import { EProxyNamespaces } from '../interfaces';
+import { EProxyNamespaces, IUnifiResponseEnveloppe } from '../interfaces';
 import { createDebugger } from '../util';
 import { ClientsGroups } from '../Clients/ClientsGroups';
+import { Devices } from '../Devices';
+import type { BaseDevice } from '../Devices';
+import { macAddress } from '../commons/types';
+import { ISiteSettingsManagement, tSiteSettings } from './ISiteSettings';
 
 export class Site extends _ObjectSubController implements ISite {
     static debug = createDebugger('site');
@@ -44,6 +48,7 @@ export class Site extends _ObjectSubController implements ISite {
 
     public ws: UnifiWebsockets;
     public stats: Stats;
+    public devices: Devices;
 
     constructor(controller: Controller, props: ISite) {
         super({
@@ -89,12 +94,48 @@ export class Site extends _ObjectSubController implements ISite {
         this.hotspots = new Hotspots(config);
         this.clients = new Clients(config);
         this.clientsGroups = new ClientsGroups(config);
+        this.devices = new Devices(config);
         this.stats = new Stats(config);
 
         this.instance = this.controller.createInstance(this.name, {
             proxyNamespace: EProxyNamespaces.NETWORK,
             apiPart: 'api'
         });
+    }
+
+    // TODO test return
+    public async adoptDevice(device: string | BaseDevice): Promise<unknown> {
+        let mac: macAddress;
+        if (Validate.implementsTKeys<BaseDevice>(device, ['mac'])) {
+            mac = device.mac;
+        } else if (!Validate.mac(device)) {
+            throw new ClientError('parameter need to be a mac address', EErrorsCodes.BAD_PARAMETERS);
+        } else {
+            mac = device;
+        }
+        const payload = { cmd: 'adopt', mac: mac.toLowerCase() };
+
+        return (await this.devManager(payload)).data;
+    }
+
+    /**
+     *
+     * @param enable -  true switches LEDs of all the access points ON, false switches them OFF
+     */
+    public async enableLEDs(enable = true): Promise<ISiteSettingsManagement> {
+        return (await this.settingsManager<ISiteSettingsManagement>({ led_enabled: enable })).data;
+    }
+
+    public async getSettings(): Promise<Array<tSiteSettings>> {
+        return (await this.instance.get<IUnifiResponseEnveloppe<Array<tSiteSettings>>>('/get/setting')).data.data;
+    }
+
+    public async settingsManager<T>(settings: Record<string, unknown>): Promise<IUnifiResponseEnveloppe<T>> {
+        return (await this.instance.post<IUnifiResponseEnveloppe<T>>('/set/setting/mgmt', settings)).data;
+    }
+
+    public async devManager<T>(payload: Record<string, unknown> & { cmd: string }): Promise<IUnifiResponseEnveloppe<T>> {
+        return (await this.instance.post<IUnifiResponseEnveloppe<T>>('/cmd/devmgr', payload)).data;
     }
 
     // this function need to never be async !!! but return a promise ( so this.ws is init before the real init )
@@ -126,6 +167,8 @@ export class Site extends _ObjectSubController implements ISite {
     public on(eventName: string, cb: (...args: Array<unknown>) => unknown): this {
         this.debug('on(%s)', eventName);
         if (!this.ws) {
+            //ws initialization will be done asynchronously
+            // noinspection JSIgnoredPromiseFromCall
             this.initWebSockets();
         }
 

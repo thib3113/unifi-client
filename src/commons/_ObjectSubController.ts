@@ -1,12 +1,11 @@
 import { AxiosInstance } from 'axios';
 import { Site } from '../Sites';
-import { ClientError, EErrorsCodes } from '../Errors';
-import semver from 'semver';
+import { ClientError } from '../Errors';
 import { ObjectWithPrivateValues } from './ObjectWithPrivateValues';
 import { Validate } from './Validate';
 import { Controller } from '../Controller';
 import { Debugger } from 'debug';
-import { createDebugger } from '../util';
+import { checkNeeds, checkNeedVersion, createDebugger } from '../util';
 
 export interface IObjectSubController {
     instance: AxiosInstance;
@@ -93,10 +92,7 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
     // }
 
     protected checkNeeds(minVersion?: string, unifiOs?: boolean): boolean {
-        return (
-            (Validate.isBoolean(unifiOs) && this.controller.unifiOs === unifiOs) ||
-            (minVersion && semver.gte(this.controller.version, minVersion))
-        );
+        return checkNeeds(this.controller, minVersion, unifiOs);
     }
 
     /**
@@ -106,21 +102,7 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
      * @param parameterName - a name for the parameter
      */
     protected checkNeedVersion(minVersion?: string, unifiOs?: boolean, parameterName = ''): void {
-        if (this.checkNeeds(minVersion, unifiOs)) {
-            return;
-        }
-
-        let str = parameterName ? `${parameterName} ` : '';
-        let code: EErrorsCodes;
-        if (Validate.isBoolean(unifiOs)) {
-            str += `need ${unifiOs ? '' : 'non-'}UnifiOs controller`;
-            code = EErrorsCodes.UNIFI_CONTROLLER_TYPE_MISMATCH;
-        } else {
-            str += `need minimal controller version ${minVersion}`;
-            code = EErrorsCodes.NEED_MORE_RECENT_CONTROLLER;
-        }
-
-        throw new ClientError(str, code);
+        checkNeedVersion(this.controller, minVersion, unifiOs, parameterName);
     }
 
     /**

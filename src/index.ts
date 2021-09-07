@@ -4,6 +4,7 @@ import { IBuildUrlParams } from './interfaces';
 export * from './interfaces';
 export * from './Errors';
 export * from './Clients';
+export * from './Devices';
 export * from './Hotspot';
 export * from './Firewall';
 export * from './Sites';

@@ -3,6 +3,9 @@ import url, { URL, URLSearchParams } from 'url';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { dateInput } from './commons/types';
 import { Validate } from './commons/Validate';
+import type { Controller } from './Controller';
+import semver from 'semver';
+import { ClientError, EErrorsCodes } from './Errors';
 
 const debug = createDebug(`unifi-client`);
 /**
@@ -75,4 +78,33 @@ export const axiosUrlParams = (instance: AxiosInstance): AxiosInstance => {
 
 export const convertTimestampSecondsToDate = (time: dateInput): Date => {
     return new Date(Validate.isNumber(time) ? time * 1000 : time);
+};
+
+export const checkNeeds = (controller: Controller, minVersion?: string, unifiOs?: boolean): boolean => {
+    return (Validate.isBoolean(unifiOs) && controller.unifiOs === unifiOs) || (minVersion && semver.gte(controller.version, minVersion));
+};
+
+/**
+ *
+ * @param controller - the controller
+ * @param minVersion - the minimal semver version for this object
+ * @param unifiOs - need to be unifiOs ? or Unifi Controller ? if no need, pass undefined
+ * @param parameterName - a name for the parameter
+ */
+export const checkNeedVersion = (controller: Controller, minVersion?: string, unifiOs?: boolean, parameterName = ''): void => {
+    if (checkNeeds(controller, minVersion, unifiOs)) {
+        return;
+    }
+
+    let str = parameterName ? `${parameterName} ` : '';
+    let code: EErrorsCodes;
+    if (Validate.isBoolean(unifiOs)) {
+        str += `need ${unifiOs ? '' : 'non-'}UnifiOs controller`;
+        code = EErrorsCodes.UNIFI_CONTROLLER_TYPE_MISMATCH;
+    } else {
+        str += `need minimal controller version ${minVersion}`;
+        code = EErrorsCodes.NEED_MORE_RECENT_CONTROLLER;
+    }
+
+    throw new ClientError(str, code);
 };
