@@ -1,6 +1,6 @@
 {
   "name": "unifi-client",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "main": "lib/index.js",
   "description": "NodeJs client for Unifi products (https://www.ui.com/)",
   "scripts": {
