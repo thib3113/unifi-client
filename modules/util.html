@@ -73,6 +73,8 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="util.html#axiosUrlParams" class="tsd-kind-icon">axios<wbr>Url<wbr>Params</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="util.html#checkNeedVersion" class="tsd-kind-icon">check<wbr>Need<wbr>Version</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="util.html#checkNeeds" class="tsd-kind-icon">check<wbr>Needs</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="util.html#convertTimestampSecondsToDate" class="tsd-kind-icon">convert<wbr>Timestamp<wbr>Seconds<wbr>ToDate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="util.html#createDebugger" class="tsd-kind-icon">create<wbr>Debugger</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="util.html#getUrlRepresentation" class="tsd-kind-icon">get<wbr>Url<wbr>Representation</a></li>
@@ -94,7 +96,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/util.ts#L52">src/util.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/util.ts#L55">src/util.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -108,6 +110,79 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="checkNeedVersion" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> check<wbr>Need<wbr>Version</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Need<wbr>Version<span class="tsd-signature-symbol">(</span>controller<span class="tsd-signature-symbol">: </span><a href="../classes/Controller.Controller-1.html" class="tsd-signature-type" data-tsd-kind="Class">Controller</a>, minVersion<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, unifiOs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, parameterName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/util.ts#L94">src/util.ts:94</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>controller: <a href="../classes/Controller.Controller-1.html" class="tsd-signature-type" data-tsd-kind="Class">Controller</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the controller</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> minVersion: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the minimal semver version for this object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> unifiOs: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>need to be unifiOs ? or Unifi Controller ? if no need, pass undefined</p>
+									</div>
+								</li>
+								<li>
+									<h5>parameterName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a name for the parameter</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="checkNeeds" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> check<wbr>Needs</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Needs<span class="tsd-signature-symbol">(</span>controller<span class="tsd-signature-symbol">: </span><a href="../classes/Controller.Controller-1.html" class="tsd-signature-type" data-tsd-kind="Class">Controller</a>, minVersion<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, unifiOs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/util.ts#L83">src/util.ts:83</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>controller: <a href="../classes/Controller.Controller-1.html" class="tsd-signature-type" data-tsd-kind="Class">Controller</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> minVersion: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> unifiOs: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="convertTimestampSecondsToDate" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> convert<wbr>Timestamp<wbr>Seconds<wbr>ToDate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -117,7 +192,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/util.ts#L76">src/util.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/util.ts#L79">src/util.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,7 +215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/util.ts#L12">src/util.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/util.ts#L15">src/util.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -171,7 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/util.ts#L24">src/util.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/util.ts#L27">src/util.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -208,7 +283,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/util.ts#L50">src/util.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/util.ts#L53">src/util.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -238,6 +313,12 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="util.html#axiosUrlParams" class="tsd-kind-icon">axios<wbr>Url<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="util.html#checkNeedVersion" class="tsd-kind-icon">check<wbr>Need<wbr>Version</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="util.html#checkNeeds" class="tsd-kind-icon">check<wbr>Needs</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="util.html#convertTimestampSecondsToDate" class="tsd-kind-icon">convert<wbr>Timestamp<wbr>Seconds<wbr>ToDate</a>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IClient | unifi-client - v0.7.2</title>
+	<title>IControllerStorage | unifi-client - v0.7.2</title>
 	<meta name="description" content="Documentation for unifi-client - v0.7.2">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/WebSockets_Interfaces.html">WebSockets/Interfaces</a>
 				</li>
 				<li>
-					<a href="WebSockets_Interfaces.IClient.html">IClient</a>
+					<a href="WebSockets_Interfaces.IControllerStorage.html">IControllerStorage</a>
 				</li>
 			</ul>
-			<h1>Interface IClient</h1>
+			<h1>Interface IControllerStorage</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IClient</span>
+						<span class="target">IControllerStorage</span>
 					</li>
 				</ul>
 			</section>
@@ -83,13 +83,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IClient.html#deviceModel" class="tsd-kind-icon">device<wbr>Model</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IClient.html#hostname" class="tsd-kind-icon">hostname</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IClient.html#ip" class="tsd-kind-icon">ip</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IClient.html#isGuest" class="tsd-kind-icon">is<wbr>Guest</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IClient.html#isWired" class="tsd-kind-icon">is<wbr>Wired</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IClient.html#latestAssocTime" class="tsd-kind-icon">latest<wbr>Assoc<wbr>Time</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IClient.html#satisfaction" class="tsd-kind-icon">satisfaction</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IControllerStorage.html#avail" class="tsd-kind-icon">avail</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IControllerStorage.html#canErase" class="tsd-kind-icon">can<wbr>Erase</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IControllerStorage.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IControllerStorage.html#mountPoint" class="tsd-kind-icon">mount<wbr>Point</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IControllerStorage.html#mounted" class="tsd-kind-icon">mounted</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IControllerStorage.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IControllerStorage.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="WebSockets_Interfaces.IControllerStorage.html#used" class="tsd-kind-icon">used</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,72 +99,82 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="deviceModel" class="tsd-anchor"></a>
-					<h3>device<wbr>Model</h3>
-					<div class="tsd-signature tsd-kind-icon">device<wbr>Model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="avail" class="tsd-anchor"></a>
+					<h3>avail</h3>
+					<div class="tsd-signature tsd-kind-icon">avail<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/WebSockets/Interfaces.ts#L44">src/WebSockets/Interfaces.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/WebSockets/Interfaces.ts#L26">src/WebSockets/Interfaces.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="hostname" class="tsd-anchor"></a>
-					<h3>hostname</h3>
-					<div class="tsd-signature tsd-kind-icon">hostname<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="canErase" class="tsd-anchor"></a>
+					<h3>can<wbr>Erase</h3>
+					<div class="tsd-signature tsd-kind-icon">can<wbr>Erase<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/WebSockets/Interfaces.ts#L45">src/WebSockets/Interfaces.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/WebSockets/Interfaces.ts#L23">src/WebSockets/Interfaces.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="ip" class="tsd-anchor"></a>
-					<h3>ip</h3>
-					<div class="tsd-signature tsd-kind-icon">ip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/WebSockets/Interfaces.ts#L46">src/WebSockets/Interfaces.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/WebSockets/Interfaces.ts#L19">src/WebSockets/Interfaces.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isGuest" class="tsd-anchor"></a>
-					<h3>is<wbr>Guest</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Guest<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="mountPoint" class="tsd-anchor"></a>
+					<h3>mount<wbr>Point</h3>
+					<div class="tsd-signature tsd-kind-icon">mount<wbr>Point<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/WebSockets/Interfaces.ts#L47">src/WebSockets/Interfaces.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/WebSockets/Interfaces.ts#L22">src/WebSockets/Interfaces.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isWired" class="tsd-anchor"></a>
-					<h3>is<wbr>Wired</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Wired<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="mounted" class="tsd-anchor"></a>
+					<h3>mounted</h3>
+					<div class="tsd-signature tsd-kind-icon">mounted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/WebSockets/Interfaces.ts#L48">src/WebSockets/Interfaces.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/WebSockets/Interfaces.ts#L21">src/WebSockets/Interfaces.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="latestAssocTime" class="tsd-anchor"></a>
-					<h3>latest<wbr>Assoc<wbr>Time</h3>
-					<div class="tsd-signature tsd-kind-icon">latest<wbr>Assoc<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
+					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/WebSockets/Interfaces.ts#L49">src/WebSockets/Interfaces.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/WebSockets/Interfaces.ts#L24">src/WebSockets/Interfaces.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="satisfaction" class="tsd-anchor"></a>
-					<h3>satisfaction</h3>
-					<div class="tsd-signature tsd-kind-icon">satisfaction<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/2358af4/src/WebSockets/Interfaces.ts#L50">src/WebSockets/Interfaces.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/WebSockets/Interfaces.ts#L20">src/WebSockets/Interfaces.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="used" class="tsd-anchor"></a>
+					<h3>used</h3>
+					<div class="tsd-signature tsd-kind-icon">used<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thib3113/unifi-client/blob/7e149cf/src/WebSockets/Interfaces.ts#L25">src/WebSockets/Interfaces.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,39 +199,45 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="WebSockets_Interfaces.ICPU.html" class="tsd-kind-icon">ICPU</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="WebSockets_Interfaces.IController.html" class="tsd-kind-icon">IController</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="WebSockets_Interfaces.IControllerClient.html" class="tsd-kind-icon">IController<wbr>Client</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_Interfaces.IClient.html" class="tsd-kind-icon">IClient</a>
+						<a href="WebSockets_Interfaces.IControllerStorage.html" class="tsd-kind-icon">IController<wbr>Storage</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="WebSockets_Interfaces.IClient.html#deviceModel" class="tsd-kind-icon">device<wbr>Model</a>
+								<a href="WebSockets_Interfaces.IControllerStorage.html#avail" class="tsd-kind-icon">avail</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="WebSockets_Interfaces.IClient.html#hostname" class="tsd-kind-icon">hostname</a>
+								<a href="WebSockets_Interfaces.IControllerStorage.html#canErase" class="tsd-kind-icon">can<wbr>Erase</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="WebSockets_Interfaces.IClient.html#ip" class="tsd-kind-icon">ip</a>
+								<a href="WebSockets_Interfaces.IControllerStorage.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="WebSockets_Interfaces.IClient.html#isGuest" class="tsd-kind-icon">is<wbr>Guest</a>
+								<a href="WebSockets_Interfaces.IControllerStorage.html#mountPoint" class="tsd-kind-icon">mount<wbr>Point</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="WebSockets_Interfaces.IClient.html#isWired" class="tsd-kind-icon">is<wbr>Wired</a>
+								<a href="WebSockets_Interfaces.IControllerStorage.html#mounted" class="tsd-kind-icon">mounted</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="WebSockets_Interfaces.IClient.html#latestAssocTime" class="tsd-kind-icon">latest<wbr>Assoc<wbr>Time</a>
+								<a href="WebSockets_Interfaces.IControllerStorage.html#size" class="tsd-kind-icon">size</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="WebSockets_Interfaces.IClient.html#satisfaction" class="tsd-kind-icon">satisfaction</a>
+								<a href="WebSockets_Interfaces.IControllerStorage.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="WebSockets_Interfaces.IControllerStorage.html#used" class="tsd-kind-icon">used</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_Interfaces.IController.html" class="tsd-kind-icon">IController</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="WebSockets_Interfaces.IInterface.html" class="tsd-kind-icon">IInterface</a>
 					</li>
@@ -232,9 +249,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="WebSockets_Interfaces.IReleaseInformations.html" class="tsd-kind-icon">IRelease<wbr>Informations</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="WebSockets_Interfaces.IStorage.html" class="tsd-kind-icon">IStorage</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="WebSockets_Interfaces.ISystem.html" class="tsd-kind-icon">ISystem</a>

@@ -1,0 +1,832 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Devices | unifi-client - v0.7.2</title>
+	<meta name="description" content="Documentation for unifi-client - v0.7.2">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">unifi-client - v0.7.2</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">unifi-client - v0.7.2</a>
+				</li>
+				<li>
+					<a href="Devices.html">Devices</a>
+				</li>
+			</ul>
+			<h1>Module Devices</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>References</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#BaseDevice" class="tsd-kind-icon">Base<wbr>Device</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#Devices-1" class="tsd-kind-icon">Devices</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EBr0" class="tsd-kind-icon">EBr0</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EConfigNetworkType" class="tsd-kind-icon">EConfig<wbr>Network<wbr>Type</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EConnectionNetworkName" class="tsd-kind-icon">EConnection<wbr>Network<wbr>Name</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EDeviceStates" class="tsd-kind-icon">EDevice<wbr>States</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EDeviceType" class="tsd-kind-icon">EDevice<wbr>Type</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EDot1XMode" class="tsd-kind-icon">EDot1XMode</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EDot1XStatus" class="tsd-kind-icon">EDot1XStatus</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ELastUplinkType" class="tsd-kind-icon">ELast<wbr>Uplink<wbr>Type</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ELicenseState" class="tsd-kind-icon">ELicense<wbr>State</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EMedia" class="tsd-kind-icon">EMedia</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EOpMode" class="tsd-kind-icon">EOp<wbr>Mode</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EPortTableType" class="tsd-kind-icon">EPort<wbr>Table<wbr>Type</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ERadio" class="tsd-kind-icon">ERadio</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EState" class="tsd-kind-icon">EState</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EUsage" class="tsd-kind-icon">EUsage</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#EWANDeviceType" class="tsd-kind-icon">EWANDevice<wbr>Type</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IAccMeterStats" class="tsd-kind-icon">IAcc<wbr>Meter<wbr>Stats</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IAntennaTable" class="tsd-kind-icon">IAntenna<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IApClass" class="tsd-kind-icon">IAp<wbr>Class</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IBaseDeviceMandatoryRaw" class="tsd-kind-icon">IBase<wbr>Device<wbr>Mandatory<wbr>Raw</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IBaseDeviceRaw" class="tsd-kind-icon">IBase<wbr>Device<wbr>Raw</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IByApp" class="tsd-kind-icon">IBy<wbr>App</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IByCat" class="tsd-kind-icon">IBy<wbr>Cat</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IClient" class="tsd-kind-icon">IClient</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IConfigNetwork" class="tsd-kind-icon">IConfig<wbr>Network</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IConfigNetworkLAN" class="tsd-kind-icon">IConfig<wbr>NetworkLAN</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IDownlinkTable" class="tsd-kind-icon">IDownlink<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IDpistatsTable" class="tsd-kind-icon">IDpistats<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IEthernetOverride" class="tsd-kind-icon">IEthernet<wbr>Override</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IEthernetTable" class="tsd-kind-icon">IEthernet<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IGeoInfo" class="tsd-kind-icon">IGeo<wbr>Info</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IGeoInfoWAN" class="tsd-kind-icon">IGeo<wbr>InfoWAN</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IGw" class="tsd-kind-icon">IGw</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ILACPState" class="tsd-kind-icon">ILACPState</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ILANDeviceRaw" class="tsd-kind-icon">ILANDevice<wbr>Raw</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ILEDState" class="tsd-kind-icon">ILEDState</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ILastUplink" class="tsd-kind-icon">ILast<wbr>Uplink</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ILedOverrideProps" class="tsd-kind-icon">ILed<wbr>Override<wbr>Props</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ILldpTable" class="tsd-kind-icon">ILldp<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IMACTable" class="tsd-kind-icon">IMACTable</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#INetworkTable" class="tsd-kind-icon">INetwork<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IPortDelta" class="tsd-kind-icon">IPort<wbr>Delta</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IPortOverride" class="tsd-kind-icon">IPort<wbr>Override</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IPortTable" class="tsd-kind-icon">IPort<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IRPS" class="tsd-kind-icon">IRPS</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IRPSPortTable" class="tsd-kind-icon">IRPSPort<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IRadioTable" class="tsd-kind-icon">IRadio<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IRadioTableStat" class="tsd-kind-icon">IRadio<wbr>Table<wbr>Stat</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IRps" class="tsd-kind-icon">IRps</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IRpsPortTable" class="tsd-kind-icon">IRps<wbr>Port<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IServiceMACTable" class="tsd-kind-icon">IServiceMACTable</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ISpeedTestServer" class="tsd-kind-icon">ISpeed<wbr>Test<wbr>Server</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ISpeedtestStatus" class="tsd-kind-icon">ISpeedtest<wbr>Status</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IStat" class="tsd-kind-icon">IStat</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IStorage" class="tsd-kind-icon">IStorage</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ISw" class="tsd-kind-icon">ISw</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ISwitchCaps" class="tsd-kind-icon">ISwitch<wbr>Caps</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ISysStats" class="tsd-kind-icon">ISys<wbr>Stats</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ISystemStats" class="tsd-kind-icon">ISystem<wbr>Stats</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#ITemperature" class="tsd-kind-icon">ITemperature</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IUnifiCare" class="tsd-kind-icon">IUnifi<wbr>Care</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IUplink" class="tsd-kind-icon">IUplink</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IUptimeStats" class="tsd-kind-icon">IUptime<wbr>Stats</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IUptimeStatsWAN" class="tsd-kind-icon">IUptime<wbr>StatsWAN</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IVapTable" class="tsd-kind-icon">IVap<wbr>Table</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IWAN" class="tsd-kind-icon">IWAN</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IWLANDeviceRaw" class="tsd-kind-icon">IWLANDevice<wbr>Raw</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IWifiTxLatencyMOV" class="tsd-kind-icon">IWifi<wbr>TxLatencyMOV</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#IXTCPStats" class="tsd-kind-icon">IXTCPStats</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#LANDevice" class="tsd-kind-icon">LANDevice</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#UAPDevice" class="tsd-kind-icon">UAPDevice</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#UBBDevice" class="tsd-kind-icon">UBBDevice</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#UDMDevice" class="tsd-kind-icon">UDMDevice</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#UGWDevice" class="tsd-kind-icon">UGWDevice</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#USWDevice" class="tsd-kind-icon">USWDevice</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="Devices.html#UXGDevice" class="tsd-kind-icon">UXGDevice</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>References</h2>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="BaseDevice" class="tsd-anchor"></a>
+					<h3>Base<wbr>Device</h3>
+					Re-exports <a href="../classes/Devices_BaseDevice.BaseDevice.html">BaseDevice</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="Devices-1" class="tsd-anchor"></a>
+					<h3>Devices</h3>
+					Re-exports <a href="../classes/Devices_Devices.Devices.html">Devices</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EBr0" class="tsd-anchor"></a>
+					<h3>EBr0</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EBr0.html">EBr0</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EConfigNetworkType" class="tsd-anchor"></a>
+					<h3>EConfig<wbr>Network<wbr>Type</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EConfigNetworkType.html">EConfigNetworkType</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EConnectionNetworkName" class="tsd-anchor"></a>
+					<h3>EConnection<wbr>Network<wbr>Name</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EConnectionNetworkName.html">EConnectionNetworkName</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EDeviceStates" class="tsd-anchor"></a>
+					<h3>EDevice<wbr>States</h3>
+					Re-exports <a href="../enums/Devices_EDeviceStates.EDeviceStates.html">EDeviceStates</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EDeviceType" class="tsd-anchor"></a>
+					<h3>EDevice<wbr>Type</h3>
+					Re-exports <a href="../enums/Devices_EDeviceType.EDeviceType.html">EDeviceType</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EDot1XMode" class="tsd-anchor"></a>
+					<h3>EDot1XMode</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EDot1XMode.html">EDot1XMode</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EDot1XStatus" class="tsd-anchor"></a>
+					<h3>EDot1XStatus</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EDot1XStatus.html">EDot1XStatus</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ELastUplinkType" class="tsd-anchor"></a>
+					<h3>ELast<wbr>Uplink<wbr>Type</h3>
+					Re-exports <a href="../enums/Devices_interfaces.ELastUplinkType.html">ELastUplinkType</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ELicenseState" class="tsd-anchor"></a>
+					<h3>ELicense<wbr>State</h3>
+					Re-exports <a href="../enums/Devices_interfaces.ELicenseState.html">ELicenseState</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EMedia" class="tsd-anchor"></a>
+					<h3>EMedia</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EMedia.html">EMedia</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EOpMode" class="tsd-anchor"></a>
+					<h3>EOp<wbr>Mode</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EOpMode.html">EOpMode</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EPortTableType" class="tsd-anchor"></a>
+					<h3>EPort<wbr>Table<wbr>Type</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EPortTableType.html">EPortTableType</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ERadio" class="tsd-anchor"></a>
+					<h3>ERadio</h3>
+					Re-exports <a href="../enums/Devices_interfaces.ERadio.html">ERadio</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EState" class="tsd-anchor"></a>
+					<h3>EState</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EState.html">EState</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EUsage" class="tsd-anchor"></a>
+					<h3>EUsage</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EUsage.html">EUsage</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="EWANDeviceType" class="tsd-anchor"></a>
+					<h3>EWANDevice<wbr>Type</h3>
+					Re-exports <a href="../enums/Devices_interfaces.EWANDeviceType.html">EWANDeviceType</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IAccMeterStats" class="tsd-anchor"></a>
+					<h3>IAcc<wbr>Meter<wbr>Stats</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IAccMeterStats.html">IAccMeterStats</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IAntennaTable" class="tsd-anchor"></a>
+					<h3>IAntenna<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IAntennaTable.html">IAntennaTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IApClass" class="tsd-anchor"></a>
+					<h3>IAp<wbr>Class</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IApClass.html">IApClass</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IBaseDeviceMandatoryRaw" class="tsd-anchor"></a>
+					<h3>IBase<wbr>Device<wbr>Mandatory<wbr>Raw</h3>
+					Re-exports <a href="../interfaces/Devices_IBaseDeviceRaw.IBaseDeviceMandatoryRaw.html">IBaseDeviceMandatoryRaw</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IBaseDeviceRaw" class="tsd-anchor"></a>
+					<h3>IBase<wbr>Device<wbr>Raw</h3>
+					Re-exports <a href="../interfaces/Devices_IBaseDeviceRaw.IBaseDeviceRaw.html">IBaseDeviceRaw</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IByApp" class="tsd-anchor"></a>
+					<h3>IBy<wbr>App</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IByApp.html">IByApp</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IByCat" class="tsd-anchor"></a>
+					<h3>IBy<wbr>Cat</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IByCat.html">IByCat</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IClient" class="tsd-anchor"></a>
+					<h3>IClient</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IClient.html">IClient</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IConfigNetwork" class="tsd-anchor"></a>
+					<h3>IConfig<wbr>Network</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IConfigNetwork.html">IConfigNetwork</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IConfigNetworkLAN" class="tsd-anchor"></a>
+					<h3>IConfig<wbr>NetworkLAN</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IConfigNetworkLAN.html">IConfigNetworkLAN</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IDownlinkTable" class="tsd-anchor"></a>
+					<h3>IDownlink<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IDownlinkTable.html">IDownlinkTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IDpistatsTable" class="tsd-anchor"></a>
+					<h3>IDpistats<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IDpistatsTable.html">IDpistatsTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IEthernetOverride" class="tsd-anchor"></a>
+					<h3>IEthernet<wbr>Override</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IEthernetOverride.html">IEthernetOverride</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IEthernetTable" class="tsd-anchor"></a>
+					<h3>IEthernet<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IEthernetTable.html">IEthernetTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IGeoInfo" class="tsd-anchor"></a>
+					<h3>IGeo<wbr>Info</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IGeoInfo.html">IGeoInfo</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IGeoInfoWAN" class="tsd-anchor"></a>
+					<h3>IGeo<wbr>InfoWAN</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IGeoInfoWAN.html">IGeoInfoWAN</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IGw" class="tsd-anchor"></a>
+					<h3>IGw</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IGw.html">IGw</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ILACPState" class="tsd-anchor"></a>
+					<h3>ILACPState</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ILACPState.html">ILACPState</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ILANDeviceRaw" class="tsd-anchor"></a>
+					<h3>ILANDevice<wbr>Raw</h3>
+					Re-exports <a href="../interfaces/Devices_ILANDeviceRaw.ILANDeviceRaw.html">ILANDeviceRaw</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ILEDState" class="tsd-anchor"></a>
+					<h3>ILEDState</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ILEDState.html">ILEDState</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ILastUplink" class="tsd-anchor"></a>
+					<h3>ILast<wbr>Uplink</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ILastUplink.html">ILastUplink</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ILedOverrideProps" class="tsd-anchor"></a>
+					<h3>ILed<wbr>Override<wbr>Props</h3>
+					Re-exports <a href="../interfaces/Devices_BaseDevice.ILedOverrideProps.html">ILedOverrideProps</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ILldpTable" class="tsd-anchor"></a>
+					<h3>ILldp<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ILldpTable.html">ILldpTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IMACTable" class="tsd-anchor"></a>
+					<h3>IMACTable</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IMACTable.html">IMACTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="INetworkTable" class="tsd-anchor"></a>
+					<h3>INetwork<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.INetworkTable.html">INetworkTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IPortDelta" class="tsd-anchor"></a>
+					<h3>IPort<wbr>Delta</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IPortDelta.html">IPortDelta</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IPortOverride" class="tsd-anchor"></a>
+					<h3>IPort<wbr>Override</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IPortOverride.html">IPortOverride</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IPortTable" class="tsd-anchor"></a>
+					<h3>IPort<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IPortTable.html">IPortTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IRPS" class="tsd-anchor"></a>
+					<h3>IRPS</h3>
+					Re-exports <a href="../interfaces/Devices_ILANDeviceRaw.IRPS.html">IRPS</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IRPSPortTable" class="tsd-anchor"></a>
+					<h3>IRPSPort<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_ILANDeviceRaw.IRPSPortTable.html">IRPSPortTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IRadioTable" class="tsd-anchor"></a>
+					<h3>IRadio<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IRadioTable.html">IRadioTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IRadioTableStat" class="tsd-anchor"></a>
+					<h3>IRadio<wbr>Table<wbr>Stat</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IRadioTableStat.html">IRadioTableStat</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IRps" class="tsd-anchor"></a>
+					<h3>IRps</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IRps.html">IRps</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IRpsPortTable" class="tsd-anchor"></a>
+					<h3>IRps<wbr>Port<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IRpsPortTable.html">IRpsPortTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IServiceMACTable" class="tsd-anchor"></a>
+					<h3>IServiceMACTable</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IServiceMACTable.html">IServiceMACTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ISpeedTestServer" class="tsd-anchor"></a>
+					<h3>ISpeed<wbr>Test<wbr>Server</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ISpeedTestServer.html">ISpeedTestServer</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ISpeedtestStatus" class="tsd-anchor"></a>
+					<h3>ISpeedtest<wbr>Status</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ISpeedtestStatus.html">ISpeedtestStatus</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IStat" class="tsd-anchor"></a>
+					<h3>IStat</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IStat.html">IStat</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IStorage" class="tsd-anchor"></a>
+					<h3>IStorage</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IStorage.html">IStorage</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ISw" class="tsd-anchor"></a>
+					<h3>ISw</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ISw.html">ISw</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ISwitchCaps" class="tsd-anchor"></a>
+					<h3>ISwitch<wbr>Caps</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ISwitchCaps.html">ISwitchCaps</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ISysStats" class="tsd-anchor"></a>
+					<h3>ISys<wbr>Stats</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ISysStats.html">ISysStats</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ISystemStats" class="tsd-anchor"></a>
+					<h3>ISystem<wbr>Stats</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ISystemStats.html">ISystemStats</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="ITemperature" class="tsd-anchor"></a>
+					<h3>ITemperature</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.ITemperature.html">ITemperature</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IUnifiCare" class="tsd-anchor"></a>
+					<h3>IUnifi<wbr>Care</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IUnifiCare.html">IUnifiCare</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IUplink" class="tsd-anchor"></a>
+					<h3>IUplink</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IUplink.html">IUplink</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IUptimeStats" class="tsd-anchor"></a>
+					<h3>IUptime<wbr>Stats</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IUptimeStats.html">IUptimeStats</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IUptimeStatsWAN" class="tsd-anchor"></a>
+					<h3>IUptime<wbr>StatsWAN</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IUptimeStatsWAN.html">IUptimeStatsWAN</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IVapTable" class="tsd-anchor"></a>
+					<h3>IVap<wbr>Table</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IVapTable.html">IVapTable</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IWAN" class="tsd-anchor"></a>
+					<h3>IWAN</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IWAN.html">IWAN</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IWLANDeviceRaw" class="tsd-anchor"></a>
+					<h3>IWLANDevice<wbr>Raw</h3>
+					Re-exports <a href="../interfaces/Devices_IWLANDeviceRaw.IWLANDeviceRaw.html">IWLANDeviceRaw</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IWifiTxLatencyMOV" class="tsd-anchor"></a>
+					<h3>IWifi<wbr>TxLatencyMOV</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IWifiTxLatencyMOV.html">IWifiTxLatencyMOV</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IXTCPStats" class="tsd-anchor"></a>
+					<h3>IXTCPStats</h3>
+					Re-exports <a href="../interfaces/Devices_interfaces.IXTCPStats.html">IXTCPStats</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="LANDevice" class="tsd-anchor"></a>
+					<h3>LANDevice</h3>
+					Re-exports <a href="../classes/Devices_LANDevice.LANDevice.html">LANDevice</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="UAPDevice" class="tsd-anchor"></a>
+					<h3>UAPDevice</h3>
+					Re-exports <a href="../classes/Devices_UAPDevice.UAPDevice.html">UAPDevice</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="UBBDevice" class="tsd-anchor"></a>
+					<h3>UBBDevice</h3>
+					Re-exports <a href="../classes/Devices_UBBDevice.UBBDevice.html">UBBDevice</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="UDMDevice" class="tsd-anchor"></a>
+					<h3>UDMDevice</h3>
+					Re-exports <a href="../classes/Devices_UDMDevice.UDMDevice.html">UDMDevice</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="UGWDevice" class="tsd-anchor"></a>
+					<h3>UGWDevice</h3>
+					Re-exports <a href="../classes/Devices_UGWDevice.UGWDevice.html">UGWDevice</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="USWDevice" class="tsd-anchor"></a>
+					<h3>USWDevice</h3>
+					Re-exports <a href="../classes/Devices_USWDevice.USWDevice.html">USWDevice</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="UXGDevice" class="tsd-anchor"></a>
+					<h3>UXGDevice</h3>
+					Re-exports <a href="../classes/Devices_UXGDevice.UXGDevice.html">UXGDevice</a>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="Devices.html">Devices</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#BaseDevice" class="tsd-kind-icon">Base<wbr>Device</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#Devices-1" class="tsd-kind-icon">Devices</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EBr0" class="tsd-kind-icon">EBr0</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EConfigNetworkType" class="tsd-kind-icon">EConfig<wbr>Network<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EConnectionNetworkName" class="tsd-kind-icon">EConnection<wbr>Network<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EDeviceStates" class="tsd-kind-icon">EDevice<wbr>States</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EDeviceType" class="tsd-kind-icon">EDevice<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EDot1XMode" class="tsd-kind-icon">EDot1XMode</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EDot1XStatus" class="tsd-kind-icon">EDot1XStatus</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ELastUplinkType" class="tsd-kind-icon">ELast<wbr>Uplink<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ELicenseState" class="tsd-kind-icon">ELicense<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EMedia" class="tsd-kind-icon">EMedia</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EOpMode" class="tsd-kind-icon">EOp<wbr>Mode</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EPortTableType" class="tsd-kind-icon">EPort<wbr>Table<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ERadio" class="tsd-kind-icon">ERadio</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EState" class="tsd-kind-icon">EState</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EUsage" class="tsd-kind-icon">EUsage</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#EWANDeviceType" class="tsd-kind-icon">EWANDevice<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IAccMeterStats" class="tsd-kind-icon">IAcc<wbr>Meter<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IAntennaTable" class="tsd-kind-icon">IAntenna<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IApClass" class="tsd-kind-icon">IAp<wbr>Class</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IBaseDeviceMandatoryRaw" class="tsd-kind-icon">IBase<wbr>Device<wbr>Mandatory<wbr>Raw</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IBaseDeviceRaw" class="tsd-kind-icon">IBase<wbr>Device<wbr>Raw</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IByApp" class="tsd-kind-icon">IBy<wbr>App</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IByCat" class="tsd-kind-icon">IBy<wbr>Cat</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IClient" class="tsd-kind-icon">IClient</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IConfigNetwork" class="tsd-kind-icon">IConfig<wbr>Network</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IConfigNetworkLAN" class="tsd-kind-icon">IConfig<wbr>NetworkLAN</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IDownlinkTable" class="tsd-kind-icon">IDownlink<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IDpistatsTable" class="tsd-kind-icon">IDpistats<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IEthernetOverride" class="tsd-kind-icon">IEthernet<wbr>Override</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IEthernetTable" class="tsd-kind-icon">IEthernet<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IGeoInfo" class="tsd-kind-icon">IGeo<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IGeoInfoWAN" class="tsd-kind-icon">IGeo<wbr>InfoWAN</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IGw" class="tsd-kind-icon">IGw</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ILACPState" class="tsd-kind-icon">ILACPState</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ILANDeviceRaw" class="tsd-kind-icon">ILANDevice<wbr>Raw</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ILEDState" class="tsd-kind-icon">ILEDState</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ILastUplink" class="tsd-kind-icon">ILast<wbr>Uplink</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ILedOverrideProps" class="tsd-kind-icon">ILed<wbr>Override<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ILldpTable" class="tsd-kind-icon">ILldp<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IMACTable" class="tsd-kind-icon">IMACTable</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#INetworkTable" class="tsd-kind-icon">INetwork<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IPortDelta" class="tsd-kind-icon">IPort<wbr>Delta</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IPortOverride" class="tsd-kind-icon">IPort<wbr>Override</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IPortTable" class="tsd-kind-icon">IPort<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IRPS" class="tsd-kind-icon">IRPS</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IRPSPortTable" class="tsd-kind-icon">IRPSPort<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IRadioTable" class="tsd-kind-icon">IRadio<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IRadioTableStat" class="tsd-kind-icon">IRadio<wbr>Table<wbr>Stat</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IRps" class="tsd-kind-icon">IRps</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IRpsPortTable" class="tsd-kind-icon">IRps<wbr>Port<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IServiceMACTable" class="tsd-kind-icon">IServiceMACTable</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ISpeedTestServer" class="tsd-kind-icon">ISpeed<wbr>Test<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ISpeedtestStatus" class="tsd-kind-icon">ISpeedtest<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IStat" class="tsd-kind-icon">IStat</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IStorage" class="tsd-kind-icon">IStorage</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ISw" class="tsd-kind-icon">ISw</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ISwitchCaps" class="tsd-kind-icon">ISwitch<wbr>Caps</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ISysStats" class="tsd-kind-icon">ISys<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ISystemStats" class="tsd-kind-icon">ISystem<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#ITemperature" class="tsd-kind-icon">ITemperature</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IUnifiCare" class="tsd-kind-icon">IUnifi<wbr>Care</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IUplink" class="tsd-kind-icon">IUplink</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IUptimeStats" class="tsd-kind-icon">IUptime<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IUptimeStatsWAN" class="tsd-kind-icon">IUptime<wbr>StatsWAN</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IVapTable" class="tsd-kind-icon">IVap<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IWAN" class="tsd-kind-icon">IWAN</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IWLANDeviceRaw" class="tsd-kind-icon">IWLANDevice<wbr>Raw</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IWifiTxLatencyMOV" class="tsd-kind-icon">IWifi<wbr>TxLatencyMOV</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#IXTCPStats" class="tsd-kind-icon">IXTCPStats</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#LANDevice" class="tsd-kind-icon">LANDevice</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#UAPDevice" class="tsd-kind-icon">UAPDevice</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#UBBDevice" class="tsd-kind-icon">UBBDevice</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#UDMDevice" class="tsd-kind-icon">UDMDevice</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#UGWDevice" class="tsd-kind-icon">UGWDevice</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#USWDevice" class="tsd-kind-icon">USWDevice</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="Devices.html#UXGDevice" class="tsd-kind-icon">UXGDevice</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

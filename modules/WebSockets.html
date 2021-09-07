@@ -76,9 +76,10 @@
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#EUnifiControllerEvents" class="tsd-kind-icon">EUnifi<wbr>Controller<wbr>Events</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IApp" class="tsd-kind-icon">IApp</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#ICPU" class="tsd-kind-icon">ICPU</a></li>
-								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IClient" class="tsd-kind-icon">IClient</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IController" class="tsd-kind-icon">IController</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IControllerClient" class="tsd-kind-icon">IController<wbr>Client</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IControllerEvent" class="tsd-kind-icon">IController<wbr>Event</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IControllerStorage" class="tsd-kind-icon">IController<wbr>Storage</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IDeviceStateChangedEvent" class="tsd-kind-icon">IDevice<wbr>State<wbr>Changed<wbr>Event</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IErrorEvent" class="tsd-kind-icon">IError<wbr>Event</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IEventDevice" class="tsd-kind-icon">IEvent<wbr>Device</a></li>
@@ -89,7 +90,6 @@
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#ISiteEvent" class="tsd-kind-icon">ISite<wbr>Event</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#ISiteEventsEvent" class="tsd-kind-icon">ISite<wbr>Events<wbr>Event</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IStaSync" class="tsd-kind-icon">ISta<wbr>Sync</a></li>
-								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IStorage" class="tsd-kind-icon">IStorage</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#ISystem" class="tsd-kind-icon">ISystem</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#ISystemEvent" class="tsd-kind-icon">ISystem<wbr>Event</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="WebSockets.html#IUIConfig" class="tsd-kind-icon">IUIConfig</a></li>
@@ -134,19 +134,24 @@
 					Re-exports <a href="../interfaces/WebSockets_Interfaces.ICPU.html">ICPU</a>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
-					<a name="IClient" class="tsd-anchor"></a>
-					<h3>IClient</h3>
-					Re-exports <a href="../interfaces/WebSockets_Interfaces.IClient.html">IClient</a>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
 					<a name="IController" class="tsd-anchor"></a>
 					<h3>IController</h3>
 					Re-exports <a href="../interfaces/WebSockets_Interfaces.IController.html">IController</a>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IControllerClient" class="tsd-anchor"></a>
+					<h3>IController<wbr>Client</h3>
+					Re-exports <a href="../interfaces/WebSockets_Interfaces.IControllerClient.html">IControllerClient</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
 					<a name="IControllerEvent" class="tsd-anchor"></a>
 					<h3>IController<wbr>Event</h3>
 					Re-exports <a href="../interfaces/WebSockets_events_events.IControllerEvent.html">IControllerEvent</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="IControllerStorage" class="tsd-anchor"></a>
+					<h3>IController<wbr>Storage</h3>
+					Re-exports <a href="../interfaces/WebSockets_Interfaces.IControllerStorage.html">IControllerStorage</a>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
 					<a name="IDeviceStateChangedEvent" class="tsd-anchor"></a>
@@ -197,11 +202,6 @@
 					<a name="IStaSync" class="tsd-anchor"></a>
 					<h3>ISta<wbr>Sync</h3>
 					Re-exports <a href="../interfaces/WebSockets_events_events.IStaSync.html">IStaSync</a>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
-					<a name="IStorage" class="tsd-anchor"></a>
-					<h3>IStorage</h3>
-					Re-exports <a href="../interfaces/WebSockets_Interfaces.IStorage.html">IStorage</a>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
 					<a name="ISystem" class="tsd-anchor"></a>
@@ -311,13 +311,16 @@
 						<a href="WebSockets.html#ICPU" class="tsd-kind-icon">ICPU</a>
 					</li>
 					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="WebSockets.html#IClient" class="tsd-kind-icon">IClient</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
 						<a href="WebSockets.html#IController" class="tsd-kind-icon">IController</a>
 					</li>
 					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="WebSockets.html#IControllerClient" class="tsd-kind-icon">IController<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
 						<a href="WebSockets.html#IControllerEvent" class="tsd-kind-icon">IController<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="WebSockets.html#IControllerStorage" class="tsd-kind-icon">IController<wbr>Storage</a>
 					</li>
 					<li class=" tsd-kind-reference tsd-parent-kind-module">
 						<a href="WebSockets.html#IDeviceStateChangedEvent" class="tsd-kind-icon">IDevice<wbr>State<wbr>Changed<wbr>Event</a>
@@ -348,9 +351,6 @@
 					</li>
 					<li class=" tsd-kind-reference tsd-parent-kind-module">
 						<a href="WebSockets.html#IStaSync" class="tsd-kind-icon">ISta<wbr>Sync</a>
-					</li>
-					<li class=" tsd-kind-reference tsd-parent-kind-module">
-						<a href="WebSockets.html#IStorage" class="tsd-kind-icon">IStorage</a>
 					</li>
 					<li class=" tsd-kind-reference tsd-parent-kind-module">
 						<a href="WebSockets.html#ISystem" class="tsd-kind-icon">ISystem</a>
