@@ -13,8 +13,42 @@ import {
     timestampDate,
     uuid
 } from '../commons/types';
-import { IUserGroup } from '../User/IUserGroup';
-import { IUserRole } from '../User/IUserRole';
+import { IUserRole, IUserGroup } from '../User';
+
+export interface IControllerStorage {
+    id: number;
+    type: 'emmc' | 'hdd' | string;
+    mounted: boolean;
+    mountPoint: string;
+    canErase: boolean;
+    size: number;
+    used: number;
+    avail: number;
+}
+
+export interface ICPU {
+    model: string;
+    speed: number;
+    times: {
+        user: number;
+        nice: number;
+        sys: number;
+        idle: number;
+        irq: number;
+    };
+}
+
+export interface IInterface {
+    address: ipV4Address | ipv6Address;
+    netmask: ipV4Address | ipv6Address;
+    family: 'IPv4' | 'IPv6';
+    mac: macAddress;
+    internal: boolean;
+    cidr: ipv4CIDR | ipv6CIDR;
+    scopeid?: number;
+}
+
+export type ledStatus = 'Configured' | string;
 
 export type controllerStatuses = 'READY';
 
@@ -40,7 +74,7 @@ export interface IApp {
     ui: IUIConfig;
 }
 
-export interface IClient {
+export interface IControllerClient {
     deviceModel: number;
     hostname: string;
     ip: string;
@@ -106,7 +140,7 @@ export interface IController {
         wiredClients: number;
         wirelessClients: number;
         guestClients: number;
-        clientList: Array<IClient>;
+        clientList: Array<IControllerClient>;
         lastSpeedTest: {
             downloadSpeed: number;
             ping: number;
@@ -125,41 +159,6 @@ export interface IController {
     abridged: boolean;
 }
 
-export interface IStorage {
-    id: number;
-    type: 'emmc' | 'hdd' | string;
-    mounted: boolean;
-    mountPoint: string;
-    canErase: boolean;
-    size: number;
-    used: number;
-    avail: number;
-}
-
-export interface ICPU {
-    model: string;
-    speed: number;
-    times: {
-        user: number;
-        nice: number;
-        sys: number;
-        idle: number;
-        irq: number;
-    };
-}
-
-export interface IInterface {
-    address: ipV4Address | ipv6Address;
-    netmask: ipV4Address | ipv6Address;
-    family: 'IPv4' | 'IPv6';
-    mac: macAddress;
-    internal: boolean;
-    cidr: ipv4CIDR | ipv6CIDR;
-    scopeid?: number;
-}
-
-export type ledStatus = 'Configured' | string;
-
 export type permissionRole = 'admin' | string;
 
 export interface IPortStatus {
@@ -168,7 +167,7 @@ export interface IPortStatus {
     type: LANWAN;
 }
 
-export type releaseChannels = 'release' | 'beta' | 'release-candidate';
+export type releaseChannels = 'release' | 'beta' | 'release-candidate' | 'early-access';
 
 export interface ISystem {
     info: {
@@ -215,7 +214,7 @@ export interface ISystem {
             UFNSetsHostname: true;
             systoolAnonId: true;
         };
-        storage: Array<IStorage>;
+        storage: Array<IControllerStorage>;
         cpu: {
             model: string;
             speed: number;

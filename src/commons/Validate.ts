@@ -22,6 +22,14 @@ export class Validate {
         return Validate.isString(uuid) && !!uuid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89AB][0-9a-f]{3}-[0-9a-f]{12}$/i);
     }
 
+    public static mac(address: string): boolean {
+        return Validate.isString(address) && !!address.match(/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/);
+    }
+
+    public static hexColor(color: string): boolean {
+        return Validate.isString(color) && !!color.match(/^#[0-9A-F]{6}$/i);
+    }
+
     // Returns if a value is a string
     public static isString(value: unknown): value is string {
         return typeof value === 'string' || value instanceof String;
@@ -39,7 +47,8 @@ export class Validate {
     // Returns if a value is an object
     // eslint-disable-next-line @typescript-eslint/ban-types
     public static isObject(value: unknown): value is object {
-        return ((value ?? false) as boolean) && typeof value === 'object' && value?.constructor === Object;
+        // eslint-disable-next-line @typescript-eslint/ban-types
+        return ((value ?? false) as boolean) && typeof value === 'object' && (value as object).constructor === Object;
     }
     // Returns if a value is null
     public static isNull(value: unknown): value is null {
@@ -63,7 +72,8 @@ export class Validate {
     }
     // Returns if a value is a regexp
     public static isRegExp(value: unknown): value is RegExp {
-        return ((value ?? false) as boolean) && typeof value === 'object' && value?.constructor === RegExp;
+        // eslint-disable-next-line @typescript-eslint/ban-types
+        return ((value ?? false) as boolean) && typeof value === 'object' && (value as object).constructor === RegExp;
     }
     // Returns if value is an error object
     public static isError(value: unknown): value is Error {

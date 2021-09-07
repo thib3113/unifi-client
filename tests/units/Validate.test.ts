@@ -1,4 +1,5 @@
 import { Validate } from '../../src/commons/Validate';
+import { macAddress } from '../globals';
 
 describe('Validate.test.ts', () => {
     it('should validate function mail', () => {
@@ -24,6 +25,7 @@ describe('Validate.test.ts', () => {
     it('should validate function isObject', () => {
         expect(Validate.isObject({ foo: true })).toBeTruthy();
         expect(Validate.isObject(true)).toBeFalsy();
+        expect(Validate.isObject(null)).toBeFalsy();
     });
     it('should validate function isNull', () => {
         expect(Validate.isNull(null)).toBeTruthy();
@@ -114,5 +116,22 @@ describe('Validate.test.ts', () => {
         expect(Validate.isDefinedNotNull(12)).toBeTruthy();
         expect(Validate.isDefinedNotNull(0)).toBeTruthy();
         expect(Validate.isDefinedNotNull(false)).toBeTruthy();
+    });
+    it('should validate function mac', () => {
+        // @ts-ignore
+        expect(Validate.mac(2)).toBeFalsy();
+        expect(Validate.mac(macAddress)).toBeTruthy();
+        expect(Validate.mac('aaaa')).toBeFalsy();
+        // @ts-ignore
+        expect(Validate.mac(undefined)).toBeFalsy();
+    });
+    it('should validate function hexColor', () => {
+        expect(Validate.hexColor('#FFFFFF')).toBeTruthy();
+        expect(Validate.hexColor('FFFFFF')).toBeFalsy();
+        expect(Validate.hexColor('test')).toBeFalsy();
+        // @ts-ignore
+        expect(Validate.hexColor(2)).toBeFalsy();
+        // @ts-ignore
+        expect(Validate.hexColor(undefined)).toBeFalsy();
     });
 });

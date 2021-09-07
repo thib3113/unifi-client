@@ -1,3 +1,5 @@
+//need this first
+import { checkNeedsMock, checkNeedVersionMock } from '../mocks/utils';
 import { _ObjectSubController } from '../../src/commons/_ObjectSubController';
 import axios from 'axios';
 import { ClientError, Controller } from '../../src';
@@ -79,64 +81,103 @@ describe('_ObjectSubController', () => {
         });
         describe('checkNeeds', () => {
             it('should check minVersion', () => {
-                subController.controller.version = '7.0.0';
-                expect(subController.checkNeeds('8.0.0')).toBeFalsy();
-                expect(subController.checkNeeds('7.0.0')).toBeTruthy();
-                expect(subController.checkNeeds('6.9.9')).toBeTruthy();
+                checkNeedsMock.mockImplementationOnce(() => false);
+                expect(subController.checkNeeds('8.0.0')).toBe(false);
+                expect(checkNeedsMock).toHaveBeenCalledWith({ unifiOs: true, version: '7.0.0' }, '8.0.0', undefined);
+                checkNeedsMock.mockClear();
+
+                checkNeedsMock.mockImplementationOnce(() => true);
+                expect(subController.checkNeeds('7.0.0')).toBe(true);
+                expect(checkNeedsMock).toHaveBeenCalledWith({ unifiOs: true, version: '7.0.0' }, '7.0.0', undefined);
             });
-            it('should check unifiOs', () => {
-                subController.controller.unifiOs = true;
-                expect(subController.checkNeeds(undefined, false)).toBeFalsy();
-                expect(subController.checkNeeds(undefined, true)).toBeTruthy();
-                subController.controller.unifiOs = false;
-                expect(subController.checkNeeds(undefined, true)).toBeFalsy();
-                expect(subController.checkNeeds(undefined, false)).toBeTruthy();
-            });
+            // it('should check unifiOs', () => {
+            //     subController.controller.unifiOs = true;
+            //     expect(subController.checkNeeds(undefined, false)).toBeFalsy();
+            //     expect(subController.checkNeeds(undefined, true)).toBeTruthy();
+            //     subController.controller.unifiOs = false;
+            //     expect(subController.checkNeeds(undefined, true)).toBeFalsy();
+            //     expect(subController.checkNeeds(undefined, false)).toBeTruthy();
+            // });
         });
         describe('checkNeedVersion', () => {
-            const checkNeedsMock = jest.fn().mockReturnValue(false);
-            beforeEach(() => {
-                subController.checkNeeds = checkNeedsMock;
-            });
-            it('should return true if version match', () => {
-                checkNeedsMock.mockImplementationOnce(() => true);
-                //this need to doesn't crash
-                subController.checkNeedVersion('7.0.0', true);
-                expect(true).toBeTruthy();
-            });
-            it('should validate unifiOs', () => {
-                expect.assertions(4);
+            it('should pass parameters', () => {
+                checkNeedVersionMock.mockImplementationOnce(() => {
+                    throw new Error('my error');
+                });
                 try {
-                    subController.checkNeedVersion(undefined, true);
+                    subController.checkNeedVersion('7.0.0', true, 'test');
+                    expect(false).toBe(true);
                 } catch (e) {
-                    expect(e).toBeInstanceOf(ClientError);
-                    expect(e.message).toBe('need UnifiOs controller');
+                    expect(e).toBeInstanceOf(Error);
+                    expect(e.message).toBe('my error');
+                    expect(checkNeedVersionMock).toHaveBeenCalledWith({ unifiOs: true, version: '7.0.0' }, '7.0.0', true, 'test');
                 }
-                try {
-                    subController.checkNeedVersion(undefined, false);
-                } catch (e) {
-                    expect(e).toBeInstanceOf(ClientError);
-                    expect(e.message).toBe('need non-UnifiOs controller');
-                }
+
+                checkNeedVersionMock.mockClear();
+                checkNeedVersionMock.mockImplementationOnce(() => true);
+
+                subController.checkNeedVersion('8.0.0', undefined);
+                expect(checkNeedVersionMock).toHaveBeenCalledWith({ unifiOs: true, version: '7.0.0' }, '8.0.0', undefined, '');
             });
-            it('should validate minVersion', () => {
-                expect.assertions(2);
-                try {
-                    subController.checkNeedVersion('2.0.1');
-                } catch (e) {
-                    expect(e).toBeInstanceOf(ClientError);
-                    expect(e.message).toBe('need minimal controller version 2.0.1');
-                }
-            });
-            it('should add parameterName in the error', () => {
-                expect.assertions(2);
-                try {
-                    subController.checkNeedVersion('2.0.1', undefined, 'test');
-                } catch (e) {
-                    expect(e).toBeInstanceOf(ClientError);
-                    expect(e.message).toBe('test need minimal controller version 2.0.1');
-                }
-            });
+
+            //     // const checkNeedsMock = jest.fn().mockReturnValue(false);
+            //     beforeEach(() => {
+            //         checkNeedVersionMock.mockImplementation(() => {
+            //             throw new Error('my error');
+            //         });
+            //     });
+            //     it('should return true if version match', () => {
+            //         checkNeedVersionMock.mockImplementationOnce(() => true);
+            //         //this need to doesn't crash
+            //         subController.checkNeedVersion('7.0.0', true);
+            //         expect(true).toBeTruthy();
+            //     });
+            //     it('should pass a parameterName', () => {
+            //         checkNeedVersionMock.mockImplementationOnce(() => true);
+            //         subController.checkNeedVersion('7.0.0', true);
+            //         expect(checkNeedVersionMock).toHaveBeenCalledWith(
+            //             {
+            //                 unifiOs: true,
+            //                 version: '7.0.0'
+            //             },
+            //             '7.0.0',
+            //             true,
+            //             ''
+            //         );
+            //     });
+            // it('should validate unifiOs', () => {
+            //     expect.assertions(4);
+            //     try {
+            //         subController.checkNeedVersion(undefined, true);
+            //     } catch (e) {
+            //         expect(e).toBeInstanceOf(ClientError);
+            //         expect(e.message).toBe('need UnifiOs controller');
+            //     }
+            //     try {
+            //         subController.checkNeedVersion(undefined, false);
+            //     } catch (e) {
+            //         expect(e).toBeInstanceOf(ClientError);
+            //         expect(e.message).toBe('need non-UnifiOs controller');
+            //     }
+            // });
+            // it('should validate minVersion', () => {
+            //     expect.assertions(2);
+            //     try {
+            //         subController.checkNeedVersion('2.0.1');
+            //     } catch (e) {
+            //         expect(e).toBeInstanceOf(ClientError);
+            //         expect(e.message).toBe('need minimal controller version 2.0.1');
+            //     }
+            // });
+            // it('should add parameterName in the error', () => {
+            //     expect.assertions(2);
+            //     try {
+            //         subController.checkNeedVersion('2.0.1', undefined, 'test');
+            //     } catch (e) {
+            //         expect(e).toBeInstanceOf(ClientError);
+            //         expect(e.message).toBe('test need minimal controller version 2.0.1');
+            //     }
+            // });
         });
         describe('needVersion', () => {
             const checkNeedVersionMock = jest.fn();

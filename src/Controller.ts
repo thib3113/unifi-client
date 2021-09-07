@@ -1,6 +1,6 @@
 import { IUnifiAuthProps, UnifiAuth } from './UnifiAuth';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { axiosUrlParams, createDebugger, getUrlRepresentation, removeTrailingSlash } from './util';
+import { axiosUrlParams, checkNeedVersion, createDebugger, getUrlRepresentation, removeTrailingSlash } from './util';
 import https from 'https';
 import curlirize from 'axios-curlirize';
 import { URL } from 'url';
@@ -417,5 +417,11 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         ).data;
 
         return new DeviceFingerPrints(fingerprintsRaw);
+    }
+
+    public async reboot(): Promise<void> {
+        checkNeedVersion(this, undefined, true, 'Controller.reboot');
+        //on UDM, return 204
+        await this.controllerInstance.post<undefined>('/api/system/reboot');
     }
 }
