@@ -1,556 +1,149 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>unifi-client - v0.8.0</title>
-	<meta name="description" content="Documentation for unifi-client - v0.8.0">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script async src="assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">unifi-client - v0.8.0</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<h1>unifi-client - v0.8.0</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#unifi-client" id="unifi-client" style="color: inherit; text-decoration: none;">
-					<h1>unifi-client</h1>
-				</a>
-				<p><a href="https://www.npmjs.com/package/unifi-client"><img src="https://img.shields.io/npm/v/unifi-client.svg" alt="NPM version"></a>
-					<a href="https://github.com/thib3113/unifi-client/actions/workflows/CI.yml"><img src="https://github.com/thib3113/unifi-client/actions/workflows/CI.yml/badge.svg" alt="CI"></a>
-					<a href="https://codecov.io/gh/thib3113/unifi-client"><img src="https://codecov.io/gh/thib3113/unifi-client/branch/main/graph/badge.svg?token=MZKEJ9F2WR" alt="codecov"></a>
-					<a href="https://www.npmjs.com/package/unifi-client"><img src="https://img.shields.io/npm/dm/unifi-client.svg" alt="Downloads"></a>
-					<a href="https://github.com/thib3113/unifi-client/blob/main/LICENSE"><img src="https://img.shields.io/github/license/thib3113/unifi-client.svg" alt="License"></a>
-					<a href="https://snyk.io/test/github/thib3113/unifi-client"><img src="https://snyk.io/test/github/thib3113/unifi-client/badge.svg" alt="Known Vulnerabilities"></a>
-					<a href="https://snyk.io/advisor/npm-package/unifi-client"><img src="https://snyk.io/advisor/npm-package/unifi-client/badge.svg" alt="unifi-client"></a>
-					<a href="https://david-dm.org/thib3113/unifi-client"><img src="https://david-dm.org/thib3113/unifi-client.svg" alt="Dependencies status"></a>
-					<a href="https://paypal.me/thib3113"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal" alt="Donate"></a>
-					<a href="https://github.com/thib3113/unifi-client/stargazers/"><img src="https://img.shields.io/github/stars/thib3113/unifi-client.svg?style=social&label=Star" alt="GitHub stars"></a>
-				<a href="https://packagequality.com/#?package=unifi-client"><img src="https://packagequality.com/shield/unifi-client.svg" alt="Package Quality"></a></p>
-				<p><a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=bugs" alt="Bugs"></a>
-					<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=code_smells" alt="Code Smells"></a>
-					<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=duplicated_lines_density" alt="Duplicated Lines (%)"></a>
-					<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=ncloc" alt="Lines of Code"></a>
-					<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=sqale_rating" alt="Maintainability Rating"></a>
-					<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=alert_status" alt="Quality Gate Status"></a>
-					<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=reliability_rating" alt="Reliability Rating"></a>
-					<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=security_rating" alt="Security Rating"></a>
-					<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=sqale_index" alt="Technical Debt"></a>
-				<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=vulnerabilities" alt="Vulnerabilities"></a></p>
-				<p><img src="https://img.shields.io/badge/renovate-enabled-green?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjUgNSAzNzAgMzcwIj48Y2lyY2xlIGN4PSIxODkiIGN5PSIxOTAiIHI9IjE4NCIgZmlsbD0iI2ZlMiIvPjxwYXRoIGZpbGw9IiM4YmIiIGQ9Ik0yNTEgMjU2bC0zOC0zOGExNyAxNyAwIDAxMC0yNGw1Ni01NmMyLTIgMi02IDAtN2wtMjAtMjFhNSA1IDAgMDAtNyAwbC0xMyAxMi05LTggMTMtMTNhMTcgMTcgMCAwMTI0IDBsMjEgMjFjNyA3IDcgMTcgMCAyNGwtNTYgNTdhNSA1IDAgMDAwIDdsMzggMzh6Ii8+PHBhdGggZmlsbD0iI2Q1MSIgZD0iTTMwMCAyODhsLTggOGMtNCA0LTExIDQtMTYgMGwtNDYtNDZjLTUtNS01LTEyIDAtMTZsOC04YzQtNCAxMS00IDE1IDBsNDcgNDdjNCA0IDQgMTEgMCAxNXoiLz48cGF0aCBmaWxsPSIjYjMwIiBkPSJNMjg1IDI1OGw3IDdjNCA0IDQgMTEgMCAxNWwtOCA4Yy00IDQtMTEgNC0xNiAwbC02LTdjNCA1IDExIDUgMTUgMGw4LTdjNC01IDQtMTIgMC0xNnoiLz48cGF0aCBmaWxsPSIjYTMwIiBkPSJNMjkxIDI2NGw4IDhjNCA0IDQgMTEgMCAxNmwtOCA3Yy00IDUtMTEgNS0xNSAwbC05LThjNSA1IDEyIDUgMTYgMGw4LThjNC00IDQtMTEgMC0xNXoiLz48cGF0aCBmaWxsPSIjZTYyIiBkPSJNMjYwIDIzM2wtNC00Yy02LTYtMTctNi0yMyAwLTcgNy03IDE3IDAgMjRsNCA0Yy00LTUtNC0xMSAwLTE2bDgtOGM0LTQgMTEtNCAxNSAweiIvPjxwYXRoIGZpbGw9IiNiNDAiIGQ9Ik0yODQgMzA0Yy00IDAtOC0xLTExLTRsLTQ3LTQ3Yy02LTYtNi0xNiAwLTIybDgtOGM2LTYgMTYtNiAyMiAwbDQ3IDQ2YzYgNyA2IDE3IDAgMjNsLTggOGMtMyAzLTcgNC0xMSA0em0tMzktNzZjLTEgMC0zIDAtNCAybC04IDdjLTIgMy0yIDcgMCA5bDQ3IDQ3YTYgNiAwIDAwOSAwbDctOGMzLTIgMy02IDAtOWwtNDYtNDZjLTItMi0zLTItNS0yeiIvPjxwYXRoIGZpbGw9IiMxY2MiIGQ9Ik0xNTIgMTEzbDE4LTE4IDE4IDE4LTE4IDE4em0xLTM1bDE4LTE4IDE4IDE4LTE4IDE4em0tOTAgODlsMTgtMTggMTggMTgtMTggMTh6bTM1LTM2bDE4LTE4IDE4IDE4LTE4IDE4eiIvPjxwYXRoIGZpbGw9IiMxZGQiIGQ9Ik0xMzQgMTMxbDE4LTE4IDE4IDE4LTE4IDE4em0tMzUgMzZsMTgtMTggMTggMTgtMTggMTh6Ii8+PHBhdGggZmlsbD0iIzJiYiIgZD0iTTExNiAxNDlsMTgtMTggMTggMTgtMTggMTh6bTU0LTU0bDE4LTE4IDE4IDE4LTE4IDE4em0tODkgOTBsMTgtMTggMTggMTgtMTggMTh6bTEzOS04NWwyMyAyM2M0IDQgNCAxMSAwIDE2TDE0MiAyNDBjLTQgNC0xMSA0LTE1IDBsLTI0LTI0Yy00LTQtNC0xMSAwLTE1bDEwMS0xMDFjNS01IDEyLTUgMTYgMHoiLz48cGF0aCBmaWxsPSIjM2VlIiBkPSJNMTM0IDk1bDE4LTE4IDE4IDE4LTE4IDE4em0tNTQgMThsMTgtMTcgMTggMTctMTggMTh6bTU1LTUzbDE4LTE4IDE4IDE4LTE4IDE4em05MyA0OGwtOC04Yy00LTUtMTEtNS0xNiAwTDEwMyAyMDFjLTQgNC00IDExIDAgMTVsOCA4Yy00LTQtNC0xMSAwLTE1bDEwMS0xMDFjNS00IDEyLTQgMTYgMHoiLz48cGF0aCBmaWxsPSIjOWVlIiBkPSJNMjcgMTMxbDE4LTE4IDE4IDE4LTE4IDE4em01NC01M2wxOC0xOCAxOCAxOC0xOCAxOHoiLz48cGF0aCBmaWxsPSIjMGFhIiBkPSJNMjMwIDExMGwxMyAxM2M0IDQgNCAxMSAwIDE2TDE0MiAyNDBjLTQgNC0xMSA0LTE1IDBsLTEzLTEzYzQgNCAxMSA0IDE1IDBsMTAxLTEwMWM1LTUgNS0xMSAwLTE2eiIvPjxwYXRoIGZpbGw9IiMxYWIiIGQ9Ik0xMzQgMjQ4Yy00IDAtOC0yLTExLTVsLTIzLTIzYTE2IDE2IDAgMDEwLTIzTDIwMSA5NmExNiAxNiAwIDAxMjIgMGwyNCAyNGM2IDYgNiAxNiAwIDIyTDE0NiAyNDNjLTMgMy03IDUtMTIgNXptNzgtMTQ3bC00IDItMTAxIDEwMWE2IDYgMCAwMDAgOWwyMyAyM2E2IDYgMCAwMDkgMGwxMDEtMTAxYTYgNiAwIDAwMC05bC0yNC0yMy00LTJ6Ii8+PC9zdmc+" alt="Dependencies update - renovate"></p>
-				<p><a href="https://nodei.co/npm/unifi-client/"><img src="https://nodei.co/npm/unifi-client.png" alt="NPM"></a></p>
-				<p>This library is a nodejs client to talk with unifi rest API .</p>
-				<a href="#start" id="start" style="color: inherit; text-decoration: none;">
-					<h2>Start</h2>
-				</a>
-				<p>install it</p>
-				<pre><code><span style="color: #001080">yarn</span><span style="color: #000000"> </span><span style="color: #001080">add</span><span style="color: #000000"> </span><span style="color: #001080">unifi</span><span style="color: #000000">-</span><span style="color: #001080">client</span>
+<!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>unifi-client - v0.8.0</title><meta name="description" content="Documentation for unifi-client - v0.8.0"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">unifi-client - v0.8.0</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>unifi-client - v0.8.0</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#unifi-client" id="unifi-client" style="color: inherit; text-decoration: none;">
+  <h1>unifi-client</h1>
+</a>
+<p><a href="https://www.npmjs.com/package/unifi-client"><img src="https://img.shields.io/npm/v/unifi-client.svg" alt="NPM version"></a> 
+<a href="https://github.com/thib3113/unifi-client/actions/workflows/CI.yml"><img src="https://github.com/thib3113/unifi-client/actions/workflows/CI.yml/badge.svg" alt="CI"></a> 
+<a href="https://codecov.io/gh/thib3113/unifi-client"><img src="https://codecov.io/gh/thib3113/unifi-client/branch/main/graph/badge.svg?token=MZKEJ9F2WR" alt="codecov"></a> 
+<a href="https://www.npmjs.com/package/unifi-client"><img src="https://img.shields.io/npm/dm/unifi-client.svg" alt="Downloads"></a> 
+<a href="https://github.com/thib3113/unifi-client/blob/main/LICENSE"><img src="https://img.shields.io/github/license/thib3113/unifi-client.svg" alt="License"></a> 
+<a href="https://snyk.io/test/github/thib3113/unifi-client"><img src="https://snyk.io/test/github/thib3113/unifi-client/badge.svg" alt="Known Vulnerabilities"></a> 
+<a href="https://snyk.io/advisor/npm-package/unifi-client"><img src="https://snyk.io/advisor/npm-package/unifi-client/badge.svg" alt="unifi-client"></a>
+<a href="https://david-dm.org/thib3113/unifi-client"><img src="https://david-dm.org/thib3113/unifi-client.svg" alt="Dependencies status"></a> 
+<a href="https://paypal.me/thib3113"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal" alt="Donate"></a> 
+<a href="https://github.com/thib3113/unifi-client/stargazers/"><img src="https://img.shields.io/github/stars/thib3113/unifi-client.svg?style=social&label=Star" alt="GitHub stars"></a>
+<a href="https://packagequality.com/#?package=unifi-client"><img src="https://packagequality.com/shield/unifi-client.svg" alt="Package Quality"></a></p>
+<p><a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=bugs" alt="Bugs"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=code_smells" alt="Code Smells"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=duplicated_lines_density" alt="Duplicated Lines (%)"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=ncloc" alt="Lines of Code"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=sqale_rating" alt="Maintainability Rating"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=alert_status" alt="Quality Gate Status"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=reliability_rating" alt="Reliability Rating"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=security_rating" alt="Security Rating"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=sqale_index" alt="Technical Debt"></a> 
+<a href="https://sonarcloud.io/dashboard?id=thib3113_unifi-client"><img src="https://sonarcloud.io/api/project_badges/measure?project=thib3113_unifi-client&metric=vulnerabilities" alt="Vulnerabilities"></a></p>
+<p><img src="https://img.shields.io/badge/renovate-enabled-green?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjUgNSAzNzAgMzcwIj48Y2lyY2xlIGN4PSIxODkiIGN5PSIxOTAiIHI9IjE4NCIgZmlsbD0iI2ZlMiIvPjxwYXRoIGZpbGw9IiM4YmIiIGQ9Ik0yNTEgMjU2bC0zOC0zOGExNyAxNyAwIDAxMC0yNGw1Ni01NmMyLTIgMi02IDAtN2wtMjAtMjFhNSA1IDAgMDAtNyAwbC0xMyAxMi05LTggMTMtMTNhMTcgMTcgMCAwMTI0IDBsMjEgMjFjNyA3IDcgMTcgMCAyNGwtNTYgNTdhNSA1IDAgMDAwIDdsMzggMzh6Ii8+PHBhdGggZmlsbD0iI2Q1MSIgZD0iTTMwMCAyODhsLTggOGMtNCA0LTExIDQtMTYgMGwtNDYtNDZjLTUtNS01LTEyIDAtMTZsOC04YzQtNCAxMS00IDE1IDBsNDcgNDdjNCA0IDQgMTEgMCAxNXoiLz48cGF0aCBmaWxsPSIjYjMwIiBkPSJNMjg1IDI1OGw3IDdjNCA0IDQgMTEgMCAxNWwtOCA4Yy00IDQtMTEgNC0xNiAwbC02LTdjNCA1IDExIDUgMTUgMGw4LTdjNC01IDQtMTIgMC0xNnoiLz48cGF0aCBmaWxsPSIjYTMwIiBkPSJNMjkxIDI2NGw4IDhjNCA0IDQgMTEgMCAxNmwtOCA3Yy00IDUtMTEgNS0xNSAwbC05LThjNSA1IDEyIDUgMTYgMGw4LThjNC00IDQtMTEgMC0xNXoiLz48cGF0aCBmaWxsPSIjZTYyIiBkPSJNMjYwIDIzM2wtNC00Yy02LTYtMTctNi0yMyAwLTcgNy03IDE3IDAgMjRsNCA0Yy00LTUtNC0xMSAwLTE2bDgtOGM0LTQgMTEtNCAxNSAweiIvPjxwYXRoIGZpbGw9IiNiNDAiIGQ9Ik0yODQgMzA0Yy00IDAtOC0xLTExLTRsLTQ3LTQ3Yy02LTYtNi0xNiAwLTIybDgtOGM2LTYgMTYtNiAyMiAwbDQ3IDQ2YzYgNyA2IDE3IDAgMjNsLTggOGMtMyAzLTcgNC0xMSA0em0tMzktNzZjLTEgMC0zIDAtNCAybC04IDdjLTIgMy0yIDcgMCA5bDQ3IDQ3YTYgNiAwIDAwOSAwbDctOGMzLTIgMy02IDAtOWwtNDYtNDZjLTItMi0zLTItNS0yeiIvPjxwYXRoIGZpbGw9IiMxY2MiIGQ9Ik0xNTIgMTEzbDE4LTE4IDE4IDE4LTE4IDE4em0xLTM1bDE4LTE4IDE4IDE4LTE4IDE4em0tOTAgODlsMTgtMTggMTggMTgtMTggMTh6bTM1LTM2bDE4LTE4IDE4IDE4LTE4IDE4eiIvPjxwYXRoIGZpbGw9IiMxZGQiIGQ9Ik0xMzQgMTMxbDE4LTE4IDE4IDE4LTE4IDE4em0tMzUgMzZsMTgtMTggMTggMTgtMTggMTh6Ii8+PHBhdGggZmlsbD0iIzJiYiIgZD0iTTExNiAxNDlsMTgtMTggMTggMTgtMTggMTh6bTU0LTU0bDE4LTE4IDE4IDE4LTE4IDE4em0tODkgOTBsMTgtMTggMTggMTgtMTggMTh6bTEzOS04NWwyMyAyM2M0IDQgNCAxMSAwIDE2TDE0MiAyNDBjLTQgNC0xMSA0LTE1IDBsLTI0LTI0Yy00LTQtNC0xMSAwLTE1bDEwMS0xMDFjNS01IDEyLTUgMTYgMHoiLz48cGF0aCBmaWxsPSIjM2VlIiBkPSJNMTM0IDk1bDE4LTE4IDE4IDE4LTE4IDE4em0tNTQgMThsMTgtMTcgMTggMTctMTggMTh6bTU1LTUzbDE4LTE4IDE4IDE4LTE4IDE4em05MyA0OGwtOC04Yy00LTUtMTEtNS0xNiAwTDEwMyAyMDFjLTQgNC00IDExIDAgMTVsOCA4Yy00LTQtNC0xMSAwLTE1bDEwMS0xMDFjNS00IDEyLTQgMTYgMHoiLz48cGF0aCBmaWxsPSIjOWVlIiBkPSJNMjcgMTMxbDE4LTE4IDE4IDE4LTE4IDE4em01NC01M2wxOC0xOCAxOCAxOC0xOCAxOHoiLz48cGF0aCBmaWxsPSIjMGFhIiBkPSJNMjMwIDExMGwxMyAxM2M0IDQgNCAxMSAwIDE2TDE0MiAyNDBjLTQgNC0xMSA0LTE1IDBsLTEzLTEzYzQgNCAxMSA0IDE1IDBsMTAxLTEwMWM1LTUgNS0xMSAwLTE2eiIvPjxwYXRoIGZpbGw9IiMxYWIiIGQ9Ik0xMzQgMjQ4Yy00IDAtOC0yLTExLTVsLTIzLTIzYTE2IDE2IDAgMDEwLTIzTDIwMSA5NmExNiAxNiAwIDAxMjIgMGwyNCAyNGM2IDYgNiAxNiAwIDIyTDE0NiAyNDNjLTMgMy03IDUtMTIgNXptNzgtMTQ3bC00IDItMTAxIDEwMWE2IDYgMCAwMDAgOWwyMyAyM2E2IDYgMCAwMDkgMGwxMDEtMTAxYTYgNiAwIDAwMC05bC0yNC0yMy00LTJ6Ii8+PC9zdmc+" alt="Dependencies update - renovate"></p>
+<p><a href="https://nodei.co/npm/unifi-client/"><img src="https://nodei.co/npm/unifi-client.png" alt="NPM"></a></p>
+<p>This library is a nodejs client to talk with unifi rest API .</p>
+
+<a href="#start" id="start" style="color: inherit; text-decoration: none;">
+  <h2>Start</h2>
+</a>
+<p>install it</p>
+<pre><code><span class="hl-0">yarn</span><span class="hl-1"> </span><span class="hl-0">add</span><span class="hl-1"> </span><span class="hl-0">unifi</span><span class="hl-1">-</span><span class="hl-0">client</span>
 </code></pre>
-				<p>or via npm</p>
-				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000"> </span><span style="color: #001080">unifi</span><span style="color: #000000">-</span><span style="color: #001080">client</span>
+<p>or via npm</p>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">i</span><span class="hl-1"> </span><span class="hl-0">unifi</span><span class="hl-1">-</span><span class="hl-0">client</span>
 </code></pre>
-				<p>and import it in your code : </p>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Controller</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;unifi-client&#039;</span><span style="color: #000000">  </span>
+<p>and import it in your code : </p>
+<pre><code class="language-typescript"><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-0">Controller</span><span class="hl-1"> </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;unifi-client&#39;</span><span class="hl-1">  </span>
 </code></pre>
-				<p>or with require : </p>
-				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">Controller</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;unifi-client&#039;</span><span style="color: #000000">)</span>
+<p>or with require : </p>
+<pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> { </span><span class="hl-5">Controller</span><span class="hl-1"> } = </span><span class="hl-6">require</span><span class="hl-1">(</span><span class="hl-3">&#39;unifi-client&#39;</span><span class="hl-1">)</span>
 </code></pre>
-				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
-					<h2>Example</h2>
-				</a>
-				<p>Examples are located in <a href="./examples">examples folder</a></p>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Controller</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;unifi-client&#039;</span><span style="color: #000000">  </span>
-<span style="color: #000000">  </span>
-<span style="color: #008000">// works with local account, check examples for 2FA </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">controller</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Controller</span><span style="color: #000000">({  </span>
-<span style="color: #000000">  </span><span style="color: #001080">username:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ubnt&#039;</span><span style="color: #000000">,  </span>
-<span style="color: #000000">  </span><span style="color: #001080">password:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ubnt&#039;</span><span style="color: #000000">,  </span>
-<span style="color: #000000">  </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://unifi&#039;</span><span style="color: #000000">,  </span>
-<span style="color: #000000">  </span><span style="color: #001080">strictSSL:</span><span style="color: #000000"> </span><span style="color: #0000FF">false</span><span style="color: #000000">  </span>
-<span style="color: #000000">});  </span>
 
-<span style="color: #008000">//login to the controller</span>
-<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">login</span><span style="color: #000000">()  </span>
-<span style="color: #000000">  </span>
-<span style="color: #008000">//retrieve sites  </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sites</span><span style="color: #000000"> = </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">getSites</span><span style="color: #000000">()  </span>
-<span style="color: #000000">  </span>
-<span style="color: #008000">//work on one site  </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">site</span><span style="color: #000000"> = </span><span style="color: #001080">sites</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">];  </span>
-<span style="color: #000000">  </span>
-<span style="color: #008000">//example request to get firewall rules  </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">rules</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">firewall</span><span style="color: #000000">.</span><span style="color: #795E26">getRules</span><span style="color: #000000">();  </span>
+<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+  <h2>Example</h2>
+</a>
+<p>Examples are located in <a href="./examples">examples folder</a></p>
+<pre><code class="language-typescript"><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-0">Controller</span><span class="hl-1"> </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;unifi-client&#39;</span><span class="hl-1">  </span><br/><span class="hl-1">  </span><br/><span class="hl-7">// works with local account, check examples for 2FA </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">controller</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">Controller</span><span class="hl-1">({  </span><br/><span class="hl-1">  </span><span class="hl-0">username:</span><span class="hl-1"> </span><span class="hl-3">&#39;ubnt&#39;</span><span class="hl-1">,  </span><br/><span class="hl-1">  </span><span class="hl-0">password:</span><span class="hl-1"> </span><span class="hl-3">&#39;ubnt&#39;</span><span class="hl-1">,  </span><br/><span class="hl-1">  </span><span class="hl-0">url:</span><span class="hl-1"> </span><span class="hl-3">&#39;https://unifi&#39;</span><span class="hl-1">,  </span><br/><span class="hl-1">  </span><span class="hl-0">strictSSL:</span><span class="hl-1"> </span><span class="hl-4">false</span><span class="hl-1">  </span><br/><span class="hl-1">});  </span><br/><br/><span class="hl-7">//login to the controller</span><br/><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">login</span><span class="hl-1">()  </span><br/><span class="hl-1">  </span><br/><span class="hl-7">//retrieve sites  </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">sites</span><span class="hl-1"> = </span><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">getSites</span><span class="hl-1">()  </span><br/><span class="hl-1">  </span><br/><span class="hl-7">//work on one site  </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">site</span><span class="hl-1"> = </span><span class="hl-0">sites</span><span class="hl-1">[</span><span class="hl-8">0</span><span class="hl-1">];  </span><br/><span class="hl-1">  </span><br/><span class="hl-7">//example request to get firewall rules  </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">rules</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-0">firewall</span><span class="hl-1">.</span><span class="hl-6">getRules</span><span class="hl-1">();  </span>
 </code></pre>
-				<hr>
-				<p>To work on multiples sites on the same time</p>
-				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">controller</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Controller</span><span style="color: #000000">({...});  </span>
-<span style="color: #000000">  </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sites</span><span style="color: #000000"> = </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">getSites</span><span style="color: #000000">();  </span>
-<span style="color: #000000">  </span>
-<span style="color: #008000">//get firewallRules on two sites  </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">rules</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">].</span><span style="color: #001080">firewall</span><span style="color: #000000">.</span><span style="color: #795E26">getRules</span><span style="color: #000000">();  </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">rules2</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">].</span><span style="color: #001080">firewall</span><span style="color: #000000">.</span><span style="color: #795E26">getRules</span><span style="color: #000000">();  </span>
+<hr>
+<p>To work on multiples sites on the same time</p>
+<pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">controller</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">Controller</span><span class="hl-1">({...});  </span><br/><span class="hl-1">  </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">sites</span><span class="hl-1"> = </span><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">getSites</span><span class="hl-1">();  </span><br/><span class="hl-1">  </span><br/><span class="hl-7">//get firewallRules on two sites  </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">rules</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">site</span><span class="hl-1">[</span><span class="hl-8">0</span><span class="hl-1">].</span><span class="hl-0">firewall</span><span class="hl-1">.</span><span class="hl-6">getRules</span><span class="hl-1">();  </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">rules2</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">site</span><span class="hl-1">[</span><span class="hl-8">1</span><span class="hl-1">].</span><span class="hl-0">firewall</span><span class="hl-1">.</span><span class="hl-6">getRules</span><span class="hl-1">();  </span>
 </code></pre>
-				<p>How to use the HTTP instances</p>
-				<pre><code class="language-typescript"><span style="color: #008000">//use the controller instance directly . Authentication, url construction and other is already managed for you  </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">self</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">getInstance</span><span style="color: #000000">().</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/api/self&#039;</span><span style="color: #000000">);  </span>
-<span style="color: #000000">  </span>
-<span style="color: #008000">//for a custom site :   </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">topology</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">getInstance</span><span style="color: #000000">().</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/topology&#039;</span><span style="color: #000000">);</span>
+<p>How to use the HTTP instances</p>
+<pre><code class="language-typescript"><span class="hl-7">//use the controller instance directly . Authentication, url construction and other is already managed for you  </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">self</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">getInstance</span><span class="hl-1">().</span><span class="hl-6">get</span><span class="hl-1">(</span><span class="hl-3">&#39;/api/self&#39;</span><span class="hl-1">);  </span><br/><span class="hl-1">  </span><br/><span class="hl-7">//for a custom site :   </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">topology</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-6">getInstance</span><span class="hl-1">().</span><span class="hl-6">get</span><span class="hl-1">(</span><span class="hl-3">&#39;/topology&#39;</span><span class="hl-1">);</span>
 </code></pre>
-				<p>Get firewall rules, it return an array of <a href="https://thib3113.github.io/unifi-client/classes/Firewall_FWRule.FWRule.html">FWRule</a></p>
-				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">rules</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">firewall</span><span style="color: #000000">.</span><span style="color: #795E26">getRules</span><span style="color: #000000">();</span>
+<p>Get firewall rules, it return an array of <a href="https://thib3113.github.io/unifi-client/classes/Firewall_FWRule.FWRule.html">FWRule</a></p>
+<pre><code class="language-typescript"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">rules</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-0">firewall</span><span class="hl-1">.</span><span class="hl-6">getRules</span><span class="hl-1">();</span>
 </code></pre>
-				<a href="#instances" id="instances" style="color: inherit; text-decoration: none;">
-					<h3>Instances</h3>
-				</a>
-				<p>The instances returned by <code>getInstance</code> are basicaly some <a href="https://github.com/axios/axios#instance-methods">axios instances</a> . With some additions : </p>
-				<pre><code class="language-typescript"><span style="color: #008000">//url params</span>
-<span style="color: #008000">// use them to manage a rest url for example</span>
-<span style="color: #001080">instance</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/url/:uuid&#039;</span><span style="color: #000000">, {</span>
-<span style="color: #000000">    </span><span style="color: #001080">urlParams:</span><span style="color: #000000"> {</span>
-<span style="color: #000000">        </span><span style="color: #001080">uuid:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;my-uuid&#039;</span>
-<span style="color: #000000">    }</span>
-<span style="color: #000000">}) </span>
-<span style="color: #008000">// will call the url /url/my-uuid</span>
 
-
-<span style="color: #008000">// apiVersion : </span>
-<span style="color: #008000">// some api call are on the v2 api, so you can set the api version when calling</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">); </span><span style="color: #008000">// default</span>
-<span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">getInstance</span><span style="color: #000000">().</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/super/endpoint&#039;</span><span style="color: #000000">, {</span>
-<span style="color: #000000">    </span><span style="color: #001080">apiVersion:</span><span style="color: #000000"> </span><span style="color: #098658">2</span>
-<span style="color: #000000">});</span>
-<span style="color: #008000">// will call the url /v2/api/site/default/super/endpoint</span>
+<a href="#instances" id="instances" style="color: inherit; text-decoration: none;">
+  <h3>Instances</h3>
+</a>
+<p>The instances returned by <code>getInstance</code> are basicaly some <a href="https://github.com/axios/axios#instance-methods">axios instances</a> . With some additions : </p>
+<pre><code class="language-typescript"><span class="hl-7">//url params</span><br/><span class="hl-7">// use them to manage a rest url for example</span><br/><span class="hl-0">instance</span><span class="hl-1">.</span><span class="hl-6">get</span><span class="hl-1">(</span><span class="hl-3">&#39;/url/:uuid&#39;</span><span class="hl-1">, {</span><br/><span class="hl-1">    </span><span class="hl-0">urlParams:</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-0">uuid:</span><span class="hl-1"> </span><span class="hl-3">&#39;my-uuid&#39;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">}) </span><br/><span class="hl-7">// will call the url /url/my-uuid</span><br/><br/><br/><span class="hl-7">// apiVersion : </span><br/><span class="hl-7">// some api call are on the v2 api, so you can set the api version when calling</span><br/><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-6">log</span><span class="hl-1">(</span><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-0">name</span><span class="hl-1">); </span><span class="hl-7">// default</span><br/><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-6">getInstance</span><span class="hl-1">().</span><span class="hl-6">get</span><span class="hl-1">(</span><span class="hl-3">&#39;/super/endpoint&#39;</span><span class="hl-1">, {</span><br/><span class="hl-1">    </span><span class="hl-0">apiVersion:</span><span class="hl-1"> </span><span class="hl-8">2</span><br/><span class="hl-1">});</span><br/><span class="hl-7">// will call the url /v2/api/site/default/super/endpoint</span>
 </code></pre>
-				<a href="#how-to-use-urls-from-the-unifi-front-" id="how-to-use-urls-from-the-unifi-front-" style="color: inherit; text-decoration: none;">
-					<h3>how to use URLs from the unifi front :</h3>
-				</a>
-				<p>The urls of unifi are like :</p>
-				<ul>
-					<li><code>/proxy/network/v2/api/site/default/notifications</code> for unifiOs
-					or</li>
-					<li><code>/v2/api/site/default/notifications</code> for non unifiOs</li>
-				</ul>
-				<p>the url is constructed like :
-				<code>/[v&lt;ApiVersion&gt;/]api/site/&lt;sitename&gt;[/&lt;urlToCall&gt;]</code></p>
-				<ul>
-					<li>ApiVersion : the version of the API (for version &gt; 1)</li>
-					<li>sitename : the name of the site (already included in site instance)</li>
-				</ul>
-				<p>To illustrate, to call the url I see on my browser network tabs : </p>
-				<p><code>https://192.168.1.1/proxy/network/v2/api/site/default/notifications</code></p>
-				<p>I just need to :</p>
-				<pre><code class="language-typescript"><span style="color: #008000">// configure my controller</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">controller</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Controller</span><span style="color: #000000">({</span>
-<span style="color: #000000">    </span><span style="color: #001080">username:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ubnt&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">password:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ubnt&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;https://192.168.1.1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">strictSSL:</span><span style="color: #000000"> </span><span style="color: #0000FF">false</span>
-<span style="color: #000000">});</span>
 
-<span style="color: #008000">//login to the controller</span>
-<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">login</span><span style="color: #000000">()</span>
-
-<span style="color: #008000">//retrieve sites  </span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sites</span><span style="color: #000000"> = </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">getSites</span><span style="color: #000000">()</span>
-
-<span style="color: #008000">// select the site &quot;default&quot;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">site</span><span style="color: #000000"> = </span><span style="color: #001080">sites</span><span style="color: #000000">.</span><span style="color: #795E26">find</span><span style="color: #000000">((</span><span style="color: #001080">site</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000"> === </span><span style="color: #A31515">&#039;default&#039;</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">//call my url</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">notifications</span><span style="color: #000000"> = </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">getInstance</span><span style="color: #000000">().</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/default/notifications&#039;</span><span style="color: #000000">, {</span>
-<span style="color: #000000">    </span><span style="color: #001080">apiVersion:</span><span style="color: #000000"> </span><span style="color: #098658">2</span>
-<span style="color: #000000">});</span>
-
-<span style="color: #008000">//do something with notifications</span>
+<a href="#how-to-use-urls-from-the-unifi-front-" id="how-to-use-urls-from-the-unifi-front-" style="color: inherit; text-decoration: none;">
+  <h3>how to use URLs from the unifi front :</h3>
+</a>
+<p>The urls of unifi are like :</p>
+<ul>
+<li><code>/proxy/network/v2/api/site/default/notifications</code> for unifiOs
+or</li>
+<li><code>/v2/api/site/default/notifications</code> for non unifiOs</li>
+</ul>
+<p>the url is constructed like : 
+<code>/[v&lt;ApiVersion&gt;/]api/site/&lt;sitename&gt;[/&lt;urlToCall&gt;]</code></p>
+<ul>
+<li>ApiVersion : the version of the API (for version &gt; 1)</li>
+<li>sitename : the name of the site (already included in site instance)</li>
+</ul>
+<p>To illustrate, to call the url I see on my browser network tabs : </p>
+<p><code>https://192.168.1.1/proxy/network/v2/api/site/default/notifications</code></p>
+<p>I just need to :</p>
+<pre><code class="language-typescript"><span class="hl-7">// configure my controller</span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">controller</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">Controller</span><span class="hl-1">({</span><br/><span class="hl-1">    </span><span class="hl-0">username:</span><span class="hl-1"> </span><span class="hl-3">&#39;ubnt&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">password:</span><span class="hl-1"> </span><span class="hl-3">&#39;ubnt&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">url:</span><span class="hl-1"> </span><span class="hl-3">&#39;https://192.168.1.1&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">strictSSL:</span><span class="hl-1"> </span><span class="hl-4">false</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-7">//login to the controller</span><br/><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">login</span><span class="hl-1">()</span><br/><br/><span class="hl-7">//retrieve sites  </span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">sites</span><span class="hl-1"> = </span><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">getSites</span><span class="hl-1">()</span><br/><br/><span class="hl-7">// select the site &quot;default&quot;</span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">site</span><span class="hl-1"> = </span><span class="hl-0">sites</span><span class="hl-1">.</span><span class="hl-6">find</span><span class="hl-1">((</span><span class="hl-0">site</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-0">name</span><span class="hl-1"> === </span><span class="hl-3">&#39;default&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-7">//call my url</span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">notifications</span><span class="hl-1"> = </span><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-6">getInstance</span><span class="hl-1">().</span><span class="hl-6">get</span><span class="hl-1">(</span><span class="hl-3">&#39;/default/notifications&#39;</span><span class="hl-1">, {</span><br/><span class="hl-1">    </span><span class="hl-0">apiVersion:</span><span class="hl-1"> </span><span class="hl-8">2</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-7">//do something with notifications</span>
 </code></pre>
-				<p>More examples in the folder <a href="./examples">examples</a></p>
-				<a href="#websockets" id="websockets" style="color: inherit; text-decoration: none;">
-					<h2>Websockets</h2>
-				</a>
-				<p>This library supports websockets, you can listen on them with : </p>
-				<pre><code class="language-typescript"><span style="color: #008000">// initWebSockets for controller :</span>
-<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">initWebSockets</span><span style="color: #000000">();</span>
+<p>More examples in the folder <a href="./examples">examples</a></p>
 
-<span style="color: #008000">// listen for controller websockets ( only for unifiOS )</span>
-<span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">() / </span><span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #001080">ws</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">()</span>
-
-<span style="color: #008000">// listen for super site websockets</span>
-<span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #001080">superWS</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">();</span>
-
-
-<span style="color: #008000">// initWebSockets for site :</span>
-<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">initWebSockets</span><span style="color: #000000">();</span>
-<span style="color: #008000">// listen for this site websockets</span>
-<span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">() / </span><span style="color: #001080">site</span><span style="color: #000000">.</span><span style="color: #001080">ws</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">()</span>
-
-<span style="color: #008000">// doesn&#039;t known the name of the event ? you can listen on joker : </span>
-<span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;*&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">eventName</span><span style="color: #000000">, ...</span><span style="color: #001080">args</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">eventName</span><span style="color: #000000">, ...</span><span style="color: #001080">args</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
-
-<span style="color: #008000">// want to listen on all websockets of a controller on the same listener </span>
-<span style="color: #008000">// all websockets registered : </span>
-<span style="color: #008000">// - controller websockets if unifiOS </span>
-<span style="color: #008000">// - super site WS</span>
-<span style="color: #008000">// - all sites where ws are init ( closed or not )</span>
-<span style="color: #001080">controller</span><span style="color: #000000">.</span><span style="color: #001080">globalWS</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;*&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">eventName</span><span style="color: #000000">, ...</span><span style="color: #001080">args</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">eventName</span><span style="color: #000000">, ...</span><span style="color: #001080">args</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+<a href="#websockets" id="websockets" style="color: inherit; text-decoration: none;">
+  <h2>Websockets</h2>
+</a>
+<p>This library supports websockets, you can listen on them with : </p>
+<pre><code class="language-typescript"><span class="hl-7">// initWebSockets for controller :</span><br/><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">initWebSockets</span><span class="hl-1">();</span><br/><br/><span class="hl-7">// listen for controller websockets ( only for unifiOS )</span><br/><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">() / </span><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-0">ws</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">()</span><br/><br/><span class="hl-7">// listen for super site websockets</span><br/><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-0">superWS</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">();</span><br/><br/><br/><span class="hl-7">// initWebSockets for site :</span><br/><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-6">initWebSockets</span><span class="hl-1">();</span><br/><span class="hl-7">// listen for this site websockets</span><br/><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">() / </span><span class="hl-0">site</span><span class="hl-1">.</span><span class="hl-0">ws</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">()</span><br/><br/><span class="hl-7">// doesn&#39;t known the name of the event ? you can listen on joker : </span><br/><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">(</span><span class="hl-3">&#39;*&#39;</span><span class="hl-1">, (</span><span class="hl-0">eventName</span><span class="hl-1">, ...</span><span class="hl-0">args</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-6">log</span><span class="hl-1">(</span><span class="hl-0">eventName</span><span class="hl-1">, ...</span><span class="hl-0">args</span><span class="hl-1">);</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-7">// want to listen on all websockets of a controller on the same listener </span><br/><span class="hl-7">// all websockets registered : </span><br/><span class="hl-7">// - controller websockets if unifiOS </span><br/><span class="hl-7">// - super site WS</span><br/><span class="hl-7">// - all sites where ws are init ( closed or not )</span><br/><span class="hl-0">controller</span><span class="hl-1">.</span><span class="hl-0">globalWS</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">(</span><span class="hl-3">&#39;*&#39;</span><span class="hl-1">, (</span><span class="hl-0">eventName</span><span class="hl-1">, ...</span><span class="hl-0">args</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-6">log</span><span class="hl-1">(</span><span class="hl-0">eventName</span><span class="hl-1">, ...</span><span class="hl-0">args</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<p>the support of websocket is experimental, and with a really bad coverage . Doesn&#39;t hesitate to open a PR, to add more websockets types</p>
-				<p>We add some optionnal dependencies to improve performances, more informations <a href="https://github.com/websockets/ws#opt-in-for-performance">read here</a>
-					they can be skipped by using
-				<code>npm install --no-optional</code></p>
-				<a href="#technical-documentation" id="technical-documentation" style="color: inherit; text-decoration: none;">
-					<h2>Technical documentation</h2>
-				</a>
-				<p>All the technical documentation is available <a href="https://thib3113.github.io/unifi-client/modules">here</a></p>
-				<a href="#work-in-progress" id="work-in-progress" style="color: inherit; text-decoration: none;">
-					<h2>Work In Progress</h2>
-				</a>
-				<p>check <a href="https://thib3113.github.io/unifi-client/modules">technical documentation</a> for available methods</p>
-				<a href="#tests" id="tests" style="color: inherit; text-decoration: none;">
-					<h2>Tests</h2>
-				</a>
-				<p>This library is auto-tested on :</p>
-				<ul>
-					<li>UDM-pro : <code>latest</code> (<code>6.4.51</code>)</li>
-					<li>Unifi controller : <code>latest</code>, <code>6.2.25</code>, <code>6.1.71</code>, <code>6.0.45</code>, <code>6.0.43</code>, <code>6.0.41</code>, <code>6.0.36</code>, <code>6.0.28</code>, <code>6.0.23</code></li>
-				</ul>
-				<p>with the last node LTS </p>
-				<a href="#references" id="references" style="color: inherit; text-decoration: none;">
-					<h2>References</h2>
-				</a>
-				<p>This nodejs package/class uses functionality/Know-How gathered from different third-party projects:</p>
-				<ul>
-					<li><a href="https://github.com/Art-of-WiFi/UniFi-API-client">UniFi-API-client</a></li>
-					<li><a href="https://dl.ui.com/unifi/5.12.35/unifi_sh_api">unifi_sh_api</a></li>
-					<li><a href="https://github.com/jens-maus/node-unifi">node-unifi</a></li>
-				</ul>
-				<a href="#debug" id="debug" style="color: inherit; text-decoration: none;">
-					<h2>Debug</h2>
-				</a>
-				<p>To debug, you can use the <a href="https://www.npmjs.com/package/debug">debug</a> library, just set the <code>DEBUG</code> environnement variable (<a href="https://github.com/visionmedia/debug#cmd">check this</a>) .</p>
-				<ul>
-					<li><code>unifi-client</code> : base debug namespace</li>
-					<li><code>unifi-client:&lt;className&gt;</code> : will show debug for this class (eg : unifi-client:Controller will log controller logs )</li>
-					<li><code>unifi-client:axios</code> : will logs axios request (can contain secrets informations)</li>
-					<li><code>unifi-client:axios:verbose</code> : will logs more things on axios, like send and receive payload (can contain secrets informations)</li>
-					<li><code>unifi-client:axios:curl</code> : will log curl cmd corresponding to the axios request (can contain secrets informations)</li>
-				</ul>
-				<a href="#useful-links" id="useful-links" style="color: inherit; text-decoration: none;">
-					<h2>Useful links</h2>
-				</a>
-				<p>ubntwiki : <a href="https://ubntwiki.com/products/software/unifi-controller/api">https://ubntwiki.com/products/software/unifi-controller/api</a></p>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="modules.html">Modules</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients.html">Clients</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_Client.html">Clients/<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_Clients.html">Clients/<wbr>Clients</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_ClientsGroup.html">Clients/<wbr>Clients<wbr>Group</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_ClientsGroups.html">Clients/<wbr>Clients<wbr>Groups</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_DeviceFingerPrints.html">Clients/<wbr>Device<wbr>Finger<wbr>Prints</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_FingerPrintsTypes.html">Clients/<wbr>Finger<wbr>Prints<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_IClientGroupRaw.html">Clients/IClient<wbr>Group<wbr>Raw</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_IClientRaw.html">Clients/IClient<wbr>Raw</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_IDevice.html">Clients/IDevice</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Clients_IUnknownClient.html">Clients/IUnknown<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Controller.html">Controller</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices.html">Devices</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_BaseDevice.html">Devices/<wbr>Base<wbr>Device</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_Devices.html">Devices/<wbr>Devices</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_EDeviceStates.html">Devices/EDevice<wbr>States</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_EDeviceType.html">Devices/EDevice<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_IBaseDeviceRaw.html">Devices/IBase<wbr>Device<wbr>Raw</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_ILANDeviceRaw.html">Devices/ILANDevice<wbr>Raw</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_IWLANDeviceRaw.html">Devices/IWLANDevice<wbr>Raw</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_LANDevice.html">Devices/LANDevice</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_UAPDevice.html">Devices/UAPDevice</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_UBBDevice.html">Devices/UBBDevice</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_UDMDevice.html">Devices/UDMDevice</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_UGWDevice.html">Devices/UGWDevice</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_USWDevice.html">Devices/USWDevice</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_UXGDevice.html">Devices/UXGDevice</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Devices_interfaces.html">Devices/interfaces</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Errors.html">Errors</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Errors_ClientError.html">Errors/<wbr>Client<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Errors_EErrorsCodes.html">Errors/EErrors<wbr>Codes</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Errors_UnifiError.html">Errors/<wbr>Unifi<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Errors___Error.html">Errors/__<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Firewall.html">Firewall</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Firewall_FWGroup.html">Firewall/FWGroup</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Firewall_FWRule.html">Firewall/FWRule</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Firewall_Firewall.html">Firewall/<wbr>Firewall</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Hotspot.html">Hotspot</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Hotspot_GuestAuthorization.html">Hotspot/<wbr>Guest<wbr>Authorization</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Hotspot_Hotspots.html">Hotspot/<wbr>Hotspots</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Hotspot_IAuthorizeGuest.html">Hotspot/IAuthorize<wbr>Guest</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Hotspot_IGuestAuthorization.html">Hotspot/IGuest<wbr>Authorization</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/IController.html">IController</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Sites.html">Sites</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Sites_INetworkStatus.html">Sites/INetwork<wbr>Status</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Sites_ISite.html">Sites/ISite</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Sites_ISiteSettings.html">Sites/ISite<wbr>Settings</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Sites_Site.html">Sites/<wbr>Site</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Sites_Sites.html">Sites/<wbr>Sites</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Stats.html">Stats</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Stats_EStatsPeriod.html">Stats/EStats<wbr>Period</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Stats_IStats.html">Stats/IStats</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/Stats_Stats.html">Stats/<wbr>Stats</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/UnifiAuth.html">Unifi<wbr>Auth</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/User.html">User</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/User_IUser.html">User/IUser</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/User_IUserGroup.html">User/IUser<wbr>Group</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/User_IUserRole.html">User/IUser<wbr>Role</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/WebSockets.html">Web<wbr>Sockets</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/WebSockets_Interfaces.html">Web<wbr>Sockets/<wbr>Interfaces</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/WebSockets_UnifiWebsockets.html">Web<wbr>Sockets/<wbr>Unifi<wbr>Websockets</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/WebSockets_events.html">Web<wbr>Sockets/events</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/WebSockets_events_EControllerEvents.html">Web<wbr>Sockets/events/EController<wbr>Events</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/WebSockets_events_ESiteEvents.html">Web<wbr>Sockets/events/ESite<wbr>Events</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/WebSockets_events_events.html">Web<wbr>Sockets/events/events</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/commons_ObjectWithPrivateValues.html">commons/<wbr>Object<wbr>With<wbr>Private<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/commons_Validate.html">commons/<wbr>Validate</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/commons__ObjectSubController.html">commons/_<wbr><wbr>Object<wbr>Sub<wbr>Controller</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/commons__ObjectSubSite.html">commons/_<wbr><wbr>Object<wbr>Sub<wbr>Site</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/commons_types.html">commons/types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/index.html">index</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/interfaces.html">interfaces</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/util.html">util</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+<p>the support of websocket is experimental, and with a really bad coverage . Doesn&#39;t hesitate to open a PR, to add more websockets types</p>
+<p>We add some optionnal dependencies to improve performances, more informations <a href="https://github.com/websockets/ws#opt-in-for-performance">read here</a>
+they can be skipped by using
+<code>npm install --no-optional</code></p>
+
+<a href="#technical-documentation" id="technical-documentation" style="color: inherit; text-decoration: none;">
+  <h2>Technical documentation</h2>
+</a>
+<p>All the technical documentation is available <a href="https://thib3113.github.io/unifi-client/modules">here</a></p>
+
+<a href="#work-in-progress" id="work-in-progress" style="color: inherit; text-decoration: none;">
+  <h2>Work In Progress</h2>
+</a>
+<p>check <a href="https://thib3113.github.io/unifi-client/modules">technical documentation</a> for available methods</p>
+
+<a href="#tests" id="tests" style="color: inherit; text-decoration: none;">
+  <h2>Tests</h2>
+</a>
+<p>This library is auto-tested on :</p>
+<ul>
+<li>UDM-pro : <code>latest</code> (<code>6.4.51</code>)</li>
+<li>Unifi controller : <code>latest</code>, <code>6.2.25</code>, <code>6.1.71</code>, <code>6.0.45</code>, <code>6.0.43</code>, <code>6.0.41</code>, <code>6.0.36</code>, <code>6.0.28</code>, <code>6.0.23</code></li>
+</ul>
+<p>with the last node LTS </p>
+
+<a href="#references" id="references" style="color: inherit; text-decoration: none;">
+  <h2>References</h2>
+</a>
+<p>This nodejs package/class uses functionality/Know-How gathered from different third-party projects:</p>
+<ul>
+<li><a href="https://github.com/Art-of-WiFi/UniFi-API-client">UniFi-API-client</a></li>
+<li><a href="https://dl.ui.com/unifi/5.12.35/unifi_sh_api">unifi_sh_api</a></li>
+<li><a href="https://github.com/jens-maus/node-unifi">node-unifi</a></li>
+</ul>
+
+<a href="#debug" id="debug" style="color: inherit; text-decoration: none;">
+  <h2>Debug</h2>
+</a>
+<p>To debug, you can use the <a href="https://www.npmjs.com/package/debug">debug</a> library, just set the <code>DEBUG</code> environnement variable (<a href="https://github.com/visionmedia/debug#cmd">check this</a>) .</p>
+<ul>
+<li><code>unifi-client</code> : base debug namespace</li>
+<li><code>unifi-client:&lt;className&gt;</code> : will show debug for this class (eg : unifi-client:Controller will log controller logs )</li>
+<li><code>unifi-client:axios</code> : will logs axios request (can contain secrets informations)</li>
+<li><code>unifi-client:axios:verbose</code> : will logs more things on axios, like send and receive payload (can contain secrets informations)</li>
+<li><code>unifi-client:axios:curl</code> : will log curl cmd corresponding to the axios request (can contain secrets informations)</li>
+</ul>
+
+<a href="#useful-links" id="useful-links" style="color: inherit; text-decoration: none;">
+  <h2>Useful links</h2>
+</a>
+<p>ubntwiki : <a href="https://ubntwiki.com/products/software/unifi-controller/api">https://ubntwiki.com/products/software/unifi-controller/api</a></p>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-reference"><a href="modules.html#default" class="tsd-kind-icon">default</a></li><li class="tsd-kind-enum"><a href="enums/EBr0.html" class="tsd-kind-icon">EBr0</a></li><li class="tsd-kind-enum"><a href="enums/EConfigNetworkType.html" class="tsd-kind-icon">EConfig<wbr/>Network<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/EConnectionNetworkName.html" class="tsd-kind-icon">EConnection<wbr/>Network<wbr/>Name</a></li><li class="tsd-kind-enum"><a href="enums/EControllerEvents.html" class="tsd-kind-icon">EController<wbr/>Events</a></li><li class="tsd-kind-enum"><a href="enums/EDeviceStates.html" class="tsd-kind-icon">EDevice<wbr/>States</a></li><li class="tsd-kind-enum"><a href="enums/EDeviceType.html" class="tsd-kind-icon">EDevice<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/EDot1XMode.html" class="tsd-kind-icon">EDot1XMode</a></li><li class="tsd-kind-enum"><a href="enums/EDot1XStatus.html" class="tsd-kind-icon">EDot1XStatus</a></li><li class="tsd-kind-enum"><a href="enums/EErrorsCodes.html" class="tsd-kind-icon">EErrors<wbr/>Codes</a></li><li class="tsd-kind-enum"><a href="enums/ELastUplinkType.html" class="tsd-kind-icon">ELast<wbr/>Uplink<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/ELicenseState.html" class="tsd-kind-icon">ELicense<wbr/>State</a></li><li class="tsd-kind-enum"><a href="enums/EMedia.html" class="tsd-kind-icon">EMedia</a></li><li class="tsd-kind-enum"><a href="enums/EOpMode.html" class="tsd-kind-icon">EOp<wbr/>Mode</a></li><li class="tsd-kind-enum"><a href="enums/EPortTableType.html" class="tsd-kind-icon">EPort<wbr/>Table<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/EProxyNamespaces.html" class="tsd-kind-icon">EProxy<wbr/>Namespaces</a></li><li class="tsd-kind-enum"><a href="enums/ERadio.html" class="tsd-kind-icon">ERadio</a></li><li class="tsd-kind-enum"><a href="enums/EState.html" class="tsd-kind-icon">EState</a></li><li class="tsd-kind-enum"><a href="enums/EStatsPeriod.html" class="tsd-kind-icon">EStats<wbr/>Period</a></li><li class="tsd-kind-enum"><a href="enums/EUnifiControllerEvents.html" class="tsd-kind-icon">EUnifi<wbr/>Controller<wbr/>Events</a></li><li class="tsd-kind-enum"><a href="enums/EUsage.html" class="tsd-kind-icon">EUsage</a></li><li class="tsd-kind-enum"><a href="enums/EWANDeviceType.html" class="tsd-kind-icon">EWANDevice<wbr/>Type</a></li><li class="tsd-kind-class"><a href="classes/BaseDevice.html" class="tsd-kind-icon">Base<wbr/>Device</a></li><li class="tsd-kind-class"><a href="classes/Client.html" class="tsd-kind-icon">Client</a></li><li class="tsd-kind-class"><a href="classes/ClientError.html" class="tsd-kind-icon">Client<wbr/>Error</a></li><li class="tsd-kind-class"><a href="classes/Clients.html" class="tsd-kind-icon">Clients</a></li><li class="tsd-kind-class"><a href="classes/Controller.html" class="tsd-kind-icon">Controller</a></li><li class="tsd-kind-class"><a href="classes/DeviceFingerPrints.html" class="tsd-kind-icon">Device<wbr/>Finger<wbr/>Prints</a></li><li class="tsd-kind-class"><a href="classes/Devices.html" class="tsd-kind-icon">Devices</a></li><li class="tsd-kind-class"><a href="classes/FWGroup.html" class="tsd-kind-icon">FWGroup</a></li><li class="tsd-kind-class"><a href="classes/FWRule.html" class="tsd-kind-icon">FWRule</a></li><li class="tsd-kind-class"><a href="classes/Firewall.html" class="tsd-kind-icon">Firewall</a></li><li class="tsd-kind-class"><a href="classes/GuestAuthorization.html" class="tsd-kind-icon">Guest<wbr/>Authorization</a></li><li class="tsd-kind-class"><a href="classes/Hotspots.html" class="tsd-kind-icon">Hotspots</a></li><li class="tsd-kind-class"><a href="classes/LANDevice.html" class="tsd-kind-icon">LANDevice</a></li><li class="tsd-kind-class"><a href="classes/Site.html" class="tsd-kind-icon">Site</a></li><li class="tsd-kind-class"><a href="classes/Sites.html" class="tsd-kind-icon">Sites</a></li><li class="tsd-kind-class"><a href="classes/Stats.html" class="tsd-kind-icon">Stats</a></li><li class="tsd-kind-class"><a href="classes/UAPDevice.html" class="tsd-kind-icon">UAPDevice</a></li><li class="tsd-kind-class"><a href="classes/UBBDevice.html" class="tsd-kind-icon">UBBDevice</a></li><li class="tsd-kind-class"><a href="classes/UDMDevice.html" class="tsd-kind-icon">UDMDevice</a></li><li class="tsd-kind-class"><a href="classes/UGWDevice.html" class="tsd-kind-icon">UGWDevice</a></li><li class="tsd-kind-class"><a href="classes/USWDevice.html" class="tsd-kind-icon">USWDevice</a></li><li class="tsd-kind-class"><a href="classes/UXGDevice.html" class="tsd-kind-icon">UXGDevice</a></li><li class="tsd-kind-class"><a href="classes/UnifiError.html" class="tsd-kind-icon">Unifi<wbr/>Error</a></li><li class="tsd-kind-class"><a href="classes/UnifiWebsockets.html" class="tsd-kind-icon">Unifi<wbr/>Websockets</a></li><li class="tsd-kind-class"><a href="classes/__Error.html" class="tsd-kind-icon">__<wbr/>Error</a></li><li class="tsd-kind-interface"><a href="interfaces/FingerprintsRaw.html" class="tsd-kind-icon">Fingerprints<wbr/>Raw</a></li><li class="tsd-kind-interface"><a href="interfaces/IAccMeterStats.html" class="tsd-kind-icon">IAcc<wbr/>Meter<wbr/>Stats</a></li><li class="tsd-kind-interface"><a href="interfaces/IAntennaTable.html" class="tsd-kind-icon">IAntenna<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IApClass.html" class="tsd-kind-icon">IAp<wbr/>Class</a></li><li class="tsd-kind-interface"><a href="interfaces/IApp.html" class="tsd-kind-icon">IApp</a></li><li class="tsd-kind-interface"><a href="interfaces/IAuthorizeGuest.html" class="tsd-kind-icon">IAuthorize<wbr/>Guest</a></li><li class="tsd-kind-interface"><a href="interfaces/IBaseDeviceMandatoryRaw.html" class="tsd-kind-icon">IBase<wbr/>Device<wbr/>Mandatory<wbr/>Raw</a></li><li class="tsd-kind-interface"><a href="interfaces/IBaseDeviceRaw.html" class="tsd-kind-icon">IBase<wbr/>Device<wbr/>Raw</a></li><li class="tsd-kind-interface"><a href="interfaces/IBuildUrlParams.html" class="tsd-kind-icon">IBuild<wbr/>Url<wbr/>Params</a></li><li class="tsd-kind-interface"><a href="interfaces/IByApp.html" class="tsd-kind-icon">IBy<wbr/>App</a></li><li class="tsd-kind-interface"><a href="interfaces/IByCat.html" class="tsd-kind-icon">IBy<wbr/>Cat</a></li><li class="tsd-kind-interface"><a href="interfaces/ICPU.html" class="tsd-kind-icon">ICPU</a></li><li class="tsd-kind-interface"><a href="interfaces/IClient.html" class="tsd-kind-icon">IClient</a></li><li class="tsd-kind-interface"><a href="interfaces/IClientRaw.html" class="tsd-kind-icon">IClient<wbr/>Raw</a></li><li class="tsd-kind-interface"><a href="interfaces/IConfigNetwork.html" class="tsd-kind-icon">IConfig<wbr/>Network</a></li><li class="tsd-kind-interface"><a href="interfaces/IConfigNetworkLAN.html" class="tsd-kind-icon">IConfig<wbr/>NetworkLAN</a></li><li class="tsd-kind-interface"><a href="interfaces/IController.html" class="tsd-kind-icon">IController</a></li><li class="tsd-kind-interface"><a href="interfaces/IControllerClient.html" class="tsd-kind-icon">IController<wbr/>Client</a></li><li class="tsd-kind-interface"><a href="interfaces/IControllerEvent.html" class="tsd-kind-icon">IController<wbr/>Event</a></li><li class="tsd-kind-interface"><a href="interfaces/IControllerStorage.html" class="tsd-kind-icon">IController<wbr/>Storage</a></li><li class="tsd-kind-interface"><a href="interfaces/IDevice.html" class="tsd-kind-icon">IDevice</a></li><li class="tsd-kind-interface"><a href="interfaces/IDeviceFingerprint.html" class="tsd-kind-icon">IDevice<wbr/>Fingerprint</a></li><li class="tsd-kind-interface"><a href="interfaces/IDeviceFingerprintRaw.html" class="tsd-kind-icon">IDevice<wbr/>Fingerprint<wbr/>Raw</a></li><li class="tsd-kind-interface"><a href="interfaces/IDeviceStateChangedEvent.html" class="tsd-kind-icon">IDevice<wbr/>State<wbr/>Changed<wbr/>Event</a></li><li class="tsd-kind-interface"><a href="interfaces/IDownlinkTable.html" class="tsd-kind-icon">IDownlink<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IDpistatsTable.html" class="tsd-kind-icon">IDpistats<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IErrorEvent.html" class="tsd-kind-icon">IError<wbr/>Event</a></li><li class="tsd-kind-interface"><a href="interfaces/IEthernetOverride.html" class="tsd-kind-icon">IEthernet<wbr/>Override</a></li><li class="tsd-kind-interface"><a href="interfaces/IEthernetTable.html" class="tsd-kind-icon">IEthernet<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IEventDevice.html" class="tsd-kind-icon">IEvent<wbr/>Device</a></li><li class="tsd-kind-interface"><a href="interfaces/IFWGroup.html" class="tsd-kind-icon">IFWGroup</a></li><li class="tsd-kind-interface"><a href="interfaces/IFWRule.html" class="tsd-kind-icon">IFWRule</a></li><li class="tsd-kind-interface"><a href="interfaces/IGeoInfo.html" class="tsd-kind-icon">IGeo<wbr/>Info</a></li><li class="tsd-kind-interface"><a href="interfaces/IGeoInfoWAN.html" class="tsd-kind-icon">IGeo<wbr/>InfoWAN</a></li><li class="tsd-kind-interface"><a href="interfaces/IGetSessionQuery.html" class="tsd-kind-icon">IGet<wbr/>Session<wbr/>Query</a></li><li class="tsd-kind-interface"><a href="interfaces/IGuestAuthorization.html" class="tsd-kind-icon">IGuest<wbr/>Authorization</a></li><li class="tsd-kind-interface"><a href="interfaces/IGw.html" class="tsd-kind-icon">IGw</a></li><li class="tsd-kind-interface"><a href="interfaces/IInterface.html" class="tsd-kind-icon">IInterface</a></li><li class="tsd-kind-interface"><a href="interfaces/ILACPState.html" class="tsd-kind-icon">ILACPState</a></li><li class="tsd-kind-interface"><a href="interfaces/ILANDeviceRaw.html" class="tsd-kind-icon">ILANDevice<wbr/>Raw</a></li><li class="tsd-kind-interface"><a href="interfaces/ILEDState.html" class="tsd-kind-icon">ILEDState</a></li><li class="tsd-kind-interface"><a href="interfaces/ILastUplink.html" class="tsd-kind-icon">ILast<wbr/>Uplink</a></li><li class="tsd-kind-interface"><a href="interfaces/ILedOverrideProps.html" class="tsd-kind-icon">ILed<wbr/>Override<wbr/>Props</a></li><li class="tsd-kind-interface"><a href="interfaces/ILldpTable.html" class="tsd-kind-icon">ILldp<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IMACTable.html" class="tsd-kind-icon">IMACTable</a></li><li class="tsd-kind-interface"><a href="interfaces/INetworkStatus.html" class="tsd-kind-icon">INetwork<wbr/>Status</a></li><li class="tsd-kind-interface"><a href="interfaces/INetworkTable.html" class="tsd-kind-icon">INetwork<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IPort.html" class="tsd-kind-icon">IPort</a></li><li class="tsd-kind-interface"><a href="interfaces/IPortDelta.html" class="tsd-kind-icon">IPort<wbr/>Delta</a></li><li class="tsd-kind-interface"><a href="interfaces/IPortOverride.html" class="tsd-kind-icon">IPort<wbr/>Override</a></li><li class="tsd-kind-interface"><a href="interfaces/IPortStatus.html" class="tsd-kind-icon">IPort<wbr/>Status</a></li><li class="tsd-kind-interface"><a href="interfaces/IPortTable.html" class="tsd-kind-icon">IPort<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IRPS.html" class="tsd-kind-icon">IRPS</a></li><li class="tsd-kind-interface"><a href="interfaces/IRPSPortTable.html" class="tsd-kind-icon">IRPSPort<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IRadioTable.html" class="tsd-kind-icon">IRadio<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IRadioTableStat.html" class="tsd-kind-icon">IRadio<wbr/>Table<wbr/>Stat</a></li><li class="tsd-kind-interface"><a href="interfaces/IReleaseInformations.html" class="tsd-kind-icon">IRelease<wbr/>Informations</a></li><li class="tsd-kind-interface"><a href="interfaces/IRps.html" class="tsd-kind-icon">IRps</a></li><li class="tsd-kind-interface"><a href="interfaces/IRpsPortTable.html" class="tsd-kind-icon">IRps<wbr/>Port<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IServiceMACTable.html" class="tsd-kind-icon">IServiceMACTable</a></li><li class="tsd-kind-interface"><a href="interfaces/ISite.html" class="tsd-kind-icon">ISite</a></li><li class="tsd-kind-interface"><a href="interfaces/ISiteEvent.html" class="tsd-kind-icon">ISite<wbr/>Event</a></li><li class="tsd-kind-interface"><a href="interfaces/ISiteEventsEvent.html" class="tsd-kind-icon">ISite<wbr/>Events<wbr/>Event</a></li><li class="tsd-kind-interface"><a href="interfaces/ISpeedTestServer.html" class="tsd-kind-icon">ISpeed<wbr/>Test<wbr/>Server</a></li><li class="tsd-kind-interface"><a href="interfaces/ISpeedtestStatus.html" class="tsd-kind-icon">ISpeedtest<wbr/>Status</a></li><li class="tsd-kind-interface"><a href="interfaces/IStaSync.html" class="tsd-kind-icon">ISta<wbr/>Sync</a></li><li class="tsd-kind-interface"><a href="interfaces/IStat.html" class="tsd-kind-icon">IStat</a></li><li class="tsd-kind-interface"><a href="interfaces/IStats.html" class="tsd-kind-icon">IStats</a></li><li class="tsd-kind-interface"><a href="interfaces/IStorage.html" class="tsd-kind-icon">IStorage</a></li><li class="tsd-kind-interface"><a href="interfaces/ISw.html" class="tsd-kind-icon">ISw</a></li><li class="tsd-kind-interface"><a href="interfaces/ISwitchCaps.html" class="tsd-kind-icon">ISwitch<wbr/>Caps</a></li><li class="tsd-kind-interface"><a href="interfaces/ISysStats.html" class="tsd-kind-icon">ISys<wbr/>Stats</a></li><li class="tsd-kind-interface"><a href="interfaces/ISystem.html" class="tsd-kind-icon">ISystem</a></li><li class="tsd-kind-interface"><a href="interfaces/ISystemEvent.html" class="tsd-kind-icon">ISystem<wbr/>Event</a></li><li class="tsd-kind-interface"><a href="interfaces/ISystemStats.html" class="tsd-kind-icon">ISystem<wbr/>Stats</a></li><li class="tsd-kind-interface"><a href="interfaces/ITemperature.html" class="tsd-kind-icon">ITemperature</a></li><li class="tsd-kind-interface"><a href="interfaces/IUIConfig.html" class="tsd-kind-icon">IUIConfig</a></li><li class="tsd-kind-interface"><a href="interfaces/IUnifiCare.html" class="tsd-kind-icon">IUnifi<wbr/>Care</a></li><li class="tsd-kind-interface"><a href="interfaces/IUnifiCareDevice.html" class="tsd-kind-icon">IUnifi<wbr/>Care<wbr/>Device</a></li><li class="tsd-kind-interface"><a href="interfaces/IUnifiErrorMeta.html" class="tsd-kind-icon">IUnifi<wbr/>Error<wbr/>Meta</a></li><li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/IUnifiResponseEnveloppe.html" class="tsd-kind-icon">IUnifi<wbr/>Response<wbr/>Enveloppe</a></li><li class="tsd-kind-interface"><a href="interfaces/IUnifiWebSocketsProps.html" class="tsd-kind-icon">IUnifi<wbr/>Web<wbr/>Sockets<wbr/>Props</a></li><li class="tsd-kind-interface"><a href="interfaces/IUnknownClient.html" class="tsd-kind-icon">IUnknown<wbr/>Client</a></li><li class="tsd-kind-interface"><a href="interfaces/IUpdateDeviceRestoreProgressEvent.html" class="tsd-kind-icon">IUpdate<wbr/>Device<wbr/>Restore<wbr/>Progress<wbr/>Event</a></li><li class="tsd-kind-interface"><a href="interfaces/IUplink.html" class="tsd-kind-icon">IUplink</a></li><li class="tsd-kind-interface"><a href="interfaces/IUptimeStats.html" class="tsd-kind-icon">IUptime<wbr/>Stats</a></li><li class="tsd-kind-interface"><a href="interfaces/IUptimeStatsWAN.html" class="tsd-kind-icon">IUptime<wbr/>StatsWAN</a></li><li class="tsd-kind-interface"><a href="interfaces/IUser.html" class="tsd-kind-icon">IUser</a></li><li class="tsd-kind-interface"><a href="interfaces/IUserGroup.html" class="tsd-kind-icon">IUser<wbr/>Group</a></li><li class="tsd-kind-interface"><a href="interfaces/IUserRole.html" class="tsd-kind-icon">IUser<wbr/>Role</a></li><li class="tsd-kind-interface"><a href="interfaces/IVapTable.html" class="tsd-kind-icon">IVap<wbr/>Table</a></li><li class="tsd-kind-interface"><a href="interfaces/IWAN.html" class="tsd-kind-icon">IWAN</a></li><li class="tsd-kind-interface"><a href="interfaces/IWLANDeviceRaw.html" class="tsd-kind-icon">IWLANDevice<wbr/>Raw</a></li><li class="tsd-kind-interface"><a href="interfaces/IWifiTxLatencyMOV.html" class="tsd-kind-icon">IWifi<wbr/>Tx<wbr/>LatencyMOV</a></li><li class="tsd-kind-interface"><a href="interfaces/IXTCPStats.html" class="tsd-kind-icon">IXTCPStats</a></li><li class="tsd-kind-type-alias"><a href="modules.html#AuthorizedBy" class="tsd-kind-icon">Authorized<wbr/>By</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DeviceData" class="tsd-kind-icon">Device<wbr/>Data</a></li><li class="tsd-kind-type-alias"><a href="modules.html#FWRuleActions" class="tsd-kind-icon">FWRule<wbr/>Actions</a></li><li class="tsd-kind-type-alias"><a href="modules.html#controllerStatuses" class="tsd-kind-icon">controller<wbr/>Statuses</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ipString" class="tsd-kind-icon">ip<wbr/>String</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ledStatus" class="tsd-kind-icon">led<wbr/>Status</a></li><li class="tsd-kind-type-alias"><a href="modules.html#networkConfType" class="tsd-kind-icon">network<wbr/>Conf<wbr/>Type</a></li><li class="tsd-kind-type-alias"><a href="modules.html#partialClient" class="tsd-kind-icon">partial<wbr/>Client</a></li><li class="tsd-kind-type-alias"><a href="modules.html#permission" class="tsd-kind-icon">permission</a></li><li class="tsd-kind-type-alias"><a href="modules.html#permissionRole" class="tsd-kind-icon">permission<wbr/>Role</a></li><li class="tsd-kind-type-alias"><a href="modules.html#proxyNamespace" class="tsd-kind-icon">proxy<wbr/>Namespace</a></li><li class="tsd-kind-type-alias"><a href="modules.html#releaseChannels" class="tsd-kind-icon">release<wbr/>Channels</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ruleSet" class="tsd-kind-icon">rule<wbr/>Set</a></li><li class="tsd-kind-type-alias"><a href="modules.html#scopes" class="tsd-kind-icon">scopes</a></li><li class="tsd-kind-type-alias"><a href="modules.html#unifiControllerEvents" class="tsd-kind-icon">unifi<wbr/>Controller<wbr/>Events</a></li><li class="tsd-kind-type-alias"><a href="modules.html#unifiDeviceState" class="tsd-kind-icon">unifi<wbr/>Device<wbr/>State</a></li><li class="tsd-kind-type-alias"><a href="modules.html#unifiSiteEvents" class="tsd-kind-icon">unifi<wbr/>Site<wbr/>Events</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li><li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li><li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li><li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
