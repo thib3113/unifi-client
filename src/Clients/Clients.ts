@@ -5,15 +5,16 @@ import { Client } from './Client';
 import { Validate } from '../commons/Validate';
 import { IUnifiResponseEnveloppe } from '../interfaces';
 import { IClientRaw } from './IClientRaw';
+import { macAddress, unifiId } from '../commons';
 
 export type partialClient = Partial<IUnknownClient> & { mac: string };
 
-interface IClientListParams {
+export interface IClientListParams {
     blocked?: true;
     type?: 'all' | 'blocked' | string;
     conn?: 'all' | string;
     /**
-     * clients within last X seconds
+     * clients within last X hours
      */
     within?: number;
 }
@@ -44,7 +45,11 @@ export class Clients extends _ObjectSubSite {
         }
     }
 
-    async getById(_id: string): Promise<Client | undefined> {
+    /**
+     * get a client by _id
+     * @param _id - unifiId
+     */
+    async getById(_id: unifiId): Promise<Client | undefined> {
         const result = (
             await this.instance.get<IUnifiResponseEnveloppe<Array<IClientRaw>>>('/rest/user/:_id', {
                 urlParams: {
@@ -58,7 +63,12 @@ export class Clients extends _ObjectSubSite {
         }
     }
 
-    async getByMac(mac: string): Promise<Client | undefined> {
+    /**
+     * get a Client by mac
+     * call /stat/sta/:mac ( seems to return same as /stat/user/:mac )
+     * @param mac - the macAddress
+     */
+    async getByMac(mac: macAddress): Promise<Client | undefined> {
         const result = (
             await this.instance.get<IUnifiResponseEnveloppe<Array<IClientRaw>>>('/stat/sta/:mac', {
                 urlParams: {
@@ -71,34 +81,6 @@ export class Clients extends _ObjectSubSite {
             return this.mapObject<Client>(Client, result[0]);
         }
     }
-
-    // async createMultiples(pClients: Array<partialClient>): Promise<any> {
-    //     const clients: Array<IUnknownClient> = pClients.map((c) => {
-    //         if (Validate.isUndefined(c.mac)) {
-    //             throw new ClientError('mac and user_group_id are mandatory on all clients', EErrorsCodes.BAD_PARAMETERS);
-    //         }
-    //         return {
-    //             mac: c.mac,
-    //             user_group_id: c.user_group_id,
-    //             name: c.name,
-    //             note: c.note,
-    //             noted: c.noted || !!c.note,
-    //             is_guest: c.is_guest,
-    //             is_wired: c.is_wired
-    //         };
-    //     });
-    //
-    //     // allow to create multiples user, but return sub answer on each users . How to manage it ?
-    //     const res = await this.instance.post(
-    //         '/group/user',
-    //         { objects: clients.map((c) => ({ data: c })) },
-    //         {
-    //             urlParams: { site: this.site.name }
-    //         }
-    //     );
-    //     console.log(res);
-    //     return res;
-    // }
 
     // other way to do a list, seems to return same results...
     // but available if works better for you
@@ -124,6 +106,27 @@ export class Clients extends _ObjectSubSite {
         return res.map((r) => this.mapObject<Client>(Client, r));
     }
 
+    /**
+     * Use this function to list clients
+     *
+     * example to get all blocked user in the last 10 hours
+     * ```
+     * list({
+     *   type: 'blocked',
+     *   conn: 'all',
+     *   within: 10
+     * });
+     * ```
+     *
+     * example to get all user from the last 2 hours
+     * ```
+     * list({
+     *   type: 'all',
+     *   conn: 'all',
+     *   within: 2
+     * });
+     * ```
+     */
     public async list(params?: IClientListParams): Promise<Array<Client>> {
         return (
             (

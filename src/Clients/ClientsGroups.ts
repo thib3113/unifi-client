@@ -9,7 +9,7 @@ export type partialClientsGroup = {
     uploadBandwidth?: number;
 };
 
-interface ICreateClientsGroupRaw {
+export interface ICreateClientsGroupRaw {
     name: string;
     qos_rate_max_down: number;
     qos_rate_max_up: number;
