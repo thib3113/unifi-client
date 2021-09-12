@@ -1,8 +1,10 @@
 export * from './Client';
 export * from './Clients';
+export * from './ClientsGroup';
+export * from './ClientsGroups';
 export * from './DeviceFingerPrints';
 export * from './FingerPrintsTypes';
+export * from './IClientGroupRaw';
 export * from './IClientRaw';
 export * from './IDevice';
 export * from './IUnknownClient';
-export { IClientRaw } from './IClientRaw';

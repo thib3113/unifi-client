@@ -1,12 +1,17 @@
 import { Controller } from './Controller';
 import { IBuildUrlParams } from './interfaces';
 
+export * from './IController';
+export * from './IControllerProps';
 export * from './interfaces';
-export * from './Errors';
+export * from './UnifiAuth';
+
 export * from './Clients';
+export * from './commons';
 export * from './Devices';
-export * from './Hotspot';
+export * from './Errors';
 export * from './Firewall';
+export * from './Hotspot';
 export * from './Sites';
 export * from './Stats';
 export * from './User';

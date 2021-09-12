@@ -101,7 +101,7 @@ export interface IUnifiCareDevice {
     state: unifiDeviceState;
 }
 
-export interface IController {
+export interface IEventController {
     name: string;
     type: 'controller';
     ui: IUIConfig;

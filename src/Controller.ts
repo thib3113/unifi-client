@@ -1,4 +1,4 @@
-import { IUnifiAuthProps, UnifiAuth } from './UnifiAuth';
+import { UnifiAuth } from './UnifiAuth';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { axiosUrlParams, checkNeedVersion, createDebugger, getUrlRepresentation, removeTrailingSlash } from './util';
 import https from 'https';
@@ -14,13 +14,8 @@ import AxiosError from 'axios-error';
 import { Site, Sites } from './Sites';
 import { IUser } from './User';
 import { EProxyNamespaces, IBuildUrlParams, proxyNamespace } from './interfaces';
-import { FingerprintsRaw, DeviceFingerPrints } from './Clients';
-
-export interface IControllerProps extends IUnifiAuthProps {
-    url: string;
-    strictSSL?: boolean;
-    webSocketsURL?: string;
-}
+import { DeviceFingerPrints, FingerprintsRaw } from './Clients';
+import { IControllerProps } from './IControllerProps';
 
 const axiosDebug = createDebugger('axios');
 const axiosDebugVerbose = axiosDebug.extend('verbose');

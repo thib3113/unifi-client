@@ -14,8 +14,8 @@
     "generate:data": "ts-node tests/datas/generateDatas.ts",
     "watch": "jest --env=jsdom --watch",
     "prepare": "husky install",
-    "lint": "eslint -f unix \"src/**/*.{ts,tsx}\"",
-    "ci:eslint": "eslint -f json -o ./coverage/eslint-report.json --ext .ts \"src/**\"",
+    "lint": "eslint -f unix \"src/**\"",
+    "ci:eslint": "npm run lint -- -f json -o ./coverage/eslint-report.json",
     "ci:generate:documentation": "typedoc",
     "prepublishOnly": "npm run build",
     "scan_baddwords": "ts-node .github/scripts/scanForBadWords.ts ./tests/nockFixtures/**/*.json"

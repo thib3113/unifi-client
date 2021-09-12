@@ -1,5 +1,5 @@
 import { ipV4Address, LANWAN, macAddress, timestampDate, timeZone, uuid } from '../../commons/types';
-import { IApp, IController, IReleaseInformations, ISystem, releaseChannels } from '../Interfaces';
+import { IApp, IEventController, IReleaseInformations, ISystem, releaseChannels } from '../Interfaces';
 
 /**
  * only known events, open PR to add more
@@ -42,7 +42,7 @@ export interface ISystemEvent extends IControllerEvent {
     type: 'SYSTEM';
     apps: {
         apps: Array<IApp>;
-        controllers: Array<IController>;
+        controllers: Array<IEventController>;
     };
     settings: {
         isSetup: boolean;

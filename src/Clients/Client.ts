@@ -40,8 +40,6 @@ export class Client extends _ObjectSubSite {
             mac: this.mac
         };
         this.import(props);
-
-        this.needVersion('forget', this._forget, '5.9.0');
     }
 
     public import(props: Partial<IClientRaw>): this {
@@ -341,8 +339,8 @@ export class Client extends _ObjectSubSite {
      * only supported with controller versions 5.9.X and higher, can be
      * slow (up to 5 minutes) on larger controllers
      */
-    public forget: () => Promise<boolean>;
-    private async _forget(): Promise<boolean> {
+    public async forget(): Promise<boolean> {
+        this.checkNeedVersion('5.9.0');
         this.debug('forget()');
         const json = { cmd: 'forget-sta', macs: [this.mac] };
 

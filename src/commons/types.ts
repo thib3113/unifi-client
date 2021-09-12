@@ -10,6 +10,11 @@ export type dateISOString = string;
 export type dateInput = timestampDate | dateISOString | Date;
 
 /**
+ * 24 chars ids ( like mongo _id )
+ */
+export type unifiId = string;
+
+/**
  * color like #FFFFFF
  */
 export type hexColor = string;
