@@ -54,7 +54,7 @@ or with require :
 const { Controller } = require('unifi-client')
 ```
 
-##
+## Requirements
 
 - Installed UniFi-Controller version v6 or more, UnifiOs or not ( cloud keys / UDM or just unifi controller software ) ( not tested below v6 )
 - A network connectivy between unifi-client and the controller ( env http_proxy and https_proxy can be handled automaticaly, but not tested )
