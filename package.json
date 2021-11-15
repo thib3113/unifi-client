@@ -68,7 +68,7 @@
     "@types/cookie": "0.4.1",
     "@types/debug": "4.1.7",
     "@types/jest": "27.0.2",
-    "@types/moxios": "0.4.12",
+    "@types/moxios": "0.4.13",
     "@types/node": "16.11.7",
     "@types/set-cookie-parser": "2.4.1",
     "@types/ws": "8.2.0",
