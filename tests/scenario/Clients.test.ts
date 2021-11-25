@@ -9,9 +9,11 @@ describe('Clients', () => {
         let site: Site;
         beforeEach(async () => {
             site = await getLoggedSite(nock);
+            // @ts-ignore => error because AxiosInstance from axios-error is not up to date
             moxios.install(site.getInstance());
         });
         afterEach(() => {
+            // @ts-ignore => error because AxiosInstance from axios-error is not up to date
             moxios.uninstall(site.getInstance());
         });
 

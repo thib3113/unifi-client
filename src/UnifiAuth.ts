@@ -97,11 +97,17 @@ export class UnifiAuth extends ObjectWithPrivateValues {
 
             if (this.unifiOs && this.csrfToken) {
                 curDebug('set csrfToken (unifiOs)');
-                config.headers['X-CSRF-Token'] = this.csrfToken;
+                config.headers = {
+                    ...config.headers,
+                    'X-CSRF-Token': this.csrfToken
+                };
             }
 
             if (cookies.length > 0) {
-                config.headers.Cookie = cookies.map((c) => cookie.serialize(c.name, c.value, c)).join('; ');
+                config.headers = {
+                    ...config.headers,
+                    Cookie: cookies.map((c) => cookie.serialize(c.name, c.value, c)).join('; ')
+                };
             }
 
             return config;
