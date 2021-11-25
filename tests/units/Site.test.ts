@@ -78,7 +78,16 @@ describe('Site', () => {
                     // @ts-ignore
                     controllerInstance: {
                         defaults: {
-                            baseURL: 'https://unifi'
+                            baseURL: 'https://unifi',
+                            headers: {
+                                common: {},
+                                delete: {},
+                                get: {},
+                                head: {},
+                                post: {},
+                                put: {},
+                                patch: {}
+                            }
                         }
                     },
                     strictSSL: true,

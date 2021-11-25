@@ -108,13 +108,32 @@ describe('UnifiAuth.test.ts', () => {
                 expect(
                     await interceptor({
                         authenticationRequest: false,
-                        headers: {}
+                        headers: {
+                            foo: 'bar'
+                        }
                     })
                 ).toStrictEqual({
                     authenticationRequest: false,
                     headers: {
+                        foo: 'bar',
                         Cookie: 'cookie_name=aaaaa',
                         'X-CSRF-Token': 'crsfTokenTest'
+                    }
+                });
+
+                auth.getCookies = jest.fn().mockImplementationOnce(() => [
+                    {
+                        name: 'cookie_name2',
+                        value: 'bbbbbb'
+                    }
+                ]);
+                // @ts-ignore
+                auth.csrfToken = 'crsfTokenTest2';
+                //test with an empty config
+                expect(await interceptor({})).toStrictEqual({
+                    headers: {
+                        Cookie: 'cookie_name2=bbbbbb',
+                        'X-CSRF-Token': 'crsfTokenTest2'
                     }
                 });
             });
@@ -129,12 +148,28 @@ describe('UnifiAuth.test.ts', () => {
                 expect(
                     await interceptor({
                         authenticationRequest: false,
-                        headers: {}
+                        headers: {
+                            foo: 'bar'
+                        }
                     })
                 ).toStrictEqual({
                     authenticationRequest: false,
                     headers: {
+                        foo: 'bar',
                         Cookie: 'cookie_name=aaaaa'
+                    }
+                });
+
+                //test with an empty config
+                auth.getCookies = jest.fn().mockImplementationOnce(() => [
+                    {
+                        name: 'cookie_name2',
+                        value: 'bbbbb'
+                    }
+                ]);
+                expect(await interceptor({})).toStrictEqual({
+                    headers: {
+                        Cookie: 'cookie_name2=bbbbb'
                     }
                 });
             });
