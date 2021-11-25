@@ -9,6 +9,7 @@
             "average_satisfaction": 99,
             "health": "excellent",
             "historical_satisfaction": [
+                -1,
                 98,
                 98,
                 98,
@@ -18,9 +19,8 @@
                 98,
                 98,
                 98,
-                97,
-                97,
-                97
+                98,
+                98
             ],
             "reasons": []
         },
@@ -41,16 +41,18 @@
             "1; mode=block",
             "Accept-Ranges",
             "bytes",
+            "X-CSRF-Token",
+            "21dbbd87-84c6-4edc-8140-53783e8c0c07",
             "content-type",
             "application/json;charset=UTF-8",
-            "transfer-encoding",
-            "chunked",
             "date",
-            "Tue, 27 Jul 2021 22:11:36 GMT",
-            "connection",
-            "close",
+            "Thu, 07 Oct 2021 12:03:07 GMT",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.ozXhFKLuFCl1hhcTTvGxBOJB__P3etJwd9Lo90IV69I; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "Connection",
+            "close",
+            "Transfer-Encoding",
+            "chunked"
         ],
         "responseIsBinary": false
     }

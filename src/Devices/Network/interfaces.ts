@@ -1,4 +1,4 @@
-import { dateInput, ipV4Address, ipv4CIDR, macAddress, netMask } from '../commons/types';
+import { dateInput, ipV4Address, ipv4CIDR, macAddress, netMask } from '../../commons';
 
 // NEED TO BE COMPLETED AND IMPROVED
 
@@ -12,8 +12,10 @@ export interface IAntennaTable {
     default: boolean;
     id: number;
     name: string;
-    ra0_gain: number;
-    rai0_gain: number;
+    //gain by antenna ? need an object antenna ?
+    ra0_gain?: number;
+    rai0_gain?: number;
+    wifi0_gain?: number;
 }
 
 export interface IConfigNetwork {
@@ -24,6 +26,7 @@ export interface IConfigNetwork {
     dns1?: string;
     dns2?: string;
     dnssuffix?: string;
+    bonding_enabled?: boolean;
 }
 
 export enum EConfigNetworkType {
@@ -324,6 +327,7 @@ export interface IPortTable {
     poe_current?: string;
     poe_good?: boolean;
     poe_power?: string;
+    attr_no_edit?: boolean;
 }
 
 export enum EDot1XMode {

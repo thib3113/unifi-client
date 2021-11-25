@@ -1,13 +1,13 @@
-import { BaseDevice } from './BaseDevice';
+import { BaseNetworkDevice } from './BaseNetworkDevice';
 import { IWLANDeviceRaw } from './IWLANDeviceRaw';
 import { IAccMeterStats, IAntennaTable, IRadioTable, IRadioTableStat, IVapTable } from './interfaces';
-import { Validate } from '../commons/Validate';
-import { EDeviceType } from './EDeviceType';
-import { IBaseDeviceMandatoryRaw } from './IBaseDeviceRaw';
+import { Validate } from '../../commons/Validate';
+import { ENetworkDeviceType } from './ENetworkDeviceType';
+import { IBaseDeviceMandatoryRaw } from '../IBaseDeviceMandatoryRaw';
 
-export class UAPDevice extends BaseDevice {
-    public static type = EDeviceType.UAP;
-    public type = EDeviceType.UAP;
+export class UAPDevice extends BaseNetworkDevice {
+    public static type = ENetworkDeviceType.UAP;
+    public type = ENetworkDeviceType.UAP;
     import(props: Partial<IWLANDeviceRaw> & IBaseDeviceMandatoryRaw): this {
         super.import(props);
 
@@ -98,6 +98,9 @@ export class UAPDevice extends BaseDevice {
         if (!Validate.isUndefined(props.uplink_table)) {
             this.uplinkTable = props.uplink_table;
         }
+        if (!Validate.isUndefined(props.mesh_sta_vap_enabled)) {
+            this.meshStaVapEnabled = props.mesh_sta_vap_enabled;
+        }
 
         return this;
     }
@@ -141,4 +144,5 @@ export class UAPDevice extends BaseDevice {
     public lastScan: number;
     public vwireEnabled: boolean;
     public uplinkTable: Array<unknown>;
+    public meshStaVapEnabled: boolean;
 }

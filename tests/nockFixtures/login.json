@@ -32,7 +32,7 @@
             "X-Response-Time",
             "10ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.ozXhFKLuFCl1hhcTTvGxBOJB__P3etJwd9Lo90IV69I; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Date",
             "Tue, 27 Jul 2021 22:13:01 GMT",
             "Connection",
@@ -51,7 +51,7 @@
         },
         "status": 200,
         "response": {
-            "unique_id": "4a6e4694-da7d-4d77-a772-784ac1ee754d",
+            "unique_id": "ca5a288d-7ece-461b-b8ad-2bfcf8bcec80",
             "first_name": "firstName",
             "last_name": "lastName",
             "full_name": "fullName",
@@ -62,11 +62,11 @@
             "avatar_rpath2": "",
             "status": "ACTIVE",
             "employee_number": "",
-            "create_time": 1627423986696,
+            "create_time": 1633608196925,
             "extras": {},
             "username": "ubnt",
             "local_account_exist": true,
-            "password_revision": 1627423986696,
+            "password_revision": 1633608196925,
             "sso_account": "",
             "sso_uuid": "",
             "sso_username": "",
@@ -75,17 +75,17 @@
             "uid_sso_account": "",
             "groups": [
                 {
-                    "unique_id": "9672897e-11ba-404d-996a-1c8b18d96d48",
+                    "unique_id": "d92995b1-b732-49e5-9917-6df505242149",
                     "name": "Dream Machine Pro",
                     "up_id": "",
                     "up_ids": [],
                     "system_name": "Dream Machine Pro",
-                    "create_time": "2021-07-27T22:13:06.696Z"
+                    "create_time": "2021-10-07T12:03:16.925Z"
                 }
             ],
             "roles": [
                 {
-                    "unique_id": "902141fe-7a30-4391-8578-8a796b9604fe",
+                    "unique_id": "000cfa11-1126-41ae-bc91-8b8ebd25d435",
                     "name": "Super Administrator",
                     "system_role": true,
                     "system_key": "super_administrator",
@@ -243,15 +243,18 @@
                 "adopt:access.device"
             ],
             "cloud_access_granted": false,
-            "update_time": 1627423986696,
+            "update_time": 1633608196925,
             "avatar": "",
             "nfc_token": "",
             "nfc_display_id": "",
             "nfc_card_type": "",
             "nfc_card_status": "",
-            "id": "d6840d43-225a-4d0b-8cad-90ec6f675d7e",
+            "id": "bf65da04-2488-414a-8713-391e764056a8",
             "isOwner": false,
-            "isSuperAdmin": true
+            "isSuperAdmin": true,
+            "deviceToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzEzMzNmZTYtNzRhYi00ZWZmLTljYmYtNTY1ODc2NmNiM2QxIiwiaWF0IjoxNjMzNjA4MTk2LCJleHAiOjQ3ODkzNjgxOTZ9.hAnIwJeIaD1gA1XcK5H6xVbC_1HHpaz1UtZJTGqsipU",
+            "sso_app_id": "hg7c9oXhRPWRYVPjn9jkMfO8aUoFYBs8dSNa6lhn",
+            "sso_app_sec": "pLm5XhIz31JiXuDbCwli0OgV2pmWq0FhqHopmgyBTVXa3x70y1vzCJIDKq67MwsKeSusGCEjMf7k7fJTu3JlD4aLL6p8qi746TxgSuDKsB84Zdu0IfF2YNst9x8n38gR"
         },
         "rawHeaders": [
             "Vary",
@@ -279,7 +282,7 @@
             "X-Response-Time",
             "174ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.ozXhFKLuFCl1hhcTTvGxBOJB__P3etJwd9Lo90IV69I; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Date",
             "Tue, 27 Jul 2021 22:13:01 GMT",
             "Connection",
@@ -330,8 +333,8 @@
                     "image_maps_use_google_engine": false,
                     "radius_disconnect_running": false,
                     "facebook_wifi_registered": false,
-                    "sso_app_id": "90waTUDb0XgRdfyYlA7sM5xEGS90S0N3zyFbyo8v",
-                    "sso_app_sec": "8IVW8RyPBsqYLsPX9LPMmWMQxHU8E6wV8cX6C6iIlRnLT4bvuuTdLqchzvsq24TnR3nMW37mrNaOT0Z6SEapGoAExfu9hTD7MZHPx8Mew0xWK7ozecSJm5VSYBWOPX9f",
+                    "sso_app_id": "hg7c9oXhRPWRYVPjn9jkMfO8aUoFYBs8dSNa6lhn",
+                    "sso_app_sec": "pLm5XhIz31JiXuDbCwli0OgV2pmWq0FhqHopmgyBTVXa3x70y1vzCJIDKq67MwsKeSusGCEjMf7k7fJTu3JlD4aLL6p8qi746TxgSuDKsB84Zdu0IfF2YNst9x8n38gR",
                     "uptime": 468695,
                     "anonymous_controller_id": "569dff0d-4519-4b90-b4db-e1028c8fa636",
                     "ubnt_device_type": "UDMPRO",
@@ -368,7 +371,7 @@
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.ozXhFKLuFCl1hhcTTvGxBOJB__P3etJwd9Lo90IV69I; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }

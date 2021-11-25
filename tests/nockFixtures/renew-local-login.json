@@ -10,7 +10,7 @@
         },
         "status": 200,
         "response": {
-            "unique_id": "3ce548f1-dcf0-4eb2-a912-a6bc3858d1d6",
+            "unique_id": "9c9868b1-1307-4162-ac2a-9a0eb01cc8fc",
             "first_name": "firstName",
             "last_name": "lastName",
             "full_name": "fullName",
@@ -21,11 +21,11 @@
             "avatar_rpath2": "",
             "status": "ACTIVE",
             "employee_number": "",
-            "create_time": 1627423986710,
+            "create_time": 1633608196944,
             "extras": {},
             "username": "ubnt",
             "local_account_exist": true,
-            "password_revision": 1627423986710,
+            "password_revision": 1633608196944,
             "sso_account": "",
             "sso_uuid": "",
             "sso_username": "",
@@ -34,17 +34,17 @@
             "uid_sso_account": "",
             "groups": [
                 {
-                    "unique_id": "dd2853c3-18e4-4453-8e08-c6c04d1adbc0",
+                    "unique_id": "19868bab-632c-4572-80c5-1c9e1bbe08fa",
                     "name": "Dream Machine Pro",
                     "up_id": "",
                     "up_ids": [],
                     "system_name": "Dream Machine Pro",
-                    "create_time": "2021-07-27T22:13:06.710Z"
+                    "create_time": "2021-10-07T12:03:16.944Z"
                 }
             ],
             "roles": [
                 {
-                    "unique_id": "825f32b0-9ae6-4226-aa78-db2d926185f8",
+                    "unique_id": "734f1c9c-a847-46da-bec1-c48e9521a07c",
                     "name": "Super Administrator",
                     "system_role": true,
                     "system_key": "super_administrator",
@@ -202,15 +202,18 @@
                 "adopt:access.device"
             ],
             "cloud_access_granted": false,
-            "update_time": 1627423986710,
+            "update_time": 1633608196944,
             "avatar": "",
             "nfc_token": "",
             "nfc_display_id": "",
             "nfc_card_type": "",
             "nfc_card_status": "",
-            "id": "4b267934-0e6b-4a2f-8df3-a899f37af895",
+            "id": "6d21b9e8-4915-4fc5-a7aa-900fd9604080",
             "isOwner": false,
-            "isSuperAdmin": true
+            "isSuperAdmin": true,
+            "deviceToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTQyYTViNTctN2VkMi00ZjU0LWJlNWUtMTI2YmI5MGFkM2JlIiwiaWF0IjoxNjMzNjA4MTk2LCJleHAiOjQ3ODkzNjgxOTZ9.eZb2D8N5kAK5_dHE4lkuYxxGi3xGAoKdRe3Pwkvt9bw",
+            "sso_app_id": "hg7c9oXhRPWRYVPjn9jkMfO8aUoFYBs8dSNa6lhn",
+            "sso_app_sec": "pLm5XhIz31JiXuDbCwli0OgV2pmWq0FhqHopmgyBTVXa3x70y1vzCJIDKq67MwsKeSusGCEjMf7k7fJTu3JlD4aLL6p8qi746TxgSuDKsB84Zdu0IfF2YNst9x8n38gR"
         },
         "rawHeaders": [
             "Vary",
@@ -238,7 +241,7 @@
             "X-Response-Time",
             "199ms",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.ozXhFKLuFCl1hhcTTvGxBOJB__P3etJwd9Lo90IV69I; Path=/; HttpOnly; Secure; SameSite=Strict",
             "Date",
             "Sat, 24 Jul 2021 16:40:25 GMT",
             "Connection",
@@ -295,7 +298,7 @@
             "connection",
             "close",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.ozXhFKLuFCl1hhcTTvGxBOJB__P3etJwd9Lo90IV69I; Path=/; HttpOnly; Secure; SameSite=Strict"
         ],
         "responseIsBinary": false
     }

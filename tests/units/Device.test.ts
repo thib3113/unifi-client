@@ -1,9 +1,9 @@
 import {
-    BaseDevice,
+    BaseNetworkDevice,
     ClientError,
     EErrorsCodes,
     IBaseDeviceMandatoryRaw,
-    IBaseDeviceRaw,
+    IBaseNetworkDeviceRaw,
     ILANDeviceRaw,
     IWLANDeviceRaw,
     LANDevice,
@@ -23,17 +23,17 @@ describe('Device', () => {
     describe('construct', () => {
         describe('baseDevice', () => {
             it('should construct BaseDevice', () => {
-                const dev = new BaseDevice({ controller, site }, { mac: macAddress });
+                const dev = new BaseNetworkDevice({ controller, site }, { mac: macAddress });
             });
             it('should construct BaseDevice with _uptime', () => {
-                const dev = new BaseDevice({ controller, site }, { mac: macAddress, _uptime: 162999 });
+                const dev = new BaseNetworkDevice({ controller, site }, { mac: macAddress, _uptime: 162999 });
                 expect(dev.uptime).toBe(162999);
             });
             it('should refuse a BaseDevice without mac', () => {
                 expect.assertions(3);
                 try {
                     // @ts-ignore
-                    new BaseDevice({ controller, site });
+                    new BaseNetworkDevice({ controller, site });
                 } catch (e) {
                     expect(e).toBeInstanceOf(ClientError);
                     expect(e.message).toBe('mac is needed');
@@ -41,7 +41,7 @@ describe('Device', () => {
                 }
             });
             it('should construct with all values', () => {
-                const rawDev: Partial<IBaseDeviceRaw> & { mac: string } = {
+                const rawDev: Partial<IBaseNetworkDeviceRaw> & { mac: string } = {
                     mac: macAddress,
                     _id: '6001f8c53fd98c05e81375b5',
                     ip: '51.254.200.228',
@@ -322,7 +322,7 @@ describe('Device', () => {
                     disabled: false
                 };
 
-                const dev = new BaseDevice({ controller, site }, rawDev);
+                const dev = new BaseNetworkDevice({ controller, site }, rawDev);
                 expect(dev.mac).toBe(rawDev.mac);
                 expect(dev._id).toBe(rawDev._id);
                 expect(dev.ip).toBe(rawDev.ip);
@@ -1140,10 +1140,10 @@ describe('Device', () => {
         });
     });
     describe('functions', () => {
-        let dev: BaseDevice;
+        let dev: BaseNetworkDevice;
         const devManagerMock = jest.fn();
         beforeEach(() => {
-            dev = new BaseDevice({ controller, site }, { mac: macAddress });
+            dev = new BaseNetworkDevice({ controller, site }, { mac: macAddress });
 
             // @ts-ignore
             dev.site = {

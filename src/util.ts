@@ -1,7 +1,7 @@
 import createDebug, { Debugger } from 'debug';
 import url, { URL, URLSearchParams } from 'url';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { dateInput } from './commons/types';
+import { dateInput } from './commons';
 import { Validate } from './commons/Validate';
 import type { Controller } from './Controller';
 import semver from 'semver';
@@ -81,7 +81,10 @@ export const convertTimestampSecondsToDate = (time: dateInput): Date => {
 };
 
 export const checkNeeds = (controller: Controller, minVersion?: string, unifiOs?: boolean): boolean => {
-    return (Validate.isBoolean(unifiOs) && controller.unifiOs === unifiOs) || (minVersion && semver.gte(controller.version, minVersion));
+    return (
+        (!unifiOs || (Validate.isBoolean(unifiOs) && controller.unifiOs === unifiOs)) &&
+        (!minVersion || semver.gte(controller.version, minVersion))
+    );
 };
 
 /**

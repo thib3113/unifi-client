@@ -7,5 +7,6 @@ export enum EDeviceStates {
     UNREACHABLE = 6,
     ADOPTING = 7,
     ADOPTION_ERROR = 9,
+    READY_TO_ADOPT = 10,
     ISOLATED = 11
 }

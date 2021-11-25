@@ -416,7 +416,17 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     public async reboot(): Promise<void> {
         checkNeedVersion(this, undefined, true, 'Controller.reboot');
-        //on UDM, return 204
+        //on UDMP, return 204
         await this.controllerInstance.post<undefined>('/api/system/reboot');
+    }
+
+    /**
+     * use with caution ! This will reset the controller !
+     */
+    public async factoryReset(sure = false): Promise<void> {
+        if (!sure) {
+            throw new ClientError('are you sure to reset the controller ? set "sure" to true if yes');
+        }
+        await this.controllerInstance.post<undefined>('/api/system/reset');
     }
 }

@@ -1,4 +1,4 @@
-import { BaseDevice, Devices, EDeviceType, UAPDevice, UBBDevice, UDMDevice, UGWDevice, USWDevice, UXGDevice } from '../../src';
+import { Devices } from '../../src';
 import { controller, site } from '../mocks';
 import axios from 'axios';
 import { macAddress } from '../globals';
@@ -10,12 +10,15 @@ describe('Devices', () => {
         devices = new Devices({ controller, site });
     });
     describe('list', () => {
-        const mapDeviceMock = jest.fn();
+        const listOld = jest.fn();
         beforeEach(() => {
             // @ts-ignore
-            devices.mapDevice = mapDeviceMock.mockImplementation((d) => d);
+            devices.listOld = listOld.mockImplementation((d) => d);
         });
-        it('should list devices', async () => {
+        // describe('', async () => {});
+        it('should list devices, < 6.4.50', async () => {
+            controller.version = '6.4.49';
+
             mockedAxios.get.mockImplementationOnce(() =>
                 Promise.resolve({
                     data: {
@@ -27,9 +30,10 @@ describe('Devices', () => {
             const res = await devices.list();
 
             expect(mockedAxios.get).toHaveBeenCalledWith('/stat/device');
-            expect(res).toStrictEqual([{ mac: macAddress }]);
-            expect(mapDeviceMock).toHaveBeenCalledTimes(1);
-            expect(mapDeviceMock).toHaveBeenCalledWith({ mac: macAddress });
+            expect(Array.isArray(res)).toBeTruthy();
+            expect(res[0].toJSON()).toStrictEqual({ mac: macAddress, _productLine: 'NETWORK' });
+            // expect(mapDeviceMock).toHaveBeenCalledTimes(1);
+            // expect(mapDeviceMock).toHaveBeenCalledWith({ mac: macAddress });
         });
         it('should handle no results', async () => {
             mockedAxios.get.mockImplementationOnce(() =>
@@ -42,31 +46,31 @@ describe('Devices', () => {
 
             expect(mockedAxios.get).toHaveBeenCalledWith('/stat/device');
             expect(res).toStrictEqual([]);
-            expect(mapDeviceMock).not.toHaveBeenCalled();
+            // expect(mapDeviceMock).not.toHaveBeenCalled();
         });
     });
-    describe('mapDevice', () => {
-        const data: Array<[EDeviceType | string | null, typeof BaseDevice]> = [
-            [null, BaseDevice],
-            ['any unknown device', BaseDevice],
-            [EDeviceType.UAP, UAPDevice],
-            [EDeviceType.UBB, UBBDevice],
-            [EDeviceType.UDM, UDMDevice],
-            [EDeviceType.UGW, UGWDevice],
-            [EDeviceType.USW, USWDevice],
-            [EDeviceType.UXG, UXGDevice]
-        ];
-        it.each(data)('should construct correct object with type %s', (type, instance) => {
-            // @ts-ignore
-            const res = devices.mapDevice({
-                // @ts-ignore
-                type,
-                mac: macAddress
-            });
-
-            expect(res).toBeInstanceOf(instance);
-            expect(res.type).toBe(type);
-            expect(res.mac).toBe(macAddress);
-        });
-    });
+    // describe('mapDevice', () => {
+    //     const data: Array<[ENetworkDeviceType | string | null, typeof BaseNetworkDevice]> = [
+    //         [null, BaseNetworkDevice],
+    //         ['any unknown device', BaseNetworkDevice],
+    //         [ENetworkDeviceType.UAP, UAPDevice],
+    //         [ENetworkDeviceType.UBB, UBBDevice],
+    //         [ENetworkDeviceType.UDM, UDMDevice],
+    //         [ENetworkDeviceType.UGW, UGWDevice],
+    //         [ENetworkDeviceType.USW, USWDevice],
+    //         [ENetworkDeviceType.UXG, UXGDevice]
+    //     ];
+    //     it.each(data)('should construct correct object with type %s', (type, instance) => {
+    //         // @ts-ignore
+    //         const res = devices.mapDevice({
+    //             // @ts-ignore
+    //             type,
+    //             mac: macAddress
+    //         });
+    //
+    //         expect(res).toBeInstanceOf(instance);
+    //         expect(res.type).toBe(type);
+    //         expect(res.mac).toBe(macAddress);
+    //     });
+    // });
 });

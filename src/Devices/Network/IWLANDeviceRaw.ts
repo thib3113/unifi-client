@@ -1,0 +1,75 @@
+import { IBaseNetworkDeviceRaw } from './IBaseNetworkDeviceRaw';
+import { IAccMeterStats, IAntennaTable, IRadioTable, IRadioTableStat } from './interfaces';
+import { enabledDisabled } from '../../commons';
+
+export interface IWLANDeviceRaw extends IBaseNetworkDeviceRaw {
+    x_vwirekey: string;
+    vwire_table: Array<unknown>;
+    antenna_table: Array<IAntennaTable>;
+    radio_table: Array<IRadioTable>;
+    scan_radio_table: Array<unknown>;
+    country_code: number;
+    countrycode_table: Array<unknown>;
+    wlangroup_id_na: string;
+    wlangroup_id_ng: string;
+    acc_meter_stats: IAccMeterStats;
+    supports_fingerprint_ml: boolean;
+    disconnection_reason: string;
+    scanning: boolean;
+    spectrum_scanning: boolean;
+    meshv3_peer_mac: string;
+    element_peer_mac: string;
+    hide_ch_width: string;
+    isolated: boolean;
+    radio_table_stats: Array<IRadioTableStat>;
+    port_stats: Array<unknown>;
+    vwire_vap_table: Array<unknown>;
+    'bytes-d': number;
+    'tx_bytes-d': number;
+    'rx_bytes-d': number;
+    'bytes-r': number;
+    last_scan: number;
+    vwireEnabled: boolean;
+    uplink_table: Array<unknown>;
+    bandsteering_mode: string;
+    atf_enabled: boolean;
+
+    download_speed_bytes_per_second: number;
+    lte_imei?: string;
+    lte_mode?: string;
+    lte_radio?: string;
+
+    //with lte uap
+    mesh_sta_vap_enabled?: boolean;
+    lte_ext_ant?: enabledDisabled;
+    lte_poe?: enabledDisabled;
+    lte_failover_mode?: string;
+    lte_data_warning_enabled?: boolean;
+    lte_data_limit_enabled?: boolean;
+    lte_roaming_allowed?: boolean;
+    lte_state?: string;
+    lte_auth_type?: string;
+    lte_hard_limit?: number;
+    lte_soft_limit?: number;
+    lte_apn?: string;
+    lte_iccid?: string;
+    lte_ip?: string;
+    lte_networkoperator?: string;
+    lte_pdptype?: string;
+    lte_rat?: string;
+    lte_signal?: string;
+    lte_band?: string;
+    lte_rx_chan?: string;
+    lte_tx_chan?: string;
+    lte_rssi?: string;
+    lte_rsrq?: string;
+    lte_cell_id?: string;
+    lte_radio_mode?: string;
+    lte_rsrp?: string;
+    lte_failover?: boolean;
+    total_tx_bytes?: number;
+    total_rx_bytes?: number;
+    lte_is_sim_pin_required?: boolean;
+    lte_sim_pin_tries_left?: number;
+    lte_is_sim_pin_verified?: boolean;
+}

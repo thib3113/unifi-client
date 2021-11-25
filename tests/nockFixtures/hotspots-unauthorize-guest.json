@@ -31,16 +31,18 @@
             "1; mode=block",
             "Accept-Ranges",
             "bytes",
+            "X-CSRF-Token",
+            "8b154678-23b5-435e-8635-879683068dc4",
             "content-type",
             "application/json;charset=UTF-8",
             "content-length",
             "30",
             "date",
-            "Tue, 27 Jul 2021 22:11:38 GMT",
-            "connection",
-            "close",
+            "Thu, 07 Oct 2021 12:03:08 GMT",
             "Set-Cookie",
-            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.6ONbG1xcxfpEcXhZmXdU459LO_0YV589vfHoeaFG89U; Path=/; HttpOnly; Secure; SameSite=Strict"
+            "TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjc3JmVG9rZW4iOiI3MDM5ZDAyZi05ODFhLTRhMWQtODIwMC0wZWYzZTI3N2EzNTMiLCJpYXQiOjE2Mjc0MjM5ODEsImV4cCI6NDc4MzE4Mzk4MX0.ozXhFKLuFCl1hhcTTvGxBOJB__P3etJwd9Lo90IV69I; Path=/; HttpOnly; Secure; SameSite=Strict",
+            "Connection",
+            "close"
         ],
         "responseIsBinary": false
     }

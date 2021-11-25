@@ -1,9 +1,8 @@
 import { ISite } from './ISite';
-import { IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
 import { Hotspots } from '../Hotspot';
-import { Clients } from '../Clients';
+import { Clients, ClientsGroups } from '../Clients';
 import { Firewall } from '../Firewall';
-import { _ObjectSubController } from '../commons/_ObjectSubController';
+import { _ObjectSubController, IObjectSubSiteConfig, macAddress } from '../commons';
 import { Controller } from '../Controller';
 import { Validate } from '../commons/Validate';
 import { INetworkStatus } from './INetworkStatus';
@@ -12,11 +11,8 @@ import { Stats } from '../Stats';
 import { ClientError, EErrorsCodes } from '../Errors';
 import { EProxyNamespaces, IUnifiResponseEnveloppe } from '../interfaces';
 import { createDebugger } from '../util';
-import { ClientsGroups } from '../Clients/ClientsGroups';
-import { Devices } from '../Devices';
-import type { BaseDevice } from '../Devices';
-import { macAddress } from '../commons/types';
 import { ISiteSettingsManagement, tSiteSettings } from './ISiteSettings';
+import { BaseDevice, Devices } from '../Devices';
 
 export class Site extends _ObjectSubController implements ISite {
     static debug = createDebugger('site');
@@ -103,8 +99,7 @@ export class Site extends _ObjectSubController implements ISite {
         });
     }
 
-    // TODO test return
-    public async adoptDevice(device: string | BaseDevice): Promise<unknown> {
+    public async adoptDevice(device: string | BaseDevice): Promise<boolean> {
         let mac: macAddress;
         if (Validate.implementsTKeys<BaseDevice>(device, ['mac'])) {
             mac = device.mac;
@@ -115,7 +110,7 @@ export class Site extends _ObjectSubController implements ISite {
         }
         const payload = { cmd: 'adopt', mac: mac.toLowerCase() };
 
-        return (await this.devManager(payload)).data;
+        return (await this.devManager(payload)).meta?.rc === 'ok';
     }
 
     /**
@@ -128,6 +123,23 @@ export class Site extends _ObjectSubController implements ISite {
 
     public async getSettings(): Promise<Array<tSiteSettings>> {
         return (await this.instance.get<IUnifiResponseEnveloppe<Array<tSiteSettings>>>('/get/setting')).data.data;
+    }
+
+    public async forgetDevices(mac: Array<macAddress> | macAddress): Promise<boolean> {
+        const macs = Array.isArray(mac) ? mac : [mac];
+
+        return (
+            (
+                await this.siteManager({
+                    macs,
+                    cmd: 'delete-device'
+                })
+            ).meta.rc === 'ok'
+        );
+    }
+
+    public async siteManager<T>(settings: Record<string, unknown>): Promise<IUnifiResponseEnveloppe<T>> {
+        return (await this.instance.post<IUnifiResponseEnveloppe<T>>('/cmd/sitemgr', settings)).data;
     }
 
     public async settingsManager<T>(settings: Record<string, unknown>): Promise<IUnifiResponseEnveloppe<T>> {

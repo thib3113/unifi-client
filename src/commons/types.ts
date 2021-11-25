@@ -1,4 +1,4 @@
-import type { BaseDevice, LANDevice, UAPDevice, UBBDevice, UDMDevice, UGWDevice, USWDevice, UXGDevice } from '../Devices';
+export * from '../Devices/types';
 
 export type timestampDate = number;
 /**
@@ -53,4 +53,4 @@ export type percentageToOne = number;
  */
 export type percentage = number;
 
-export type tDevice = BaseDevice | LANDevice | UAPDevice | UBBDevice | UDMDevice | UGWDevice | USWDevice | UXGDevice;
+export type enabledDisabled = 'enabled' | 'disabled';

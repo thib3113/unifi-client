@@ -1,4 +1,4 @@
-import { BaseDevice } from './BaseDevice';
+import { BaseNetworkDevice } from './BaseNetworkDevice';
 import { ILANDeviceRaw } from './ILANDeviceRaw';
 import {
     IConfigNetworkLAN,
@@ -14,10 +14,10 @@ import {
     IUptimeStats,
     IWAN
 } from './interfaces';
-import { Validate } from '../commons/Validate';
-import { IBaseDeviceMandatoryRaw } from './IBaseDeviceRaw';
+import { Validate } from '../../commons/Validate';
+import { IBaseDeviceMandatoryRaw } from '../IBaseDeviceMandatoryRaw';
 
-export class LANDevice extends BaseDevice {
+export class LANDevice extends BaseNetworkDevice {
     import(props: Partial<ILANDeviceRaw> & IBaseDeviceMandatoryRaw): this {
         super.import(props);
 

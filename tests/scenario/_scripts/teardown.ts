@@ -63,8 +63,14 @@ module.exports = async () => {
                                 update_time: Date.now(),
                                 groups: response.groups.map((g) => ({ ...g, unique_id: uuidv4(), create_time: new Date().toISOString() })),
                                 roles: response.roles.map((r) => ({ ...r, unique_id: uuidv4() })),
-                                deviceToken: jwt.sign({ user_id: uuidv4() }, jwtKey, { expiresIn: '100y' })
+                                deviceToken: jwt.sign({ user_id: uuidv4() }, jwtKey, { expiresIn: '100y' }),
+                                sso_app_id: 'hg7c9oXhRPWRYVPjn9jkMfO8aUoFYBs8dSNa6lhn',
+                                sso_app_sec:
+                                    'pLm5XhIz31JiXuDbCwli0OgV2pmWq0FhqHopmgyBTVXa3x70y1vzCJIDKq67MwsKeSusGCEjMf7k7fJTu3JlD4aLL6p8qi746TxgSuDKsB84Zdu0IfF2YNst9x8n38gR'
                             };
+                        }
+
+                        if (def.method === 'GET' && def.path.includes('login') && def.status === 200) {
                         }
 
                         // @ts-ignore rawHeaders seems not typed

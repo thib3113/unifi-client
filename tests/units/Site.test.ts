@@ -184,17 +184,17 @@ describe('Site', () => {
                 }
             });
             it('should accept a string', async () => {
-                devManagerMock.mockImplementationOnce(() => Promise.resolve({ data: 'myData' }));
-                expect(await site.adoptDevice(macAddress)).toBe('myData');
+                devManagerMock.mockImplementationOnce(() => Promise.resolve({ data: 'myData', meta: { rc: 'ok' } }));
+                expect(await site.adoptDevice(macAddress)).toBeTruthy();
                 expect(devManagerMock).toHaveBeenCalledWith({
                     cmd: 'adopt',
                     mac: macAddress
                 });
             });
             it('should accept an object with a mac, like a BaseDevice', async () => {
-                devManagerMock.mockImplementationOnce(() => Promise.resolve({ data: 'myData' }));
+                devManagerMock.mockImplementationOnce(() => Promise.resolve({ data: 'myData', meta: { rc: 'ok' } }));
                 // @ts-ignore
-                expect(await site.adoptDevice({ mac: macAddress })).toBe('myData');
+                expect(await site.adoptDevice({ mac: macAddress })).toBeTruthy();
                 expect(devManagerMock).toHaveBeenCalledWith({
                     cmd: 'adopt',
                     mac: macAddress

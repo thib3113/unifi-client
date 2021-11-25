@@ -1,7 +1,6 @@
-import { IBaseDeviceRaw } from './IBaseDeviceRaw';
+import { IBaseNetworkDeviceRaw } from './IBaseNetworkDeviceRaw';
 import {
     IConfigNetworkLAN,
-    IEthernetOverride,
     IGeoInfo,
     ILEDState,
     INetworkTable,
@@ -25,14 +24,13 @@ export interface IRPSPortTable {
     port_mode: string;
 }
 
-export interface ILANDeviceRaw extends IBaseDeviceRaw {
+export interface ILANDeviceRaw extends IBaseNetworkDeviceRaw {
     jumboframe_enabled: boolean;
     flowctrl_enabled: boolean;
     stp_version: string;
     stp_priority: string;
     power_source_ctrl_enabled: boolean;
     config_network_lan?: IConfigNetworkLAN;
-    ethernet_overrides?: Array<IEthernetOverride>;
     usg_caps?: number;
     temperatures?: Array<ITemperature>;
     storage?: Array<IStorage>;
