@@ -2,7 +2,6 @@ import { generateMac, getLoggedSite } from './_scripts/common';
 import nock from 'nock';
 import moxios from 'moxios';
 import { Client, Site } from '../../src';
-import { AxiosInstance } from 'axios';
 
 describe('Clients', () => {
     describe('UnifiOs', () => {
