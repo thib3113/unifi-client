@@ -53,6 +53,14 @@ or with require :
 ```js  
 const { Controller } = require('unifi-client')
 ```
+
+## Requirements
+
+- Installed UniFi-Controller version v6 or more, UnifiOs or not ( cloud keys / UDM or just unifi controller software ) ( not tested below v6 )
+- A network connectivy between unifi-client and the controller ( env http_proxy and https_proxy can be handled automaticaly, but not tested )
+- An account, cloud accounts, local accounts and 2FA are available
+- Node.js version >= LTS (14)
+
 ## Example
 
 Examples are located in [examples folder](./examples)
@@ -223,7 +231,9 @@ check [technical documentation](https://thib3113.github.io/unifi-client/modules)
 ## Tests
 This library is auto-tested on :
 - UDM-pro : `latest` (`6.4.51`)
+
 - Unifi controller : `latest`, `6.2.25`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23`
+  (*only some functions are tested, in an empty environment*)
 
 with the last node LTS 
 
