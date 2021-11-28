@@ -55,6 +55,10 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         return this._logged;
     }
 
+    private set logged(value: boolean) {
+        this._logged = value;
+    }
+
     public createInstance(siteName: string, config?: AxiosRequestConfig): AxiosInstance {
         return this._createInstance(siteName, config);
     }
