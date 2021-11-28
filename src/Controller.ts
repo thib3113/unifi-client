@@ -49,7 +49,15 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     private readonly _sites: Sites;
     public unifiOs: boolean;
     public version?: string = '7.0.0';
-    private logged: boolean;
+    private _logged: boolean;
+
+    public get logged(): boolean {
+        return this._logged;
+    }
+
+    private set logged(value: boolean) {
+        this._logged = value;
+    }
 
     public createInstance(siteName: string, config?: AxiosRequestConfig): AxiosInstance {
         return this._createInstance(siteName, config);
@@ -115,7 +123,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
     }
 
     private needLoggedIn() {
-        if (!this.logged) {
+        if (!this._logged) {
             throw new ClientError('you need to login before', EErrorsCodes.NEED_LOGIN);
         }
     }
@@ -136,14 +144,14 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         //get unifiOs / version / and save logged status
         this.unifiOs = this.auth.unifiOs;
         this.version = await this.auth.getVersion();
-        this.logged = true;
+        this._logged = true;
         return user;
     }
 
     async logout(): Promise<void> {
         await this.auth.logout();
         this.auth.autoReLogin = false;
-        this.logged = false;
+        this._logged = false;
     }
 
     private addAxiosDebugInterceptors(instance: AxiosInstance): AxiosInstance {
