@@ -93,7 +93,7 @@
     "ts-jest": "27.1.1",
     "ts-node": "10.4.0",
     "typedoc": "0.22.10",
-    "typescript": "4.5.2",
+    "typescript": "4.5.3",
     "uuid": "8.3.2"
   },
   "funding": [
