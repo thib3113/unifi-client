@@ -17,7 +17,7 @@ export class FWRule extends _ObjectSubSite implements IFWRule {
     name: string;
     protocol: 'all' | string;
     protocol_match_excepted: boolean;
-    rule_index: string;
+    rule_index: string | number;
     ruleset: ruleSet;
     site_id: string;
     src_address: string;

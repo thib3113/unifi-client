@@ -27,7 +27,7 @@ export type ipString = string;
 export interface IFWRule {
     _id: string;
     ruleset: ruleSet;
-    rule_index: string;
+    rule_index: string | number;
     name: string;
     enabled: boolean;
     action: FWRuleActions;
