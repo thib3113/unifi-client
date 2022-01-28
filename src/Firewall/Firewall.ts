@@ -1,7 +1,7 @@
-import { IFWRule, IFWGroup } from '../interfaces';
 import { FWGroup } from './FWGroup';
 import { FWRule } from './FWRule';
-import { _ObjectSubSite } from '../commons/_ObjectSubSite';
+import { _ObjectSubSite } from '../commons';
+import { IFWRule, IFWGroup } from './Interfaces';
 
 export class Firewall extends _ObjectSubSite {
     public async createRule(group: Omit<IFWRule, '_id' | 'site_id'>): Promise<FWRule> {

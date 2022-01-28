@@ -1,7 +1,7 @@
-import { IFWGroup } from '../interfaces';
-import { _ObjectSubSite, IObjectSubSiteConfig } from '../commons/_ObjectSubSite';
+import { _ObjectSubSite, IObjectSubSiteConfig } from '../commons';
 import { ClientError, EErrorsCodes } from '../Errors';
 import { Validate } from '../commons/Validate';
+import { IFWGroup } from './Interfaces';
 
 export class FWGroup extends _ObjectSubSite implements IFWGroup {
     _id: string;
