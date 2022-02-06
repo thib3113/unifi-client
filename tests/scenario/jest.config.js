@@ -17,7 +17,7 @@ module.exports = {
     // The test environment that will be used for testing
     testEnvironment: path.resolve(path.join(__dirname, './_scripts/environment.js')),
 
-    testMatch: baseConfig.testMatchPattern.map((pattern) => path.posix.join(__dirname, pattern)),
+    testMatch: baseConfig.testMatchPattern.map((pattern) => path.posix.join(__dirname.split(path.sep).join(path.posix.sep), pattern)),
     testMatchPattern: undefined
 };
 delete module.exports.testMatchPattern;

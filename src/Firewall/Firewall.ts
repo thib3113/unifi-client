@@ -1,16 +1,16 @@
-import { IFWRule, IFWGroup } from '../interfaces';
 import { FWGroup } from './FWGroup';
 import { FWRule } from './FWRule';
-import { _ObjectSubSite } from '../commons/_ObjectSubSite';
+import { _ObjectSubSite } from '../commons';
+import { IFWGroup, IFWV4RuleRaw, IFWV6RuleRaw } from './Interfaces';
 
 export class Firewall extends _ObjectSubSite {
-    public async createRule(group: Omit<IFWRule, '_id' | 'site_id'>): Promise<FWRule> {
-        //return an array of groups created, but seems to allow only one group to be created ?
+    public async createRule(rule: Omit<IFWV4RuleRaw, '_id' | 'site_id'> | Omit<IFWV6RuleRaw, '_id' | 'site_id'>): Promise<FWRule> {
+        //return an array of rules created, but seems to allow only one rule to be created ?
         return this.mapObject<FWRule>(
             FWRule,
             (
                 (
-                    await this.instance.post('/rest/firewallrule/', group, {
+                    await this.instance.post('/rest/firewallrule/', rule, {
                         urlParams: { site: this.site.name }
                     })
                 ).data?.data || []

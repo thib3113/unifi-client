@@ -1,7 +1,7 @@
-import Controller, { FWGroup, FWRule, IFWRule, Site } from '../../src';
+import Controller, { FWGroup, FWRule, IFWV4RuleRaw, IFWV6RuleRaw, Site } from '../../src';
 import { getLoggedSite } from './_scripts/common';
 import nock from 'nock';
-import { IObjectSubSiteConfig } from '../../src/commons/_ObjectSubSite';
+import { IObjectSubSiteConfig } from '../../src';
 
 const PREFIX = 'firewall-';
 // beforeAll(() => {
@@ -53,7 +53,7 @@ describe('Firewall - UnifiOs', () => {
         it('should crud firewall rule', async () => {
             let rule: FWRule;
             let rule2: FWRule;
-            const ruleParams: Omit<IFWRule, '_id' | 'site_id'> & Partial<{ _id: string; site_id: string }> = {
+            const ruleParams: Omit<IFWV4RuleRaw, '_id' | 'site_id'> & Partial<{ _id: string; site_id: string }> = {
                 action: 'accept',
                 enabled: true,
                 dst_address: '',
@@ -192,7 +192,7 @@ describe('Firewall - non UnifiOs', () => {
         it('should crud firewall rule', async () => {
             let rule: FWRule;
             let rule2: FWRule;
-            const ruleParams: Omit<IFWRule, '_id' | 'site_id'> & Partial<{ _id: string; site_id: string }> = {
+            const ruleParams: Omit<IFWV4RuleRaw, '_id' | 'site_id'> & Partial<{ _id: string; site_id: string }> = {
                 action: 'accept',
                 enabled: true,
                 dst_address: '',
