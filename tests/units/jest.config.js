@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
     ...baseConfig,
     displayName: 'units tests',
-    testMatch: baseConfig.testMatchPattern.map((pattern) => path.posix.join(__dirname, pattern)),
+    testMatch: baseConfig.testMatchPattern.map((pattern) => path.posix.join(__dirname.split(path.sep).join(path.posix.sep), pattern)),
     testMatchPattern: undefined
 };
 

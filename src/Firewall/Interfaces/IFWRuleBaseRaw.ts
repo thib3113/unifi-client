@@ -18,4 +18,7 @@ export interface IFWRuleBaseRaw {
     src_mac_address: string;
     dst_firewallgroup_ids: Array<string>;
     site_id: string;
+    // from network > 7.0.0
+    setting_preference?: string;
+    dst_port?: string;
 }

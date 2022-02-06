@@ -36,6 +36,10 @@ export class FWRule extends _ObjectSubSite implements Partial<IFWRule> {
     dst_networkconf_id?: string;
     dst_networkconf_type?: networkConfType;
 
+    //>=7.0.0
+    setting_preference?: string;
+    dst_port?: string;
+
     protected import(props: IFWV4RuleRaw | IFWV6RuleRaw): this {
         if (!Validate.isUndefined(props._id)) {
             this._id = props._id;
@@ -89,6 +93,15 @@ export class FWRule extends _ObjectSubSite implements Partial<IFWRule> {
             this.state_related = props.state_related;
         }
 
+        //network >= 7.0.0
+        if (!Validate.isUndefined(props.setting_preference)) {
+            this.setting_preference = props.setting_preference;
+        }
+
+        if (!Validate.isUndefined(props.dst_port)) {
+            this.dst_port = props.dst_port;
+        }
+
         //ipv4 specifics
         if ('dst_address' in props && !Validate.isUndefined(props.dst_address)) {
             this.dst_address = props.dst_address;
@@ -126,7 +139,7 @@ export class FWRule extends _ObjectSubSite implements Partial<IFWRule> {
         return this;
     }
 
-    constructor(config: IObjectSubSiteConfig, props: IFWRule) {
+    constructor(config: IObjectSubSiteConfig, props: IFWV4RuleRaw | IFWV6RuleRaw) {
         super(config);
 
         this._id = props._id;
