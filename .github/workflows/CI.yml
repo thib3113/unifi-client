@@ -28,7 +28,7 @@ jobs:
         run: |
           yarn generate:data
           yarn list > yarn.list
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: prepare
           path: |
@@ -93,7 +93,7 @@ jobs:
         run: find ./coverage -type f -exec sed -i -e "s@$(pwd)@<root>@g" {} \;
         if: always()
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: coverage
           path: |
@@ -124,7 +124,7 @@ jobs:
       - name: replace path in coverage files
         run: find ./coverage -type f -exec sed -i -e "s@$(pwd)@<root>@g" {} \;
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: coverage
           path: ./coverage/eslint-report.json
