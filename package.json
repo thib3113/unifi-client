@@ -57,7 +57,7 @@
     "cookie": "0.4.2",
     "debug": "4.3.4",
     "jsonwebtoken": "8.5.1",
-    "semver": "7.3.6",
+    "semver": "7.3.7",
     "set-cookie-parser": "2.4.8",
     "ws": "8.5.0"
   },
