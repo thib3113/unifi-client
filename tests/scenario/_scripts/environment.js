@@ -1,11 +1,7 @@
-const NodeEnvironment = require('jest-environment-node');
+const { TestEnvironment } = require('jest-environment-node');
 const nock = require('nock');
 
-class CustomEnvironment extends NodeEnvironment {
-    constructor(config) {
-        super(config);
-    }
-
+class CustomEnvironment extends TestEnvironment {
     async setup() {
         await super.setup();
         this.global.__NOCK__ = nock;
