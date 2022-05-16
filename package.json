@@ -82,7 +82,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-tsdoc": "0.2.16",
     "glob": "8.0.3",
-    "husky": "7.0.4",
+    "husky": "8.0.1",
     "jest": "28.1.0",
     "jest-environment-node": "28.1.0",
     "jest-sonar": "0.2.12",
