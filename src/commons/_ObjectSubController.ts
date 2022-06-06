@@ -115,7 +115,7 @@ export class _ObjectSubController extends ObjectWithPrivateValues {
      */
     protected needVersion<T>(key: keyof this, value?: T, minVersion?: string, unifiOs?: boolean, allowUndefined = false): boolean {
         try {
-            this.checkNeedVersion(minVersion, unifiOs, `${this.constructor.name}.${key}`);
+            this.checkNeedVersion(minVersion, unifiOs, `${this.constructor.name}.${key.toString()}`);
             if (Validate.isUndefined(value)) {
                 if (allowUndefined) {
                     // @ts-ignore
