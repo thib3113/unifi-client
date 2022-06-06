@@ -87,7 +87,7 @@
     "jest-environment-node": "28.1.0",
     "jest-sonar": "0.2.12",
     "moxios": "0.4.0",
-    "nock": "13.2.4",
+    "nock": "13.2.6",
     "prettier": "2.6.2",
     "source-map-support": "0.5.21",
     "ts-jest": "28.0.4",
