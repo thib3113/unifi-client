@@ -79,6 +79,7 @@ jobs:
           yarn install
           yarn build
           echo start tests
+          yarn run test:CI:coverage
         env:
           CI: true
       - uses: mattallty/jest-github-action@v1
