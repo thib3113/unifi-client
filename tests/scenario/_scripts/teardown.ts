@@ -6,6 +6,7 @@ import { Definition } from 'nock';
 import setCookieParser from 'set-cookie-parser';
 import { v4 as uuidv4 } from 'uuid';
 import { isRecordMode } from './isRecordMode';
+import {Validate} from "../../../src/commons/Validate";
 
 const testFolder = path.join(__dirname, '..', '..', 'nockFixtures');
 
@@ -41,7 +42,7 @@ module.exports = async () => {
                 try {
                     let jsonParsed = JSON.parse(fs.readFileSync(filePath).toString()) as Array<Definition>;
                     jsonParsed = jsonParsed.map((def) => {
-                        if (def.method === 'POST' && def.path.includes('login') && def.status === 200) {
+                        if (def.method === 'POST' && Validate.isString(def.path) && def.path.includes('login') && def.status === 200) {
                             def.body = {
                                 ...(def.body as Record<string, any>),
                                 username: 'ubnt',
