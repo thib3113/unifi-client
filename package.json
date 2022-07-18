@@ -59,7 +59,7 @@
     "jsonwebtoken": "8.5.1",
     "semver": "7.3.7",
     "set-cookie-parser": "2.5.0",
-    "ws": "8.8.0"
+    "ws": "8.8.1"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.3",
