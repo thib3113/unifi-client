@@ -77,7 +77,7 @@
     "@typescript-eslint/parser": "5.36.2",
     "cross-env": "7.0.3",
     "dotenv": "16.0.2",
-    "eslint": "8.23.0",
+    "eslint": "8.23.1",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-tsdoc": "0.2.16",
