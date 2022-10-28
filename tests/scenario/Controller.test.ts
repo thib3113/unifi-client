@@ -199,7 +199,8 @@ describe("Controller", () => {
         it("should login to controller", async () => {
             const controller = await getLoggedControllerWithoutSite(nock, false);
 
-            expect(semver.gt(controller.version, "6.0.0") && semver.lt(controller.version, "7.5.0")).toBeTruthy();
+            expect(controller.version).toBeDefined();
+            expect(semver.gt(controller.version || '', "6.0.0") && semver.lt(controller.version || '', "7.5.0")).toBeTruthy();
             expect(controller.unifiOs).toBeFalsy();
             expect(controller).toBeDefined();
         });
