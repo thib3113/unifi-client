@@ -15,6 +15,7 @@
     "watch": "jest --env=jsdom --watch",
     "prepare": "husky install",
     "lint": "eslint -f unix \"src/**\"",
+    "lint:fix": "yarn lint --fix",
     "ci:eslint": "npm run lint -- -f json -o ./coverage/eslint-report.json",
     "ci:generate:documentation": "typedoc",
     "prepublishOnly": "npm run build",

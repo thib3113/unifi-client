@@ -81,7 +81,10 @@ export const convertTimestampSecondsToDate = (time: dateInput): Date => {
 };
 
 export const checkNeeds = (controller: Controller, minVersion?: string, unifiOs?: boolean): boolean => {
-    return (Validate.isBoolean(unifiOs) && controller.unifiOs === unifiOs) || (minVersion && semver.gte(controller.version, minVersion));
+    return (
+        (Validate.isBoolean(unifiOs) && controller.unifiOs === unifiOs) ||
+        (!!minVersion && semver.gte(controller.version || '', minVersion))
+    );
 };
 
 /**
