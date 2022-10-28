@@ -15,7 +15,7 @@ export const UNIFI_USERNAME = 'ubnt';
 export const UNIFI_PASSWORD = 'ubnt';
 export const FIXTURES_PATH = path.join(rootPath, 'tests', 'nockFixtures');
 
-axios.defaults.adapter = require('axios/lib/adapters/http');
+// axios.defaults.adapter = require('axios').default.adapter;
 
 export const generateMac = (): string =>
     'XX:XX:XX:XX:XX:XX'.replace(/X/g, function () {
