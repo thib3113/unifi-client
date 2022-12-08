@@ -71,7 +71,7 @@
     "@types/debug": "4.1.7",
     "@types/jest": "29.2.4",
     "@types/moxios": "0.4.15",
-    "@types/node": "18.11.10",
+    "@types/node": "18.11.11",
     "@types/set-cookie-parser": "2.4.2",
     "@types/ws": "8.5.3",
     "@typescript-eslint/eslint-plugin": "5.45.1",
