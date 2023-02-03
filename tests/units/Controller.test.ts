@@ -2,7 +2,7 @@
 //need to be first
 import { axiosUrlParamsMock, checkNeedVersionMock, debug, getUrlRepresentationMock } from '../mocks/utils';
 import { ClientError, Controller, DeviceFingerPrints, EErrorsCodes, EProxyNamespaces, UnifiError, UnifiWebsockets } from '../../src';
-import axios, { AxiosInstance,RawAxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, RawAxiosRequestConfig, AxiosResponse } from 'axios';
 import https from 'https';
 import { UnifiAuth } from '../../src/UnifiAuth';
 import curlirize from 'axios-curlirize';
@@ -144,7 +144,7 @@ describe('test controller', () => {
         });
         describe('axios interceptors', () => {
             const interceptors: {
-                requests: Array<(config:RawAxiosRequestConfig) =>RawAxiosRequestConfig>;
+                requests: Array<(config: RawAxiosRequestConfig) => RawAxiosRequestConfig>;
                 response: Array<[(response: AxiosResponse) => AxiosResponse, (error: any) => any]>;
             } = {
                 requests: [],
@@ -209,7 +209,7 @@ describe('test controller', () => {
                 controller.addAxiosProxyInterceptors(instance as unknown as AxiosInstance);
                 const spyBuildUrl = jest.spyOn(controller, 'buildUrl').mockImplementationOnce(() => ({ apiVersion: 326 }));
                 // test interceptors, this one add urlParams
-                const interceptor: (config:RawAxiosRequestConfig) =>RawAxiosRequestConfig = interceptors.requests[0];
+                const interceptor: (config: RawAxiosRequestConfig) => RawAxiosRequestConfig = interceptors.requests[0];
 
                 expect(interceptor).toBeDefined();
                 const res = interceptor({ apiVersion: 623 });
@@ -283,7 +283,7 @@ describe('test controller', () => {
                     // @ts-ignore
                     controller.addAxiosDebugInterceptors(instance as unknown as AxiosInstance);
                     // test interceptors, this one add debug ( debug logs + curlirize )
-                    const interceptorDebugLogs: (config:RawAxiosRequestConfig) =>RawAxiosRequestConfig = interceptors.requests[0];
+                    const interceptorDebugLogs: (config: RawAxiosRequestConfig) => RawAxiosRequestConfig = interceptors.requests[0];
                     getUrlRepresentationMock.mockImplementationOnce(() => 'http://url');
 
                     //first one will add metaData and logs
