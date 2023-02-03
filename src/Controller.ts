@@ -1,5 +1,5 @@
 import { UnifiAuth } from './UnifiAuth';
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, RawAxiosRequestConfig } from 'axios';
 import { axiosUrlParams, checkNeedVersion, createDebugger, getUrlRepresentation, removeTrailingSlash } from './util';
 import https from 'https';
 import curlirize from 'axios-curlirize';
@@ -59,11 +59,11 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         this._logged = value;
     }
 
-    public createInstance(siteName: string, config?: AxiosRequestConfig): AxiosInstance {
+    public createInstance(siteName: string, config?: RawAxiosRequestConfig): AxiosInstance {
         return this._createInstance(siteName, config);
     }
 
-    private _createInstance(siteName?: string, config?: AxiosRequestConfig): AxiosInstance {
+    private _createInstance(siteName?: string, config?: RawAxiosRequestConfig): AxiosInstance {
         const instance = axios.create({
             ...config,
             baseURL: removeTrailingSlash(this.props.url),
@@ -318,7 +318,10 @@ export class Controller extends ObjectWithPrivateValues implements IController {
 
     private addAxiosProxyInterceptors(instance: AxiosInstance): AxiosInstance {
         instance.interceptors.request.use((config) => {
-            return this.buildUrl(config);
+            return {
+                ...this.buildUrl(config),
+                headers: config.headers
+            };
         });
         return instance;
     }
@@ -385,7 +388,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
                 proxyNamespace: EProxyNamespaces.NETWORK
             },
             true
-        ) as AxiosRequestConfig & { url: string };
+        ) as RawAxiosRequestConfig & { url: string };
         const superUrl = `${superWSConfig.baseURL}${superWSConfig.url}`;
         this.superWS = new UnifiWebsockets({
             controller: this,

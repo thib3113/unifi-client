@@ -2,7 +2,7 @@
 //need to be first
 import { axiosUrlParamsMock, checkNeedVersionMock, debug, getUrlRepresentationMock } from '../mocks/utils';
 import { ClientError, Controller, DeviceFingerPrints, EErrorsCodes, EProxyNamespaces, UnifiError, UnifiWebsockets } from '../../src';
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, RawAxiosRequestConfig, AxiosResponse } from 'axios';
 import https from 'https';
 import { UnifiAuth } from '../../src/UnifiAuth';
 import curlirize from 'axios-curlirize';
@@ -144,7 +144,7 @@ describe('test controller', () => {
         });
         describe('axios interceptors', () => {
             const interceptors: {
-                requests: Array<(config: AxiosRequestConfig) => AxiosRequestConfig>;
+                requests: Array<(config: RawAxiosRequestConfig) => RawAxiosRequestConfig>;
                 response: Array<[(response: AxiosResponse) => AxiosResponse, (error: any) => any]>;
             } = {
                 requests: [],
@@ -209,14 +209,14 @@ describe('test controller', () => {
                 controller.addAxiosProxyInterceptors(instance as unknown as AxiosInstance);
                 const spyBuildUrl = jest.spyOn(controller, 'buildUrl').mockImplementationOnce(() => ({ apiVersion: 326 }));
                 // test interceptors, this one add urlParams
-                const interceptor: (config: AxiosRequestConfig) => AxiosRequestConfig = interceptors.requests[0];
+                const interceptor: (config: RawAxiosRequestConfig) => RawAxiosRequestConfig = interceptors.requests[0];
 
                 expect(interceptor).toBeDefined();
                 const res = interceptor({ apiVersion: 623 });
                 //just pass config from interceptor call
                 expect(spyBuildUrl).toHaveBeenCalledWith({ apiVersion: 623 });
                 // and return the value from buildUrl
-                expect(res).toStrictEqual({ apiVersion: 326 });
+                expect(res).toStrictEqual(expect.objectContaining({ apiVersion: 326 }));
             });
 
             describe('test addAxiosDebugInterceptors', () => {
@@ -283,7 +283,7 @@ describe('test controller', () => {
                     // @ts-ignore
                     controller.addAxiosDebugInterceptors(instance as unknown as AxiosInstance);
                     // test interceptors, this one add debug ( debug logs + curlirize )
-                    const interceptorDebugLogs: (config: AxiosRequestConfig) => AxiosRequestConfig = interceptors.requests[0];
+                    const interceptorDebugLogs: (config: RawAxiosRequestConfig) => RawAxiosRequestConfig = interceptors.requests[0];
                     getUrlRepresentationMock.mockImplementationOnce(() => 'http://url');
 
                     //first one will add metaData and logs
@@ -320,6 +320,7 @@ describe('test controller', () => {
                             status: 1,
                             statusText: '',
                             headers: {},
+                            // @ts-ignore
                             config: {}
                         })
                     ).toStrictEqual({
@@ -963,8 +964,8 @@ describe('test controller', () => {
             });
 
             describe('test with urls', () => {
-                type testDatas = [string, Partial<AxiosRequestConfig>, boolean];
-                const rawUrls: Array<{ expected: string; config: Partial<AxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
+                type testDatas = [string, Partial<RawAxiosRequestConfig>, boolean];
+                const rawUrls: Array<{ expected: string; config: Partial<RawAxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
                     fs.readFileSync(path.join(__dirname, '..', 'datas', 'urlBuilder', 'unifios-urls.json')).toString()
                 );
 
@@ -1148,8 +1149,8 @@ describe('test controller', () => {
             });
 
             describe('test with urls', () => {
-                type testDatas = [string, Partial<AxiosRequestConfig>, boolean];
-                const rawUrls: Array<{ expected: string; config: Partial<AxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
+                type testDatas = [string, Partial<RawAxiosRequestConfig>, boolean];
+                const rawUrls: Array<{ expected: string; config: Partial<RawAxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
                     fs.readFileSync(path.join(__dirname, '..', 'datas', 'urlBuilder', 'not-unifios-urls.json')).toString()
                 );
 

@@ -1,6 +1,6 @@
 import createDebug, { Debugger } from 'debug';
 import url, { URL, URLSearchParams } from 'url';
-import { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import { dateInput } from './commons/types';
 import { Validate } from './commons/Validate';
 import type { Controller } from './Controller';
@@ -21,10 +21,10 @@ export const createDebugger = (name: string): Debugger => {
 
 /**
  * used to log an url
- * @param req - the AxiosRequestConfig object from axios
+ * @param req - the RawAxiosRequestConfig object from axios
  * @param hidePassword - to hide "auth" part of the url
  */
-export const getUrlRepresentation = (req: AxiosRequestConfig, hidePassword = true): string => {
+export const getUrlRepresentation = (req: RawAxiosRequestConfig, hidePassword = true): string => {
     const urlParsed = new URL((req.baseURL || 'http://localhost') + (req.url || ''));
     const params = new URLSearchParams(urlParsed.search);
 

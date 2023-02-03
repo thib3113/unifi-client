@@ -1,7 +1,7 @@
 //need to be first
 import { debug } from '../mocks/utils';
 import { UnifiAuth } from '../../src/UnifiAuth';
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, RawAxiosRequestConfig, AxiosResponse } from 'axios';
 import jwt from 'jsonwebtoken';
 import { IncomingMessage } from 'http';
 import { ClientError, EErrorsCodes } from '../../src';
@@ -11,7 +11,7 @@ jest.mock('jsonwebtoken');
 
 describe('UnifiAuth.test.ts', () => {
     const interceptors: {
-        requests: Array<(config: AxiosRequestConfig) => AxiosRequestConfig>;
+        requests: Array<(config: RawAxiosRequestConfig) => RawAxiosRequestConfig>;
         response: Array<[(response: AxiosResponse) => AxiosResponse, (error: any) => any]>;
     } = {
         requests: [],
@@ -91,7 +91,7 @@ describe('UnifiAuth.test.ts', () => {
             auth = new UnifiAuth({ username: 'user', password: 'passwd' }, instance);
         });
         describe('should intercept request', () => {
-            let interceptor: (config: AxiosRequestConfig) => AxiosRequestConfig;
+            let interceptor: (config: RawAxiosRequestConfig) => RawAxiosRequestConfig;
             beforeEach(() => {
                 interceptor = interceptors.requests[0];
             });
@@ -199,6 +199,7 @@ describe('UnifiAuth.test.ts', () => {
                 auth.unifiOs = true;
                 expect(
                     interceptor({
+                        // @ts-ignore
                         config: {},
                         data: undefined,
                         status: 0,
@@ -230,6 +231,7 @@ describe('UnifiAuth.test.ts', () => {
 
                 expect(
                     interceptor({
+                        // @ts-ignore
                         config: {},
                         data: undefined,
                         status: 0,
@@ -257,6 +259,7 @@ describe('UnifiAuth.test.ts', () => {
 
                 expect(
                     interceptor({
+                        // @ts-ignore
                         config: {},
                         data: undefined,
                         status: 0,
@@ -697,7 +700,7 @@ describe('UnifiAuth.test.ts', () => {
             });
             expect(axiosMock.get).toBeCalledWith('/', { authenticationRequest: true, validateStatus: expect.any(Function) });
 
-            const mockCall = axiosMock.get.mock.calls[0][1] as AxiosRequestConfig;
+            const mockCall = axiosMock.get.mock.calls[0][1] as RawAxiosRequestConfig;
             //validateStatus need to return true for all statuses
             expect(mockCall.validateStatus && mockCall.validateStatus(1)).toBeTruthy();
             expect(debug.debugExtend).toBeCalledWith('login');
@@ -774,7 +777,7 @@ describe('UnifiAuth.test.ts', () => {
             expect(auth.autoReLogin).toBeTruthy();
             expect(axiosMock.get).toBeCalledWith('/', { authenticationRequest: true, validateStatus: expect.any(Function) });
             //validateStatus need to return true for all statuses
-            const mockCall = axiosMock.get.mock.calls[0][1] as AxiosRequestConfig;
+            const mockCall = axiosMock.get.mock.calls[0][1] as RawAxiosRequestConfig;
             //validateStatus need to return true for all statuses
             expect(mockCall.validateStatus && mockCall.validateStatus(1)).toBeTruthy();
             expect(debug.debugExtend).toBeCalledWith('login');
