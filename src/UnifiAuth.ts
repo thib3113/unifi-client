@@ -9,6 +9,7 @@ import { ClientError, EErrorsCodes, UnifiError } from './Errors';
 import { Validate } from './commons/Validate';
 import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
 import { EProxyNamespaces } from './interfaces';
+import { AxiosRequestHeaders } from 'axios/index';
 
 export interface IUnifiAuthProps {
     rememberMe?: boolean;
@@ -97,11 +98,20 @@ export class UnifiAuth extends ObjectWithPrivateValues {
 
             if (this.unifiOs && this.csrfToken) {
                 curDebug('set csrfToken (unifiOs)');
-                config.headers['X-CSRF-Token'] = this.csrfToken;
+
+                //TODO retry this with new axios versions
+                config.headers = {
+                    ...config.headers,
+                    'X-CSRF-Token': this.csrfToken as string
+                } as unknown as AxiosRequestHeaders;
             }
 
             if (cookies.length > 0) {
-                config.headers['Cookie'] = cookies.map((c) => cookie.serialize(c.name, c.value, c)).join('; ');
+                //TODO retry this with new axios versions
+                config.headers = {
+                    ...config.headers,
+                    Cookie: cookies.map((c) => cookie.serialize(c.name, c.value, c)).join('; ')
+                } as unknown as AxiosRequestHeaders;
             }
 
             return config;
