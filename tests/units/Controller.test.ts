@@ -320,6 +320,7 @@ describe('test controller', () => {
                             status: 1,
                             statusText: '',
                             headers: {},
+                            // @ts-ignore
                             config: {}
                         })
                     ).toStrictEqual({
@@ -963,8 +964,8 @@ describe('test controller', () => {
             });
 
             describe('test with urls', () => {
-                type testDatas = [string, Partial<AxiosRequestConfig>, boolean];
-                const rawUrls: Array<{ expected: string; config: Partial<AxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
+                type testDatas = [string, Partial<RawAxiosRequestConfig>, boolean];
+                const rawUrls: Array<{ expected: string; config: Partial<RawAxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
                     fs.readFileSync(path.join(__dirname, '..', 'datas', 'urlBuilder', 'unifios-urls.json')).toString()
                 );
 
@@ -1148,8 +1149,8 @@ describe('test controller', () => {
             });
 
             describe('test with urls', () => {
-                type testDatas = [string, Partial<AxiosRequestConfig>, boolean];
-                const rawUrls: Array<{ expected: string; config: Partial<AxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
+                type testDatas = [string, Partial<RawAxiosRequestConfig>, boolean];
+                const rawUrls: Array<{ expected: string; config: Partial<RawAxiosRequestConfig>; websockets?: boolean }> = JSON.parse(
                     fs.readFileSync(path.join(__dirname, '..', 'datas', 'urlBuilder', 'not-unifios-urls.json')).toString()
                 );
 
