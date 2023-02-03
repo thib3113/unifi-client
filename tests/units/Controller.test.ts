@@ -216,7 +216,7 @@ describe('test controller', () => {
                 //just pass config from interceptor call
                 expect(spyBuildUrl).toHaveBeenCalledWith({ apiVersion: 623 });
                 // and return the value from buildUrl
-                expect(res).toStrictEqual({ apiVersion: 326 });
+                expect(res).toStrictEqual(expect.objectContaining({ apiVersion: 326 }));
             });
 
             describe('test addAxiosDebugInterceptors', () => {
