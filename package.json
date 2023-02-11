@@ -89,7 +89,7 @@
     "jest-sonar": "0.2.15",
     "moxios": "0.4.0",
     "nock": "13.3.0",
-    "prettier": "2.8.3",
+    "prettier": "2.8.4",
     "source-map-support": "0.5.21",
     "ts-jest": "29.0.5",
     "ts-node": "10.9.1",
