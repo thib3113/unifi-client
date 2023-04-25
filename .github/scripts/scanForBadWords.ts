@@ -1,7 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import glob from 'glob';
-import { promisify } from 'util';
+import * as fs from 'fs';
+import * as path from 'path';
+import { glob } from 'glob';
 
 const args = process.argv.slice(2);
 
@@ -12,7 +11,7 @@ const main = async () => {
     }
     const bannedWords: Array<{ search: string; replacement: string }> = JSON.parse(fs.readFileSync(bannedWordsPath).toString());
     const pattern = args[0];
-    const files: Array<string> = await promisify(glob)(pattern);
+    const files: Array<string> = await glob(pattern);
     if (files.length === 0) {
         throw new Error(`no files found with pattern ${pattern}`);
     }
