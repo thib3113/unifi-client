@@ -7,7 +7,6 @@
 [![License](https://img.shields.io/github/license/thib3113/unifi-client.svg)](https://github.com/thib3113/unifi-client/blob/main/LICENSE)
 [![Known Vulnerabilities](https://snyk.io/test/github/thib3113/unifi-client/badge.svg)](https://snyk.io/test/github/thib3113/unifi-client)
 [![unifi-client](https://snyk.io/advisor/npm-package/unifi-client/badge.svg)](https://snyk.io/advisor/npm-package/unifi-client)
-[![Dependencies status](https://david-dm.org/thib3113/unifi-client.svg)](https://david-dm.org/thib3113/unifi-client)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal)](https://paypal.me/thib3113)
 [![GitHub stars](https://img.shields.io/github/stars/thib3113/unifi-client.svg?style=social&label=Star)](https://github.com/thib3113/unifi-client/stargazers/)
 [![Package Quality](https://packagequality.com/shield/unifi-client.svg)](https://packagequality.com/#?package=unifi-client)
@@ -230,9 +229,9 @@ check [technical documentation](https://thib3113.github.io/unifi-client/modules)
 
 ## Tests
 This library is auto-tested on :
-- UDM-pro : `latest` (`7.0.22`)
+- UDM-pro : `latest` (`7.3.83`)
 
-- Unifi controller : `latest`, `6.2.25`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23`
+- Unifi controller : `latest`, `7.3.83`, `7.2.95`, `7.1.68`, `7.0.25`, `6.5.55`, `6.4.54`, `6.2.26`, `6.0.45`
   (*only some functions are tested, in an empty environment*)
 
 with the last node LTS
