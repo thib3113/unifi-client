@@ -59,7 +59,7 @@
     "debug": "4.3.4",
     "jsonwebtoken": "9.0.0",
     "semver": "7.3.8",
-    "set-cookie-parser": "2.5.1",
+    "set-cookie-parser": "2.6.0",
     "ws": "8.13.0"
   },
   "optionalDependencies": {
