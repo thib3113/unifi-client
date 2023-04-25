@@ -230,9 +230,9 @@ check [technical documentation](https://thib3113.github.io/unifi-client/modules)
 
 ## Tests
 This library is auto-tested on :
-- UDM-pro : `latest` (`7.0.22`)
+- UDM-pro : `latest` (`7.3.83`)
 
-- Unifi controller : `latest`, `6.2.25`, `6.1.71`, `6.0.45`, `6.0.43`, `6.0.41`, `6.0.36`, `6.0.28`, `6.0.23`
+- Unifi controller : `latest`, `7.3.83`, `7.2.95`, `7.1.68`, `7.0.25`, `6.5.55`, `6.4.54`, `6.2.26`, `6.0.45`
   (*only some functions are tested, in an empty environment*)
 
 with the last node LTS
