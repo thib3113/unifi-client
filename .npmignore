@@ -180,3 +180,6 @@ sonar-project.properties
 
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
+.editorconfig
+.snyk
+
