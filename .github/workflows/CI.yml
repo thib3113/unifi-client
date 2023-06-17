@@ -173,7 +173,6 @@ jobs:
   security:
     name: Snyk
     runs-on: ubuntu-latest
-    needs: [build, eslint]
     if: always()
     steps:
     - name: Install dependencies
