@@ -1,23 +1,22 @@
-import jwt from 'jsonwebtoken';
-import path from 'path';
-import fs from 'fs';
-import cookie from 'cookie';
-import { Definition } from 'nock';
-import setCookieParser from 'set-cookie-parser';
-import { v4 as uuidv4 } from 'uuid';
-import { isRecordMode } from './isRecordMode';
-import {Validate} from "../../../src/commons/Validate";
+const jwt = require('jsonwebtoken');
+const path = require('path');
+const fs = require('fs');
+const crypto = require('crypto');
+const cookie = require('cookie');
+const setCookieParser = require('set-cookie-parser');
+const { isRecordMode } = require('./isRecordMode');
+const { Validate } = require('../../../src/commons/Validate');
 
 const testFolder = path.join(__dirname, '..', '..', 'nockFixtures');
 
-const jwtKey = uuidv4();
+const jwtKey = cypto.randomUUID();
 
 module.exports = async () => {
     try {
         if (isRecordMode()) {
-            let cookieToken: string = '';
+            let cookieToken = '';
 
-            const checkFolder = (folder: string) => {
+            const checkFolder = (folder) => {
                 fs.readdirSync(folder)
                     .filter((f) => f !== 'login.json')
                     //transform to full path
@@ -35,25 +34,25 @@ module.exports = async () => {
                     });
             };
 
-            const checkFileFn = (filePath: string) => {
+            const checkFileFn = (filePath) => {
                 if (!fs.existsSync(filePath)) {
                     return;
                 }
                 try {
-                    let jsonParsed = JSON.parse(fs.readFileSync(filePath).toString()) as Array<Definition>;
+                    let jsonParsed = JSON.parse(fs.readFileSync(filePath).toString());
                     jsonParsed = jsonParsed.map((def) => {
                         if (def.method === 'POST' && Validate.isString(def.path) && def.path.includes('login') && def.status === 200) {
                             def.body = {
-                                ...(def.body as Record<string, any>),
+                                ...def.body,
                                 username: 'ubnt',
                                 password: 'ubnt'
                             };
 
-                            const response = def.response as Record<string, any>;
+                            const response = def.response;
                             def.response = {
                                 ...response,
-                                unique_id: uuidv4(),
-                                id: uuidv4(),
+                                unique_id: crypto.randomUUID(),
+                                id: crypto.randomUUID(),
                                 first_name: 'firstName',
                                 last_name: 'lastName',
                                 full_name: 'fullName',
@@ -62,14 +61,18 @@ module.exports = async () => {
                                 create_time: Date.now(),
                                 password_revision: Date.now(),
                                 update_time: Date.now(),
-                                groups: response.groups.map((g) => ({ ...g, unique_id: uuidv4(), create_time: new Date().toISOString() })),
-                                roles: response.roles.map((r) => ({ ...r, unique_id: uuidv4() })),
-                                deviceToken: jwt.sign({ user_id: uuidv4() }, jwtKey, { expiresIn: '100y' })
+                                groups: response.groups.map((g) => ({
+                                    ...g,
+                                    unique_id: crypto.randomUUID(),
+                                    create_time: new Date().toISOString()
+                                })),
+                                roles: response.roles.map((r) => ({ ...r, unique_id: crypto.randomUUID() })),
+                                deviceToken: jwt.sign({ user_id: crypto.randomUUID() }, jwtKey, { expiresIn: '100y' })
                             };
                         }
 
                         // @ts-ignore rawHeaders seems not typed
-                        def.rawHeaders = (def.rawHeaders as Array<string>).map((def) => {
+                        def.rawHeaders = def.rawHeaders.map((def) => {
                             const tokenCookieStr = 'TOKEN=';
                             if (def.startsWith('TOKEN=') && def.length > tokenCookieStr.length) {
                                 if (!cookieToken) {
