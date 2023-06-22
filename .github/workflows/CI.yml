@@ -19,21 +19,21 @@ jobs:
         with:
           node-version: lts/*
       - name: generate lock files
-        run: yarn
+        run: npm i
       - uses: actions/setup-node@v3
         with:
           node-version: lts/*
-          cache: yarn
+          cache: npm
       - name: generate tests datas
         run: |
-          yarn generate:data
-          yarn list > yarn.list
+          npm run generate:data
+          npm list > dependencies.list
       - uses: actions/upload-artifact@v3
         with:
           name: prepare
           path: |
-            ./yarn.list
-            ./yarn.lock
+            ./dependencies.list
+            ./package-lock.json
             ./tests/datas
 
   # This workflow contains a single job called "build"
@@ -62,7 +62,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
+          cache: npm
       - name: install+run docker-unifi-controller
         run: |
           # install our own demo database
@@ -76,10 +76,10 @@ jobs:
           echo unifi-controller answer
       - name: npm install, build, and test
         run: |
-          yarn install
-          yarn build
+          npm install
+          npm run build
           echo start tests
-          yarn run test:CI:coverage
+          npm run test:CI:coverage
         env:
           CI: true
       - uses: mattallty/jest-github-action@v1
@@ -87,7 +87,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CI: true
         with:
-          test-command: yarn run test:CI:coverage
+          test-command: npm run test:CI:coverage
           coverage-comment: false
 
       - name: replace path in coverage files
