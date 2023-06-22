@@ -157,7 +157,6 @@ config.json
 lib
 build
 last-check.json
-yarn.lock
 
 badwords.json
 

@@ -1,7 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import dotEnv from 'dotenv';
-import { isRecordMode } from './common';
+const fs = require('fs');
+const path = require('path');
+const dotEnv = require('dotenv');
+const { isRecordMode } = require('./common');
 
 dotEnv.config({
     path: path.join(__dirname, '..', '..', '..', '.env')
