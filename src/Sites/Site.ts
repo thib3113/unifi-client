@@ -17,6 +17,7 @@ import { Devices } from '../Devices';
 import type { BaseDevice } from '../Devices';
 import { macAddress } from '../commons/types';
 import { ISiteSettingsManagement, tSiteSettings } from './ISiteSettings';
+import { Networks } from '../Networks';
 
 export class Site extends _ObjectSubController implements ISite {
     static debug = createDebugger('site');
@@ -49,6 +50,7 @@ export class Site extends _ObjectSubController implements ISite {
     public ws: UnifiWebsockets;
     public stats: Stats;
     public devices: Devices;
+    public networks: Networks;
 
     constructor(controller: Controller, props: ISite) {
         super({
@@ -96,6 +98,7 @@ export class Site extends _ObjectSubController implements ISite {
         this.clientsGroups = new ClientsGroups(config);
         this.devices = new Devices(config);
         this.stats = new Stats(config);
+        this.networks = new Networks(config);
 
         this.instance = this.controller.createInstance(this.name, {
             proxyNamespace: EProxyNamespaces.NETWORK,

@@ -12,6 +12,7 @@ import { UnifiWebsockets } from './WebSockets';
 import { EventEmitter } from 'events';
 import AxiosError from 'axios-error';
 import { Site, Sites } from './Sites';
+import { Networks } from './Networks';
 import { IUser } from './User';
 import { EProxyNamespaces, IBuildUrlParams, proxyNamespace } from './interfaces';
 import { DeviceFingerPrints, FingerprintsRaw } from './Clients';
@@ -43,10 +44,16 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         this.needLoggedIn();
         return this._sites;
     }
+
+    get networks(): Networks {
+        this.needLoggedIn();
+        return this._networks;
+    }
     readonly controllerInstance: AxiosInstance;
 
     public auth: UnifiAuth;
     private readonly _sites: Sites;
+    private readonly _networks: Networks;
     public unifiOs: boolean;
     public version?: string = '7.0.0';
     private _logged: boolean;
@@ -171,9 +178,9 @@ export class Controller extends ObjectWithPrivateValues implements IController {
                 const duration = (new Date() - response?.config?.metadata?.startTime) / 1000 || null;
                 const durationStr = duration ? ` in ${duration} seconds` : '';
                 axiosDebug(
-                    `Response from ${response?.config?.method} ${getUrlRepresentation(response?.config)} with code ${response?.status} ${
-                        response?.statusText
-                    }${durationStr}`
+                    `Response from ${response?.config?.method} ${getUrlRepresentation(
+                        response?.config
+                    )} with code ${response?.status} ${response?.statusText}${durationStr}`
                 );
                 axiosDebugVerbose('headers : %O', response?.headers);
                 axiosDebugVerbose(`headers sent : %O`, response?.request?._header);
