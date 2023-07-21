@@ -9,7 +9,7 @@ const { Validate } = require('../../../src/commons/Validate');
 
 const testFolder = path.join(__dirname, '..', '..', 'nockFixtures');
 
-const jwtKey = cypto.randomUUID();
+const jwtKey = crypto.randomUUID();
 
 module.exports = async () => {
     try {
