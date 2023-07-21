@@ -1,4 +1,4 @@
-import { AxiosInstance, AxiosResponse } from 'axios';
+import { AxiosInstance, AxiosResponse, AxiosRequestHeaders } from 'axios';
 import { createDebugger } from './util';
 import { IUser } from './User';
 import setCookieParser from 'set-cookie-parser';
@@ -9,7 +9,6 @@ import { ClientError, EErrorsCodes, UnifiError } from './Errors';
 import { Validate } from './commons/Validate';
 import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
 import { EProxyNamespaces } from './interfaces';
-import { AxiosRequestHeaders } from 'axios/index';
 
 export interface IUnifiAuthProps {
     rememberMe?: boolean;
@@ -199,20 +198,22 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         }
 
         curDebug('start login request');
+        const data: Record<string, string | boolean | undefined> = {
+            username: this.username,
+            password: this.password,
+            rememberMe: this.rememberMe
+        };
+
+        if (token2FA) {
+            //on unifios 2FA is in token field . Else in ubic_2fa_token
+            data[this.unifiOs ? 'token' : 'ubic_2fa_token'] = token2FA || undefined;
+        }
+
         // non unifiOS => token work 7 days with rememberMe
-        const res = await this.controllerInstance.post(
-            this.unifiOs ? '/auth/login' : '/login',
-            {
-                username: this.username,
-                password: this.password,
-                rememberMe: this.rememberMe,
-                token: token2FA || undefined
-            },
-            {
-                authenticationRequest: true,
-                apiPart: true
-            }
-        );
+        const res = await this.controllerInstance.post(this.unifiOs ? '/auth/login' : '/login', data, {
+            authenticationRequest: true,
+            apiPart: true
+        });
 
         if (token2FA) {
             this.autoReLogin = false;
