@@ -206,7 +206,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
 
         if (token2FA) {
             //on unifios 2FA is in token field . Else in ubic_2fa_token
-            data[this.unifiOs ? 'token' : 'ubic_2fa_token'] = token2FA || undefined;
+            data[this.unifiOs ? 'token' : 'ubic_2fa_token'] = token2FA;
         }
 
         // non unifiOS => token work 7 days with rememberMe
