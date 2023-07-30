@@ -171,9 +171,9 @@ export class Controller extends ObjectWithPrivateValues implements IController {
                 const duration = (new Date() - response?.config?.metadata?.startTime) / 1000 || null;
                 const durationStr = duration ? ` in ${duration} seconds` : '';
                 axiosDebug(
-                    `Response from ${response?.config?.method} ${getUrlRepresentation(response?.config)} with code ${response?.status} ${
-                        response?.statusText
-                    }${durationStr}`
+                    `Response from ${response?.config?.method} ${getUrlRepresentation(
+                        response?.config
+                    )} with code ${response?.status} ${response?.statusText}${durationStr}`
                 );
                 axiosDebugVerbose('headers : %O', response?.headers);
                 axiosDebugVerbose(`headers sent : %O`, response?.request?._header);
