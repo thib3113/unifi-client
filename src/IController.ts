@@ -9,7 +9,6 @@ export interface IController {
     auth: UnifiAuth;
     controllerInstance: AxiosInstance;
     sites: Sites;
-    networks: Networks;
     unifiOs: boolean;
 
     getSites(): Promise<Array<Site>>;

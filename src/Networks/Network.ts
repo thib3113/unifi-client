@@ -221,26 +221,25 @@ export class Network extends _ObjectSubSite {
         return this;
     }
 
-    public async save(): Promise<this> {
-        this.debug('save()');
+    public async setEnabled(enabled: boolean): Promise<this> {
+        this.debug('setEnabled()');
 
         const network: Partial<INetwork> = {};
-        network.name = this.name || '';
-        network.enabled = this.enabled;
+        network.enabled = enabled;
 
-        return this._updateDevice(network);
+        return this._update(network);
     }
 
-    protected async _updateDevice(payload: unknown): Promise<this> {
-        const [res] = (
+    protected async _update(payload: Partial<INetwork>): Promise<this> {
+        const res = (
             await this.instance.put<IUnifiResponseEnveloppe<Array<INetwork>>>('/rest/networkconf/:_id', payload, {
                 urlParams: {
                     _id: this._id
                 }
             })
-        ).data.data;
-        if (res) {
-            this.import(res);
+        ).data;
+        if (res.data.length > 0) {
+            this.import(res.data[0]);
         }
         return this;
     }
