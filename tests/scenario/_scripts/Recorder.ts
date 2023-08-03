@@ -18,6 +18,12 @@ type fakeNockType = {
 
 type recordMode = 'true' | 'skip';
 
+/**
+ * this is a recorder class . But I abandonne the scenarios tests with nock .
+ * nock has a lot of big problems ... and the last one is just it doesn't handle content compression (like gzip)
+ * maybe better to mock directly axios ?
+ */
+
 export class Recorder {
     private readonly debug = createDebug('test-recorder');
 
