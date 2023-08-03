@@ -245,12 +245,12 @@ export class UnifiAuth extends ObjectWithPrivateValues {
         await this.controllerInstance.post(`/api${this.unifiOs ? '/auth' : ''}/logout`);
     }
 
-    public async getVersion(): Promise<string | undefined> {
+    public async getVersion(site: string = 'default'): Promise<string | undefined> {
         //load version
         try {
             const version = (
                 await this.controllerInstance.get('/api/s/:site/stat/sysinfo', {
-                    urlParams: { site: 'default' },
+                    urlParams: { site },
                     proxyNamespace: EProxyNamespaces.NETWORK
                 })
             ).data?.data?.pop()?.version;

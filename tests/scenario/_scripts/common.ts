@@ -1,19 +1,10 @@
-import dotEnv from 'dotenv';
 import * as path from 'path';
-import axios from 'axios';
-import { Controller } from '../../../src';
+import { Controller, Site } from '../../../src';
 import fs from 'fs';
-import { Site } from '../../../src';
 import { isRecordMode } from './isRecordMode';
-import type { Back } from 'nock';
+import { FIXTURES_PATH, recorder, TEST_UNIFI_URL, TEST_UNIFIOS_URL, UNIFI_PASSWORD, UNIFI_USERNAME } from './Recorder';
 
 //avoid importing nock here !
-
-const rootPath = path.join(__dirname, '..', '..', '..');
-
-export const UNIFI_USERNAME = 'ubnt';
-export const UNIFI_PASSWORD = 'ubnt';
-export const FIXTURES_PATH = path.join(rootPath, 'tests', 'nockFixtures');
 
 // axios.defaults.adapter = require('axios').default.adapter;
 
@@ -24,46 +15,24 @@ export const generateMac = (): string =>
 
 export const setUp = (nock) => {
     return () => {
-        dotEnv.config({
-            path: path.join(rootPath, '.env')
-        });
-
-        nock.back.fixtures = FIXTURES_PATH; //this only needs to be set once in your test helper
-
-        if (isRecordMode()) {
-            // console.log('enable net');
-            nock.enableNetConnect();
-            // process.env.NOCK_OFF = 'true';
-            // process.env.NOCK_BACK_MODE = 'record';
-            nock.back.setMode('record');
-        }
+        // dotEnv.config({
+        //     path: path.join(rootPath, '.env')
+        // });
+        //
+        // nock.back.fixtures = FIXTURES_PATH; //this only needs to be set once in your test helper
     };
 };
 
-export const getLoggedSite = async (nock, unifiOs = true): Promise<Site> => {
+export const getLoggedSite = async (unifiOs = true): Promise<Site> => {
     try {
-        let site: Site;
-        let controller = await getLoggedControllerWithoutSite(nock, unifiOs);
-        const getSite = async () => {
-            let s;
-            // try {
-            [s] = await controller.getSites();
-            // } catch (e) {
-            //     throw new Error('fail to select site');
-            // }
-            return s;
-        };
-        if (unifiOs) {
-            await (nock.back as Back)('login-select-sites.json').then(async ({ nockDone }) => {
-                site = await getSite();
-                nockDone();
-            });
-        } else {
-            site = await getSite();
+        let controller = await getLoggedControllerWithoutSite(unifiOs);
+
+        const sites = await recorder.record('login-select-sites', () => controller.getSites(), unifiOs);
+        if (sites.length === 0) {
+            throw new Error('no sites found');
         }
 
-        // @ts-ignore
-        return site;
+        return sites[0];
     } catch (e) {
         console.log(e);
         throw new Error(`fail to load sites : ${e.name} - ${e.errorCode} : ${e.message} \n ${e.stack}`);
@@ -73,38 +42,43 @@ export const getLoggedSite = async (nock, unifiOs = true): Promise<Site> => {
 export const getAuthentication: (unifiOs?: boolean) => { strictSSL: boolean; password: string; url: string; username: string } = (
     unifiOs = true
 ) => {
+    if (recorder.isRecordMode()) {
+        if (unifiOs && (!process.env.TEST_UNIFIOS_USERNAME || !process.env.TEST_UNIFIOS_PASSWORD || !process.env.TEST_UNIFIOS_URL)) {
+            throw new Error('recording this test need this envs : TEST_UNIFIOS_USERNAME, TEST_UNIFIOS_PASSWORD, TEST_UNIFIOS_URL');
+        } else if (!process.env.TEST_UNIFI_USERNAME || !process.env.TEST_UNIFI_PASSWORD || !process.env.TEST_UNIFI_URL) {
+            throw new Error('recording this test need this envs : TEST_UNIFI_USERNAME, TEST_UNIFI_PASSWORD, TEST_UNIFI_URL');
+        }
+
+        return {
+            username: unifiOs ? process.env.TEST_UNIFIOS_USERNAME : process.env.TEST_UNIFI_USERNAME,
+            password: unifiOs ? process.env.TEST_UNIFIOS_PASSWORD : process.env.TEST_UNIFI_PASSWORD,
+            url: unifiOs ? process.env.TEST_UNIFIOS_URL : process.env.TEST_UNIFI_URL,
+            strictSSL: false
+        } as { strictSSL: boolean; password: string; url: string; username: string };
+    }
+
     return {
-        username: (unifiOs ? process.env.TEST_UNIFIOS_USERNAME : process.env.TEST_UNIFI_USERNAME) || UNIFI_USERNAME,
-        password: (unifiOs ? process.env.TEST_UNIFIOS_PASSWORD : process.env.TEST_UNIFI_PASSWORD) || UNIFI_PASSWORD,
-        url: unifiOs ? process.env.TEST_UNIFIOS_URL || 'https://unifi2' : process.env.TEST_UNIFI_URL || 'https://127.0.0.1:8443',
+        username: UNIFI_USERNAME,
+        password: UNIFI_PASSWORD,
+        url: unifiOs ? TEST_UNIFIOS_URL : TEST_UNIFI_URL,
         strictSSL: false
     };
 };
 
-export const getLoggedControllerWithoutSite = async (nock, unifiOs = true): Promise<Controller> => {
-    let controller: Controller;
-    setUp(nock)();
+export const getLoggedControllerWithoutSite = async (unifiOs = true): Promise<Controller> => {
+    return recorder.record(
+        `login`,
+        async () => {
+            const controller = new Controller(getAuthentication(unifiOs));
 
-    const login = async (unifiOs): Promise<Controller> => {
-        controller = new Controller(getAuthentication(unifiOs));
-
-        // try {
-        await controller.login();
-        // } catch (e) {
-        //     throw new Error('fail to login to controller');
-        // }
-        return controller;
-    };
-
-    if (unifiOs) {
-        return nock.back('login.json').then(async ({ nockDone }) => {
-            const ctrl = await login(unifiOs);
-            nockDone();
-            return ctrl;
-        });
-    } else {
-        return login(unifiOs);
-    }
+            await controller.login();
+            return controller;
+        },
+        unifiOs,
+        {
+            byPassCheckExist: true
+        }
+    );
 };
 
 export const deleteFixtures = (prefix?: string) => {
