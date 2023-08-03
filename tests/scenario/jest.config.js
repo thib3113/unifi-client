@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     ...baseConfig,
-
+    maxConcurrency: 1,
     displayName: 'scenarios tests',
     // A path to a module which exports an async function that is triggered once before all test suites
     globalSetup: path.resolve(path.join(__dirname, './_scripts/globalSetup.js')),

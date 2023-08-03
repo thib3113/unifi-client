@@ -3,7 +3,7 @@
 const path = require('path');
 
 module.exports = {
-    projects: ['<rootDir>/tests/*/jest.config.js'], // Use this configuration option to add custom reporters to Jest
+    projects: ['<rootDir>/tests/units/jest.config.js'], // Use this configuration option to add custom reporters to Jest
     reporters: [
         'default',
         [

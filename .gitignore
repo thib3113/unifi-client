@@ -339,10 +339,8 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/git,node,windows,jetbrains+all,visualstudiocode,macos,linux
 
-
 config.json
 !.gitkeep
-/package-lock.json
 
 lib
 build
