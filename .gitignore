@@ -337,7 +337,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/git,node,windows,jetbrains+all,visualstudiocode,macos,linux
+# End of https://www.gitignore.io/api/git,node,windows,jetbrains+all
+.idea
 
 config.json
 !.gitkeep
