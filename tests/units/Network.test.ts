@@ -182,10 +182,6 @@ describe('Network', () => {
             beforeEach(() => {
                 mockedAxios.put.mockReset();
             });
-            it('should fail to save without valid _id', async () => {
-                network._id = '';
-                await expect(network.save()).rejects.toThrowError();
-            });
             it('should save the network', async () => {
                 mockedAxios.put.mockImplementationOnce(() => Promise.resolve({ data: {} }));
 
@@ -208,9 +204,28 @@ describe('Network', () => {
             beforeEach(() => {
                 mockedAxios.put.mockReset();
             });
-            it('should fail to update without valid _id', async () => {
-                network._id = '';
-                await expect(network.update({})).rejects.toThrowError();
+            it('should update network with original _id', async () => {
+                mockedAxios.put.mockImplementationOnce(() => Promise.resolve({ data: {} }));
+
+                network = new Network(
+                    { controller, site },
+                    {
+                        _id: '12345',
+                        name: 'UDMPRO2'
+                    }
+                );
+                const props = { _id: '54321', name: 'UDMPRO4' };
+                await network.update(props);
+
+                expect(mockedAxios.put).toHaveBeenCalledWith(
+                    '/rest/networkconf/:id',
+                    { ...props },
+                    {
+                        urlParams: expect.objectContaining({
+                            id: network._id
+                        })
+                    }
+                );
             });
 
             it('should update network', async () => {

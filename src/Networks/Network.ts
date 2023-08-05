@@ -4,9 +4,9 @@ import { ClientError, EErrorsCodes } from '../Errors';
 import { createDebugger } from '../util';
 import { IObjectSubSiteConfig, _ObjectSubSite } from '../commons';
 
-export class Network extends _ObjectSubSite {
-    static debug = createDebugger('Network');
+const debug = createDebugger('Network');
 
+export class Network extends _ObjectSubSite {
     constructor(config: IObjectSubSiteConfig, props: Partial<INetwork>) {
         super(config);
 
@@ -14,15 +14,14 @@ export class Network extends _ObjectSubSite {
             throw new ClientError('_id is mandatory for a network.', EErrorsCodes.UNKNOWN_ERROR);
         }
 
+        this._id = props._id;
+
+        this.debug = debug.extend(this.name);
+
         this.import(props);
     }
 
     public import(props: Partial<INetwork>): this {
-        this.debug = Network.debug.extend(this.name);
-
-        if (!Validate.isUndefined(props._id)) {
-            this._id = props._id;
-        }
         if (!Validate.isUndefined(props.name)) {
             this.name = props.name;
         }
@@ -222,41 +221,36 @@ export class Network extends _ObjectSubSite {
         return this;
     }
 
-    public async update(props: Partial<INetwork>): Promise<void> {
-        if (!Validate.isDefinedNotNull(props._id)) {
+    public async update(props: Partial<Omit<INetwork, '_id'>>): Promise<void> {
+        if (!this._id) {
             throw new Error('Cannot update network without _id');
         }
 
-        return (
-            await this.instance.put('/rest/networkconf/:id', props, {
-                urlParams: {
-                    site: this.site.name,
-                    id: this._id
-                }
-            })
-        ).data?.data;
+        await this.instance.put('/rest/networkconf/:id', props, {
+            urlParams: {
+                id: this._id
+            }
+        });
+
+        this.import(props);
     }
 
     public async save(): Promise<this> {
-        if (!Validate.isDefinedNotNull(this._id)) {
-            throw new Error('Cannot update network without _id');
+        if (!this._id) {
+            throw new Error('Cannot save network without _id');
         }
 
         const network: INetwork = { ...this } as INetwork;
-        const res = (
-            await this.instance.put('/rest/networkconf/:id', network, {
-                urlParams: {
-                    id: this._id
-                }
-            })
-        ).data;
-        if (res.data) {
-            this.import(res.data[0]);
-        }
+        await this.instance.put('/rest/networkconf/:id', network, {
+            urlParams: {
+                id: this._id
+            }
+        });
+
         return this;
     }
 
-    public _id: string;
+    public readonly _id: string;
     public site_id: string;
     public name: string;
     public purpose: string;
