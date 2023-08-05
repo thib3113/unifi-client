@@ -12,6 +12,7 @@ export * from './Devices';
 export * from './Errors';
 export * from './Firewall';
 export * from './Hotspot';
+export * from './Networks';
 export * from './Sites';
 export * from './Stats';
 export * from './User';

@@ -43,6 +43,7 @@ export class Controller extends ObjectWithPrivateValues implements IController {
         this.needLoggedIn();
         return this._sites;
     }
+
     readonly controllerInstance: AxiosInstance;
 
     public auth: UnifiAuth;
