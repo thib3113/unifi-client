@@ -1,7 +1,7 @@
 export interface INetwork {
-    _id?: string;
-    name: string;
-    enabled: boolean;
+    _id: string;
+    name?: string;
+    enabled?: boolean;
     attr_hidden_id?: string;
     attr_no_delete?: boolean;
     site_id?: string;

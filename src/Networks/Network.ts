@@ -1,7 +1,6 @@
 import { INetwork } from './INetwork';
 import { Validate } from '../commons/Validate';
 import { ClientError, EErrorsCodes } from '../Errors';
-import { IUnifiResponseEnveloppe } from '../interfaces';
 import { createDebugger } from '../util';
 import { IObjectSubSiteConfig, _ObjectSubSite } from '../commons';
 
@@ -11,11 +10,10 @@ export class Network extends _ObjectSubSite {
     constructor(config: IObjectSubSiteConfig, props: Partial<INetwork>) {
         super(config);
 
-        if (!props.name) {
-            throw new ClientError('name is mandatory for a site.', EErrorsCodes.UNKNOWN_ERROR);
+        if (!props._id) {
+            throw new ClientError('_id is mandatory for a network.', EErrorsCodes.UNKNOWN_ERROR);
         }
 
-        this.name = props.name;
         this.import(props);
     }
 
@@ -24,6 +22,9 @@ export class Network extends _ObjectSubSite {
 
         if (!Validate.isUndefined(props._id)) {
             this._id = props._id;
+        }
+        if (!Validate.isUndefined(props.name)) {
+            this.name = props.name;
         }
         if (!Validate.isUndefined(props.site_id)) {
             this.site_id = props.site_id;
@@ -221,24 +222,35 @@ export class Network extends _ObjectSubSite {
         return this;
     }
 
-    public async setEnabled(enabled: boolean): Promise<this> {
-        this.debug('setEnabled()');
+    public async update(props: Partial<INetwork>): Promise<void> {
+        if (!Validate.isDefinedNotNull(props._id)) {
+            throw new Error('Cannot update network without _id');
+        }
 
-        const network: Partial<INetwork> = {};
-        network.enabled = enabled;
-
-        return this._update(network);
+        return (
+            await this.instance.put('/rest/networkconf/:id', props, {
+                urlParams: {
+                    site: this.site.name,
+                    id: this._id
+                }
+            })
+        ).data?.data;
     }
 
-    protected async _update(payload: Partial<INetwork>): Promise<this> {
+    public async save(): Promise<this> {
+        if (!Validate.isDefinedNotNull(this._id)) {
+            throw new Error('Cannot update network without _id');
+        }
+
+        const network: INetwork = { ...this } as INetwork;
         const res = (
-            await this.instance.put<IUnifiResponseEnveloppe<Array<INetwork>>>('/rest/networkconf/:_id', payload, {
+            await this.instance.put('/rest/networkconf/:id', network, {
                 urlParams: {
-                    _id: this._id
+                    id: this._id
                 }
             })
         ).data;
-        if (res.data.length > 0) {
+        if (res.data) {
             this.import(res.data[0]);
         }
         return this;
