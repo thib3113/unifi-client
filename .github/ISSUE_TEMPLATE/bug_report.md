@@ -42,6 +42,7 @@ Please provide any relevant information about your setup. This is important in c
 
 * Library version:
 * Unifi Controller :
+<!-- an unifi OS machine like UDM/UDR/cloudKeys ... or just the unifi software ? -->
 * Unifi OS : yes / no
 * NodeJS version: 
 * Operating System:
