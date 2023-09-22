@@ -145,7 +145,7 @@ describe('Clients', () => {
             mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: { data: [client] } }));
             await clients.getByMac(macAddress);
 
-            expect(mockedAxios.get).toHaveBeenCalledWith('/stat/sta/:mac', { urlParams: { mac: macAddress } });
+            expect(mockedAxios.get).toHaveBeenCalledWith(`/stat/sta/${macAddress}`);
             expect(mapObjectMock).toHaveBeenCalledWith(Client, client);
         });
 
@@ -154,7 +154,7 @@ describe('Clients', () => {
             mockedAxios.get.mockImplementationOnce(() => Promise.resolve({}));
             await clients.getByMac(macAddress);
 
-            expect(mockedAxios.get).toHaveBeenCalledWith('/stat/sta/:mac', { urlParams: { mac: macAddress } });
+            expect(mockedAxios.get).toHaveBeenCalledWith(`/stat/sta/${macAddress}`);
             expect(mapObjectMock).not.toHaveBeenCalled();
         });
     });

@@ -6,6 +6,7 @@ import { Validate } from '../commons/Validate';
 import { IUnifiResponseEnveloppe } from '../interfaces';
 import { IClientRaw } from './IClientRaw';
 import { macAddress, unifiId } from '../commons';
+import { formatMacAddress } from '../util';
 
 export type partialClient = Partial<IUnknownClient> & { mac: string };
 
@@ -69,17 +70,15 @@ export class Clients extends _ObjectSubSite {
      * @param mac - the macAddress
      */
     async getByMac(mac: macAddress): Promise<Client | undefined> {
-        const result = (
-            await this.instance.get<IUnifiResponseEnveloppe<Array<IClientRaw>>>('/stat/sta/:mac', {
-                urlParams: {
-                    mac
-                }
-            })
-        ).data?.data;
+        const macAddress = formatMacAddress(mac, ':');
 
-        if (result?.length > 0) {
-            return this.mapObject<Client>(Client, result[0]);
+        //this part of unifi seems to don't support url encoding of the mac as encoding of : is not mandatory
+        const result = (await this.instance.get<IUnifiResponseEnveloppe<Array<IClientRaw>>>(`/stat/sta/${macAddress}`)).data?.data;
+
+        if (!result?.length) {
+            return;
         }
+        return this.mapObject<Client>(Client, result[0]);
     }
 
     // other way to do a list, seems to return same results...

@@ -1,7 +1,7 @@
 import createDebug, { Debugger } from 'debug';
 import url, { URL, URLSearchParams } from 'url';
 import { AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import { dateInput } from './commons/types';
+import type { dateInput } from './commons';
 import { Validate } from './commons/Validate';
 import type { Controller } from './Controller';
 import semver from 'semver';
@@ -110,4 +110,18 @@ export const checkNeedVersion = (controller: Controller, minVersion?: string, un
     }
 
     throw new ClientError(str, code);
+};
+
+export const formatMacAddress = (macAddress: string, separator: string): string => {
+    const macAddressRegex = /^([0-9A-F]{2}[:-]?){5}([0-9A-F]{2})$/i;
+
+    if (!macAddressRegex.test(macAddress)) {
+        throw new Error('"macAddress" is not a valid MAC address');
+    }
+
+    const mac = macAddress.replace(/[:-]/g, '');
+
+    return Array.from({ length: mac.length / 2 }, (_, i) => i)
+        .map((i) => mac.slice(i * 2, i * 2 + 2))
+        .join(separator);
 };
