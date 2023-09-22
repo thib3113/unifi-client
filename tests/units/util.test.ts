@@ -1,4 +1,11 @@
-import { axiosUrlParams, convertTimestampSecondsToDate, createDebugger, getUrlRepresentation, removeTrailingSlash } from '../../src/util';
+import {
+    axiosUrlParams,
+    convertTimestampSecondsToDate,
+    createDebugger,
+    getUrlRepresentation,
+    removeTrailingSlash,
+    formatMacAddress
+} from '../../src/util';
 import { AxiosInstance } from 'axios';
 
 describe('utils tests', () => {
@@ -209,6 +216,24 @@ describe('utils tests', () => {
         });
         it('should build from other than timestamp', () => {
             expect(convertTimestampSecondsToDate('2020-06-30T22:41:14.000Z')).toStrictEqual(new Date('2020-06-30T22:41:14.000Z'));
+        });
+    });
+
+    describe('formatMacAddress', () => {
+        const macAddresses = ['00:14:22:01:23:45', '00-14-22-01-23-45', '001422012345'];
+
+        describe.each([
+            ['-', '00-14-22-01-23-45'],
+            [':', '00:14:22:01:23:45'],
+            ['', '001422012345']
+        ])('with separator %s and expected result %s', (separator, expectedResult) => {
+            it.each(macAddresses)('should format MAC address %s', (macAddress) => {
+                expect(formatMacAddress(macAddress, separator)).toBe(expectedResult);
+            });
+        });
+
+        it('should throw an error for invalid MAC addresses', () => {
+            expect(() => formatMacAddress('invalid_mac', ':')).toThrow('"macAddress" is not a valid MAC address');
         });
     });
 });
