@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "@types/cookie": "0.5.1",
-    "@types/debug": "4.1.8",
+    "@types/debug": "4.1.10",
     "@types/jest": "29.5.3",
     "@types/moxios": "0.4.15",
     "@types/node": "20.4.8",
