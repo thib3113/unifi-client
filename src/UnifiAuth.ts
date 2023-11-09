@@ -189,7 +189,7 @@ export class UnifiAuth extends ObjectWithPrivateValues {
             if (resCheck.status === 302 && resCheck.headers.location === '/manage') {
                 curDebug('os found : not unifiOs');
                 this.unifiOs = false;
-            } else if (resCheck.status === 200 && resCheck.headers['x-csrf-token']) {
+            } else if (resCheck.status === 200) {
                 curDebug('os found : unifiOs');
                 this.unifiOs = true;
             } else {
