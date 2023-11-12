@@ -1,5 +1,5 @@
 import { __Error } from './__Error';
-import AxiosError from 'axios-error';
+import { AxiosError } from './AxiosError';
 
 export interface IUnifiErrorMeta {
     msg?: string;
@@ -15,7 +15,7 @@ export class UnifiError extends __Error {
 
     public constructor(message: string | Error = '', code = 0, pMeta: IUnifiErrorMeta = {}, exception?: AxiosError) {
         super(message, code, exception);
-        //clone meta object before removing parts
+        //clone "meta" object before removing parts
         const meta = { ...pMeta };
 
         //just in case
