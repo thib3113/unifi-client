@@ -22,7 +22,7 @@ jobs:
       # try to perform a nodejs setup
       - uses: actions/setup-node@v4
         with:
-          node-version: 14.x
+          node-version: lts/*
 
       # run npm tests
       - name: npm install, build, and test
