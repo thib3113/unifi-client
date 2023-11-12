@@ -10,12 +10,12 @@ import { ObjectWithPrivateValues } from './commons/ObjectWithPrivateValues';
 import { Validate } from './commons/Validate';
 import { UnifiWebsockets } from './WebSockets';
 import { EventEmitter } from 'events';
-import AxiosError from 'axios-error';
 import { Site, Sites } from './Sites';
 import { IUser } from './User';
 import { EProxyNamespaces, IBuildUrlParams, proxyNamespace } from './interfaces';
 import { DeviceFingerPrints, FingerprintsRaw } from './Clients';
 import { IControllerProps } from './IControllerProps';
+import { AxiosError } from './Errors/AxiosError';
 
 const axiosDebug = createDebugger('axios');
 const axiosDebugVerbose = axiosDebug.extend('verbose');
