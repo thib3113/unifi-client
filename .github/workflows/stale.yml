@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/stale@v8
         with:
+          exempt-all-assignees: true
           days-before-stale: 60
           stale-issue-message: >
             This issue has been automatically marked as stale because it has not had
