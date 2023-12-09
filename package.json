@@ -92,7 +92,7 @@
     "source-map-support": "0.5.21",
     "ts-jest": "29.1.1",
     "ts-node": "10.9.1",
-    "typedoc": "0.25.3",
+    "typedoc": "0.25.4",
     "typescript": "5.2.2",
     "uuid": "9.0.1"
   },
