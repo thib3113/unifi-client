@@ -19,7 +19,7 @@ jobs:
           cache: npm
       - name: generate tests datas
         run: npm run generate:data
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: prepare
           path: |
