@@ -1,7 +1,8 @@
 import dotenv from 'dotenv';
-import { Controller } from './Controller';
 
 dotenv.config();
+
+import { Controller } from './Controller';
 
 // create main function to deal with async/await
 const main = async () => {
@@ -16,10 +17,11 @@ const main = async () => {
     // retrieve controller fingerprints
     // const fingerprints = await controller.getDevicesFingerPrints();
 
-    const [site] = await controller.getSites();
+    // const [site] = await controller.getSites();
 
-    const devices = await site.devices.list();
-    console.log(devices);
+    // const rules = await site.firewall.getRules();
+
+    // console.log(rules);
 };
 
 //just run the async main, and log error if needed

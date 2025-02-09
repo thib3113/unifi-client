@@ -209,10 +209,9 @@ export class UnifiAuth extends ObjectWithPrivateValues {
             data[this.unifiOs ? 'token' : 'ubic_2fa_token'] = token2FA;
         }
 
-
         if (!this.unifiOs) {
             // without this non unifios > 9 doesn't return csrf token
-            data.strict = true
+            data.strict = true;
         }
 
         // non unifiOS => token work 7 days with rememberMe
