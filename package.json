@@ -59,7 +59,7 @@
     "jsonwebtoken": "9.0.2",
     "semver": "7.5.4",
     "set-cookie-parser": "2.6.0",
-    "ws": "8.17.1"
+    "ws": "8.18.0"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8",
@@ -72,7 +72,7 @@
     "@types/moxios": "0.4.17",
     "@types/node": "20.9.2",
     "@types/set-cookie-parser": "2.4.6",
-    "@types/ws": "8.5.9",
+    "@types/ws": "8.5.14",
     "@typescript-eslint/eslint-plugin": "7.0.2",
     "@typescript-eslint/parser": "7.0.2",
     "cross-env": "7.0.3",
