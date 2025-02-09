@@ -106,7 +106,8 @@ jobs:
             ./coverage/lcov.info
             ./coverage/junit.xml
             ./coverage/test-report.xml
-        if: always()
+        if: matrix.node-version == 'lts/*' && matrix.unifi-version == 'latest'
+
 
 
   eslint:
@@ -146,8 +147,6 @@ jobs:
           path: ./coverage/
       - uses: codecov/codecov-action@v4
         with:
-          #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          #          files: ./coverage/clover.xml # optional
           fail_ci_if_error: false # optional (default = false)
   sonarcloud:
     name: SonarCloud
