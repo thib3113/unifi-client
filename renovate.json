@@ -21,6 +21,6 @@
         }
     ],
     "dependencyDashboard": true,
-    "stabilityDays": 3,
+    "minimumReleaseAge": "3 days",
     "assignees": ["thib3113"]
 }
