@@ -783,7 +783,7 @@ describe('UnifiAuth.test.ts', () => {
             expect(debug.debugExtend).toBeCalledWith('login');
             expect(axiosMock.post).toBeCalledWith(
                 '/login',
-                { password: 'passwd', rememberMe: true, token: undefined, username: 'user' },
+                { password: 'passwd', rememberMe: true, token: undefined, username: 'user', strict: true },
                 { authenticationRequest: true, apiPart: true }
             );
             //check debug messages
